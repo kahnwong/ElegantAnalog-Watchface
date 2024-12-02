@@ -1,0 +1,1101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<debugInfo>
+<manifest filename="E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\manifest.xml"/>
+<pcToLineNum>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsView.mc" id="4" lineNum="12" parent="globals" pc="268435460" symbol="&lt;init&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsView.mc" id="4" lineNum="15" parent="globals" pc="268435474" symbol="&lt;init&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsView.mc" id="4" lineNum="16" parent="globals" pc="268435592" symbol="&lt;init&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogApp.mc" id="7" lineNum="14" parent="globals/AnalogWatch" pc="268435711" symbol="&lt;init&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="8" lineNum="1243" parent="globals/AnalogInputDelegate" pc="268435730" symbol="&lt;init&gt;"/>
+<entry filename="e:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\bin\\gen\\006-B3889-00\\source\\Rez.mcgen" id="9" lineNum="7" parent="globals/Rez" pc="268435749" symbol="&lt;init&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsView.mc" id="10" lineNum="102" parent="globals/AnalogSettingsDelegate" pc="268435773" symbol="&lt;init&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="11" lineNum="27" parent="globals/AnalogView" pc="268435792" symbol="&lt;init&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="11" lineNum="48" parent="globals/AnalogView" pc="268435810" symbol="&lt;init&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="12" lineNum="1214" parent="globals/AnalogDelegate" pc="268435825" symbol="&lt;init&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="13" lineNum="12" parent="globals/AnalogSettingsMenu" pc="268435844" symbol="&lt;init&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="14" lineNum="57" parent="globals/AnalogSettingsMenuDelegate" pc="268435863" symbol="&lt;init&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogGoalView.mc" id="15" lineNum="16" parent="globals/AnalogGoalView" pc="268435882" symbol="&lt;init&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsView.mc" id="16" lineNum="22" parent="globals/AnalogSettingsView" pc="268435901" symbol="&lt;init&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogApp.mc" id="17" lineNum="28" parent="globals/AnalogWatch" pc="268435920" symbol="onStart"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogApp.mc" id="17" lineNum="29" parent="globals/AnalogWatch" pc="268435922" symbol="onStart"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogApp.mc" id="18" lineNum="67" parent="globals/AnalogWatch" pc="268435946" symbol="getSettingsView"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogApp.mc" id="18" lineNum="68" parent="globals/AnalogWatch" pc="268435948" symbol="getSettingsView"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogApp.mc" id="18" lineNum="69" parent="globals/AnalogWatch" pc="268435971" symbol="getSettingsView"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogApp.mc" id="19" lineNum="43" parent="globals/AnalogWatch" pc="268436046" symbol="getInitialView"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogApp.mc" id="19" lineNum="44" parent="globals/AnalogWatch" pc="268436050" symbol="getInitialView"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogApp.mc" id="19" lineNum="45" parent="globals/AnalogWatch" pc="268436073" symbol="getInitialView"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogApp.mc" id="19" lineNum="46" parent="globals/AnalogWatch" pc="268436088" symbol="getInitialView"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogApp.mc" id="19" lineNum="47" parent="globals/AnalogWatch" pc="268436116" symbol="getInitialView"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogApp.mc" id="19" lineNum="48" parent="globals/AnalogWatch" pc="268436126" symbol="getInitialView"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogApp.mc" id="19" lineNum="50" parent="globals/AnalogWatch" pc="268436156" symbol="getInitialView"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogApp.mc" id="19" lineNum="52" parent="globals/AnalogWatch" pc="268436186" symbol="getInitialView"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogApp.mc" id="20" lineNum="19" parent="globals/AnalogWatch" pc="268436228" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogApp.mc" id="20" lineNum="20" parent="globals/AnalogWatch" pc="268436230" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogApp.mc" id="20" lineNum="21" parent="globals/AnalogWatch" pc="268436253" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogApp.mc" id="20" lineNum="22" parent="globals/AnalogWatch" pc="268436271" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogApp.mc" id="21" lineNum="37" parent="globals/AnalogWatch" pc="268436295" symbol="onStop"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="22" lineNum="1249" parent="globals/AnalogInputDelegate" pc="268436298" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="22" lineNum="1250" parent="globals/AnalogInputDelegate" pc="268436300" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="22" lineNum="1251" parent="globals/AnalogInputDelegate" pc="268436318" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="23" lineNum="1254" parent="globals/AnalogInputDelegate" pc="268436329" symbol="onKey"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="23" lineNum="1255" parent="globals/AnalogInputDelegate" pc="268436331" symbol="onKey"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="23" lineNum="1256" parent="globals/AnalogInputDelegate" pc="268436349" symbol="onKey"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="23" lineNum="1257" parent="globals/AnalogInputDelegate" pc="268436370" symbol="onKey"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsView.mc" id="24" lineNum="111" parent="globals/AnalogSettingsDelegate" pc="268436373" symbol="onMenu"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsView.mc" id="24" lineNum="112" parent="globals/AnalogSettingsDelegate" pc="268436377" symbol="onMenu"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsView.mc" id="24" lineNum="144" parent="globals/AnalogSettingsDelegate" pc="268436405" symbol="onMenu"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsView.mc" id="24" lineNum="145" parent="globals/AnalogSettingsDelegate" pc="268436454" symbol="onMenu"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsView.mc" id="25" lineNum="105" parent="globals/AnalogSettingsDelegate" pc="268436457" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsView.mc" id="25" lineNum="106" parent="globals/AnalogSettingsDelegate" pc="268436459" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="26" lineNum="842" parent="globals/AnalogView" pc="268436478" symbol="turnPartialUpdatesOff"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="26" lineNum="843" parent="globals/AnalogView" pc="268436480" symbol="turnPartialUpdatesOff"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="27" lineNum="1040" parent="globals/AnalogView" pc="268436491" symbol="drawHashMarks"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="27" lineNum="1042" parent="globals/AnalogView" pc="268436495" symbol="drawHashMarks"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="27" lineNum="1044" parent="globals/AnalogView" pc="268436500" symbol="drawHashMarks"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="27" lineNum="1045" parent="globals/AnalogView" pc="268436507" symbol="drawHashMarks"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="27" lineNum="1046" parent="globals/AnalogView" pc="268436514" symbol="drawHashMarks"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="27" lineNum="1047" parent="globals/AnalogView" pc="268436531" symbol="drawHashMarks"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="27" lineNum="1048" parent="globals/AnalogView" pc="268436538" symbol="drawHashMarks"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="27" lineNum="1050" parent="globals/AnalogView" pc="268436548" symbol="drawHashMarks"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="27" lineNum="1051" parent="globals/AnalogView" pc="268436555" symbol="drawHashMarks"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="27" lineNum="1052" parent="globals/AnalogView" pc="268436577" symbol="drawHashMarks"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="27" lineNum="1053" parent="globals/AnalogView" pc="268436620" symbol="drawHashMarks"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="27" lineNum="1054" parent="globals/AnalogView" pc="268436669" symbol="drawHashMarks"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="27" lineNum="1055" parent="globals/AnalogView" pc="268436721" symbol="drawHashMarks"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="27" lineNum="1058" parent="globals/AnalogView" pc="268436764" symbol="drawHashMarks"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="27" lineNum="1059" parent="globals/AnalogView" pc="268436769" symbol="drawHashMarks"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="27" lineNum="1061" parent="globals/AnalogView" pc="268436787" symbol="drawHashMarks"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="27" lineNum="1063" parent="globals/AnalogView" pc="268436853" symbol="drawHashMarks"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="28" lineNum="1137" parent="globals/AnalogView" pc="268436942" symbol="drawMove"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="28" lineNum="1140" parent="globals/AnalogView" pc="268436946" symbol="drawMove"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="28" lineNum="1141" parent="globals/AnalogView" pc="268436953" symbol="drawMove"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="28" lineNum="1143" parent="globals/AnalogView" pc="268436972" symbol="drawMove"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="29" lineNum="749" parent="globals/AnalogView" pc="268437034" symbol="&lt;globals/AnalogView/&lt;&gt;drawBackground&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="29" lineNum="755" parent="globals/AnalogView" pc="268437036" symbol="&lt;globals/AnalogView/&lt;&gt;drawBackground&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="29" lineNum="756" parent="globals/AnalogView" pc="268437049" symbol="&lt;globals/AnalogView/&lt;&gt;drawBackground&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="78" parent="globals/AnalogView" pc="268437083" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="81" parent="globals/AnalogView" pc="268437087" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="85" parent="globals/AnalogView" pc="268437134" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="86" parent="globals/AnalogView" pc="268437158" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="88" parent="globals/AnalogView" pc="268437208" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="91" parent="globals/AnalogView" pc="268437217" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="102" parent="globals/AnalogView" pc="268437303" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="113" parent="globals/AnalogView" pc="268437389" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="115" parent="globals/AnalogView" pc="268437394" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="117" parent="globals/AnalogView" pc="268437428" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="118" parent="globals/AnalogView" pc="268437465" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="122" parent="globals/AnalogView" pc="268437480" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="128" parent="globals/AnalogView" pc="268437516" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="130" parent="globals/AnalogView" pc="268437555" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="131" parent="globals/AnalogView" pc="268437564" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="135" parent="globals/AnalogView" pc="268437573" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="137" parent="globals/AnalogView" pc="268437637" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="138" parent="globals/AnalogView" pc="268437656" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="138" parent="globals/AnalogView" pc="268437673" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="139" parent="globals/AnalogView" pc="268437695" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="140" parent="globals/AnalogView" pc="268437714" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="141" parent="globals/AnalogView" pc="268437761" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="142" parent="globals/AnalogView" pc="268437768" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="142" parent="globals/AnalogView" pc="268437785" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="145" parent="globals/AnalogView" pc="268437795" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="147" parent="globals/AnalogView" pc="268437813" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="150" parent="globals/AnalogView" pc="268437830" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="151" parent="globals/AnalogView" pc="268437867" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="156" parent="globals/AnalogView" pc="268437914" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="157" parent="globals/AnalogView" pc="268437966" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="158" parent="globals/AnalogView" pc="268438003" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="159" parent="globals/AnalogView" pc="268438028" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="162" parent="globals/AnalogView" pc="268438068" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="163" parent="globals/AnalogView" pc="268438120" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="164" parent="globals/AnalogView" pc="268438151" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="165" parent="globals/AnalogView" pc="268438209" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="166" parent="globals/AnalogView" pc="268438231" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="168" parent="globals/AnalogView" pc="268438292" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="170" parent="globals/AnalogView" pc="268438314" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="171" parent="globals/AnalogView" pc="268438327" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="30" lineNum="173" parent="globals/AnalogView" pc="268438349" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="31" lineNum="209" parent="globals/AnalogView" pc="268438391" symbol="&lt;globals/AnalogView/&lt;&gt;drawHashMarksOld&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="31" lineNum="210" parent="globals/AnalogView" pc="268438393" symbol="&lt;globals/AnalogView/&lt;&gt;drawHashMarksOld&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="32" lineNum="554" parent="globals/AnalogView" pc="268438394" symbol="onPartialUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="32" lineNum="559" parent="globals/AnalogView" pc="268438398" symbol="onPartialUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="32" lineNum="559" parent="globals/AnalogView" pc="268438410" symbol="onPartialUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="32" lineNum="562" parent="globals/AnalogView" pc="268438414" symbol="onPartialUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="32" lineNum="563" parent="globals/AnalogView" pc="268438426" symbol="onPartialUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="32" lineNum="587" parent="globals/AnalogView" pc="268438443" symbol="onPartialUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="32" lineNum="588" parent="globals/AnalogView" pc="268438468" symbol="onPartialUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="32" lineNum="593" parent="globals/AnalogView" pc="268438497" symbol="onPartialUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="32" lineNum="594" parent="globals/AnalogView" pc="268438510" symbol="onPartialUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="32" lineNum="697" parent="globals/AnalogView" pc="268438538" symbol="onPartialUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="33" lineNum="186" parent="globals/AnalogView" pc="268438593" symbol="&lt;globals/AnalogView/&lt;&gt;generateHandCoordinates&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="33" lineNum="188" parent="globals/AnalogView" pc="268438597" symbol="&lt;globals/AnalogView/&lt;&gt;generateHandCoordinates&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="33" lineNum="192" parent="globals/AnalogView" pc="268438789" symbol="&lt;globals/AnalogView/&lt;&gt;generateHandCoordinates&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="33" lineNum="193" parent="globals/AnalogView" pc="268438797" symbol="&lt;globals/AnalogView/&lt;&gt;generateHandCoordinates&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="33" lineNum="194" parent="globals/AnalogView" pc="268438816" symbol="&lt;globals/AnalogView/&lt;&gt;generateHandCoordinates&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="33" lineNum="197" parent="globals/AnalogView" pc="268438835" symbol="&lt;globals/AnalogView/&lt;&gt;generateHandCoordinates&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="33" lineNum="198" parent="globals/AnalogView" pc="268438853" symbol="&lt;globals/AnalogView/&lt;&gt;generateHandCoordinates&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="33" lineNum="199" parent="globals/AnalogView" pc="268438890" symbol="&lt;globals/AnalogView/&lt;&gt;generateHandCoordinates&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="33" lineNum="201" parent="globals/AnalogView" pc="268438927" symbol="&lt;globals/AnalogView/&lt;&gt;generateHandCoordinates&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="33" lineNum="204" parent="globals/AnalogView" pc="268438989" symbol="&lt;globals/AnalogView/&lt;&gt;generateHandCoordinates&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="34" lineNum="775" parent="globals/AnalogView" pc="268438992" symbol="onEnterSleep"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="34" lineNum="776" parent="globals/AnalogView" pc="268438994" symbol="onEnterSleep"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="34" lineNum="777" parent="globals/AnalogView" pc="268439004" symbol="onEnterSleep"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="34" lineNum="778" parent="globals/AnalogView" pc="268439017" symbol="onEnterSleep"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="35" lineNum="1106" parent="globals/AnalogView" pc="268439090" symbol="drawBattery"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="35" lineNum="1108" parent="globals/AnalogView" pc="268439094" symbol="drawBattery"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="35" lineNum="1110" parent="globals/AnalogView" pc="268439117" symbol="drawBattery"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="35" lineNum="1112" parent="globals/AnalogView" pc="268439128" symbol="drawBattery"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="35" lineNum="1119" parent="globals/AnalogView" pc="268439135" symbol="drawBattery"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="35" lineNum="1120" parent="globals/AnalogView" pc="268439154" symbol="drawBattery"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="35" lineNum="1121" parent="globals/AnalogView" pc="268439198" symbol="drawBattery"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="35" lineNum="1122" parent="globals/AnalogView" pc="268439223" symbol="drawBattery"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="35" lineNum="1124" parent="globals/AnalogView" pc="268439300" symbol="drawBattery"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="35" lineNum="1125" parent="globals/AnalogView" pc="268439319" symbol="drawBattery"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="35" lineNum="1126" parent="globals/AnalogView" pc="268439363" symbol="drawBattery"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="35" lineNum="1127" parent="globals/AnalogView" pc="268439388" symbol="drawBattery"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="35" lineNum="1129" parent="globals/AnalogView" pc="268439453" symbol="drawBattery"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="35" lineNum="1130" parent="globals/AnalogView" pc="268439472" symbol="drawBattery"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="35" lineNum="1131" parent="globals/AnalogView" pc="268439525" symbol="drawBattery"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="35" lineNum="1133" parent="globals/AnalogView" pc="268439536" symbol="drawBattery"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="36" lineNum="1074" parent="globals/AnalogView" pc="268439584" symbol="drawSecondHashMarks"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="36" lineNum="1077" parent="globals/AnalogView" pc="268439588" symbol="drawSecondHashMarks"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="36" lineNum="1079" parent="globals/AnalogView" pc="268439606" symbol="drawSecondHashMarks"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="36" lineNum="1080" parent="globals/AnalogView" pc="268439639" symbol="drawSecondHashMarks"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="36" lineNum="1083" parent="globals/AnalogView" pc="268439645" symbol="drawSecondHashMarks"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="36" lineNum="1084" parent="globals/AnalogView" pc="268439667" symbol="drawSecondHashMarks"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="36" lineNum="1087" parent="globals/AnalogView" pc="268439684" symbol="drawSecondHashMarks"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="36" lineNum="1088" parent="globals/AnalogView" pc="268439695" symbol="drawSecondHashMarks"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="36" lineNum="1089" parent="globals/AnalogView" pc="268439702" symbol="drawSecondHashMarks"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="36" lineNum="1089" parent="globals/AnalogView" pc="268439719" symbol="drawSecondHashMarks"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="36" lineNum="1091" parent="globals/AnalogView" pc="268439729" symbol="drawSecondHashMarks"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="36" lineNum="1096" parent="globals/AnalogView" pc="268439810" symbol="drawSecondHashMarks"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="36" lineNum="1097" parent="globals/AnalogView" pc="268439821" symbol="drawSecondHashMarks"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="36" lineNum="1098" parent="globals/AnalogView" pc="268439828" symbol="drawSecondHashMarks"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="36" lineNum="1098" parent="globals/AnalogView" pc="268439845" symbol="drawSecondHashMarks"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="36" lineNum="1100" parent="globals/AnalogView" pc="268439855" symbol="drawSecondHashMarks"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="37" lineNum="1161" parent="globals/AnalogView" pc="268439947" symbol="drawDate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="37" lineNum="1163" parent="globals/AnalogView" pc="268439951" symbol="drawDate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="37" lineNum="1164" parent="globals/AnalogView" pc="268439968" symbol="drawDate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="37" lineNum="1170" parent="globals/AnalogView" pc="268439992" symbol="drawDate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="37" lineNum="1171" parent="globals/AnalogView" pc="268440050" symbol="drawDate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="37" lineNum="1173" parent="globals/AnalogView" pc="268440094" symbol="drawDate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="37" lineNum="1174" parent="globals/AnalogView" pc="268440099" symbol="drawDate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="37" lineNum="1175" parent="globals/AnalogView" pc="268440121" symbol="drawDate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="37" lineNum="1176" parent="globals/AnalogView" pc="268440138" symbol="drawDate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="37" lineNum="1178" parent="globals/AnalogView" pc="268440168" symbol="drawDate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="37" lineNum="1180" parent="globals/AnalogView" pc="268440195" symbol="drawDate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="37" lineNum="1184" parent="globals/AnalogView" pc="268440220" symbol="drawDate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="37" lineNum="1191" parent="globals/AnalogView" pc="268440239" symbol="drawDate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="37" lineNum="1192" parent="globals/AnalogView" pc="268440246" symbol="drawDate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="37" lineNum="1193" parent="globals/AnalogView" pc="268440253" symbol="drawDate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="37" lineNum="1194" parent="globals/AnalogView" pc="268440260" symbol="drawDate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="37" lineNum="1195" parent="globals/AnalogView" pc="268440267" symbol="drawDate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="37" lineNum="1197" parent="globals/AnalogView" pc="268440274" symbol="drawDate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="37" lineNum="1198" parent="globals/AnalogView" pc="268440291" symbol="drawDate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="37" lineNum="1199" parent="globals/AnalogView" pc="268440298" symbol="drawDate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="37" lineNum="1200" parent="globals/AnalogView" pc="268440305" symbol="drawDate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="37" lineNum="1201" parent="globals/AnalogView" pc="268440312" symbol="drawDate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="37" lineNum="1202" parent="globals/AnalogView" pc="268440319" symbol="drawDate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="37" lineNum="1205" parent="globals/AnalogView" pc="268440329" symbol="drawDate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="37" lineNum="1206" parent="globals/AnalogView" pc="268440372" symbol="drawDate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="38" lineNum="714" parent="globals/AnalogView" pc="268440416" symbol="&lt;globals/AnalogView/&lt;&gt;getBoundingBox&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="38" lineNum="715" parent="globals/AnalogView" pc="268440420" symbol="&lt;globals/AnalogView/&lt;&gt;getBoundingBox&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="38" lineNum="716" parent="globals/AnalogView" pc="268440454" symbol="&lt;globals/AnalogView/&lt;&gt;getBoundingBox&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="38" lineNum="718" parent="globals/AnalogView" pc="268440488" symbol="&lt;globals/AnalogView/&lt;&gt;getBoundingBox&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="38" lineNum="719" parent="globals/AnalogView" pc="268440512" symbol="&lt;globals/AnalogView/&lt;&gt;getBoundingBox&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="38" lineNum="720" parent="globals/AnalogView" pc="268440535" symbol="&lt;globals/AnalogView/&lt;&gt;getBoundingBox&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="38" lineNum="723" parent="globals/AnalogView" pc="268440557" symbol="&lt;globals/AnalogView/&lt;&gt;getBoundingBox&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="38" lineNum="724" parent="globals/AnalogView" pc="268440580" symbol="&lt;globals/AnalogView/&lt;&gt;getBoundingBox&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="38" lineNum="727" parent="globals/AnalogView" pc="268440602" symbol="&lt;globals/AnalogView/&lt;&gt;getBoundingBox&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="38" lineNum="728" parent="globals/AnalogView" pc="268440625" symbol="&lt;globals/AnalogView/&lt;&gt;getBoundingBox&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="38" lineNum="731" parent="globals/AnalogView" pc="268440647" symbol="&lt;globals/AnalogView/&lt;&gt;getBoundingBox&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="38" lineNum="732" parent="globals/AnalogView" pc="268440670" symbol="&lt;globals/AnalogView/&lt;&gt;getBoundingBox&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="38" lineNum="735" parent="globals/AnalogView" pc="268440705" symbol="&lt;globals/AnalogView/&lt;&gt;getBoundingBox&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="38" lineNum="736" parent="globals/AnalogView" pc="268440724" symbol="&lt;globals/AnalogView/&lt;&gt;getBoundingBox&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="38" lineNum="737" parent="globals/AnalogView" pc="268440743" symbol="&lt;globals/AnalogView/&lt;&gt;getBoundingBox&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="38" lineNum="738" parent="globals/AnalogView" pc="268440762" symbol="&lt;globals/AnalogView/&lt;&gt;getBoundingBox&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="38" lineNum="740" parent="globals/AnalogView" pc="268440781" symbol="&lt;globals/AnalogView/&lt;&gt;getBoundingBox&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="39" lineNum="529" parent="globals/AnalogView" pc="268440808" symbol="&lt;globals/AnalogView/&lt;&gt;drawDateString&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="39" lineNum="530" parent="globals/AnalogView" pc="268440812" symbol="&lt;globals/AnalogView/&lt;&gt;drawDateString&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="39" lineNum="531" parent="globals/AnalogView" pc="268440849" symbol="&lt;globals/AnalogView/&lt;&gt;drawDateString&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="39" lineNum="532" parent="globals/AnalogView" pc="268440925" symbol="&lt;globals/AnalogView/&lt;&gt;drawDateString&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="39" lineNum="533" parent="globals/AnalogView" pc="268440930" symbol="&lt;globals/AnalogView/&lt;&gt;drawDateString&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="39" lineNum="534" parent="globals/AnalogView" pc="268440952" symbol="&lt;globals/AnalogView/&lt;&gt;drawDateString&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="39" lineNum="535" parent="globals/AnalogView" pc="268440969" symbol="&lt;globals/AnalogView/&lt;&gt;drawDateString&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="39" lineNum="537" parent="globals/AnalogView" pc="268440999" symbol="&lt;globals/AnalogView/&lt;&gt;drawDateString&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="39" lineNum="539" parent="globals/AnalogView" pc="268441026" symbol="&lt;globals/AnalogView/&lt;&gt;drawDateString&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="39" lineNum="540" parent="globals/AnalogView" pc="268441048" symbol="&lt;globals/AnalogView/&lt;&gt;drawDateString&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="39" lineNum="543" parent="globals/AnalogView" pc="268441079" symbol="&lt;globals/AnalogView/&lt;&gt;drawDateString&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="39" lineNum="544" parent="globals/AnalogView" pc="268441101" symbol="&lt;globals/AnalogView/&lt;&gt;drawDateString&gt;"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="40" lineNum="783" parent="globals/AnalogView" pc="268441130" symbol="onExitSleep"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="40" lineNum="784" parent="globals/AnalogView" pc="268441132" symbol="onExitSleep"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="40" lineNum="785" parent="globals/AnalogView" pc="268441142" symbol="onExitSleep"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="40" lineNum="786" parent="globals/AnalogView" pc="268441155" symbol="onExitSleep"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="854" parent="globals/AnalogView" pc="268441228" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="858" parent="globals/AnalogView" pc="268441232" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="859" parent="globals/AnalogView" pc="268441239" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="863" parent="globals/AnalogView" pc="268441244" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="865" parent="globals/AnalogView" pc="268441255" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="869" parent="globals/AnalogView" pc="268441349" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="871" parent="globals/AnalogView" pc="268441359" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="873" parent="globals/AnalogView" pc="268441370" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="874" parent="globals/AnalogView" pc="268441377" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="874" parent="globals/AnalogView" pc="268441399" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="876" parent="globals/AnalogView" pc="268441409" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="881" parent="globals/AnalogView" pc="268441564" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="885" parent="globals/AnalogView" pc="268441574" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="891" parent="globals/AnalogView" pc="268441778" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="894" parent="globals/AnalogView" pc="268441785" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="895" parent="globals/AnalogView" pc="268441790" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="896" parent="globals/AnalogView" pc="268441806" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="898" parent="globals/AnalogView" pc="268441822" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="899" parent="globals/AnalogView" pc="268441829" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="901" parent="globals/AnalogView" pc="268441836" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="902" parent="globals/AnalogView" pc="268441862" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="903" parent="globals/AnalogView" pc="268441881" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="906" parent="globals/AnalogView" pc="268441903" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="907" parent="globals/AnalogView" pc="268441913" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="908" parent="globals/AnalogView" pc="268441920" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="909" parent="globals/AnalogView" pc="268441930" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="912" parent="globals/AnalogView" pc="268441937" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="914" parent="globals/AnalogView" pc="268441952" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="915" parent="globals/AnalogView" pc="268441983" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="917" parent="globals/AnalogView" pc="268442014" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="918" parent="globals/AnalogView" pc="268442021" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="920" parent="globals/AnalogView" pc="268442028" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="921" parent="globals/AnalogView" pc="268442033" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="922" parent="globals/AnalogView" pc="268442058" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="923" parent="globals/AnalogView" pc="268442078" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="924" parent="globals/AnalogView" pc="268442094" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="924" parent="globals/AnalogView" pc="268442120" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="925" parent="globals/AnalogView" pc="268442133" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="925" parent="globals/AnalogView" pc="268442159" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="928" parent="globals/AnalogView" pc="268442175" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="929" parent="globals/AnalogView" pc="268442186" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="930" parent="globals/AnalogView" pc="268442193" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="930" parent="globals/AnalogView" pc="268442219" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="931" parent="globals/AnalogView" pc="268442232" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="931" parent="globals/AnalogView" pc="268442258" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="938" parent="globals/AnalogView" pc="268442280" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="939" parent="globals/AnalogView" pc="268442285" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="940" parent="globals/AnalogView" pc="268442310" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="941" parent="globals/AnalogView" pc="268442330" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="942" parent="globals/AnalogView" pc="268442346" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="942" parent="globals/AnalogView" pc="268442372" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="943" parent="globals/AnalogView" pc="268442385" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="943" parent="globals/AnalogView" pc="268442411" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="945" parent="globals/AnalogView" pc="268442427" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="946" parent="globals/AnalogView" pc="268442438" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="947" parent="globals/AnalogView" pc="268442445" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="947" parent="globals/AnalogView" pc="268442471" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="948" parent="globals/AnalogView" pc="268442484" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="948" parent="globals/AnalogView" pc="268442510" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="956" parent="globals/AnalogView" pc="268442532" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="957" parent="globals/AnalogView" pc="268442563" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="957" parent="globals/AnalogView" pc="268442580" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="958" parent="globals/AnalogView" pc="268442596" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="958" parent="globals/AnalogView" pc="268442613" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="959" parent="globals/AnalogView" pc="268442629" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="959" parent="globals/AnalogView" pc="268442646" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="960" parent="globals/AnalogView" pc="268442662" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="960" parent="globals/AnalogView" pc="268442679" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="981" parent="globals/AnalogView" pc="268442708" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="984" parent="globals/AnalogView" pc="268442758" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="985" parent="globals/AnalogView" pc="268442769" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="987" parent="globals/AnalogView" pc="268442840" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="992" parent="globals/AnalogView" pc="268442851" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="995" parent="globals/AnalogView" pc="268442868" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="41" lineNum="999" parent="globals/AnalogView" pc="268442882" symbol="drawHand"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="42" lineNum="1148" parent="globals/AnalogView" pc="268442885" symbol="drawMoveDots"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="42" lineNum="1150" parent="globals/AnalogView" pc="268442889" symbol="drawMoveDots"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="42" lineNum="1150" parent="globals/AnalogView" pc="268442900" symbol="drawMoveDots"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="42" lineNum="1151" parent="globals/AnalogView" pc="268442904" symbol="drawMoveDots"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="42" lineNum="1152" parent="globals/AnalogView" pc="268442923" symbol="drawMoveDots"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="42" lineNum="1152" parent="globals/AnalogView" pc="268442934" symbol="drawMoveDots"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="42" lineNum="1153" parent="globals/AnalogView" pc="268442944" symbol="drawMoveDots"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="42" lineNum="1154" parent="globals/AnalogView" pc="268442959" symbol="drawMoveDots"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="42" lineNum="1155" parent="globals/AnalogView" pc="268442981" symbol="drawMoveDots"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="43" lineNum="791" parent="globals/AnalogView" pc="268443033" symbol="readStorageValues"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="43" lineNum="793" parent="globals/AnalogView" pc="268443037" symbol="readStorageValues"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="43" lineNum="794" parent="globals/AnalogView" pc="268443059" symbol="readStorageValues"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="43" lineNum="795" parent="globals/AnalogView" pc="268443101" symbol="readStorageValues"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="43" lineNum="795" parent="globals/AnalogView" pc="268443141" symbol="readStorageValues"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="43" lineNum="796" parent="globals/AnalogView" pc="268443174" symbol="readStorageValues"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="43" lineNum="796" parent="globals/AnalogView" pc="268443201" symbol="readStorageValues"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="43" lineNum="797" parent="globals/AnalogView" pc="268443234" symbol="readStorageValues"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="43" lineNum="799" parent="globals/AnalogView" pc="268443273" symbol="readStorageValues"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="43" lineNum="800" parent="globals/AnalogView" pc="268443295" symbol="readStorageValues"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="43" lineNum="801" parent="globals/AnalogView" pc="268443327" symbol="readStorageValues"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="43" lineNum="803" parent="globals/AnalogView" pc="268443366" symbol="readStorageValues"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="43" lineNum="804" parent="globals/AnalogView" pc="268443388" symbol="readStorageValues"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="43" lineNum="805" parent="globals/AnalogView" pc="268443420" symbol="readStorageValues"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="43" lineNum="807" parent="globals/AnalogView" pc="268443459" symbol="readStorageValues"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="43" lineNum="808" parent="globals/AnalogView" pc="268443481" symbol="readStorageValues"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="43" lineNum="809" parent="globals/AnalogView" pc="268443513" symbol="readStorageValues"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="43" lineNum="811" parent="globals/AnalogView" pc="268443552" symbol="readStorageValues"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="43" lineNum="812" parent="globals/AnalogView" pc="268443574" symbol="readStorageValues"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="43" lineNum="813" parent="globals/AnalogView" pc="268443606" symbol="readStorageValues"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="43" lineNum="815" parent="globals/AnalogView" pc="268443645" symbol="readStorageValues"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="43" lineNum="816" parent="globals/AnalogView" pc="268443667" symbol="readStorageValues"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="43" lineNum="817" parent="globals/AnalogView" pc="268443699" symbol="readStorageValues"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="43" lineNum="819" parent="globals/AnalogView" pc="268443738" symbol="readStorageValues"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="43" lineNum="820" parent="globals/AnalogView" pc="268443760" symbol="readStorageValues"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="43" lineNum="821" parent="globals/AnalogView" pc="268443792" symbol="readStorageValues"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="43" lineNum="823" parent="globals/AnalogView" pc="268443831" symbol="readStorageValues"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="43" lineNum="824" parent="globals/AnalogView" pc="268443853" symbol="readStorageValues"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="43" lineNum="825" parent="globals/AnalogView" pc="268443885" symbol="readStorageValues"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="43" lineNum="827" parent="globals/AnalogView" pc="268443924" symbol="readStorageValues"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="43" lineNum="828" parent="globals/AnalogView" pc="268443946" symbol="readStorageValues"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="43" lineNum="829" parent="globals/AnalogView" pc="268443978" symbol="readStorageValues"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="44" lineNum="1002" parent="globals/AnalogView" pc="268444018" symbol="drawHands"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="44" lineNum="1008" parent="globals/AnalogView" pc="268444022" symbol="drawHands"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="44" lineNum="1009" parent="globals/AnalogView" pc="268444041" symbol="drawHands"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="44" lineNum="1010" parent="globals/AnalogView" pc="268444051" symbol="drawHands"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="44" lineNum="1011" parent="globals/AnalogView" pc="268444067" symbol="drawHands"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="44" lineNum="1012" parent="globals/AnalogView" pc="268444086" symbol="drawHands"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="44" lineNum="1015" parent="globals/AnalogView" pc="268444143" symbol="drawHands"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="44" lineNum="1016" parent="globals/AnalogView" pc="268444165" symbol="drawHands"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="44" lineNum="1017" parent="globals/AnalogView" pc="268444184" symbol="drawHands"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="45" lineNum="62" parent="globals/AnalogView" pc="268444236" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="45" lineNum="64" parent="globals/AnalogView" pc="268444240" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="45" lineNum="65" parent="globals/AnalogView" pc="268444258" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="45" lineNum="66" parent="globals/AnalogView" pc="268444275" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="45" lineNum="67" parent="globals/AnalogView" pc="268444304" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="45" lineNum="68" parent="globals/AnalogView" pc="268444314" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="45" lineNum="69" parent="globals/AnalogView" pc="268444324" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="45" lineNum="70" parent="globals/AnalogView" pc="268444350" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="45" lineNum="71" parent="globals/AnalogView" pc="268444363" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="45" lineNum="72" parent="globals/AnalogView" pc="268444373" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="259" parent="globals/AnalogView" pc="268444386" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="260" parent="globals/AnalogView" pc="268444390" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="261" parent="globals/AnalogView" pc="268444407" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="264" parent="globals/AnalogView" pc="268444410" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="266" parent="globals/AnalogView" pc="268444436" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="266" parent="globals/AnalogView" pc="268444442" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="267" parent="globals/AnalogView" pc="268444458" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="268" parent="globals/AnalogView" pc="268444475" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="271" parent="globals/AnalogView" pc="268444491" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="272" parent="globals/AnalogView" pc="268444501" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="272" parent="globals/AnalogView" pc="268444513" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="273" parent="globals/AnalogView" pc="268444535" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="273" parent="globals/AnalogView" pc="268444590" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="276" parent="globals/AnalogView" pc="268444603" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="277" parent="globals/AnalogView" pc="268444632" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="279" parent="globals/AnalogView" pc="268444689" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="286" parent="globals/AnalogView" pc="268444699" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="287" parent="globals/AnalogView" pc="268444741" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="290" parent="globals/AnalogView" pc="268444763" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="294" parent="globals/AnalogView" pc="268444823" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="295" parent="globals/AnalogView" pc="268444833" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="296" parent="globals/AnalogView" pc="268444845" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="297" parent="globals/AnalogView" pc="268444872" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="299" parent="globals/AnalogView" pc="268444886" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="302" parent="globals/AnalogView" pc="268444899" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="304" parent="globals/AnalogView" pc="268444918" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="306" parent="globals/AnalogView" pc="268444931" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="307" parent="globals/AnalogView" pc="268444935" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="310" parent="globals/AnalogView" pc="268444945" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="317" parent="globals/AnalogView" pc="268444990" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="318" parent="globals/AnalogView" pc="268445012" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="375" parent="globals/AnalogView" pc="268445056" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="377" parent="globals/AnalogView" pc="268445078" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="378" parent="globals/AnalogView" pc="268445082" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="380" parent="globals/AnalogView" pc="268445086" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="380" parent="globals/AnalogView" pc="268445150" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="382" parent="globals/AnalogView" pc="268445157" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="382" parent="globals/AnalogView" pc="268445179" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="384" parent="globals/AnalogView" pc="268445186" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="386" parent="globals/AnalogView" pc="268445204" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="387" parent="globals/AnalogView" pc="268445225" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="389" parent="globals/AnalogView" pc="268445242" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="393" parent="globals/AnalogView" pc="268445397" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="394" parent="globals/AnalogView" pc="268445404" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="395" parent="globals/AnalogView" pc="268445411" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="397" parent="globals/AnalogView" pc="268445418" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="398" parent="globals/AnalogView" pc="268445435" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="399" parent="globals/AnalogView" pc="268445442" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="400" parent="globals/AnalogView" pc="268445449" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="403" parent="globals/AnalogView" pc="268445459" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="411" parent="globals/AnalogView" pc="268445623" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="414" parent="globals/AnalogView" pc="268445636" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="418" parent="globals/AnalogView" pc="268445658" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="421" parent="globals/AnalogView" pc="268445662" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="422" parent="globals/AnalogView" pc="268445675" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="427" parent="globals/AnalogView" pc="268445708" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="428" parent="globals/AnalogView" pc="268445711" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="429" parent="globals/AnalogView" pc="268445718" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="430" parent="globals/AnalogView" pc="268445722" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="431" parent="globals/AnalogView" pc="268445743" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="432" parent="globals/AnalogView" pc="268445760" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="433" parent="globals/AnalogView" pc="268445770" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="446" parent="globals/AnalogView" pc="268445793" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="448" parent="globals/AnalogView" pc="268445819" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="450" parent="globals/AnalogView" pc="268445838" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="456" parent="globals/AnalogView" pc="268445862" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="457" parent="globals/AnalogView" pc="268445883" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="459" parent="globals/AnalogView" pc="268445915" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="460" parent="globals/AnalogView" pc="268445936" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="462" parent="globals/AnalogView" pc="268445960" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="467" parent="globals/AnalogView" pc="268445981" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="469" parent="globals/AnalogView" pc="268446034" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="471" parent="globals/AnalogView" pc="268446096" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="472" parent="globals/AnalogView" pc="268446121" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="473" parent="globals/AnalogView" pc="268446166" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="474" parent="globals/AnalogView" pc="268446194" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="479" parent="globals/AnalogView" pc="268446239" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="493" parent="globals/AnalogView" pc="268446253" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="496" parent="globals/AnalogView" pc="268446269" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="497" parent="globals/AnalogView" pc="268446286" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="508" parent="globals/AnalogView" pc="268446302" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="513" parent="globals/AnalogView" pc="268446330" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="514" parent="globals/AnalogView" pc="268446355" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="46" lineNum="522" parent="globals/AnalogView" pc="268446409" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="47" lineNum="837" parent="globals/AnalogView" pc="268446420" symbol="resetSecondHandCounter"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="47" lineNum="838" parent="globals/AnalogView" pc="268446422" symbol="resetSecondHandCounter"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="48" lineNum="1219" parent="globals/AnalogDelegate" pc="268446436" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="48" lineNum="1220" parent="globals/AnalogDelegate" pc="268446438" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="48" lineNum="1221" parent="globals/AnalogDelegate" pc="268446456" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="49" lineNum="1230" parent="globals/AnalogDelegate" pc="268446467" symbol="onPowerBudgetExceeded"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="49" lineNum="1231" parent="globals/AnalogDelegate" pc="268446469" symbol="onPowerBudgetExceeded"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="49" lineNum="1232" parent="globals/AnalogDelegate" pc="268446499" symbol="onPowerBudgetExceeded"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="49" lineNum="1233" parent="globals/AnalogDelegate" pc="268446529" symbol="onPowerBudgetExceeded"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="50" lineNum="1236" parent="globals/AnalogDelegate" pc="268446548" symbol="onKey"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="50" lineNum="1237" parent="globals/AnalogDelegate" pc="268446550" symbol="onKey"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogView.mc" id="50" lineNum="1238" parent="globals/AnalogDelegate" pc="268446568" symbol="onKey"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="51" lineNum="15" parent="globals/AnalogSettingsMenu" pc="268446571" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="51" lineNum="17" parent="globals/AnalogSettingsMenu" pc="268446575" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="51" lineNum="18" parent="globals/AnalogSettingsMenu" pc="268446594" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="51" lineNum="20" parent="globals/AnalogSettingsMenu" pc="268446641" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="51" lineNum="28" parent="globals/AnalogSettingsMenu" pc="268446678" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="51" lineNum="28" parent="globals/AnalogSettingsMenu" pc="268446700" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="51" lineNum="29" parent="globals/AnalogSettingsMenu" pc="268446733" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="51" lineNum="32" parent="globals/AnalogSettingsMenu" pc="268446824" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="51" lineNum="33" parent="globals/AnalogSettingsMenu" pc="268446856" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="51" lineNum="35" parent="globals/AnalogSettingsMenu" pc="268446914" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="51" lineNum="36" parent="globals/AnalogSettingsMenu" pc="268446946" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="51" lineNum="38" parent="globals/AnalogSettingsMenu" pc="268447004" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="51" lineNum="39" parent="globals/AnalogSettingsMenu" pc="268447036" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="51" lineNum="41" parent="globals/AnalogSettingsMenu" pc="268447094" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="51" lineNum="42" parent="globals/AnalogSettingsMenu" pc="268447126" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="51" lineNum="44" parent="globals/AnalogSettingsMenu" pc="268447184" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="51" lineNum="45" parent="globals/AnalogSettingsMenu" pc="268447216" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="51" lineNum="47" parent="globals/AnalogSettingsMenu" pc="268447274" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="51" lineNum="48" parent="globals/AnalogSettingsMenu" pc="268447306" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="51" lineNum="50" parent="globals/AnalogSettingsMenu" pc="268447364" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="51" lineNum="51" parent="globals/AnalogSettingsMenu" pc="268447396" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="52" lineNum="87" parent="globals/AnalogSettingsMenuDelegate" pc="268447455" symbol="onBack"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="52" lineNum="88" parent="globals/AnalogSettingsMenuDelegate" pc="268447457" symbol="onBack"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="53" lineNum="61" parent="globals/AnalogSettingsMenuDelegate" pc="268447479" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="53" lineNum="62" parent="globals/AnalogSettingsMenuDelegate" pc="268447481" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="53" lineNum="63" parent="globals/AnalogSettingsMenuDelegate" pc="268447499" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="54" lineNum="68" parent="globals/AnalogSettingsMenuDelegate" pc="268447520" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="54" lineNum="69" parent="globals/AnalogSettingsMenuDelegate" pc="268447524" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="54" lineNum="70" parent="globals/AnalogSettingsMenuDelegate" pc="268447542" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="54" lineNum="71" parent="globals/AnalogSettingsMenuDelegate" pc="268447580" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="54" lineNum="72" parent="globals/AnalogSettingsMenuDelegate" pc="268447615" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="54" lineNum="75" parent="globals/AnalogSettingsMenuDelegate" pc="268447632" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="54" lineNum="76" parent="globals/AnalogSettingsMenuDelegate" pc="268447645" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="54" lineNum="77" parent="globals/AnalogSettingsMenuDelegate" pc="268447664" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="54" lineNum="78" parent="globals/AnalogSettingsMenuDelegate" pc="268447709" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="54" lineNum="80" parent="globals/AnalogSettingsMenuDelegate" pc="268447749" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsMenu.mc" id="54" lineNum="81" parent="globals/AnalogSettingsMenuDelegate" pc="268447782" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogGoalView.mc" id="55" lineNum="37" parent="globals/AnalogGoalView" pc="268447800" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogGoalView.mc" id="55" lineNum="39" parent="globals/AnalogGoalView" pc="268447802" symbol="onLayout"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogGoalView.mc" id="56" lineNum="21" parent="globals/AnalogGoalView" pc="268447815" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogGoalView.mc" id="56" lineNum="22" parent="globals/AnalogGoalView" pc="268447817" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogGoalView.mc" id="56" lineNum="24" parent="globals/AnalogGoalView" pc="268447835" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogGoalView.mc" id="56" lineNum="26" parent="globals/AnalogGoalView" pc="268447848" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogGoalView.mc" id="56" lineNum="27" parent="globals/AnalogGoalView" pc="268447859" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogGoalView.mc" id="56" lineNum="28" parent="globals/AnalogGoalView" pc="268447884" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogGoalView.mc" id="56" lineNum="29" parent="globals/AnalogGoalView" pc="268447895" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogGoalView.mc" id="56" lineNum="30" parent="globals/AnalogGoalView" pc="268447920" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogGoalView.mc" id="56" lineNum="31" parent="globals/AnalogGoalView" pc="268447931" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogGoalView.mc" id="57" lineNum="44" parent="globals/AnalogGoalView" pc="268447957" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogGoalView.mc" id="57" lineNum="45" parent="globals/AnalogGoalView" pc="268447961" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogGoalView.mc" id="57" lineNum="46" parent="globals/AnalogGoalView" pc="268447974" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogGoalView.mc" id="57" lineNum="48" parent="globals/AnalogGoalView" pc="268447987" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogGoalView.mc" id="57" lineNum="49" parent="globals/AnalogGoalView" pc="268448004" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogGoalView.mc" id="57" lineNum="51" parent="globals/AnalogGoalView" pc="268448028" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogGoalView.mc" id="57" lineNum="54" parent="globals/AnalogGoalView" pc="268448104" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogGoalView.mc" id="57" lineNum="55" parent="globals/AnalogGoalView" pc="268448126" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogGoalView.mc" id="57" lineNum="58" parent="globals/AnalogGoalView" pc="268448152" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogGoalView.mc" id="57" lineNum="59" parent="globals/AnalogGoalView" pc="268448174" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogGoalView.mc" id="57" lineNum="62" parent="globals/AnalogGoalView" pc="268448343" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogGoalView.mc" id="57" lineNum="63" parent="globals/AnalogGoalView" pc="268448365" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogGoalView.mc" id="57" lineNum="66" parent="globals/AnalogGoalView" pc="268448405" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsView.mc" id="58" lineNum="36" parent="globals/AnalogSettingsView" pc="268448452" symbol="onShow"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsView.mc" id="58" lineNum="46" parent="globals/AnalogSettingsView" pc="268448454" symbol="onShow"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsView.mc" id="58" lineNum="49" parent="globals/AnalogSettingsView" pc="268448477" symbol="onShow"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsView.mc" id="58" lineNum="50" parent="globals/AnalogSettingsView" pc="268448488" symbol="onShow"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsView.mc" id="58" lineNum="54" parent="globals/AnalogSettingsView" pc="268448511" symbol="onShow"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsView.mc" id="58" lineNum="61" parent="globals/AnalogSettingsView" pc="268448524" symbol="onShow"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsView.mc" id="58" lineNum="62" parent="globals/AnalogSettingsView" pc="268448547" symbol="onShow"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsView.mc" id="59" lineNum="27" parent="globals/AnalogSettingsView" pc="268448569" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsView.mc" id="59" lineNum="28" parent="globals/AnalogSettingsView" pc="268448571" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsView.mc" id="59" lineNum="29" parent="globals/AnalogSettingsView" pc="268448589" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsView.mc" id="59" lineNum="31" parent="globals/AnalogSettingsView" pc="268448599" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsView.mc" id="60" lineNum="68" parent="globals/AnalogSettingsView" pc="268448623" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsView.mc" id="60" lineNum="71" parent="globals/AnalogSettingsView" pc="268448625" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsView.mc" id="60" lineNum="72" parent="globals/AnalogSettingsView" pc="268448637" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsView.mc" id="60" lineNum="73" parent="globals/AnalogSettingsView" pc="268448659" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsView.mc" id="60" lineNum="74" parent="globals/AnalogSettingsView" pc="268448671" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsView.mc" id="60" lineNum="76" parent="globals/AnalogSettingsView" pc="268448693" symbol="onUpdate"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\source\\AnalogSettingsView.mc" id="60" lineNum="78" parent="globals/AnalogSettingsView" pc="268448760" symbol="onUpdate"/>
+<entry filename="e:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\bin\\gen\\006-B3889-00\\source\\Rez.mcgen" id="61" lineNum="18" parent="globals/Rez/Layouts" pc="268448784" symbol="WatchFace"/>
+<entry filename="e:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\bin\\gen\\006-B3889-00\\source\\Rez.mcgen" id="61" lineNum="19" parent="globals/Rez/Layouts" pc="268448796" symbol="WatchFace"/>
+<entry filename="e:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\Analog\\bin\\gen\\006-B3889-00\\source\\Rez.mcgen" id="61" lineNum="21" parent="globals/Rez/Layouts" pc="268448931" symbol="WatchFace"/>
+</pcToLineNum>
+<symbolTable>
+<entry id="66" method="true" symbol="readStorageValues"/>
+<entry field="true" id="21" symbol="infiniteSecondOptions_size"/>
+<entry id="8388639" module="true" symbol="Graphics"/>
+<entry id="8390101" object="true" symbol="BufferedBitmap"/>
+<entry id="11" object="true" symbol="AnalogSettingsMenu"/>
+<entry id="7" object="true" symbol="AnalogDelegate"/>
+<entry field="true" id="35" symbol="&lt;globals/AnalogView/&lt;&gt;_secondHandCounter&gt;"/>
+<entry id="8388632" method="true" symbol="&lt;init&gt;"/>
+<entry id="52" method="true" symbol="drawDate"/>
+<entry field="true" id="74" symbol="show_sec"/>
+<entry id="59" method="true" symbol="drawMoveDots"/>
+<entry field="true" id="31" symbol="&lt;globals/AnalogView/&lt;&gt;_offscreenBuffer&gt;"/>
+<entry id="62" method="true" symbol="&lt;globals/AnalogView/&lt;&gt;getBoundingBox&gt;"/>
+<entry id="8390098" method="true" symbol="onPowerBudgetExceeded"/>
+<entry id="8389759" symbol="radius"/>
+<entry field="true" id="20" symbol="infiniteSecondOptions_default"/>
+<entry field="true" id="43" symbol="batt_y"/>
+<entry field="true" id="41" symbol="batt_x"/>
+<entry field="true" id="28" symbol="&lt;globals/AnalogView/&lt;&gt;_hashMarksBuffer&gt;"/>
+<entry field="true" id="81" symbol="DoNotDisturbIcon"/>
+<entry field="true" id="34" symbol="&lt;globals/AnalogView/&lt;&gt;_screenShape&gt;"/>
+<entry id="8390424" module="true" symbol="Storage"/>
+<entry field="true" id="8389795" symbol="doNotDisturb"/>
+<entry field="true" id="42" symbol="batt_x_small"/>
+<entry id="8388924" module="true" symbol="Gregorian"/>
+<entry id="86" symbol="includeFives"/>
+<entry field="true" id="44" symbol="batt_y_small"/>
+<entry field="true" id="8388611" module="true" symbol="Toybox"/>
+<entry id="58" method="true" symbol="drawMove"/>
+<entry field="true" id="19" symbol="infiniteSecondOptions"/>
+<entry field="true" id="72" symbol="sec_width_clipbox"/>
+<entry field="true" id="84" symbol="AppName"/>
+<entry id="8388633" module="true" symbol="ActivityMonitor"/>
+<entry id="50" method="true" symbol="&lt;globals/AnalogView/&lt;&gt;drawBackground&gt;"/>
+<entry id="6" module="true" symbol="globals/Rez/Strings"/>
+<entry id="8389080" method="true" symbol="onMenu"/>
+<entry id="8388772" module="true" object="true" symbol="Fonts"/>
+<entry field="true" id="27" symbol="&lt;globals/AnalogView/&lt;&gt;_fullScreenRefresh&gt;"/>
+<entry field="true" id="38" symbol="batt_height_rect_small"/>
+<entry id="8388648" module="true" symbol="WatchUi"/>
+<entry id="91" symbol="squeezeY"/>
+<entry id="8389081" method="true" symbol="onBack"/>
+<entry id="90" symbol="squeezeX"/>
+<entry id="8390097" method="true" symbol="onPartialUpdate"/>
+<entry field="true" id="22" symbol="mainView"/>
+<entry id="2" module="true" symbol="globals/Rez"/>
+<entry id="8389124" method="true" symbol="onUpdate"/>
+<entry id="8389375" method="true" object="true" symbol="WatchFace"/>
+<entry field="true" id="8389065" symbol="locY"/>
+<entry field="true" id="8389064" symbol="locX"/>
+<entry id="56" method="true" symbol="drawHashMarks"/>
+<entry id="95" symbol="avoidCircl"/>
+<entry field="true" id="39" symbol="batt_width_rect"/>
+<entry field="true" id="69" symbol="sec_counter"/>
+<entry id="8388771" module="true" object="true" symbol="Drawables"/>
+<entry id="8389348" symbol="font"/>
+<entry field="true" id="8389067" symbol="height"/>
+<entry id="5" module="true" symbol="globals/Rez/Layouts"/>
+<entry field="true" id="8389066" symbol="width"/>
+<entry id="51" method="true" symbol="drawBattery"/>
+<entry id="8389122" method="true" symbol="onLayout"/>
+<entry field="true" id="25" symbol="&lt;globals/AnalogView/&lt;&gt;_dndIcon&gt;"/>
+<entry id="8389376" method="true" symbol="onEnterSleep"/>
+<entry field="true" id="8389063" symbol="identifier"/>
+<entry id="8389349" symbol="justification"/>
+<entry id="88" symbol="dc"/>
+<entry field="true" id="29" symbol="&lt;globals/AnalogView/&lt;&gt;_hashMarksDrawn&gt;"/>
+<entry id="85" symbol="avoidCircle"/>
+<entry field="true" id="71" symbol="sec_width"/>
+<entry field="true" id="63" symbol="hashMarksArray"/>
+<entry id="87" symbol="width5"/>
+<entry id="93" symbol="width1"/>
+<entry id="67" method="true" symbol="resetSecondHandCounter"/>
+<entry field="true" id="37" symbol="batt_height_rect"/>
+<entry field="true" id="78" symbol="&lt;globals/AnalogDelegate/&lt;&gt;_view&gt;"/>
+<entry field="true" id="48" symbol="dmd_x"/>
+<entry field="true" id="46" symbol="dmd_w"/>
+<entry field="true" id="45" symbol="dmd_h"/>
+<entry id="3" module="true" symbol="globals/Rez/Drawables"/>
+<entry id="8390095" object="true" symbol="WatchFaceDelegate"/>
+<entry field="true" id="26" symbol="&lt;globals/AnalogView/&lt;&gt;_font&gt;"/>
+<entry id="8" object="true" symbol="AnalogGoalView"/>
+<entry id="89" symbol="length5"/>
+<entry id="94" symbol="length1"/>
+<entry id="61" method="true" symbol="&lt;globals/AnalogView/&lt;&gt;generateHandCoordinates&gt;"/>
+<entry id="8389377" method="true" symbol="onExitSleep"/>
+<entry id="8388644" module="true" symbol="System"/>
+<entry field="true" id="40" symbol="batt_width_rect_small"/>
+<entry id="8389619" method="true" symbol="onSelect"/>
+<entry field="true" id="18" symbol="infiniteSecondLengths"/>
+<entry id="8388645" module="true" symbol="Time"/>
+<entry id="8388769" module="true" object="true" symbol="Rez"/>
+<entry field="true" id="83" symbol="id_font_black_diamond"/>
+<entry id="8388640" module="true" symbol="Lang"/>
+<entry id="10" object="true" symbol="AnalogSettingsDelegate"/>
+<entry id="54" method="true" symbol="drawHand"/>
+<entry field="true" id="82" symbol="LauncherIcon"/>
+<entry id="8388610" symbol="statics"/>
+<entry id="8389123" method="true" symbol="onShow"/>
+<entry id="12" object="true" symbol="AnalogSettingsMenuDelegate"/>
+<entry field="true" id="65" symbol="min_screen"/>
+<entry field="true" id="80" symbol="firstShow"/>
+<entry id="8389350" module="true" symbol="globals"/>
+<entry id="75" method="true" symbol="turnPartialUpdatesOff"/>
+<entry id="8388770" module="true" object="true" symbol="Strings"/>
+<entry field="true" id="79" symbol="&lt;globals/AnalogGoalView/&lt;&gt;_goalString&gt;"/>
+<entry id="8388702" method="true" symbol="initialize"/>
+<entry field="true" id="30" symbol="&lt;globals/AnalogView/&lt;&gt;_isAwake&gt;"/>
+<entry field="true" id="76" symbol="update_ran"/>
+<entry id="8389279" method="true" symbol="onStart"/>
+<entry id="8388641" module="true" symbol="Math"/>
+<entry id="8391703" method="true" symbol="getSettingsView"/>
+<entry field="true" id="33" symbol="&lt;globals/AnalogView/&lt;&gt;_screenCenterPoint&gt;"/>
+<entry field="true" id="36" symbol="background_color"/>
+<entry id="13" object="true" symbol="AnalogSettingsView"/>
+<entry id="9" object="true" symbol="AnalogInputDelegate"/>
+<entry id="8389280" method="true" symbol="getInitialView"/>
+<entry field="true" id="77" symbol="width_screen"/>
+<entry id="8389281" method="true" symbol="onStop"/>
+<entry id="8389347" symbol="color"/>
+<entry id="57" method="true" symbol="&lt;globals/AnalogView/&lt;&gt;drawHashMarksOld&gt;"/>
+<entry id="8389097" method="true" symbol="onKey"/>
+<entry field="true" id="73" symbol="showSecond"/>
+<entry field="true" id="17" symbol="Settings_ran"/>
+<entry id="8388646" module="true" object="true" symbol="Timer"/>
+<entry id="55" method="true" symbol="drawHands"/>
+<entry id="92" symbol="includeOnes"/>
+<entry id="24" module="true" symbol="Layouts"/>
+<entry field="true" id="16" symbol="Options_Dict"/>
+<entry field="true" id="32" symbol="&lt;globals/AnalogView/&lt;&gt;_partialUpdatesAllowed&gt;"/>
+<entry id="53" method="true" symbol="&lt;globals/AnalogView/&lt;&gt;drawDateString&gt;"/>
+<entry field="true" id="68" symbol="sec_color"/>
+<entry field="true" id="70" symbol="sec_length"/>
+<entry field="true" id="49" symbol="dmd_yy"/>
+<entry field="true" id="23" symbol="&lt;globals/AnalogInputDelegate/&lt;&gt;_view&gt;"/>
+<entry id="4" module="true" symbol="globals/Rez/Fonts"/>
+<entry id="60" method="true" symbol="drawSecondHashMarks"/>
+<entry field="true" id="47" symbol="dmd_w4"/>
+<entry id="14" object="true" symbol="AnalogView"/>
+<entry field="true" id="64" symbol="height_screen"/>
+<entry id="8388635" module="true" symbol="Application"/>
+<entry field="true" id="8389642" symbol="title"/>
+<entry id="15" object="true" symbol="AnalogWatch"/>
+<entry id="8389660" symbol="palette"/>
+</symbolTable>
+<localVars>
+<entry arg="true" endPc="268435945" name="state" stackId="1" startPc="268435920"/>
+<entry endPc="268436182" name="view" stackId="1" startPc="268436088"/>
+<entry endPc="268436182" name="delegate" stackId="2" startPc="268436088"/>
+<entry arg="true" endPc="268436328" name="view" stackId="1" startPc="268436298"/>
+<entry arg="true" endPc="268436372" name="keyEvent" stackId="1" startPc="268436329"/>
+<entry endPc="268436456" name="menu" stackId="1" startPc="268436377"/>
+<entry arg="true" endPc="268436941" name="dc" stackId="1" startPc="268436491"/>
+<entry arg="true" endPc="268436941" name="drawHashes" stackId="2" startPc="268436491"/>
+<entry arg="true" endPc="268436941" name="drawHours" stackId="3" startPc="268436491"/>
+<entry endPc="268436760" name="adj1" stackId="4" startPc="268436500"/>
+<entry endPc="268436760" name="adj2" stackId="5" startPc="268436500"/>
+<entry endPc="268436760" name="font" stackId="6" startPc="268436500"/>
+<entry endPc="268436937" name="i" stackId="7" startPc="268436787"/>
+<entry arg="true" endPc="268437033" name="dc" stackId="1" startPc="268436942"/>
+<entry arg="true" endPc="268437033" name="text_color" stackId="2" startPc="268436942"/>
+<entry endPc="268437032" name="dateStr1" stackId="3" startPc="268436946"/>
+<entry arg="true" endPc="268437082" name="dc" stackId="1" startPc="268437034"/>
+<entry arg="true" endPc="268438390" name="dc" stackId="1" startPc="268437083"/>
+<entry endPc="268438389" name="offscreenBufferOptions" stackId="2" startPc="268437087"/>
+<entry endPc="268438389" name="hashMarksBufferOptions" stackId="3" startPc="268437087"/>
+<entry endPc="268438389" name="hm_factor" stackId="4" startPc="268437087"/>
+<entry endPc="268437913" name="i" stackId="5" startPc="268437813"/>
+<entry arg="true" endPc="268438393" name="dc" stackId="1" startPc="268438391"/>
+<entry arg="true" endPc="268438592" name="dc" stackId="1" startPc="268438394"/>
+<entry endPc="268438588" name="secondHand" stackId="2" startPc="268438510"/>
+<entry arg="true" endPc="268438991" name="centerPoint" stackId="1" startPc="268438593"/>
+<entry arg="true" endPc="268438991" name="angle" stackId="2" startPc="268438593"/>
+<entry arg="true" endPc="268438991" name="handLength" stackId="3" startPc="268438593"/>
+<entry arg="true" endPc="268438991" name="tailLength" stackId="4" startPc="268438593"/>
+<entry arg="true" endPc="268438991" name="width" stackId="5" startPc="268438593"/>
+<entry endPc="268438991" name="coords" stackId="6" startPc="268438597"/>
+<entry endPc="268438991" name="result" stackId="7" startPc="268438597"/>
+<entry endPc="268438991" name="cos" stackId="8" startPc="268438597"/>
+<entry endPc="268438991" name="sin" stackId="9" startPc="268438597"/>
+<entry endPc="268438988" name="i" stackId="10" startPc="268438853"/>
+<entry endPc="268438975" name="x" stackId="11" startPc="268438853"/>
+<entry endPc="268438975" name="y" stackId="12" startPc="268438853"/>
+<entry arg="true" endPc="268439583" name="dc" stackId="1" startPc="268439090"/>
+<entry arg="true" endPc="268439583" name="primaryColor" stackId="2" startPc="268439090"/>
+<entry arg="true" endPc="268439583" name="lowBatteryColor" stackId="3" startPc="268439090"/>
+<entry arg="true" endPc="268439583" name="fullBatteryColor" stackId="4" startPc="268439090"/>
+<entry endPc="268439582" name="battery" stackId="5" startPc="268439094"/>
+<entry arg="true" endPc="268439946" name="options" stackId="1" startPc="268439584"/>
+<entry endPc="268439945" name="i" stackId="2" startPc="268439606"/>
+<entry endPc="268439932" name="angle" stackId="3" startPc="268439606"/>
+<entry endPc="268439803" name="drawline" stackId="4" startPc="268439695"/>
+<entry endPc="268439929" name="drawline" stackId="5" startPc="268439821"/>
+<entry arg="true" endPc="268440415" name="dc" stackId="1" startPc="268439947"/>
+<entry arg="true" endPc="268440415" name="text_color" stackId="2" startPc="268439947"/>
+<entry arg="true" endPc="268440415" name="reverse" stackId="3" startPc="268439947"/>
+<entry endPc="268440414" name="now" stackId="4" startPc="268439951"/>
+<entry endPc="268440414" name="info" stackId="5" startPc="268439951"/>
+<entry endPc="268440414" name="dateStr2" stackId="6" startPc="268439951"/>
+<entry endPc="268440414" name="dateStr1" stackId="7" startPc="268439951"/>
+<entry endPc="268440414" name="ws" stackId="8" startPc="268439951"/>
+<entry endPc="268440414" name="hs1" stackId="9" startPc="268439951"/>
+<entry endPc="268440414" name="hs2" stackId="10" startPc="268439951"/>
+<entry endPc="268440414" name="f1" stackId="11" startPc="268439951"/>
+<entry endPc="268440414" name="f2" stackId="12" startPc="268439951"/>
+<entry arg="true" endPc="268440807" name="points" stackId="1" startPc="268440416"/>
+<entry endPc="268440807" name="min" stackId="2" startPc="268440420"/>
+<entry endPc="268440807" name="max" stackId="3" startPc="268440420"/>
+<entry endPc="268440704" name="i" stackId="4" startPc="268440512"/>
+<entry arg="true" endPc="268441129" name="dc" stackId="1" startPc="268440808"/>
+<entry arg="true" endPc="268441129" name="x" stackId="2" startPc="268440808"/>
+<entry arg="true" endPc="268441129" name="y" stackId="3" startPc="268440808"/>
+<entry arg="true" endPc="268441129" name="reverse" stackId="4" startPc="268440808"/>
+<entry endPc="268441128" name="info" stackId="5" startPc="268440812"/>
+<entry endPc="268441128" name="dateStr" stackId="6" startPc="268440812"/>
+<entry arg="true" endPc="268442884" name="dc" stackId="1" startPc="268441228"/>
+<entry arg="true" endPc="268442884" name="angle" stackId="2" startPc="268441228"/>
+<entry arg="true" endPc="268442884" name="length" stackId="3" startPc="268441228"/>
+<entry arg="true" endPc="268442884" name="width" stackId="4" startPc="268441228"/>
+<entry arg="true" endPc="268442884" name="overheadLine" stackId="5" startPc="268441228"/>
+<entry arg="true" endPc="268442884" name="drawCircleOnTop" stackId="6" startPc="268441228"/>
+<entry arg="true" endPc="268442884" name="drawline" stackId="7" startPc="268441228"/>
+<entry arg="true" endPc="268442884" name="squeezeX" stackId="8" startPc="268441228"/>
+<entry arg="true" endPc="268442884" name="squeezeY" stackId="9" startPc="268441228"/>
+<entry endPc="268442884" name="count" stackId="10" startPc="268441232"/>
+<entry endPc="268442884" name="coords" stackId="11" startPc="268441232"/>
+<entry endPc="268441570" name="mult" stackId="12" startPc="268441370"/>
+<entry endPc="268442884" name="result" stackId="13" startPc="268441232"/>
+<entry endPc="268442884" name="centerX" stackId="14" startPc="268441232"/>
+<entry endPc="268442884" name="centerY" stackId="15" startPc="268441232"/>
+<entry endPc="268442884" name="cos" stackId="16" startPc="268441232"/>
+<entry endPc="268442884" name="sin" stackId="17" startPc="268441232"/>
+<entry endPc="268442884" name="minY" stackId="18" startPc="268441232"/>
+<entry endPc="268442884" name="maxY" stackId="19" startPc="268441232"/>
+<entry endPc="268442884" name="minX" stackId="20" startPc="268441232"/>
+<entry endPc="268442884" name="maxX" stackId="21" startPc="268441232"/>
+<entry endPc="268442707" name="i" stackId="22" startPc="268441952"/>
+<entry endPc="268442694" name="x" stackId="23" startPc="268441952"/>
+<entry endPc="268442694" name="y" stackId="24" startPc="268441952"/>
+<entry endPc="268442694" name="X" stackId="25" startPc="268441952"/>
+<entry endPc="268442694" name="Y" stackId="26" startPc="268441952"/>
+<entry arg="true" endPc="268443032" name="dc" stackId="1" startPc="268442885"/>
+<entry arg="true" endPc="268443032" name="numDots" stackId="2" startPc="268442885"/>
+<entry arg="true" endPc="268443032" name="text_color" stackId="3" startPc="268442885"/>
+<entry endPc="268443031" name="i" stackId="4" startPc="268442959"/>
+<entry endPc="268443018" name="xx" stackId="5" startPc="268442959"/>
+<entry endPc="268444016" name="temp" stackId="1" startPc="268443037"/>
+<entry arg="true" endPc="268444235" name="dc" stackId="1" startPc="268444018"/>
+<entry arg="true" endPc="268444235" name="clock_hour" stackId="2" startPc="268444018"/>
+<entry arg="true" endPc="268444235" name="clock_min" stackId="3" startPc="268444018"/>
+<entry arg="true" endPc="268444235" name="clock_sec" stackId="4" startPc="268444018"/>
+<entry arg="true" endPc="268444235" name="hour_color" stackId="5" startPc="268444018"/>
+<entry arg="true" endPc="268444235" name="min_color" stackId="6" startPc="268444018"/>
+<entry arg="true" endPc="268444235" name="sec_color" stackId="7" startPc="268444018"/>
+<entry endPc="268444234" name="hour" stackId="8" startPc="268444022"/>
+<entry endPc="268444234" name="min" stackId="9" startPc="268444022"/>
+<entry endPc="268444234" name="sec" stackId="10" startPc="268444022"/>
+<entry endPc="268444384" name="settings" stackId="1" startPc="268444240"/>
+<entry arg="true" endPc="268446419" name="dc" stackId="1" startPc="268444386"/>
+<entry endPc="268446418" name="clockTime" stackId="2" startPc="268444390"/>
+<entry endPc="268446418" name="targetDc" stackId="3" startPc="268444390"/>
+<entry endPc="268446418" name="sec_on" stackId="4" startPc="268444390"/>
+<entry endPc="268445619" name="drawHashes" stackId="5" startPc="268444872"/>
+<entry endPc="268445619" name="drawHours" stackId="6" startPc="268444872"/>
+<entry endPc="268445616" name="l" stackId="7" startPc="268445397"/>
+<entry endPc="268445616" name="sub1" stackId="8" startPc="268445397"/>
+<entry endPc="268445616" name="sub2" stackId="9" startPc="268445397"/>
+<entry endPc="268446418" name="info" stackId="10" startPc="268444390"/>
+<entry endPc="268446418" name="moveBarLevel" stackId="11" startPc="268444390"/>
+<entry endPc="268446418" name="moveExpired" stackId="12" startPc="268444390"/>
+<entry endPc="268446405" name="secondHand" stackId="13" startPc="268446302"/>
+<entry arg="true" endPc="268446466" name="view" stackId="1" startPc="268446436"/>
+<entry arg="true" endPc="268446547" name="powerInfo" stackId="1" startPc="268446467"/>
+<entry arg="true" endPc="268446570" name="keyEvent" stackId="1" startPc="268446548"/>
+<entry endPc="268447453" name="clockTime" stackId="1" startPc="268446575"/>
+<entry endPc="268447453" name="boolean" stackId="2" startPc="268446575"/>
+<entry arg="true" endPc="268447799" name="menuItem" stackId="1" startPc="268447520"/>
+<entry endPc="268447798" name="id" stackId="2" startPc="268447524"/>
+<entry arg="true" endPc="268447814" name="dc" stackId="1" startPc="268447800"/>
+<entry arg="true" endPc="268447956" name="goal" stackId="1" startPc="268447815"/>
+<entry arg="true" endPc="268448451" name="dc" stackId="1" startPc="268447957"/>
+<entry endPc="268448450" name="width" stackId="2" startPc="268447961"/>
+<entry endPc="268448450" name="height" stackId="3" startPc="268447961"/>
+<entry endPc="268448450" name="now" stackId="4" startPc="268447961"/>
+<entry endPc="268448450" name="info" stackId="5" startPc="268447961"/>
+<entry endPc="268448450" name="dateStr" stackId="6" startPc="268447961"/>
+<entry arg="true" endPc="268448783" name="dc" stackId="1" startPc="268448623"/>
+<entry arg="true" endPc="268448947" name="dc" stackId="1" startPc="268448784"/>
+<entry endPc="268448947" name="rez_cmp_local_text_TimeLabel" stackId="2" startPc="268448796"/>
+</localVars>
+<deviceInfo partNumber="006-B3889-00"/>
+<annotations>
+<annotationEntry annotation="initialized" class="Drawables" module="globals/Rez" symbol="DoNotDisturbIcon"/>
+<annotationEntry annotation="initialized" class="Drawables" module="globals/Rez" symbol="LauncherIcon"/>
+<annotationEntry annotation="initialized" class="Fonts" module="globals/Rez" symbol="id_font_black_diamond"/>
+<annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="AppName"/>
+</annotations>
+<dataEntryOffsetMappings>
+<dataEntry label="globals" offset="71" parentId="" symbolId="globals" type="module"/>
+<dataEntry label="globals/AnalogWatch" offset="859" parentId="globals" symbolId="AnalogWatch" type="class"/>
+<dataEntry label="globals/AnalogInputDelegate" offset="946" parentId="globals" symbolId="AnalogInputDelegate" type="class"/>
+<dataEntry label="globals/Rez" offset="1009" parentId="globals" symbolId="Rez" type="module"/>
+<dataEntry label="globals/AnalogSettingsDelegate" offset="1072" parentId="globals" symbolId="AnalogSettingsDelegate" type="class"/>
+<dataEntry label="globals/AnalogView" offset="1127" parentId="globals" symbolId="AnalogView" type="class"/>
+<dataEntry label="globals/AnalogDelegate" offset="1638" parentId="globals" symbolId="AnalogDelegate" type="class"/>
+<dataEntry label="globals/AnalogSettingsMenu" offset="1709" parentId="globals" symbolId="AnalogSettingsMenu" type="class"/>
+<dataEntry label="globals/AnalogSettingsMenuDelegate" offset="1756" parentId="globals" symbolId="AnalogSettingsMenuDelegate" type="class"/>
+<dataEntry label="globals/AnalogGoalView" offset="1827" parentId="globals" symbolId="AnalogGoalView" type="class"/>
+<dataEntry label="globals/AnalogSettingsView" offset="1898" parentId="globals" symbolId="AnalogSettingsView" type="class"/>
+<dataEntry label="globals/Rez/Drawables" offset="1969" parentId="Rez" symbolId="Drawables" type="module"/>
+<dataEntry label="globals/Rez/Layouts" offset="2016" parentId="Rez" symbolId="Layouts" type="module"/>
+<dataEntry label="globals/Rez/Fonts" offset="2055" parentId="Rez" symbolId="Fonts" type="module"/>
+<dataEntry label="globals/Rez/Strings" offset="2094" parentId="Rez" symbolId="Strings" type="module"/>
+</dataEntryOffsetMappings>
+<functions>
+<functionEntry accessMode="public" endPc="268435729" name="&lt;init&gt;" parent="AnalogWatch" startPc="268435711">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435748" name="&lt;init&gt;" parent="AnalogInputDelegate" startPc="268435730">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435772" name="&lt;init&gt;" parent="Rez" startPc="268435749">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435791" name="&lt;init&gt;" parent="AnalogSettingsDelegate" startPc="268435773">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435824" name="&lt;init&gt;" parent="AnalogView" startPc="268435792">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435843" name="&lt;init&gt;" parent="AnalogDelegate" startPc="268435825">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435862" name="&lt;init&gt;" parent="AnalogSettingsMenu" startPc="268435844">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435881" name="&lt;init&gt;" parent="AnalogSettingsMenuDelegate" startPc="268435863">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435900" name="&lt;init&gt;" parent="AnalogGoalView" startPc="268435882">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435919" name="&lt;init&gt;" parent="AnalogSettingsView" startPc="268435901">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268435945" name="onStart" parent="AnalogWatch" startPc="268435920">
+<param id="state"/>
+<documentation><![CDATA[<div class="description"> Handle app startup<br/> <div class="param"> state Startup arguments</div><br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436045" name="getSettingsView" parent="AnalogWatch" startPc="268435946">
+<documentation><![CDATA[<div class="description"> This method runs when a goal is triggered and the goal view is started.<br/> <div class="param"> goal The goal type that triggered</div><br/> <div class="returns">Returns  The view to push</div><br/> Return the settings view and delegate<br/> <div class="returns">Returns  Array Pair [View, Delegate]</div><br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436227" name="getInitialView" parent="AnalogWatch" startPc="268436046">
+<documentation><![CDATA[<div class="description"> Return the initial view for the app<br/> <div class="returns">Returns  Array Pair [View, Delegate] or Array [View]</div><br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436294" name="initialize" parent="AnalogWatch" startPc="268436228">
+<documentation><![CDATA[<div class="description"> Constructor<br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436297" name="onStop" parent="AnalogWatch" startPc="268436295">
+<param id="state"/>
+<documentation><![CDATA[<div class="description"> Handle app shutdown<br/> <div class="param"> state Shutdown arguments</div><br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436328" name="initialize" parent="AnalogInputDelegate" startPc="268436298">
+<param id="view"/>
+<documentation><![CDATA[<div class="description"> Constructor<br/> <div class="param"> view The analog view</div><br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436372" name="onKey" parent="AnalogInputDelegate" startPc="268436329">
+<param id="keyEvent"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="&lt;init&gt;" parent="Drawables">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="&lt;init&gt;" parent="Layouts">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="&lt;init&gt;" parent="Fonts">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" name="&lt;init&gt;" parent="Strings">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436456" name="onMenu" parent="AnalogSettingsDelegate" startPc="268436373">
+<documentation><![CDATA[<div class="description"> Handle the menu event<br/> <div class="returns">Returns  true if handled, false otherwise</div><br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436477" name="initialize" parent="AnalogSettingsDelegate" startPc="268436457">
+<documentation><![CDATA[<div class="description"> Constructor<br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436490" name="turnPartialUpdatesOff" parent="AnalogView" startPc="268436478">
+<documentation><![CDATA[<div class="description"> Turn off partial updates<br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268436941" name="drawHashMarks" parent="AnalogView" startPc="268436491">
+<param id="dc"/>
+<param id="drawHashes"/>
+<param id="drawHours"/>
+<documentation><![CDATA[<div class="description"> Draw the hash mark symbols on the watch<br/> <div class="param"> dc Device context</div><br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268437033" name="drawMove" parent="AnalogView" startPc="268436942">
+<param id="dc"/>
+<param id="text_color"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="private" endPc="268437082" name="&lt;globals/AnalogView/&lt;&gt;drawBackground&gt;" parent="AnalogView" startPc="268437034">
+<param id="dc"/>
+<documentation><![CDATA[<div class="description"> Draw the watch face background<br/> onUpdate uses this method to transfer newly rendered Buffered Bitmaps<br/> to the main display.<br/> onPartialUpdate uses this to blank the second hand from the previous<br/> second before outputting the new one.<br/> <div class="param"> dc Device context</div><br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268438390" name="onLayout" parent="AnalogView" startPc="268437083">
+<param id="dc"/>
+<documentation><![CDATA[<div class="description"> Configure the layout of the watchface for this device<br/> <div class="param"> dc Device context</div><br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="private" endPc="268438393" name="&lt;globals/AnalogView/&lt;&gt;drawHashMarksOld&gt;" parent="AnalogView" startPc="268438391">
+<param id="dc"/>
+<documentation><![CDATA[<div class="description"> Draws the clock tick marks around the outside edges of the screen.<br/> <div class="param"> dc Device context</div><br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268438592" name="onPartialUpdate" parent="AnalogView" startPc="268438394">
+<param id="dc"/>
+<documentation><![CDATA[<div class="description"> Handle the partial update event<br/> <div class="param"> dc Device context</div><br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="private" endPc="268438991" name="&lt;globals/AnalogView/&lt;&gt;generateHandCoordinates&gt;" parent="AnalogView" startPc="268438593">
+<param id="centerPoint"/>
+<param id="angle"/>
+<param id="handLength"/>
+<param id="tailLength"/>
+<param id="width"/>
+<documentation><![CDATA[<div class="description"> This function is used to generate the coordinates of the 4 corners of the polygon<br/> used to draw a watch hand. The coordinates are generated with specified length,<br/> tail length, and width and rotated around the center point at the provided angle.<br/> 0 degrees is at the 12 o'clock position, and increases in the clockwise direction.<br/> <div class="param"> centerPoint The center of the clock</div><br/> <div class="param"> angle Angle of the hand in radians</div><br/> <div class="param"> handLength The length of the hand from the center to point</div><br/> <div class="param"> tailLength The length of the tail of the hand</div><br/> <div class="param"> width The width of the watch hand</div><br/> <div class="returns">Returns  The coordinates of the watch hand</div><br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268439089" name="onEnterSleep" parent="AnalogView" startPc="268438992">
+<documentation><![CDATA[<div class="description"> This method is called when the device re-enters sleep mode.<br/> Set the isAwake flag to let onUpdate know it should stop rendering the second hand.<br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268439583" name="drawBattery" parent="AnalogView" startPc="268439090">
+<param id="dc"/>
+<param id="primaryColor"/>
+<param id="lowBatteryColor"/>
+<param id="fullBatteryColor"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268439946" name="drawSecondHashMarks" parent="AnalogView" startPc="268439584">
+<param id="options"/>
+<documentation><![CDATA[<div class="description"> Draw the hash mark symbols on the watch<br/> <div class="param"> dc Device context</div><br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268440415" name="drawDate" parent="AnalogView" startPc="268439947">
+<param id="dc"/>
+<param id="text_color"/>
+<param id="reverse"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="private" endPc="268440807" name="&lt;globals/AnalogView/&lt;&gt;getBoundingBox&gt;" parent="AnalogView" startPc="268440416">
+<param id="points"/>
+<documentation><![CDATA[<div class="description"> Compute a bounding box from the passed in points<br/> <div class="param"> points Points to include in bounding box</div><br/> <div class="returns">Returns  The bounding box points</div><br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="private" endPc="268441129" name="&lt;globals/AnalogView/&lt;&gt;drawDateString&gt;" parent="AnalogView" startPc="268440808">
+<param id="dc"/>
+<param id="x"/>
+<param id="y"/>
+<param id="reverse"/>
+<documentation><![CDATA[<div class="description"> Draw the date string into the provided buffer at the specified location<br/> <div class="param"> dc Device context</div><br/> <div class="param"> x The x location of the text</div><br/> <div class="param"> y The y location of the text</div><br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268441227" name="onExitSleep" parent="AnalogView" startPc="268441130">
+<documentation><![CDATA[<div class="description"> This method is called when the device exits sleep mode.<br/> Set the isAwake flag to let onUpdate know it should render the second hand.<br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268442884" name="drawHand" parent="AnalogView" startPc="268441228">
+<param id="dc"/>
+<param id="angle"/>
+<param id="length"/>
+<param id="width"/>
+<param id="overheadLine"/>
+<param id="drawCircleOnTop"/>
+<param id="drawline"/>
+<param id="squeezeX"/>
+<param id="squeezeY"/>
+<documentation><![CDATA[<div class="description"> Draw the watch hand<br/> <div class="param"> dc Device Context to Draw</div><br/> <div class="param"> angle Angle to draw the watch hand</div><br/> <div class="param"> length Length of the watch hand</div><br/> <div class="param"> width Width of the watch hand</div><br/> <div class="param"> draw a circle @ the end</div><br/> <div class="param"> draw it as a line instead of polygon</div><br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268443032" name="drawMoveDots" parent="AnalogView" startPc="268442885">
+<param id="dc"/>
+<param id="numDots"/>
+<param id="text_color"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268444017" name="readStorageValues" parent="AnalogView" startPc="268443033">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268444235" name="drawHands" parent="AnalogView" startPc="268444018">
+<param id="dc"/>
+<param id="clock_hour"/>
+<param id="clock_min"/>
+<param id="clock_sec"/>
+<param id="hour_color"/>
+<param id="min_color"/>
+<param id="sec_color"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268444385" name="initialize" parent="AnalogView" startPc="268444236">
+<documentation><![CDATA[<div class="description"> Initialize variables for this view<br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268446419" name="onUpdate" parent="AnalogView" startPc="268444386">
+<param id="dc"/>
+<documentation><![CDATA[<div class="description"> Handle the update event<br/> <div class="param"> dc Device context</div><br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268446435" name="resetSecondHandCounter" parent="AnalogView" startPc="268446420">
+<documentation><![CDATA[<div class="description"> Turn off partial updates<br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268446466" name="initialize" parent="AnalogDelegate" startPc="268446436">
+<param id="view"/>
+<documentation><![CDATA[<div class="description"> Constructor<br/> <div class="param"> view The analog view</div><br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268446547" name="onPowerBudgetExceeded" parent="AnalogDelegate" startPc="268446467">
+<param id="powerInfo"/>
+<documentation><![CDATA[<div class="description"> The onPowerBudgetExceeded callback is called by the system if the<br/> onPartialUpdate method exceeds the allowed power budget. If this occurs,<br/> the system will stop invoking onPartialUpdate each second, so we notify the<br/> view here to let the rendering methods know they should not be rendering a<br/> second hand.<br/> <div class="param"> powerInfo Information about the power budget</div><br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268446570" name="onKey" parent="AnalogDelegate" startPc="268446548">
+<param id="keyEvent"/>
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268447454" name="initialize" parent="AnalogSettingsMenu" startPc="268446571">
+<documentation><![CDATA[<div class="description"> Constructor<br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268447478" name="onBack" parent="AnalogSettingsMenuDelegate" startPc="268447455">
+<documentation/>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268447519" name="initialize" parent="AnalogSettingsMenuDelegate" startPc="268447479">
+<documentation><![CDATA[<div class="description"> Constructor<br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268447799" name="onSelect" parent="AnalogSettingsMenuDelegate" startPc="268447520">
+<param id="menuItem"/>
+<documentation><![CDATA[<div class="description"> Handle a menu item being selected<br/> <div class="param"> menuItem The menu item selected</div><br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268447814" name="onLayout" parent="AnalogGoalView" startPc="268447800">
+<param id="dc"/>
+<documentation><![CDATA[<div class="description"> Load your resources here<br/> <div class="param"> dc Device context</div><br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268447956" name="initialize" parent="AnalogGoalView" startPc="268447815">
+<param id="goal"/>
+<documentation><![CDATA[<div class="description"> Initialize the string to display on the goal view.<br/> <div class="param"> goal The goal triggered</div><br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268448451" name="onUpdate" parent="AnalogGoalView" startPc="268447957">
+<param id="dc"/>
+<documentation><![CDATA[<div class="description"> Update the clock face graphics<br/> <div class="param"> dc Device Context</div><br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268448568" name="onShow" parent="AnalogSettingsView" startPc="268448452">
+<documentation><![CDATA[<div class="description"> Handle the update event<br/> <div class="param"> dc Device context</div><br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268448622" name="initialize" parent="AnalogSettingsView" startPc="268448569">
+<documentation><![CDATA[<div class="description"> Constructor<br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268448783" name="onUpdate" parent="AnalogSettingsView" startPc="268448623">
+<param id="dc"/>
+<documentation><![CDATA[<div class="description"> Handle the update event<br/> <div class="param"> dc Device context</div><br/></div>]]></documentation>
+</functionEntry>
+<functionEntry accessMode="public" endPc="268448947" name="WatchFace" parent="Layouts" startPc="268448784">
+<param id="dc"/>
+<documentation/>
+</functionEntry>
+</functions>
+</debugInfo>
