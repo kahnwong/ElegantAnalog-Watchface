@@ -154,7 +154,7 @@ class AnalogView extends WatchUi.WatchFace {
 
         //get battery icon position
         batt_x = (width_screen/2) - (batt_width_rect/2) - (batt_width_rect_small/2);
-        batt_y = (height_screen* .78) - (batt_height_rect/2);
+        batt_y = (height_screen* .77) - (batt_height_rect/2);
         batt_x_small = batt_x + batt_width_rect;
         batt_y_small = batt_y + ((batt_height_rect - batt_height_rect_small) / 2);
 
@@ -287,7 +287,7 @@ class AnalogView extends WatchUi.WatchFace {
         sec_width_clipbox = sec_width + 1;
         //Storage.getValue("Wide Second") = Storage.getValue("Wide Second") ? true : false;
     
-        sec_length = $.Options_Dict["Long Second"] ? width_screen*.475 : width_screen*.195;
+        sec_length = $.Options_Dict["Long Second"] ? width_screen*.475 : width_screen*.175;
 
         
         
@@ -376,19 +376,20 @@ class AnalogView extends WatchUi.WatchFace {
             
             var drawHashes = true;
             var drawHours = true;
+            var avoidCircle = $.Options_Dict["Show Date"] ? true : false;
             
             if (($.Options_Dict["Second Hashes"] && $.Options_Dict["Long Second"]) || !$.Options_Dict["Hour Hashes"] ) { drawHashes = false;} //Don't draw hour hashes if LONG SECOND HAND & SECOND HASHES (they overlap) OR if they are just turned off.
 
             if (!$.Options_Dict["Hour Numbers"]) {drawHours = false;}
 
-            drawHashMarks(targetDc, drawHashes, drawHours);
+            drawHashMarks(targetDc, drawHashes, drawHours, avoidCircle);
             
             if ($.Options_Dict["Second Hashes"]) {
                 if (sec_length<50) {
                     //[:dc=dc, :radius=radius, :includeOnes=include, length1, width1, includeFives, length5, width5, avoidCircle,squeezeX, squeezeY]
                     drawSecondHashMarks({:dc=>targetDc,:radius=>sec_length + 5
                     ,:includeOnes=> true,
-                    :length1=>2, :width1=>2, :includeFives=>true, :length5=>5, :width5=>2, :avoidCircl=>false, :squeezeX=>false, :squeezeY=>false});
+                    :length1=>2, :width1=>1, :includeFives=>true, :length5=>5, :width5=>2, :avoidCircle=>false, :squeezeX=>false, :squeezeY=>false});
                 } else {
                     var l = 100;
                     var sub1 = 13;
@@ -399,9 +400,10 @@ class AnalogView extends WatchUi.WatchFace {
                         sub1 = 14;
                         sub2 = 7;
                     }
+                    var ac = $.Options_Dict["Show Date"] ? true : false;
                     //drawSecondHashMarks(targetDc, l, true, l - sec_length - 15, 1, true, l-sec_length-12, 2, true, true, true);
                     drawSecondHashMarks({:dc=>targetDc,:radius=>l,:includeOnes=> true,
-                    :length1=>l-sec_length-sub1, :width1=>2, :includeFives=>true, :length5=>l-sec_length-sub2, :width5=>6, :avoidCircle=>true, :squeezeX=>true, :squeezeY=>true});
+                    :length1=>l-sec_length-sub1, :width1=>2, :includeFives=>true, :length5=>l-sec_length-sub2, :width5=>6, :avoidCircle=>ac, :squeezeX=>true, :squeezeY=>true});
                 }
                 //drawSecondHashMarks(dc, radius, includeOnes, length1, width1, includeFives, length5, width5)
             }
@@ -447,7 +449,9 @@ class AnalogView extends WatchUi.WatchFace {
         {
             drawMove(targetDc, Gfx.COLOR_WHITE);
             //drawMoveDots(targetDc, info.moveBarLevel, Gfx.COLOR_WHITE);
-            drawDate(targetDc, Gfx.COLOR_WHITE, true);
+            if ($.Options_Dict["Show Date"]) {
+                drawDate(targetDc, Gfx.COLOR_WHITE, true);
+            }
             
 
         } else {
@@ -459,7 +463,9 @@ class AnalogView extends WatchUi.WatchFace {
             if ($.Options_Dict["Show Move"]) { 
                 drawMoveDots(targetDc, moveBarLevel, Gfx.COLOR_WHITE);
             }
-            drawDate(targetDc, Gfx.COLOR_WHITE, false);
+            if ($.Options_Dict["Show Date"]) {
+                drawDate(targetDc, Gfx.COLOR_WHITE, false);
+            }
         }        
         
 
@@ -800,6 +806,10 @@ class AnalogView extends WatchUi.WatchFace {
         $.Options_Dict["Show Move"] = temp  != null ? temp : true;
         Storage.setValue("Show Move",$.Options_Dict["Show Move"]);
 
+        temp = Storage.getValue("Show Date");
+        $.Options_Dict["Show Date"] = temp  != null ? temp : true;
+        Storage.setValue("Show Date",$.Options_Dict["Show Date"]);
+
         temp = Storage.getValue("Show Battery");
         $.Options_Dict["Show Battery"] = temp  != null ? temp : true;
         Storage.setValue("Show Battery",$.Options_Dict["Show Battery"]);        
@@ -954,10 +964,10 @@ class AnalogView extends WatchUi.WatchFace {
             }          
             
             result[i] = [ X , Y];
-            if (result[i][1]<minY) {minY = result[i][1];}
-            if (result[i][1]>maxY) {maxY = result[i][1];}
-            if (result[i][0]<minX) {minX = result[i][0];}
-            if (result[i][0]>maxX) {maxX = result[i][0];}
+            if (Y<minY) {minY = Y;}
+            if (Y>maxY) {maxY = Y;}
+            if (X<minX) {minX = X;}
+            if (X>maxX) {maxX = X;}
 
             /*
             if(drawCircleOnTop)
@@ -978,7 +988,7 @@ class AnalogView extends WatchUi.WatchFace {
             }
             */
         }
-        dc.setClip(minX  -4 ,minY -4,maxX-minX + 4,maxY-minY + 4);
+        dc.setClip(minX  -4 ,minY -4,maxX-minX + 8,maxY-minY + 8);
         //System.println("polygon:" + result);
         // Draw the polygon
         if (drawline== 1) {
@@ -1037,7 +1047,7 @@ class AnalogView extends WatchUi.WatchFace {
 
     //! Draw the hash mark symbols on the watch
     //! @param dc Device context
-    function drawHashMarks(dc, drawHashes, drawHours)
+    function drawHashMarks(dc, drawHashes, drawHours, avoidCircle)
     {
         if (drawHours) {
             // Draw the numbers
@@ -1056,11 +1066,21 @@ class AnalogView extends WatchUi.WatchFace {
         }
 
         if (drawHashes) {
+            
             for(var i = 0; i < 12; i += 1)
             {
-                if(i != 0 && i != 3 && i != 6 && i != 9 && i != 1 && i != 2 )
+                if(i != 0 && i != 3 && i != 6 && i != 9 && ( !avoidCircle || (i != 1 && i != 2 )))
                 {
-                    drawHand(dc, hashMarksArray[i][0], 100, 2, hashMarksArray[i][1], false, 0, false, false);
+                    var adder = 0;
+                    var width_adder = 0;
+                    if (width_screen<175) {
+                        if (i==1) { adder = 3; width_adder = 4;}
+                        if (i==2) {adder = -7;}
+                    } else {
+                        if (i==1) { adder = -2; width_adder = 0;}
+                        if (i==2) {adder = -1;}
+                    }
+                    drawHand(dc, hashMarksArray[i][0], 100, 2 + width_adder, hashMarksArray[i][1]+adder, false, 0, false, false);
                     //drawHand(dc, angle, length, width, overheadLine, drawCircleOnTop)
                     
                 }

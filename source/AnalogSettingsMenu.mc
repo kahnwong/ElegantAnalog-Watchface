@@ -41,6 +41,9 @@ class AnalogSettingsMenu extends WatchUi.Menu2 {
         boolean = Storage.getValue("Show Battery") ? true : false;
         Menu2.addItem(new WatchUi.ToggleMenuItem("Show Battery %: No-Yes", null, "Show Battery", boolean, null));
 
+        boolean = Storage.getValue("Show Date") ? true : false;
+        Menu2.addItem(new WatchUi.ToggleMenuItem("Show Date: No-Yes", null, "Show Date", boolean, null));
+
         boolean = Storage.getValue("Hour Numbers") ? true : false;
         Menu2.addItem(new WatchUi.ToggleMenuItem("Hour Numbers: Off-On", null, "Hour Numbers", boolean, null));        
 

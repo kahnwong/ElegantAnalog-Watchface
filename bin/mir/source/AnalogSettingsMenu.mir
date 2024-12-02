@@ -17,9 +17,9 @@ class AnalogSettingsMenu extends WatchUi.Menu2{
     [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc"; @line = 15; ]
     public
     function initialize() as Void {
-E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_15_33_53_4_start:
+E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_15_33_56_4_start:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 17 8 ]
-        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_15_33_53_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_15_33_53_4_stop" ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_15_33_56_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_15_33_56_4_stop" ]
         %clockTime.1 = local;
         %tmp.2 = getv ? :System;
         %tmp.3 = getv function %tmp.2 :getClockTime;
@@ -86,7 +86,7 @@ E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMen
         %tmp.40 = newc %tmp.43 (%tmp.44, %tmp.51, %tmp.52, %tmp.53);
         invoke %tmp.38 %tmp.39(%tmp.40);
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 32 8 ]
-        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_15_33_53_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_15_33_53_4_stop" ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_15_33_56_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_15_33_56_4_stop" ]
         %boolean.2 = local;
 E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_32_22_32_63_begin:
         %tmp.54 = getm $.Toybox.Application.Storage;
@@ -204,136 +204,165 @@ E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMen
         %tmp.124 = newc %tmp.127 (%tmp.128, %tmp.129, %tmp.130, %tmp.132, %tmp.133);
         invoke %tmp.122 %tmp.123(%tmp.124);
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 44 8 ]
-E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_44_18_44_60_begin:
+E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_44_18_44_57_begin:
         %tmp.134 = getm $.Toybox.Application.Storage;
         %tmp.135 = getv function %tmp.134 :getValue;
-        %tmp.136 = "Hour Numbers";
+        %tmp.136 = "Show Date";
         %tmp.137 = invoke %tmp.134 %tmp.135(%tmp.136);
-        bf %tmp.137 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_44_18_44_60_false;
-E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_44_18_44_60_true:
+        bf %tmp.137 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_44_18_44_57_false;
+E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_44_18_44_57_true:
         %tmp.138 = true;
         push %tmp.138;
-        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_44_18_44_60_end;
-E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_44_18_44_60_false:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_44_18_44_57_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_44_18_44_57_false:
         %tmp.139 = false;
         push %tmp.139;
-E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_44_18_44_60_end:
-        %tmp.140 = phi [%tmp.137 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_44_18_44_60_begin] [%tmp.138 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_44_18_44_60_true] [%tmp.139 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_44_18_44_60_false] [%tmp.140 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_44_18_44_60_end];
+E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_44_18_44_57_end:
+        %tmp.140 = phi [%tmp.137 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_44_18_44_57_begin] [%tmp.138 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_44_18_44_57_true] [%tmp.139 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_44_18_44_57_false] [%tmp.140 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_44_18_44_57_end];
         lputv %boolean.2 %tmp.140;
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 45 8 ]
         %tmp.142 = getv ? :Menu2;
         %tmp.143 = getv function %tmp.142 :addItem;
         %tmp.146 = getm $.Toybox.WatchUi;
         %tmp.147 = getv function ? %tmp.146 :ToggleMenuItem;
-        %tmp.148 = "Hour Numbers: Off-On";
+        %tmp.148 = "Show Date: No-Yes";
         %tmp.149 = null;
-        %tmp.150 = "Hour Numbers";
+        %tmp.150 = "Show Date";
         %tmp.152 = lgetv %boolean.2;
         %tmp.153 = null;
         %tmp.144 = newc %tmp.147 (%tmp.148, %tmp.149, %tmp.150, %tmp.152, %tmp.153);
         invoke %tmp.142 %tmp.143(%tmp.144);
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 47 8 ]
-E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_47_18_47_59_begin:
+E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_47_18_47_60_begin:
         %tmp.154 = getm $.Toybox.Application.Storage;
         %tmp.155 = getv function %tmp.154 :getValue;
-        %tmp.156 = "Hour Hashes";
+        %tmp.156 = "Hour Numbers";
         %tmp.157 = invoke %tmp.154 %tmp.155(%tmp.156);
-        bf %tmp.157 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_47_18_47_59_false;
-E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_47_18_47_59_true:
+        bf %tmp.157 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_47_18_47_60_false;
+E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_47_18_47_60_true:
         %tmp.158 = true;
         push %tmp.158;
-        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_47_18_47_59_end;
-E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_47_18_47_59_false:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_47_18_47_60_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_47_18_47_60_false:
         %tmp.159 = false;
         push %tmp.159;
-E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_47_18_47_59_end:
-        %tmp.160 = phi [%tmp.157 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_47_18_47_59_begin] [%tmp.158 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_47_18_47_59_true] [%tmp.159 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_47_18_47_59_false] [%tmp.160 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_47_18_47_59_end];
+E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_47_18_47_60_end:
+        %tmp.160 = phi [%tmp.157 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_47_18_47_60_begin] [%tmp.158 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_47_18_47_60_true] [%tmp.159 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_47_18_47_60_false] [%tmp.160 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_47_18_47_60_end];
         lputv %boolean.2 %tmp.160;
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 48 8 ]
         %tmp.162 = getv ? :Menu2;
         %tmp.163 = getv function %tmp.162 :addItem;
         %tmp.166 = getm $.Toybox.WatchUi;
         %tmp.167 = getv function ? %tmp.166 :ToggleMenuItem;
-        %tmp.168 = "Hour Hashes: Off-On";
+        %tmp.168 = "Hour Numbers: Off-On";
         %tmp.169 = null;
-        %tmp.170 = "Hour Hashes";
+        %tmp.170 = "Hour Numbers";
         %tmp.172 = lgetv %boolean.2;
         %tmp.173 = null;
         %tmp.164 = newc %tmp.167 (%tmp.168, %tmp.169, %tmp.170, %tmp.172, %tmp.173);
         invoke %tmp.162 %tmp.163(%tmp.164);
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 50 8 ]
-E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_50_18_50_61_begin:
+E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_50_18_50_59_begin:
         %tmp.174 = getm $.Toybox.Application.Storage;
         %tmp.175 = getv function %tmp.174 :getValue;
-        %tmp.176 = "Second Hashes";
+        %tmp.176 = "Hour Hashes";
         %tmp.177 = invoke %tmp.174 %tmp.175(%tmp.176);
-        bf %tmp.177 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_50_18_50_61_false;
-E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_50_18_50_61_true:
+        bf %tmp.177 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_50_18_50_59_false;
+E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_50_18_50_59_true:
         %tmp.178 = true;
         push %tmp.178;
-        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_50_18_50_61_end;
-E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_50_18_50_61_false:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_50_18_50_59_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_50_18_50_59_false:
         %tmp.179 = false;
         push %tmp.179;
-E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_50_18_50_61_end:
-        %tmp.180 = phi [%tmp.177 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_50_18_50_61_begin] [%tmp.178 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_50_18_50_61_true] [%tmp.179 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_50_18_50_61_false] [%tmp.180 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_50_18_50_61_end];
+E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_50_18_50_59_end:
+        %tmp.180 = phi [%tmp.177 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_50_18_50_59_begin] [%tmp.178 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_50_18_50_59_true] [%tmp.179 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_50_18_50_59_false] [%tmp.180 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_50_18_50_59_end];
         lputv %boolean.2 %tmp.180;
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 51 8 ]
         %tmp.182 = getv ? :Menu2;
         %tmp.183 = getv function %tmp.182 :addItem;
         %tmp.186 = getm $.Toybox.WatchUi;
         %tmp.187 = getv function ? %tmp.186 :ToggleMenuItem;
-        %tmp.188 = "Second Hashes: Off-On";
+        %tmp.188 = "Hour Hashes: Off-On";
         %tmp.189 = null;
-        %tmp.190 = "Second Hashes";
+        %tmp.190 = "Hour Hashes";
         %tmp.192 = lgetv %boolean.2;
         %tmp.193 = null;
         %tmp.184 = newc %tmp.187 (%tmp.188, %tmp.189, %tmp.190, %tmp.192, %tmp.193);
         invoke %tmp.182 %tmp.183(%tmp.184);
-E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_15_33_53_4_stop:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 53 8 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_53_18_53_61_begin:
+        %tmp.194 = getm $.Toybox.Application.Storage;
+        %tmp.195 = getv function %tmp.194 :getValue;
+        %tmp.196 = "Second Hashes";
+        %tmp.197 = invoke %tmp.194 %tmp.195(%tmp.196);
+        bf %tmp.197 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_53_18_53_61_false;
+E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_53_18_53_61_true:
+        %tmp.198 = true;
+        push %tmp.198;
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_53_18_53_61_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_53_18_53_61_false:
+        %tmp.199 = false;
+        push %tmp.199;
+E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_53_18_53_61_end:
+        %tmp.200 = phi [%tmp.197 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_53_18_53_61_begin] [%tmp.198 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_53_18_53_61_true] [%tmp.199 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_53_18_53_61_false] [%tmp.200 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_53_18_53_61_end];
+        lputv %boolean.2 %tmp.200;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 54 8 ]
+        %tmp.202 = getv ? :Menu2;
+        %tmp.203 = getv function %tmp.202 :addItem;
+        %tmp.206 = getm $.Toybox.WatchUi;
+        %tmp.207 = getv function ? %tmp.206 :ToggleMenuItem;
+        %tmp.208 = "Second Hashes: Off-On";
+        %tmp.209 = null;
+        %tmp.210 = "Second Hashes";
+        %tmp.212 = lgetv %boolean.2;
+        %tmp.213 = null;
+        %tmp.204 = newc %tmp.207 (%tmp.208, %tmp.209, %tmp.210, %tmp.212, %tmp.213);
+        invoke %tmp.202 %tmp.203(%tmp.204);
+E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_15_33_56_4_stop:
     }
 }
-[ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc"; @line = 57; ]
+[ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc"; @line = 60; ]
 class AnalogSettingsMenuDelegate extends WatchUi.Menu2InputDelegate{
-    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc"; @line = 57; ]
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc"; @line = 60; ]
     <init> {
     }
-    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc"; @line = 57; ]
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc"; @line = 60; ]
     static
     <init> {
     }
-    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc"; @line = 59; @position = 8; ]
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc"; @line = 62; @position = 8; ]
     var mainView;
     //! Constructor
-    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc"; @line = 61; ]
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc"; @line = 64; ]
     public
     function initialize() as Void {
-E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_61_33_64_4_start:
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 62 8 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_64_33_67_4_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 65 8 ]
         %tmp.2 = getv ? :Menu2InputDelegate;
         %tmp.3 = getv function %tmp.2 :initialize;
         invoke %tmp.2 %tmp.3();
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 63 8 ]
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 66 8 ]
         %tmp.4 = getm $;
         %tmp.5 = getv %tmp.4 :AnalogView;
         putv self :mainView %tmp.5;
-E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_61_33_64_4_stop:
+E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_64_33_67_4_stop:
     }
     //! Handle a menu item being selected
     //! @param menuItem The menu item selected
-    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc"; @line = 68; ]
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc"; @line = 71; ]
     public
     function onSelect(menuItem as MenuItem) as Void {
-E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_68_59_85_4_start:
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 69 8 ]
-E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_69_8_73_8_if_stmt:
+E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_71_59_88_4_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 72 8 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_72_8_76_8_if_stmt:
         %tmp.2 = lgetv %menuItem;
         %tmp.4 = getv ? :ToggleMenuItem;
         %tmp.5 = isa %tmp.2 %tmp.4;
-        bf %tmp.5 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_69_8_73_8_if_end;
-E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_69_8_73_8_if_true:
-E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_69_48_73_8_start:
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 70 12 ]
+        bf %tmp.5 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_72_8_76_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_72_8_76_8_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_72_48_76_8_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 73 12 ]
         %tmp.6 = getm $.Toybox.Application.Storage;
         %tmp.7 = getv function %tmp.6 :setValue;
         %tmp.8 = lgetv %menuItem;
@@ -346,7 +375,7 @@ E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMen
         %tmp.15 = getv function %tmp.14 :isEnabled;
         %tmp.16 = invoke %tmp.14 %tmp.15();
         invoke %tmp.6 %tmp.7(%tmp.12, %tmp.16);
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 71 12 ]
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 74 12 ]
         %tmp.17 = getm $;
         %tmp.18 = getv %tmp.17 :Options_Dict;
         %tmp.19 = lgetv %menuItem;
@@ -359,30 +388,30 @@ E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMen
         %tmp.26 = invoke %tmp.24 %tmp.25();
         %tmp.27 = as %tmp.26 String;
         aputv %tmp.18 %tmp.27 %tmp.22;
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 72 12 ]
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 75 12 ]
         %tmp.28 = getm $;
         %tmp.29 = true;
         putv %tmp.28 :Settings_ran %tmp.29;
-E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_69_48_73_8_stop:
-        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_69_8_73_8_if_end;
-E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_69_8_73_8_if_end:
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 75 8 ]
-        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_68_59_85_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_68_59_85_4_stop" ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_72_48_76_8_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_72_8_76_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_72_8_76_8_if_end:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 78 8 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_71_59_88_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_71_59_88_4_stop" ]
         %id.1 = local;
         %tmp.30 = lgetv %menuItem;
         %tmp.31 = getv function %tmp.30 :getId;
         %tmp.32 = invoke %tmp.30 %tmp.31();
         lputv %id.1 %tmp.32;
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 76 8 ]
-E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_76_8_84_8_if_stmt:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 79 8 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_79_8_87_8_if_stmt:
         %tmp.33 = lgetv %id.1;
         %tmp.34 = getv function %tmp.33 :equals;
         %tmp.35 = "Infinite Second Option";
         %tmp.36 = invoke %tmp.33 %tmp.34(%tmp.35);
-        bf %tmp.36 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_76_8_84_8_if_end;
-E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_76_8_84_8_if_true:
-E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_76_48_84_8_start:
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 77 12 ]
+        bf %tmp.36 @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_79_8_87_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_79_8_87_8_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_79_48_87_8_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 80 12 ]
         %tmp.37 = getm $;
         %tmp.38 = getv %tmp.37 :Options_Dict;
         %tmp.39 = getm $;
@@ -395,7 +424,7 @@ E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMen
         %tmp.48 = mod %tmp.45 %tmp.47;
         %tmp.50 = lgetv %id.1;
         aputv %tmp.38 %tmp.50 %tmp.48;
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 78 12 ]
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 81 12 ]
         %tmp.51 = lgetv %menuItem;
         %tmp.52 = getv function %tmp.51 :setSubLabel;
         %tmp.53 = getm $;
@@ -406,7 +435,7 @@ E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMen
         %tmp.59 = agetv %tmp.56 %tmp.58;
         %tmp.60 = agetv %tmp.54 %tmp.59;
         invoke %tmp.51 %tmp.52(%tmp.60);
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 80 12 ]
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 83 12 ]
         %tmp.61 = getm $.Toybox.Application.Storage;
         %tmp.62 = getv function %tmp.61 :setValue;
         %tmp.64 = lgetv %id.1;
@@ -416,25 +445,25 @@ E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMen
         %tmp.69 = lgetv %id.1;
         %tmp.70 = agetv %tmp.67 %tmp.69;
         invoke %tmp.61 %tmp.62(%tmp.65, %tmp.70);
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 81 12 ]
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 84 12 ]
         %tmp.71 = getm $;
         %tmp.72 = true;
         putv %tmp.71 :Settings_ran %tmp.72;
-E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_76_48_84_8_stop:
-        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_76_8_84_8_if_end;
-E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_76_8_84_8_if_end:
-E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_68_59_85_4_stop:
+E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_79_48_87_8_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_79_8_87_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_79_8_87_8_if_end:
+E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_71_59_88_4_stop:
     }
-    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc"; @line = 87; ]
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc"; @line = 90; ]
     function onBack() {
-E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_87_22_90_4_start:
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 88 8 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_90_22_93_4_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc" 91 8 ]
         %tmp.1 = getm $.Toybox.WatchUi;
         %tmp.2 = getv function %tmp.1 :popView;
         %tmp.3 = getm $.Toybox.WatchUi;
         %tmp.4 = getv %tmp.3 :SLIDE_IMMEDIATE;
         invoke %tmp.1 %tmp.2(%tmp.4);
-E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_87_22_90_4_stop:
+E_Data_Brent_Garmin_App_Development_SDK_examples_Analog_source_AnalogSettingsMenu_mc_90_22_93_4_stop:
     }
 }
 [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\Analog\source\AnalogSettingsMenu.mc"; @line = 7; ]
