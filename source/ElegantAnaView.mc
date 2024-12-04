@@ -58,6 +58,15 @@ class ElegantAnaView extends WatchUi.WatchFace {
     var dmd_w;
     var dmd_h;
 
+    var stepGoal;
+    var steps;
+    var activeMinutesWeek;
+    var activeMinutesWeekGoal;
+    var moveBarLevel;
+    var moveExpired;
+    var info;
+
+
     //! Initialize variables for this view
     public function initialize() {
         //System.println("5B");
@@ -191,6 +200,118 @@ class ElegantAnaView extends WatchUi.WatchFace {
         sec_type = 2;      
 
         setLayout(Rez.Layouts.WatchFace(dc));
+
+        
+        //System.println("2C");
+
+        // We always want to refresh the full screen when we get a regular onUpdate call.
+
+        //sec_length = $.Options_Dict["Long Second"] ? width_screen*.475 : width_screen*.175;
+        //TEST circle
+        //sec_length = 25; //for small circle
+        switch ($.Options_Dict["Second Display"]) {
+            case 1: {
+                sec_length = width_screen*.175;
+                centerX_seconds = centerX_main;
+                centerY_seconds = centerY_main;
+                break;
+            }
+            case 2: {
+                sec_length = centerY_circle-5;
+                centerX_seconds = centerX_circle;
+                centerY_seconds = centerY_circle;
+                break;
+            }
+            default: {
+                sec_length = width_screen*.475;
+                centerX_seconds = centerX_main;
+                centerY_seconds = centerY_main;
+                break;
+            }
+        }
+
+        
+        
+        //sec_width = $.Options_Dict["Wide Second"] ? 2 : 1;
+        var sho = $.Options_Dict["Second Hand Option"];
+        //sec_type:
+            //    0=regular filled rectangle
+            //    1=thin line
+            //      2=triangle/point
+            //      3 = rectangle outline
+            //      4 = blanked rectangle outline
+            //      5 = triangle outline
+            //      6 = blanked triangle outline
+            
+        //System.println("ODSD: " + $.Options_Dict["Second Display"]  + " : "+ sho);
+        switch (sho) {
+            case 1 : { //Outline Pointer
+                sec_width = 5; //in pixels
+                if ($.Options_Dict["Second Display"] != 0) {sec_width = 8;} //fat little pointer for the small center hand
+                sec_base = -5; //how far from base to start shape - positive=opposite side of center; negative = same side of center
+                if ($.Options_Dict["Second Display"] == 2) {sec_base = -7;} //center circle smaller in inset circle
+                sec_type = 6; //0 = rectangle; 1=line; 2= triangle
+                if ($.Options_Dict["Second Display"] == 2) {sec_type = 5;}
+                break;
+            }
+            case 2 : { //Big Blunt
+                sec_width = 5; //in pixels
+                sec_base = -5; //how far from base to start shape - positive=opposite side of center; negative = same side of center
+                if ($.Options_Dict["Second Display"] == 2) {sec_base = -7;} //center circle smaller in inset circle
+                sec_type = 0; //0 = rectangle; 1=line; 2= triangle
+                break;
+            }
+            case 3 : { //Outline Blunt
+                sec_width = 6; //in pixels
+                sec_base = -5; //how far from base to start shape - positive=opposite side of center; negative = same side of center
+                if ($.Options_Dict["Second Display"] == 2) {sec_base = -7;} //center circle smaller in inset circle
+                sec_type = 4; //0 = rectangle; 1=line; 2= triangle
+                if ($.Options_Dict["Second Display"] == 2) {sec_type = 3;}
+                break;
+            }
+                                             
+            case 4: { //Big Needle
+                sec_width = 1; //in pixels
+                sec_base = -5; //how far from base to start shape - positive=opposite side of center; negative = same side of center
+                if ($.Options_Dict["Second Display"] == 2) {sec_base = -7;} //center circle smaller in inset circle
+                sec_type = 1; //0 = rectangle; 1=line; 2= triangle, = outline, 4=blanked outline
+                break;      
+            }   
+            case 5 : { //Small Block
+                sec_width = 10; //in pixels
+                
+                sec_base = 12 - sec_length; //how far from base to start shape - positive=opposite side of center; negative = same side of center
+                
+                if ($.Options_Dict["Second Display"] != 0) {sec_width = 6; sec_base = 10 - sec_length;} //fat little pointer for the small center hand
+                sec_type = 0; //0 = rectangle; 1=line; 2= triangle
+
+                break;
+            }
+            case 6 : { //Small Pointer
+                sec_width = 10; //in pixels
+                sec_base = 12 - sec_length; //how far from base to start shape - positive=opposite side of center; negative = same side of center
+                sec_type = 2; //0 = rectangle; 1=line; 2= triangle
+
+                break;
+            }
+            case 7 : { //Small Needle
+                sec_width = 1; //in pixels
+                sec_base = 10 - sec_length; //how far from base to start shape - positive=opposite side of center; negative = same side of center
+                sec_type = 1; //0 = rectangle; 1=line; 2= triangle
+
+                break;
+            }                             
+            default : { //Big Pointer (Case 0)
+                sec_width = 4; //in pixels
+                if ($.Options_Dict["Second Display"] != 0) {sec_width = 8;} //fat little pointer for the small center hand
+                sec_base = -5; //how far from base to start shape - positive=opposite side of center; negative = same side of center
+                if ($.Options_Dict["Second Display"] == 2) {sec_base = -7;} //center circle smaller in inset circle
+                sec_type = 2; //0 = rectangle; 1=line; 2= triangle
+                break;
+            }
+
+        }
+
     }
 
     //! This function is used to generate the coordinates of the 4 corners of the polygon
@@ -270,6 +391,30 @@ class ElegantAnaView extends WatchUi.WatchFace {
         }
         */
     }
+
+    var getActivityData_inited = false;
+
+    private function getActivityData() {
+
+        getActivityData_inited = true;
+
+        info = Toybox.ActivityMonitor.getInfo();                            
+
+
+        //if ($.Options_Dict["Show Move"]) {
+        
+        stepGoal = info.stepGoal;
+        steps = info.steps;
+        if (stepGoal == null || stepGoal == 0) {stepGoal=1500;}
+        if (steps == null) {steps=0;}
+        if (steps instanceof Lang.String ) { steps = steps.toFloat();}
+
+        activeMinutesWeek = info.activeMinutesWeek.total;
+        activeMinutesWeekGoal = info.activeMinutesWeekGoal;
+        if (activeMinutesWeekGoal == null || activeMinutesWeekGoal == 0) {activeMinutesWeekGoal=150;}
+        if ( activeMinutesWeek == null) { activeMinutesWeek=0;}    
+    }
+
     //var testMBL = 0; //for testing
 
     var update_ran = false;
@@ -297,116 +442,6 @@ class ElegantAnaView extends WatchUi.WatchFace {
             System.println(clockTime.hour +":" + clockTime.min +" - current second hand counter = " + _secondHandCounter);
         }
         update_ran = true;
-
-        //System.println("2C");
-
-        // We always want to refresh the full screen when we get a regular onUpdate call.
-
-        //sec_length = $.Options_Dict["Long Second"] ? width_screen*.475 : width_screen*.175;
-        //TEST circle
-        //sec_length = 25; //for small circle
-        switch ($.Options_Dict["Second Display"]) {
-            case 1: {
-                sec_length = width_screen*.175;
-                centerX_seconds = centerX_main;
-                centerY_seconds = centerY_main;
-                break;
-            }
-            case 2: {
-                sec_length = centerY_circle-5;
-                centerX_seconds = centerX_circle;
-                centerY_seconds = centerY_circle;
-                break;
-            }
-            default: {
-                sec_length = width_screen*.475;
-                centerX_seconds = centerX_main;
-                centerY_seconds = centerY_main;
-                break;
-            }
-        }
-
-        
-        
-        //sec_width = $.Options_Dict["Wide Second"] ? 2 : 1;
-        var sho = $.Options_Dict["Second Hand Option"];
-        //sec_type:
-            //    0=regular filled rectangle
-            //    1=thin line
-            //      2=triangle/point
-            //      3 = rectangle outline
-            //      4 = blanked rectangle outline
-            //      5 = triangle outline
-            //      6 = blanked triangle outline
-            
-        System.println("ODSD: " + $.Options_Dict["Second Display"]  + " : "+ sho);
-        switch (sho) {
-            case 1 : { //Outline Pointer
-                sec_width = 5; //in pixels
-                if ($.Options_Dict["Second Display"] != 0) {sec_width = 8;} //fat little pointer for the small center hand
-                sec_base = -5; //how far from base to start shape - positive=opposite side of center; negative = same side of center
-                if ($.Options_Dict["Second Display"] == 2) {sec_base = -7;} //center circle smaller in inset circle
-                sec_type = 6; //0 = rectangle; 1=line; 2= triangle
-                if ($.Options_Dict["Second Display"] == 2) {sec_type = 5;}
-                break;
-            }
-            case 2 : { //Big Blunt
-                sec_width = 5; //in pixels
-                sec_base = -5; //how far from base to start shape - positive=opposite side of center; negative = same side of center
-                if ($.Options_Dict["Second Display"] == 2) {sec_base = -7;} //center circle smaller in inset circle
-                sec_type = 0; //0 = rectangle; 1=line; 2= triangle
-                break;
-            }
-            case 3 : { //Outline Blunt
-                sec_width = 6; //in pixels
-                sec_base = -5; //how far from base to start shape - positive=opposite side of center; negative = same side of center
-                if ($.Options_Dict["Second Display"] == 2) {sec_base = -7;} //center circle smaller in inset circle
-                sec_type = 4; //0 = rectangle; 1=line; 2= triangle
-                if ($.Options_Dict["Second Display"] == 2) {sec_type = 3;}
-                break;
-            }
-                                             
-            case 4: { //Big Needle
-                sec_width = 1; //in pixels
-                sec_base = -5; //how far from base to start shape - positive=opposite side of center; negative = same side of center
-                if ($.Options_Dict["Second Display"] == 2) {sec_base = -7;} //center circle smaller in inset circle
-                sec_type = 1; //0 = rectangle; 1=line; 2= triangle, = outline, 4=blanked outline
-                break;      
-            }   
-            case 5 : { //Small Block
-                sec_width = 10; //in pixels
-                
-                sec_base = 12 - sec_length; //how far from base to start shape - positive=opposite side of center; negative = same side of center
-                
-                if ($.Options_Dict["Second Display"] != 0) {sec_width = 6; sec_base = 10 - sec_length;} //fat little pointer for the small center hand
-                sec_type = 0; //0 = rectangle; 1=line; 2= triangle
-
-                break;
-            }
-            case 6 : { //Small Pointer
-                sec_width = 10; //in pixels
-                sec_base = 12 - sec_length; //how far from base to start shape - positive=opposite side of center; negative = same side of center
-                sec_type = 2; //0 = rectangle; 1=line; 2= triangle
-
-                break;
-            }
-            case 7 : { //Small Needle
-                sec_width = 1; //in pixels
-                sec_base = 10 - sec_length; //how far from base to start shape - positive=opposite side of center; negative = same side of center
-                sec_type = 1; //0 = rectangle; 1=line; 2= triangle
-
-                break;
-            }                             
-            default : { //Big Pointer (Case 0)
-                sec_width = 4; //in pixels
-                if ($.Options_Dict["Second Display"] != 0) {sec_width = 8;} //fat little pointer for the small center hand
-                sec_base = -5; //how far from base to start shape - positive=opposite side of center; negative = same side of center
-                if ($.Options_Dict["Second Display"] == 2) {sec_base = -7;} //center circle smaller in inset circle
-                sec_type = 2; //0 = rectangle; 1=line; 2= triangle
-                break;
-            }
-
-        }
 
         
         //Storage.getValue("Wide Second") = Storage.getValue("Wide Second") ? true : false;
@@ -569,31 +604,21 @@ class ElegantAnaView extends WatchUi.WatchFace {
             targetDc.drawBitmap(0, 0, _hashMarksBuffer);
         }        
 
-
-
-        var info = Toybox.ActivityMonitor.getInfo();
-        var moveBarLevel = info.moveBarLevel;
+        //refreshed move,steps,activity mins every 2 mod 6 mins
+        if (!getActivityData_inited || clockTime.min % 6 ==2 ) {
+            getActivityData();
+        }
+        //Get the move info every minute...
+        moveBarLevel = info.moveBarLevel;
         if (moveBarLevel == null ) {moveBarLevel=0;}
-        var moveExpired = (moveBarLevel != null && moveBarLevel >= 5);                    
+        moveExpired = (moveBarLevel != null && moveBarLevel >= 5);
 
-
-        //if ($.Options_Dict["Show Move"]) {
         
-        var stepGoal = info.stepGoal;
-        var steps = info.steps;
-        if (stepGoal == null || stepGoal == 0) {stepGoal=1500;}
-        if (steps == null) {steps=0;}
-        if (steps instanceof Lang.String ) { steps = steps.toFloat();}
-
-        var activeMinutesWeek = info.activeMinutesWeek.total;
-        var activeMinutesWeekGoal = info.activeMinutesWeekGoal;
-        if (activeMinutesWeekGoal == null || activeMinutesWeekGoal == 0) {activeMinutesWeekGoal=150;}
-        if ( activeMinutesWeek == null) { activeMinutesWeek=0;}    
         //if (!(activeMinutesWeek instanceof Lang.Float) ) { activeMinutesWeek = 
         //activeMinutesWeek.toFloat();}
         //if (!(activeMinutesWeekGoal instanceof Lang.Float )) { activeMinutesWeekGoal = activeMinutesWeekGoal.toFloat();}
 
-        System.println("Goals: " + steps.toString() + " " + stepGoal.toString()  + " " + activeMinutesWeek.toString() + " " + activeMinutesWeekGoal.toString()  + " " + moveBarLevel +  " " + moveExpired);
+        //System.println("Goals: " + steps.toString() + " " + stepGoal.toString()  + " " + activeMinutesWeek.toString() + " " + activeMinutesWeekGoal.toString()  + " " + moveBarLevel +  " " + moveExpired);
         
         //FOR TESTING
             /*
@@ -604,9 +629,6 @@ class ElegantAnaView extends WatchUi.WatchFace {
             moveBarLevel = testMBL;
             */
             //FOR TESTING
-    
-        $.Options_Dict["Show Steps"]= true;
-        $.Options_Dict["Show Active Minutes"] = true;
 
 
         //moveExpired = true; //for testing
@@ -626,7 +648,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
                 drawBattery(targetDc, Gfx.COLOR_WHITE, Gfx.COLOR_BLACK, Gfx.COLOR_WHITE);
             }
             var index = 0;
-            if ($.Options_Dict["Show Active Minutes"]) { 
+            if ($.Options_Dict["Show Minutes"]) { 
                 drawMoveDots(targetDc, activeMinutesWeek, activeMinutesWeekGoal, index, Gfx.COLOR_WHITE);
                 index += 1;
             }            
@@ -999,6 +1021,14 @@ class ElegantAnaView extends WatchUi.WatchFace {
         if ($.Options_Dict["Second Hand Option"]>$.secondHandOptions_size-1) {$.Options_Dict["Second Hand Option"] = $.secondHandOptions_default;}
         if ($.Options_Dict["Second Hand Option"]<0) {$.Options_Dict["Second Hand Option"] = $.secondHandOptions_default;}
         Storage.setValue("Second Hand Option",$.Options_Dict["Second Hand Option"]);
+
+        temp = Storage.getValue("Show Minutes");
+        $.Options_Dict["Show Minutes"] = temp  != null ? temp : true;
+        Storage.setValue("Show Minutes",$.Options_Dict["Show Minutes"]);
+
+        temp = Storage.getValue("Show Steps");
+        $.Options_Dict["Show Steps"] = temp  != null ? temp : true;
+        Storage.setValue("Show Steps",$.Options_Dict["Show Steps"]);
 
         temp = Storage.getValue("Show Move");
         $.Options_Dict["Show Move"] = temp  != null ? temp : true;
@@ -1524,20 +1554,23 @@ class ElegantAnaView extends WatchUi.WatchFace {
 
     function drawMoveDots(dc, num, goal, index, text_color)
     {
-        System.println("dMD: " + num + " " + goal  + " " + index);
+        //System.println("dMD: " + num + " " + goal  + " " + index);
 
         //System.println("dMD: " + (num instanceof Lang.Object) + " " + (goal instanceof Lang.Object)  + " " + index);
         if (goal ==0 ) { goal =100; }
         var numDots = num * 1.0/ (goal * 1.0) * 5 + 0.00001; //to avoid 4.9999 type situations when we round by .floor() later
-        var partial = numDots - Math.floor(numDots);
+        var numD_floor = Math.floor(numDots);
+        var partial = numDots - numD_floor;
 
         if (numDots==0 && partial < 0.1 ) { return; }
-        if ( numDots>6 ) { numDots = 6;   }
-        var squares = Math.floor( numDots);
-        if (numDots < 5 && partial > 0.1) { squares +=1; }
+        if ( numDots>6 ) { numDots = 6; partial = 0;  }
+        numD_floor = Math.floor(numDots);
+        if (partial <0.1) {partial = 0;}
+        var squares = numD_floor;
+        if (numDots < 6 && partial >= 0.1) { squares +=1; }
         //var x_start = dmd_x - (numDots*dmd_w + numDots -1)/2; //Dots will be centered under the battery;
-        var fact = Math.floor(numDots)*dmd_w + squares -1;
-        if (partial > 0.1) { fact = fact + partial;}
+        var fact = numD_floor*dmd_w + squares -1;
+        if (partial >= 0.1) { fact = fact + partial;}
         
         var x_start = dmd_x - (fact)/2; //Dots will be centered under the battery;
 
@@ -1548,8 +1581,8 @@ class ElegantAnaView extends WatchUi.WatchFace {
         for (var i = 0; i < squares; i++) {
             var xx = x_start + i * dmd_w4;            
             var yy = dmd_yy + index * (dmd_h + 1);
-            if (i < 5) {
-                if (i < numDots) {
+            if (i < 5 || (i==5 && partial > 0)) {
+                if (i < numD_floor) {
                     dc.fillRectangle(xx, yy, dmd_w, dmd_h);            
                 } else { //the partial square
                     dc.fillRectangle(xx, yy, dmd_w * partial, dmd_h);            
