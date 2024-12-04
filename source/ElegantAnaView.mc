@@ -1574,7 +1574,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
         
         var x_start = dmd_x - (fact)/2; //Dots will be centered under the battery;
 
-        System.println("dMD: " + numDots + " " + partial  + " " + squares);
+        //System.println("dMD: " + numDots + " " + partial  + " " + squares);
 
         dc.setColor(text_color, Gfx.COLOR_TRANSPARENT);  
         
