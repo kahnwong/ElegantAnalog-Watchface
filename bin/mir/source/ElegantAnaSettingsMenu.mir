@@ -17,9 +17,9 @@ class ElegantAnaSettingsMenu extends WatchUi.Menu2{
     [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc"; @line = 15; ]
     public
     function initialize() as Void {
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_15_33_60_4_start:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_15_33_64_4_start:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 17 8 ]
-        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_15_33_60_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_15_33_60_4_stop" ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_15_33_64_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_15_33_64_4_stop" ]
         %clockTime.1 = local;
         %tmp.2 = getv ? :System;
         %tmp.3 = getv function %tmp.2 :getClockTime;
@@ -85,293 +85,302 @@ E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSet
         %tmp.53 = newd 0;
         %tmp.40 = newc %tmp.43 (%tmp.44, %tmp.51, %tmp.52, %tmp.53);
         invoke %tmp.38 %tmp.39(%tmp.40);
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 32 8 ]
-        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_15_33_60_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_15_33_60_4_stop" ]
-        %boolean.2 = local;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_32_22_32_63_begin:
-        %tmp.54 = getm $.Toybox.Application.Storage;
-        %tmp.55 = getv function %tmp.54 :getValue;
-        %tmp.56 = "Long Second";
-        %tmp.57 = invoke %tmp.54 %tmp.55(%tmp.56);
-        bf %tmp.57 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_32_22_32_63_false;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_32_22_32_63_true:
-        %tmp.58 = true;
-        push %tmp.58;
-        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_32_22_32_63_end;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_32_22_32_63_false:
-        %tmp.59 = false;
-        push %tmp.59;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_32_22_32_63_end:
-        %tmp.60 = phi [%tmp.57 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_32_22_32_63_begin] [%tmp.58 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_32_22_32_63_true] [%tmp.59 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_32_22_32_63_false] [%tmp.60 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_32_22_32_63_end];
-        lputv %boolean.2 %tmp.60;
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 33 8 ]
-        %tmp.62 = getv ? :Menu2;
-        %tmp.63 = getv function %tmp.62 :addItem;
-        %tmp.66 = getm $.Toybox.WatchUi;
-        %tmp.67 = getv function ? %tmp.66 :ToggleMenuItem;
-        %tmp.68 = "Second Hand Length: Short-Long";
-        %tmp.69 = null;
-        %tmp.70 = "Long Second";
-        %tmp.72 = lgetv %boolean.2;
-        %tmp.73 = null;
-        %tmp.64 = newc %tmp.67 (%tmp.68, %tmp.69, %tmp.70, %tmp.72, %tmp.73);
-        invoke %tmp.62 %tmp.63(%tmp.64);
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 35 8 ]
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_35_8_35_128_if_stmt:
-        %tmp.74 = getm $;
-        %tmp.75 = getv %tmp.74 :Options_Dict;
-        %tmp.76 = "Second Hand Option";
-        %tmp.77 = agetv %tmp.75 %tmp.76;
-        %tmp.78 = null;
-        %tmp.79 = eq %tmp.77 %tmp.78;
-        bf %tmp.79 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_35_8_35_128_if_end;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_35_8_35_128_if_true:
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_35_58_35_128_start:
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 35 60 ]
-        %tmp.80 = getm $;
-        %tmp.81 = getv %tmp.80 :Options_Dict;
-        %tmp.82 = getm $;
-        %tmp.83 = getv %tmp.82 :secondHandOptions_default;
-        %tmp.84 = "Second Hand Option";
-        aputv %tmp.81 %tmp.84 %tmp.83;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_35_58_35_128_stop:
-        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_35_8_35_128_if_end;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_35_8_35_128_if_end:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_35_8_35_123_if_stmt:
+        %tmp.54 = getm $;
+        %tmp.55 = getv %tmp.54 :Options_Dict;
+        %tmp.56 = "Second Display";
+        %tmp.57 = agetv %tmp.55 %tmp.56;
+        %tmp.58 = null;
+        %tmp.59 = eq %tmp.57 %tmp.58;
+        bf %tmp.59 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_35_8_35_123_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_35_8_35_123_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_35_54_35_123_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 35 56 ]
+        %tmp.60 = getm $;
+        %tmp.61 = getv %tmp.60 :Options_Dict;
+        %tmp.62 = getm $;
+        %tmp.63 = getv %tmp.62 :secondDisplayOptions_default;
+        %tmp.64 = "Second Display";
+        aputv %tmp.61 %tmp.64 %tmp.63;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_35_54_35_123_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_35_8_35_123_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_35_8_35_123_if_end:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 36 8 ]
-        %tmp.86 = getv ? :Menu2;
-        %tmp.87 = getv function %tmp.86 :addItem;
-        %tmp.90 = getm $.Toybox.WatchUi;
-        %tmp.91 = getv function ? %tmp.90 :MenuItem;
-        %tmp.92 = "Second Hand Shape:";
-        %tmp.93 = getm $;
-        %tmp.94 = getv %tmp.93 :secondHandOptions;
-        %tmp.95 = getm $;
-        %tmp.96 = getv %tmp.95 :Options_Dict;
-        %tmp.97 = "Second Hand Option";
-        %tmp.98 = agetv %tmp.96 %tmp.97;
-        %tmp.99 = agetv %tmp.94 %tmp.98;
-        %tmp.100 = "Second Hand Option";
-        %tmp.101 = newd 0;
-        %tmp.88 = newc %tmp.91 (%tmp.92, %tmp.99, %tmp.100, %tmp.101);
-        invoke %tmp.86 %tmp.87(%tmp.88);
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 42 8 ]
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_42_18_42_57_begin:
-        %tmp.102 = getm $.Toybox.Application.Storage;
-        %tmp.103 = getv function %tmp.102 :getValue;
-        %tmp.104 = "Show Move";
-        %tmp.105 = invoke %tmp.102 %tmp.103(%tmp.104);
-        bf %tmp.105 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_42_18_42_57_false;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_42_18_42_57_true:
-        %tmp.106 = true;
-        push %tmp.106;
-        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_42_18_42_57_end;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_42_18_42_57_false:
-        %tmp.107 = false;
-        push %tmp.107;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_42_18_42_57_end:
-        %tmp.108 = phi [%tmp.105 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_42_18_42_57_begin] [%tmp.106 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_42_18_42_57_true] [%tmp.107 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_42_18_42_57_false] [%tmp.108 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_42_18_42_57_end];
-        lputv %boolean.2 %tmp.108;
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 43 8 ]
-        %tmp.110 = getv ? :Menu2;
-        %tmp.111 = getv function %tmp.110 :addItem;
-        %tmp.114 = getm $.Toybox.WatchUi;
-        %tmp.115 = getv function ? %tmp.114 :ToggleMenuItem;
-        %tmp.116 = "Show Move Bar: No-Yes";
-        %tmp.117 = null;
-        %tmp.118 = "Show Move";
-        %tmp.120 = lgetv %boolean.2;
-        %tmp.121 = null;
-        %tmp.112 = newc %tmp.115 (%tmp.116, %tmp.117, %tmp.118, %tmp.120, %tmp.121);
-        invoke %tmp.110 %tmp.111(%tmp.112);
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 45 8 ]
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_45_18_45_60_begin:
-        %tmp.122 = getm $.Toybox.Application.Storage;
-        %tmp.123 = getv function %tmp.122 :getValue;
-        %tmp.124 = "Show Battery";
-        %tmp.125 = invoke %tmp.122 %tmp.123(%tmp.124);
-        bf %tmp.125 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_45_18_45_60_false;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_45_18_45_60_true:
-        %tmp.126 = true;
-        push %tmp.126;
-        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_45_18_45_60_end;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_45_18_45_60_false:
-        %tmp.127 = false;
-        push %tmp.127;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_45_18_45_60_end:
-        %tmp.128 = phi [%tmp.125 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_45_18_45_60_begin] [%tmp.126 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_45_18_45_60_true] [%tmp.127 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_45_18_45_60_false] [%tmp.128 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_45_18_45_60_end];
-        lputv %boolean.2 %tmp.128;
+        %tmp.66 = getv ? :Menu2;
+        %tmp.67 = getv function %tmp.66 :addItem;
+        %tmp.70 = getm $.Toybox.WatchUi;
+        %tmp.71 = getv function ? %tmp.70 :MenuItem;
+        %tmp.72 = "Second Hand Display:";
+        %tmp.73 = getm $;
+        %tmp.74 = getv %tmp.73 :secondDisplayOptions;
+        %tmp.75 = getm $;
+        %tmp.76 = getv %tmp.75 :Options_Dict;
+        %tmp.77 = "Second Display";
+        %tmp.78 = agetv %tmp.76 %tmp.77;
+        %tmp.79 = agetv %tmp.74 %tmp.78;
+        %tmp.80 = "Second Display";
+        %tmp.81 = newd 0;
+        %tmp.68 = newc %tmp.71 (%tmp.72, %tmp.79, %tmp.80, %tmp.81);
+        invoke %tmp.66 %tmp.67(%tmp.68);
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 39 8 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_39_8_39_128_if_stmt:
+        %tmp.82 = getm $;
+        %tmp.83 = getv %tmp.82 :Options_Dict;
+        %tmp.84 = "Second Hand Option";
+        %tmp.85 = agetv %tmp.83 %tmp.84;
+        %tmp.86 = null;
+        %tmp.87 = eq %tmp.85 %tmp.86;
+        bf %tmp.87 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_39_8_39_128_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_39_8_39_128_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_39_58_39_128_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 39 60 ]
+        %tmp.88 = getm $;
+        %tmp.89 = getv %tmp.88 :Options_Dict;
+        %tmp.90 = getm $;
+        %tmp.91 = getv %tmp.90 :secondHandOptions_default;
+        %tmp.92 = "Second Hand Option";
+        aputv %tmp.89 %tmp.92 %tmp.91;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_39_58_39_128_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_39_8_39_128_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_39_8_39_128_if_end:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 40 8 ]
+        %tmp.94 = getv ? :Menu2;
+        %tmp.95 = getv function %tmp.94 :addItem;
+        %tmp.98 = getm $.Toybox.WatchUi;
+        %tmp.99 = getv function ? %tmp.98 :MenuItem;
+        %tmp.100 = "Second Hand Shape:";
+        %tmp.101 = getm $;
+        %tmp.102 = getv %tmp.101 :secondHandOptions;
+        %tmp.103 = getm $;
+        %tmp.104 = getv %tmp.103 :Options_Dict;
+        %tmp.105 = "Second Hand Option";
+        %tmp.106 = agetv %tmp.104 %tmp.105;
+        %tmp.107 = agetv %tmp.102 %tmp.106;
+        %tmp.108 = "Second Hand Option";
+        %tmp.109 = newd 0;
+        %tmp.96 = newc %tmp.99 (%tmp.100, %tmp.107, %tmp.108, %tmp.109);
+        invoke %tmp.94 %tmp.95(%tmp.96);
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 46 8 ]
-        %tmp.130 = getv ? :Menu2;
-        %tmp.131 = getv function %tmp.130 :addItem;
-        %tmp.134 = getm $.Toybox.WatchUi;
-        %tmp.135 = getv function ? %tmp.134 :ToggleMenuItem;
-        %tmp.136 = "Show Battery %: No-Yes";
-        %tmp.137 = null;
-        %tmp.138 = "Show Battery";
-        %tmp.140 = lgetv %boolean.2;
-        %tmp.141 = null;
-        %tmp.132 = newc %tmp.135 (%tmp.136, %tmp.137, %tmp.138, %tmp.140, %tmp.141);
-        invoke %tmp.130 %tmp.131(%tmp.132);
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 48 8 ]
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_48_18_48_57_begin:
-        %tmp.142 = getm $.Toybox.Application.Storage;
-        %tmp.143 = getv function %tmp.142 :getValue;
-        %tmp.144 = "Show Date";
-        %tmp.145 = invoke %tmp.142 %tmp.143(%tmp.144);
-        bf %tmp.145 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_48_18_48_57_false;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_48_18_48_57_true:
-        %tmp.146 = true;
-        push %tmp.146;
-        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_48_18_48_57_end;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_48_18_48_57_false:
-        %tmp.147 = false;
-        push %tmp.147;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_48_18_48_57_end:
-        %tmp.148 = phi [%tmp.145 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_48_18_48_57_begin] [%tmp.146 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_48_18_48_57_true] [%tmp.147 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_48_18_48_57_false] [%tmp.148 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_48_18_48_57_end];
-        lputv %boolean.2 %tmp.148;
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_15_33_64_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_15_33_64_4_stop" ]
+        %boolean.2 = local;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_46_22_46_61_begin:
+        %tmp.110 = getm $.Toybox.Application.Storage;
+        %tmp.111 = getv function %tmp.110 :getValue;
+        %tmp.112 = "Show Move";
+        %tmp.113 = invoke %tmp.110 %tmp.111(%tmp.112);
+        bf %tmp.113 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_46_22_46_61_false;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_46_22_46_61_true:
+        %tmp.114 = true;
+        push %tmp.114;
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_46_22_46_61_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_46_22_46_61_false:
+        %tmp.115 = false;
+        push %tmp.115;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_46_22_46_61_end:
+        %tmp.116 = phi [%tmp.113 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_46_22_46_61_begin] [%tmp.114 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_46_22_46_61_true] [%tmp.115 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_46_22_46_61_false] [%tmp.116 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_46_22_46_61_end];
+        lputv %boolean.2 %tmp.116;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 47 8 ]
+        %tmp.118 = getv ? :Menu2;
+        %tmp.119 = getv function %tmp.118 :addItem;
+        %tmp.122 = getm $.Toybox.WatchUi;
+        %tmp.123 = getv function ? %tmp.122 :ToggleMenuItem;
+        %tmp.124 = "Show Move Bar: No-Yes";
+        %tmp.125 = null;
+        %tmp.126 = "Show Move";
+        %tmp.128 = lgetv %boolean.2;
+        %tmp.129 = null;
+        %tmp.120 = newc %tmp.123 (%tmp.124, %tmp.125, %tmp.126, %tmp.128, %tmp.129);
+        invoke %tmp.118 %tmp.119(%tmp.120);
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 49 8 ]
-        %tmp.150 = getv ? :Menu2;
-        %tmp.151 = getv function %tmp.150 :addItem;
-        %tmp.154 = getm $.Toybox.WatchUi;
-        %tmp.155 = getv function ? %tmp.154 :ToggleMenuItem;
-        %tmp.156 = "Show Date: No-Yes";
-        %tmp.157 = null;
-        %tmp.158 = "Show Date";
-        %tmp.160 = lgetv %boolean.2;
-        %tmp.161 = null;
-        %tmp.152 = newc %tmp.155 (%tmp.156, %tmp.157, %tmp.158, %tmp.160, %tmp.161);
-        invoke %tmp.150 %tmp.151(%tmp.152);
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 51 8 ]
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_51_18_51_60_begin:
-        %tmp.162 = getm $.Toybox.Application.Storage;
-        %tmp.163 = getv function %tmp.162 :getValue;
-        %tmp.164 = "Hour Numbers";
-        %tmp.165 = invoke %tmp.162 %tmp.163(%tmp.164);
-        bf %tmp.165 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_51_18_51_60_false;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_51_18_51_60_true:
-        %tmp.166 = true;
-        push %tmp.166;
-        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_51_18_51_60_end;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_51_18_51_60_false:
-        %tmp.167 = false;
-        push %tmp.167;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_51_18_51_60_end:
-        %tmp.168 = phi [%tmp.165 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_51_18_51_60_begin] [%tmp.166 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_51_18_51_60_true] [%tmp.167 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_51_18_51_60_false] [%tmp.168 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_51_18_51_60_end];
-        lputv %boolean.2 %tmp.168;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_49_18_49_60_begin:
+        %tmp.130 = getm $.Toybox.Application.Storage;
+        %tmp.131 = getv function %tmp.130 :getValue;
+        %tmp.132 = "Show Battery";
+        %tmp.133 = invoke %tmp.130 %tmp.131(%tmp.132);
+        bf %tmp.133 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_49_18_49_60_false;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_49_18_49_60_true:
+        %tmp.134 = true;
+        push %tmp.134;
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_49_18_49_60_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_49_18_49_60_false:
+        %tmp.135 = false;
+        push %tmp.135;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_49_18_49_60_end:
+        %tmp.136 = phi [%tmp.133 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_49_18_49_60_begin] [%tmp.134 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_49_18_49_60_true] [%tmp.135 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_49_18_49_60_false] [%tmp.136 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_49_18_49_60_end];
+        lputv %boolean.2 %tmp.136;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 50 8 ]
+        %tmp.138 = getv ? :Menu2;
+        %tmp.139 = getv function %tmp.138 :addItem;
+        %tmp.142 = getm $.Toybox.WatchUi;
+        %tmp.143 = getv function ? %tmp.142 :ToggleMenuItem;
+        %tmp.144 = "Show Battery %: No-Yes";
+        %tmp.145 = null;
+        %tmp.146 = "Show Battery";
+        %tmp.148 = lgetv %boolean.2;
+        %tmp.149 = null;
+        %tmp.140 = newc %tmp.143 (%tmp.144, %tmp.145, %tmp.146, %tmp.148, %tmp.149);
+        invoke %tmp.138 %tmp.139(%tmp.140);
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 52 8 ]
-        %tmp.170 = getv ? :Menu2;
-        %tmp.171 = getv function %tmp.170 :addItem;
-        %tmp.174 = getm $.Toybox.WatchUi;
-        %tmp.175 = getv function ? %tmp.174 :ToggleMenuItem;
-        %tmp.176 = "Hour Numbers: Off-On";
-        %tmp.177 = null;
-        %tmp.178 = "Hour Numbers";
-        %tmp.180 = lgetv %boolean.2;
-        %tmp.181 = null;
-        %tmp.172 = newc %tmp.175 (%tmp.176, %tmp.177, %tmp.178, %tmp.180, %tmp.181);
-        invoke %tmp.170 %tmp.171(%tmp.172);
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 54 8 ]
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_54_18_54_59_begin:
-        %tmp.182 = getm $.Toybox.Application.Storage;
-        %tmp.183 = getv function %tmp.182 :getValue;
-        %tmp.184 = "Hour Hashes";
-        %tmp.185 = invoke %tmp.182 %tmp.183(%tmp.184);
-        bf %tmp.185 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_54_18_54_59_false;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_54_18_54_59_true:
-        %tmp.186 = true;
-        push %tmp.186;
-        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_54_18_54_59_end;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_54_18_54_59_false:
-        %tmp.187 = false;
-        push %tmp.187;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_54_18_54_59_end:
-        %tmp.188 = phi [%tmp.185 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_54_18_54_59_begin] [%tmp.186 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_54_18_54_59_true] [%tmp.187 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_54_18_54_59_false] [%tmp.188 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_54_18_54_59_end];
-        lputv %boolean.2 %tmp.188;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_52_18_52_57_begin:
+        %tmp.150 = getm $.Toybox.Application.Storage;
+        %tmp.151 = getv function %tmp.150 :getValue;
+        %tmp.152 = "Show Date";
+        %tmp.153 = invoke %tmp.150 %tmp.151(%tmp.152);
+        bf %tmp.153 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_52_18_52_57_false;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_52_18_52_57_true:
+        %tmp.154 = true;
+        push %tmp.154;
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_52_18_52_57_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_52_18_52_57_false:
+        %tmp.155 = false;
+        push %tmp.155;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_52_18_52_57_end:
+        %tmp.156 = phi [%tmp.153 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_52_18_52_57_begin] [%tmp.154 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_52_18_52_57_true] [%tmp.155 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_52_18_52_57_false] [%tmp.156 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_52_18_52_57_end];
+        lputv %boolean.2 %tmp.156;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 53 8 ]
+        %tmp.158 = getv ? :Menu2;
+        %tmp.159 = getv function %tmp.158 :addItem;
+        %tmp.162 = getm $.Toybox.WatchUi;
+        %tmp.163 = getv function ? %tmp.162 :ToggleMenuItem;
+        %tmp.164 = "Show Date: No-Yes";
+        %tmp.165 = null;
+        %tmp.166 = "Show Date";
+        %tmp.168 = lgetv %boolean.2;
+        %tmp.169 = null;
+        %tmp.160 = newc %tmp.163 (%tmp.164, %tmp.165, %tmp.166, %tmp.168, %tmp.169);
+        invoke %tmp.158 %tmp.159(%tmp.160);
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 55 8 ]
-        %tmp.190 = getv ? :Menu2;
-        %tmp.191 = getv function %tmp.190 :addItem;
-        %tmp.194 = getm $.Toybox.WatchUi;
-        %tmp.195 = getv function ? %tmp.194 :ToggleMenuItem;
-        %tmp.196 = "Hour Hashes: Off-On";
-        %tmp.197 = null;
-        %tmp.198 = "Hour Hashes";
-        %tmp.200 = lgetv %boolean.2;
-        %tmp.201 = null;
-        %tmp.192 = newc %tmp.195 (%tmp.196, %tmp.197, %tmp.198, %tmp.200, %tmp.201);
-        invoke %tmp.190 %tmp.191(%tmp.192);
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 57 8 ]
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_57_18_57_61_begin:
-        %tmp.202 = getm $.Toybox.Application.Storage;
-        %tmp.203 = getv function %tmp.202 :getValue;
-        %tmp.204 = "Second Hashes";
-        %tmp.205 = invoke %tmp.202 %tmp.203(%tmp.204);
-        bf %tmp.205 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_57_18_57_61_false;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_57_18_57_61_true:
-        %tmp.206 = true;
-        push %tmp.206;
-        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_57_18_57_61_end;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_57_18_57_61_false:
-        %tmp.207 = false;
-        push %tmp.207;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_57_18_57_61_end:
-        %tmp.208 = phi [%tmp.205 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_57_18_57_61_begin] [%tmp.206 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_57_18_57_61_true] [%tmp.207 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_57_18_57_61_false] [%tmp.208 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_57_18_57_61_end];
-        lputv %boolean.2 %tmp.208;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_55_18_55_60_begin:
+        %tmp.170 = getm $.Toybox.Application.Storage;
+        %tmp.171 = getv function %tmp.170 :getValue;
+        %tmp.172 = "Hour Numbers";
+        %tmp.173 = invoke %tmp.170 %tmp.171(%tmp.172);
+        bf %tmp.173 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_55_18_55_60_false;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_55_18_55_60_true:
+        %tmp.174 = true;
+        push %tmp.174;
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_55_18_55_60_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_55_18_55_60_false:
+        %tmp.175 = false;
+        push %tmp.175;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_55_18_55_60_end:
+        %tmp.176 = phi [%tmp.173 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_55_18_55_60_begin] [%tmp.174 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_55_18_55_60_true] [%tmp.175 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_55_18_55_60_false] [%tmp.176 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_55_18_55_60_end];
+        lputv %boolean.2 %tmp.176;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 56 8 ]
+        %tmp.178 = getv ? :Menu2;
+        %tmp.179 = getv function %tmp.178 :addItem;
+        %tmp.182 = getm $.Toybox.WatchUi;
+        %tmp.183 = getv function ? %tmp.182 :ToggleMenuItem;
+        %tmp.184 = "Hour Numbers: Off-On";
+        %tmp.185 = null;
+        %tmp.186 = "Hour Numbers";
+        %tmp.188 = lgetv %boolean.2;
+        %tmp.189 = null;
+        %tmp.180 = newc %tmp.183 (%tmp.184, %tmp.185, %tmp.186, %tmp.188, %tmp.189);
+        invoke %tmp.178 %tmp.179(%tmp.180);
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 58 8 ]
-        %tmp.210 = getv ? :Menu2;
-        %tmp.211 = getv function %tmp.210 :addItem;
-        %tmp.214 = getm $.Toybox.WatchUi;
-        %tmp.215 = getv function ? %tmp.214 :ToggleMenuItem;
-        %tmp.216 = "Second Hashes: Off-On";
-        %tmp.217 = null;
-        %tmp.218 = "Second Hashes";
-        %tmp.220 = lgetv %boolean.2;
-        %tmp.221 = null;
-        %tmp.212 = newc %tmp.215 (%tmp.216, %tmp.217, %tmp.218, %tmp.220, %tmp.221);
-        invoke %tmp.210 %tmp.211(%tmp.212);
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_15_33_60_4_stop:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_58_18_58_59_begin:
+        %tmp.190 = getm $.Toybox.Application.Storage;
+        %tmp.191 = getv function %tmp.190 :getValue;
+        %tmp.192 = "Hour Hashes";
+        %tmp.193 = invoke %tmp.190 %tmp.191(%tmp.192);
+        bf %tmp.193 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_58_18_58_59_false;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_58_18_58_59_true:
+        %tmp.194 = true;
+        push %tmp.194;
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_58_18_58_59_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_58_18_58_59_false:
+        %tmp.195 = false;
+        push %tmp.195;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_58_18_58_59_end:
+        %tmp.196 = phi [%tmp.193 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_58_18_58_59_begin] [%tmp.194 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_58_18_58_59_true] [%tmp.195 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_58_18_58_59_false] [%tmp.196 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_58_18_58_59_end];
+        lputv %boolean.2 %tmp.196;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 59 8 ]
+        %tmp.198 = getv ? :Menu2;
+        %tmp.199 = getv function %tmp.198 :addItem;
+        %tmp.202 = getm $.Toybox.WatchUi;
+        %tmp.203 = getv function ? %tmp.202 :ToggleMenuItem;
+        %tmp.204 = "Hour Hashes: Off-On";
+        %tmp.205 = null;
+        %tmp.206 = "Hour Hashes";
+        %tmp.208 = lgetv %boolean.2;
+        %tmp.209 = null;
+        %tmp.200 = newc %tmp.203 (%tmp.204, %tmp.205, %tmp.206, %tmp.208, %tmp.209);
+        invoke %tmp.198 %tmp.199(%tmp.200);
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 61 8 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_61_18_61_61_begin:
+        %tmp.210 = getm $.Toybox.Application.Storage;
+        %tmp.211 = getv function %tmp.210 :getValue;
+        %tmp.212 = "Second Hashes";
+        %tmp.213 = invoke %tmp.210 %tmp.211(%tmp.212);
+        bf %tmp.213 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_61_18_61_61_false;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_61_18_61_61_true:
+        %tmp.214 = true;
+        push %tmp.214;
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_61_18_61_61_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_61_18_61_61_false:
+        %tmp.215 = false;
+        push %tmp.215;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_61_18_61_61_end:
+        %tmp.216 = phi [%tmp.213 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_61_18_61_61_begin] [%tmp.214 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_61_18_61_61_true] [%tmp.215 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_61_18_61_61_false] [%tmp.216 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_61_18_61_61_end];
+        lputv %boolean.2 %tmp.216;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 62 8 ]
+        %tmp.218 = getv ? :Menu2;
+        %tmp.219 = getv function %tmp.218 :addItem;
+        %tmp.222 = getm $.Toybox.WatchUi;
+        %tmp.223 = getv function ? %tmp.222 :ToggleMenuItem;
+        %tmp.224 = "Second Hashes: Off-On";
+        %tmp.225 = null;
+        %tmp.226 = "Second Hashes";
+        %tmp.228 = lgetv %boolean.2;
+        %tmp.229 = null;
+        %tmp.220 = newc %tmp.223 (%tmp.224, %tmp.225, %tmp.226, %tmp.228, %tmp.229);
+        invoke %tmp.218 %tmp.219(%tmp.220);
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_15_33_64_4_stop:
     }
 }
-[ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc"; @line = 64; ]
+[ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc"; @line = 68; ]
 class ElegantAnaSettingsMenuDelegate extends WatchUi.Menu2InputDelegate{
-    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc"; @line = 64; ]
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc"; @line = 68; ]
     <init> {
     }
-    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc"; @line = 64; ]
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc"; @line = 68; ]
     static
     <init> {
     }
-    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc"; @line = 66; @position = 8; ]
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc"; @line = 70; @position = 8; ]
     var mainView;
     //! Constructor
-    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc"; @line = 68; ]
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc"; @line = 72; ]
     public
     function initialize() as Void {
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_68_33_71_4_start:
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 69 8 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_72_33_75_4_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 73 8 ]
         %tmp.2 = getv ? :Menu2InputDelegate;
         %tmp.3 = getv function %tmp.2 :initialize;
         invoke %tmp.2 %tmp.3();
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 70 8 ]
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 74 8 ]
         %tmp.4 = getm $;
         %tmp.5 = getv %tmp.4 :ElegantAnaView;
         putv self :mainView %tmp.5;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_68_33_71_4_stop:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_72_33_75_4_stop:
     }
     //! Handle a menu item being selected
     //! @param menuItem The menu item selected
-    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc"; @line = 75; ]
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc"; @line = 79; ]
     public
     function onSelect(menuItem as MenuItem) as Void {
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_75_59_102_4_start:
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 76 8 ]
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_76_8_80_8_if_stmt:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_79_59_116_4_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 80 8 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_80_8_84_8_if_stmt:
         %tmp.2 = lgetv %menuItem;
         %tmp.4 = getv ? :ToggleMenuItem;
         %tmp.5 = isa %tmp.2 %tmp.4;
-        bf %tmp.5 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_76_8_80_8_if_end;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_76_8_80_8_if_true:
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_76_48_80_8_start:
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 77 12 ]
+        bf %tmp.5 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_80_8_84_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_80_8_84_8_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_80_48_84_8_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 81 12 ]
         %tmp.6 = getm $.Toybox.Application.Storage;
         %tmp.7 = getv function %tmp.6 :setValue;
         %tmp.8 = lgetv %menuItem;
@@ -384,7 +393,7 @@ E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSet
         %tmp.15 = getv function %tmp.14 :isEnabled;
         %tmp.16 = invoke %tmp.14 %tmp.15();
         invoke %tmp.6 %tmp.7(%tmp.12, %tmp.16);
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 78 12 ]
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 82 12 ]
         %tmp.17 = getm $;
         %tmp.18 = getv %tmp.17 :Options_Dict;
         %tmp.19 = lgetv %menuItem;
@@ -397,30 +406,30 @@ E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSet
         %tmp.26 = invoke %tmp.24 %tmp.25();
         %tmp.27 = as %tmp.26 String;
         aputv %tmp.18 %tmp.27 %tmp.22;
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 79 12 ]
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 83 12 ]
         %tmp.28 = getm $;
         %tmp.29 = true;
         putv %tmp.28 :Settings_ran %tmp.29;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_76_48_80_8_stop:
-        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_76_8_80_8_if_end;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_76_8_80_8_if_end:
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 82 8 ]
-        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_75_59_102_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_75_59_102_4_stop" ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_80_48_84_8_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_80_8_84_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_80_8_84_8_if_end:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 86 8 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_79_59_116_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_79_59_116_4_stop" ]
         %id.1 = local;
         %tmp.30 = lgetv %menuItem;
         %tmp.31 = getv function %tmp.30 :getId;
         %tmp.32 = invoke %tmp.30 %tmp.31();
         lputv %id.1 %tmp.32;
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 83 8 ]
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_83_8_91_8_if_stmt:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 87 8 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_87_8_95_8_if_stmt:
         %tmp.33 = lgetv %id.1;
         %tmp.34 = getv function %tmp.33 :equals;
         %tmp.35 = "Infinite Second Option";
         %tmp.36 = invoke %tmp.33 %tmp.34(%tmp.35);
-        bf %tmp.36 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_83_8_91_8_if_end;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_83_8_91_8_if_true:
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_83_48_91_8_start:
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 84 12 ]
+        bf %tmp.36 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_87_8_95_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_87_8_95_8_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_87_48_95_8_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 88 12 ]
         %tmp.37 = getm $;
         %tmp.38 = getv %tmp.37 :Options_Dict;
         %tmp.39 = getm $;
@@ -433,7 +442,7 @@ E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSet
         %tmp.48 = mod %tmp.45 %tmp.47;
         %tmp.50 = lgetv %id.1;
         aputv %tmp.38 %tmp.50 %tmp.48;
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 85 12 ]
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 89 12 ]
         %tmp.51 = lgetv %menuItem;
         %tmp.52 = getv function %tmp.51 :setSubLabel;
         %tmp.53 = getm $;
@@ -444,7 +453,7 @@ E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSet
         %tmp.59 = agetv %tmp.56 %tmp.58;
         %tmp.60 = agetv %tmp.54 %tmp.59;
         invoke %tmp.51 %tmp.52(%tmp.60);
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 87 12 ]
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 91 12 ]
         %tmp.61 = getm $.Toybox.Application.Storage;
         %tmp.62 = getv function %tmp.61 :setValue;
         %tmp.64 = lgetv %id.1;
@@ -454,23 +463,23 @@ E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSet
         %tmp.69 = lgetv %id.1;
         %tmp.70 = agetv %tmp.67 %tmp.69;
         invoke %tmp.61 %tmp.62(%tmp.65, %tmp.70);
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 88 12 ]
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 92 12 ]
         %tmp.71 = getm $;
         %tmp.72 = true;
         putv %tmp.71 :Settings_ran %tmp.72;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_83_48_91_8_stop:
-        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_83_8_91_8_if_end;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_83_8_91_8_if_end:
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 93 8 ]
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_93_8_101_8_if_stmt:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_87_48_95_8_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_87_8_95_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_87_8_95_8_if_end:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 97 8 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_97_8_105_8_if_stmt:
         %tmp.73 = lgetv %id.1;
         %tmp.74 = getv function %tmp.73 :equals;
-        %tmp.75 = "Second Hand Option";
+        %tmp.75 = "Second Display";
         %tmp.76 = invoke %tmp.73 %tmp.74(%tmp.75);
-        bf %tmp.76 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_93_8_101_8_if_end;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_93_8_101_8_if_true:
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_93_44_101_8_start:
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 94 12 ]
+        bf %tmp.76 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_97_8_105_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_97_8_105_8_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_97_40_105_8_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 98 12 ]
         %tmp.77 = getm $;
         %tmp.78 = getv %tmp.77 :Options_Dict;
         %tmp.79 = getm $;
@@ -479,22 +488,22 @@ E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSet
         %tmp.83 = agetv %tmp.80 %tmp.82;
         %tmp.84 = 1;
         %tmp.85 = add %tmp.83 %tmp.84;
-        %tmp.87 = getv ? :secondHandOptions_size;
+        %tmp.87 = getv ? :secondDisplayOptions_size;
         %tmp.88 = mod %tmp.85 %tmp.87;
         %tmp.90 = lgetv %id.1;
         aputv %tmp.78 %tmp.90 %tmp.88;
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 95 12 ]
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 99 12 ]
         %tmp.91 = lgetv %menuItem;
         %tmp.92 = getv function %tmp.91 :setSubLabel;
         %tmp.93 = getm $;
-        %tmp.94 = getv %tmp.93 :secondHandOptions;
+        %tmp.94 = getv %tmp.93 :secondDisplayOptions;
         %tmp.95 = getm $;
         %tmp.96 = getv %tmp.95 :Options_Dict;
         %tmp.98 = lgetv %id.1;
         %tmp.99 = agetv %tmp.96 %tmp.98;
         %tmp.100 = agetv %tmp.94 %tmp.99;
         invoke %tmp.91 %tmp.92(%tmp.100);
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 97 12 ]
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 101 12 ]
         %tmp.101 = getm $.Toybox.Application.Storage;
         %tmp.102 = getv function %tmp.101 :setValue;
         %tmp.104 = lgetv %id.1;
@@ -504,25 +513,75 @@ E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSet
         %tmp.109 = lgetv %id.1;
         %tmp.110 = agetv %tmp.107 %tmp.109;
         invoke %tmp.101 %tmp.102(%tmp.105, %tmp.110);
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 98 12 ]
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 102 12 ]
         %tmp.111 = getm $;
         %tmp.112 = true;
         putv %tmp.111 :Settings_ran %tmp.112;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_93_44_101_8_stop:
-        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_93_8_101_8_if_end;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_93_8_101_8_if_end:
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_75_59_102_4_stop:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_97_40_105_8_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_97_8_105_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_97_8_105_8_if_end:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 107 8 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_107_8_115_8_if_stmt:
+        %tmp.113 = lgetv %id.1;
+        %tmp.114 = getv function %tmp.113 :equals;
+        %tmp.115 = "Second Hand Option";
+        %tmp.116 = invoke %tmp.113 %tmp.114(%tmp.115);
+        bf %tmp.116 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_107_8_115_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_107_8_115_8_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_107_44_115_8_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 108 12 ]
+        %tmp.117 = getm $;
+        %tmp.118 = getv %tmp.117 :Options_Dict;
+        %tmp.119 = getm $;
+        %tmp.120 = getv %tmp.119 :Options_Dict;
+        %tmp.122 = lgetv %id.1;
+        %tmp.123 = agetv %tmp.120 %tmp.122;
+        %tmp.124 = 1;
+        %tmp.125 = add %tmp.123 %tmp.124;
+        %tmp.127 = getv ? :secondHandOptions_size;
+        %tmp.128 = mod %tmp.125 %tmp.127;
+        %tmp.130 = lgetv %id.1;
+        aputv %tmp.118 %tmp.130 %tmp.128;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 109 12 ]
+        %tmp.131 = lgetv %menuItem;
+        %tmp.132 = getv function %tmp.131 :setSubLabel;
+        %tmp.133 = getm $;
+        %tmp.134 = getv %tmp.133 :secondHandOptions;
+        %tmp.135 = getm $;
+        %tmp.136 = getv %tmp.135 :Options_Dict;
+        %tmp.138 = lgetv %id.1;
+        %tmp.139 = agetv %tmp.136 %tmp.138;
+        %tmp.140 = agetv %tmp.134 %tmp.139;
+        invoke %tmp.131 %tmp.132(%tmp.140);
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 111 12 ]
+        %tmp.141 = getm $.Toybox.Application.Storage;
+        %tmp.142 = getv function %tmp.141 :setValue;
+        %tmp.144 = lgetv %id.1;
+        %tmp.145 = as %tmp.144 String;
+        %tmp.146 = getm $;
+        %tmp.147 = getv %tmp.146 :Options_Dict;
+        %tmp.149 = lgetv %id.1;
+        %tmp.150 = agetv %tmp.147 %tmp.149;
+        invoke %tmp.141 %tmp.142(%tmp.145, %tmp.150);
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 112 12 ]
+        %tmp.151 = getm $;
+        %tmp.152 = true;
+        putv %tmp.151 :Settings_ran %tmp.152;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_107_44_115_8_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_107_8_115_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_107_8_115_8_if_end:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_79_59_116_4_stop:
     }
-    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc"; @line = 104; ]
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc"; @line = 118; ]
     function onBack() {
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_104_22_107_4_start:
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 105 8 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_118_22_121_4_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc" 119 8 ]
         %tmp.1 = getm $.Toybox.WatchUi;
         %tmp.2 = getv function %tmp.1 :popView;
         %tmp.3 = getm $.Toybox.WatchUi;
         %tmp.4 = getv %tmp.3 :SLIDE_IMMEDIATE;
         invoke %tmp.1 %tmp.2(%tmp.4);
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_104_22_107_4_stop:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAna_source_ElegantAnaSettingsMenu_mc_118_22_121_4_stop:
     }
 }
 [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAna\source\ElegantAnaSettingsMenu.mc"; @line = 7; ]

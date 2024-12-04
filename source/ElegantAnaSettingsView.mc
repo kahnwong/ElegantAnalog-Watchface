@@ -17,6 +17,10 @@ var infiniteSecondLengths = [0, 1, 2, 3, 4, 5, 10, 1000000 ];
 var infiniteSecondOptions_size = 8;
 var infiniteSecondOptions_default = 2;
 
+var secondDisplayOptions=[ "Main Face Large", "Main Face Center", "Small Circle Inset"];
+var secondDisplayOptions_size = 3;
+var secondDisplayOptions_default = 0;
+
 var secondHandOptions=[ "Big Pointer", "Outline Pointer", "Big Blunt", "Outline Blunt",  "Big Needle", "Small Block", "Small Pointer","Small Needle"];
 var secondHandOptions_size = 8;
 var secondHandOptions_default = 2;

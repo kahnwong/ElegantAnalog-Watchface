@@ -29,8 +29,12 @@ class ElegantAnaSettingsMenu extends WatchUi.Menu2 {
         Menu2.addItem(new WatchUi.MenuItem("Second Hand Run Time (after wake-up):",
             $.infiniteSecondOptions[$.Options_Dict["Infinite Second Option"]],"Infinite Second Option",{}));
 
-        var boolean = Storage.getValue("Long Second") ? true : false;
-        Menu2.addItem(new WatchUi.ToggleMenuItem("Second Hand Length: Short-Long", null, "Long Second", boolean, null));
+        //var boolean = Storage.getValue("Long Second") ? true : false;
+        //Menu2.addItem(new WatchUi.ToggleMenuItem("Second Hand Length: Short-Long", null, "Long Second", boolean, null));
+
+        if ($.Options_Dict["Second Display"] == null) { $.Options_Dict["Second Display"] = $.secondDisplayOptions_default; }
+        Menu2.addItem(new WatchUi.MenuItem("Second Hand Display:",
+            $.secondDisplayOptions[$.Options_Dict["Second Display"]],"Second Display",{}));
 
         if ($.Options_Dict["Second Hand Option"] == null) { $.Options_Dict["Second Hand Option"] = $.secondHandOptions_default; }
         Menu2.addItem(new WatchUi.MenuItem("Second Hand Shape:",
@@ -39,7 +43,7 @@ class ElegantAnaSettingsMenu extends WatchUi.Menu2 {
         //boolean = Storage.getValue("Wide Second") ? true : false;
         //Menu2.addItem(new WatchUi.ToggleMenuItem("Second Hand Size: Narrow-Wide", null, "Wide Second", boolean, null));                
 
-        boolean = Storage.getValue("Show Move") ? true : false;
+        var boolean = Storage.getValue("Show Move") ? true : false;
         Menu2.addItem(new WatchUi.ToggleMenuItem("Show Move Bar: No-Yes", null, "Show Move", boolean, null));
 
         boolean = Storage.getValue("Show Battery") ? true : false;
@@ -83,6 +87,16 @@ class ElegantAnaSettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
         if(id.equals("Infinite Second Option")) {
             $.Options_Dict[id]=($.Options_Dict[id]+1)%infiniteSecondOptions_size;
             menuItem.setSubLabel($.infiniteSecondOptions[$.Options_Dict[id]]);
+
+            Storage.setValue(id as String, $.Options_Dict[id]);            
+            $.Settings_ran = true;
+            //MySettings.writeKey(MySettings.backgroundKey,MySettings.backgroundIdx);
+            //MySettings.background=MySettings.getColor(null,null,null,MySettings.backgroundIdx);
+        }
+
+        if(id.equals("Second Display")) {
+            $.Options_Dict[id]=($.Options_Dict[id]+1)%secondDisplayOptions_size;
+            menuItem.setSubLabel($.secondDisplayOptions[$.Options_Dict[id]]);
 
             Storage.setValue(id as String, $.Options_Dict[id]);            
             $.Settings_ran = true;
