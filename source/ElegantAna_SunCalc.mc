@@ -406,7 +406,7 @@ var DISPLAY = [
             }
         }
 
-        if (pos < 1) {return null;}
+        if (pos < 0) {return null;}
 
         var nd = "Dawn";
         if (times[pos][1] == 12) {nd = "Dusk";}

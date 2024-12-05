@@ -700,15 +700,27 @@ class ElegantAnaView extends WatchUi.WatchFace {
         // var res = si.getDayNightPosition();
         //System.println ("Current conditions: " + res);
         var res = si.getNextDawnDusk();
-        //System.println ("Current conditions: " + res);
+        System.println ("getNextDawnDusk: " + res);
         //drawArc(x, y, r, attr, degreeStart, degreeEnd)
 
         //        var options = {:dc=>targetDc, :angle=>res[1],:length=>width_screen*.6 , :width=>10,:overheadLine=>-width_screen*.4, :drawCircleOnTop=>false, :shape=>5,:squeezeX=>true, :squeezeY=>true, :centerX=>centerX_main, :centerY=>centerY_main};
 
         //drawHand(options);
-        var sh = 5;
-        if (res[0]=="Dusk") {sh = 2;}
-        drawHandplain (targetDc, res[1], width_screen*.47, 8, -width_screen * .5, 5);
+        if (res != null) {
+            var sh = 5;
+            if (res[0].equals("Dusk")) {sh = 2;}
+            
+
+            //System.println ("Current conditions: " + res);
+            //System.println ("Current conditions: " + res[0]);
+            //System.println ("Current conditions: " + res[0].equals("Dawn"));
+            
+            
+            //drawHandplain (targetDc, res[1], width_screen*.47, 8, -width_screen * .5, 5);
+
+            var options = {:dc=>targetDc, :angle=>res[1],:length=>width_screen*.47 , :width=>8,:overheadLine=>-width_screen*.5, :drawCircleOnTop=>false, :shape=>sh,:squeezeX=>true, :squeezeY=>true, :centerX=>centerX_main, :centerY=>centerY_main};
+            drawHand(options);
+        }
 
 
     
@@ -1143,6 +1155,14 @@ class ElegantAnaView extends WatchUi.WatchFace {
     //! @param width Width of the watch hand
     //! @param draw a circle @ the end
     //! @param draw it as a line instead of polygon
+        //! @param shape:    
+    //    0=regular filled rectangle
+    //    1=thin line
+    //      2=triangle/point
+    //      3 = rectangle outline
+    //      4 = blanked rectangle outline
+    //      5 = triangle outline
+    //      6 = blanked triangle outline
 
     //[:dc=dc, :angle=angle,:length=length, :width=width,:overheadLine=overheadLine, :drawCircleOnTop=drawCircleOnTop, :shape=shape,:squeezeX=squeezeX, :squeezeY=squeezeY, :centerX=centerX, :centerY=centerY]
 
@@ -1165,7 +1185,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
             ];
             count = 2;
         
-        } else if (shape == 2) {
+        } else if (shape == 2 || shape == 5 || shape == 6) { //TRIANGLE/pointer
 
             var mult = 1;
             if ($.Options_Dict["Second Display"] != 0) {mult = 4;}
@@ -1279,6 +1299,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
         dc.setClip(0, minY - 3, width_screen , maxY-minY + 6); //don't need clip on X axis as it doesnt affect graphics/display energy usage.
         //System.println("polygon:" + result);
         // Draw the polygon
+        /*
         if (shape== 1) {
             dc.drawLine(result[0][0], result[0][1], result[1][0], result[1][1]);            
         }
@@ -1291,7 +1312,18 @@ class ElegantAnaView extends WatchUi.WatchFace {
 
         } else {
              dc.fillPolygon(result);
-        }
+        }*/
+
+        if (shape== 1) {
+            dc.drawLine(result[0][0], result[0][1], result[1][0], result[1][1]);            
+       
+        } else if (shape== 3 || shape ==5) { //outline poly
+            drawPolygon(dc, result, false);
+        } else if (shape== 4|| shape ==6) { //black/blank outline poly
+            drawPolygon(dc, result, true);        
+        } else { //regular filled poly
+             dc.fillPolygon(result);
+        }  
 
         //dc.fillPolygon(result);
         return result;
