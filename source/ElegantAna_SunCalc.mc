@@ -16,6 +16,9 @@ using Toybox.Position as Pos;
 using Toybox.WatchUi as Ui;
 using Toybox.Graphics as Gfx;
 using Toybox.System as Sys;
+using Toybox.Weather as Weather;
+using Toybox.Activity as Activity;
+import Toybox.Application.Storage;
 
     enum {
         ASTRO_DAWN,
@@ -37,7 +40,7 @@ using Toybox.System as Sys;
     }
 
 class ElegantAna_SunCalc {
-
+    
     var sunEvents = [
         ASTRO_DAWN,
         NAUTIC_DAWN,
@@ -55,7 +58,7 @@ class ElegantAna_SunCalc {
         NAUTIC_DUSK,
         ASTRO_DUSK
     ];
-
+    /*
     var sunEventNames = {
         ASTRO_DAWN => ["ASTRO_DAWN",  "Astronomical Dawn"],
         NAUTIC_DAWN => ["NAUTIC_DAWN",  "Nautical Dawn"],
@@ -73,6 +76,7 @@ class ElegantAna_SunCalc {
         NAUTIC_DUSK => ["NAUTIC_DUSK",  "Nautical Dusk"],
         ASTRO_DUSK  => ["ASTRO_DUSK",  "Astronomical Dusk"],
     };
+    */
 
     hidden const PI   = Math.PI,
         RAD  = Math.PI / 180.0,
@@ -82,7 +86,7 @@ class ElegantAna_SunCalc {
         J2000 = 2451545,
         J0 = 0.0009;
 
-    hidden const TIMES = [
+    public const TIMES = [
         -18 * RAD,    // ASTRO_DAWN
         -12 * RAD,    // NAUTIC_DAWN
         -6 * RAD,     // DAWN
@@ -205,7 +209,7 @@ class ElegantAna_SunCalc {
         return info.day.format("%02d") + "." + info.month.format("%02d") + "." + info.year.toString()
             + " " + info.hour.format("%02d") + ":" + info.min.format("%02d") + ":" + info.sec.format("%02d");
     }
-
+    /*
     (:test) static function testCalc(logger) {
 
         var testMatrix = [
@@ -251,11 +255,12 @@ class ElegantAna_SunCalc {
 
         return true;
     }
+    */
 }
 
 class ElegantAna_SunInfo {
 
-
+/*
 var DISPLAY = [
     [ "Astr. Dawn", ASTRO_DAWN, :Astro, :AM, null],
     [ "Nautic Dawn", NAUTIC_DAWN, :Nautic, :AM, null],
@@ -271,6 +276,7 @@ var DISPLAY = [
     [ "Nautic Dusk", NAUTIC_DUSK, :Nautic, :PM, null],
     [ "Astr. Dusk", ASTRO_DUSK, :Astro, :PM, null],
     ];
+    */
 
     var sc;    
     var now;
@@ -286,29 +292,91 @@ var DISPLAY = [
         //is24Hour = Sys.getDeviceSettings().is24Hour;
     }
 
-    function setPositionAndTime () {
+    //Urggh.
+    //Check if location was saved in past 5 days, us it.
+    //If not, check Position, then Weather, the Activity for a good position, use it.
+    //Otherwise, use geo center of continental U.S. as location
 
-        var info = Pos.getInfo();
+    function setPositionAndTime () {
+        //System.println ("sc1");
+
+        now = Time.now();
+
+        if ($.Options_Dict.hasKey("Location") && $.Options_Dict["Location"] != null && (now.value() - $.Options_Dict["Location"][1] < 5 * Time.Gregorian.SECONDS_PER_DAY) ) {
+            self.lastLoc = $.Options_Dict["Location"][0];
+            System.println ("sc0: Options_Dict " + ($.Options_Dict["Location"][0]) + " now: " + now.value() + " saved: " + $.Options_Dict["Location"][1] );    
+            if  (self.lastLoc != null) {return;}
+        }
+
+        var pinfo = Position.getInfo();
+        System.println ("sc1: Null? " + (pinfo==null));
+        if (pinfo != null ) {System.println ("sc1: pinfo " + pinfo.position.toDegrees());}
+
+        var curr_pos = null;
+        if (pinfo.position != null) { curr_pos = pinfo.position; }
+        
+        var temp = curr_pos.toDegrees()[0];
+        if ( (temp - 180).abs() < 0.1 || temp.abs() < 0.1 ) {curr_pos = null;} //bad data
+
+        if (curr_pos == null) {
+            var wcc = Weather.getCurrentConditions();
+
+            var w_pos = wcc.observationLocationPosition;
+
+            System.println ("sc1.1: weather w_pos == Null2? " + (w_pos==null));
+            if (w_pos != null ) {
+                System.println ("sc1.1: winfo " + w_pos.toDegrees());
+                curr_pos = w_pos; 
+            }
+
+            temp = curr_pos.toDegrees()[0];
+            if ( temp == 180 || temp == 0 ) {curr_pos = null;} //bad data
+        }
+        if (curr_pos == null) {
+            var a_info = Activity.getActivityInfo();
+            var a_pos = null;
+            System.println ("sc1.2:Activity a_pos==Null3? " + (a_pos==null));
+            
+            if (a_info!=null && a_info has :position && a_info.position != null)
+            { a_pos = a_info.position;}
+            if (a_pos != null ) {
+                System.println ("sc1.2: a_pos " + a_pos.toDegrees());
+                curr_pos = a_pos; 
+            }
+        }
+        
+
+        //System.println ("sc1a:");
         //In case position info not available, we'll use either the previously obtained value OR the geog center of 48 US states as default.
-        if (info == null || info.accuracy == Pos.QUALITY_NOT_AVAILABLE) {
+        //|| info.accuracy == Pos.QUALITY_NOT_AVAILABLE 
+        if (curr_pos == null ){
            if (self.lastLoc == null) { 
                 self.lastLoc = new Pos.Location(            
                     { :latitude => 39.833333, :longitude => -98.583333, :format => :degrees }
                     ).toRadians();
+                    System.println ("sc1b: " + self.lastLoc);
            }
         } else {
 
-            var loc = info.position.toRadians();
+            var loc = curr_pos.toRadians();
             self.lastLoc = loc;
-        }
-        now = Time.now();
+            System.println ("sc1c:"+ curr_pos.toDegrees());
+            //System.println ("sc1c");
+        }        
+
+
+        //System.println ("sc2");
+        
+        $.Options_Dict["Location"] = [self.lastLoc, now.value()];
+        Storage.setValue("Location",$.Options_Dict["Location"]);
+        //System.println ("sc3");
         /* For testing
            now = new Time.Moment(1483225200);
            self.lastLoc = new Pos.Location(
             { :latitude => 70.6632359, :longitude => 23.681726, :format => :degrees }
             ).toRadians();
         */
-        System.println ("lastLoc: " + info.position.toDegrees() );
+        //System.println ("lastLoc: " + lastLoc );
     }
 
     //gets all sunevent times for yesterday, today, tomorrow
@@ -321,7 +389,7 @@ var DISPLAY = [
         setPositionAndTime();
         //var currmom =new Time.Moment(now.value());// + day * Time.Gregorian.SECONDS_PER_DAY
         var nowval = now.value();
-
+        //System.println ("sc4");
         var sc_size = sc.sunEvents.size();
         var count = 0;
         for (var day = startDay ; day <= endDay; day++) {
@@ -347,10 +415,12 @@ var DISPLAY = [
                 //System.println(g1.day + "  " + g1.hour + "  " +  g1.min + "  " +  g1.sec + "  " +  mom.value());
                 //System.println(g2.day + "  " + g2.hour + "  " +  g2.min + "  " +  g2.sec + "  " +  sunTime.value() + " " + sc.sunEventNames[event][0] + " " + sc.sunEventNames[event][1]);
             }
+
+            //System.println ("sc5");
         }
-        var idx = [0, 1];
+        //var idx = [0, 1];
         //System.println("SunCalc2: "+ sunTimes);
-        
+        //System.println ("sc6");
         return sunTimes;
 
     }
@@ -362,7 +432,7 @@ var DISPLAY = [
                 DUSK,
             ];   
         var times = calcAllSunTimes(which, -1, 1);
-        System.println("SunCalc3: "+ times);
+        //System.println("SunCalc3: "+ times);
 
         var nowval = now.value();
         var pos = -1;
@@ -383,44 +453,82 @@ var DISPLAY = [
         var now_length = nowval - times[pos-1] [2];
         var percent = now_length/duration;
 
-        System.println ("Current conditions: " + nd + " " + percent);
+        //System.println ("Current conditions: " + nd + " " + percent);
 
         return [nd, percent];
     }
 
-    function getNextDawnDusk(){
+    //which is an array of the items you want to check for. As in the enum above,
+    //ASTRO_DAWN, NAUTIC_DAWN, DAWN, DUSK, SUNRISE, SUNSET, etc
+    //returns array with string "Dawn" or "Dusk" to indicate morning/night and the 
+    //angle in radians where the event can be placed on a 12-hour clock.
+    function getNextDawnDusk(which){
      
-        var which = [  DAWN,            
-                DUSK,
-            ];   
+        //System.println ("sc7");
+        //var which = [  DAWN,DUSK,];   
         var times = calcAllSunTimes(which, 0, 1);
         //System.println("SunCalc3: "+ times);
 
         var nowval = now.value();
         var pos = -1;
-
+        //System.println ("sc8");
         for (var i=0; i<times.size(); i++) {
             if (nowval < times[i][2]) {
                 pos = i;
                 break;
             }
         }
-
+        //System.println ("sc9");
         if (pos < 0) {return null;}
 
         var nd = "Dawn";
-        if (times[pos][1] == 12) {nd = "Dusk";}
+        if (times[pos][1] > 6) {nd = "Dusk";}
 
-        System.println ("next event sec: " + times[pos][1] + " " + times[pos][2]);
+        //System.println ("next event sec: " + times[pos][1] + " " + times[pos][2]);
 
         //var info = Time.Gregorian.info(times[pos][2], Time.FORMAT_SHORT);
+        /*
         var ttime = new Time.Moment(times[pos][2]);
         var tinfo = Gregorian.info(ttime, Time.FORMAT_SHORT);
         var angle = (tinfo.hour * 60.0 + tinfo.min )/720.0 * Math.PI * 2.0;        
         System.println ("next event time: " + tinfo.day + " " + tinfo.hour + ":"+tinfo.min);
         System.println ("next event angle: " + angle + " " + Math.toDegrees(angle));
+        */
+        /*
+        System.println ("sc10");
+        var now_info = Gregorian.info(now, Time.FORMAT_SHORT);
 
-        return [nd, angle];
+        var mid_options = {
+            :year   => now_info.year,
+            :month  => now_info.month, 
+            :day    => now_info.day,
+            :hour   => 0
+            };
+        var mid_date = Gregorian.moment(mid_options);
+        */
+
+        //System.println ("sc11");     
+        var mid_date = Time.today(); //midnight today.  Aarrgh.   
+
+        //System.println ("next event times: " + times[pos][2] + " " + mid_date.value().toDouble());
+
+        var angle = (times[pos][2] - mid_date.value().toDouble() )/(Time.Gregorian.SECONDS_PER_DAY/2.0) * Math.PI * 2.0;        
+        var ret = [[nd,  angle]];
+
+        if (pos + 1 < times.size()) {
+            pos ++;
+
+            nd = "Dawn";
+            if (times[pos][1] > 6) {nd = "Dusk";}
+
+            angle = (times[pos][2] - mid_date.value().toDouble() )/(Time.Gregorian.SECONDS_PER_DAY/2.0) * Math.PI * 2.0;
+
+            ret.add([nd,angle]);
+
+        }
+        
+        
+        return ret;
     }
 
 

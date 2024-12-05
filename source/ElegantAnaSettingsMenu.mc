@@ -13,6 +13,8 @@ class ElegantAnaSettingsMenu extends WatchUi.Menu2 {
 
     //! Constructor
     public function initialize() {
+
+        $.Settings_ran = true;
         
         var clockTime = System.getClockTime();
         System.println(clockTime.hour +":" + clockTime.min + " - Settings running");
@@ -40,6 +42,8 @@ class ElegantAnaSettingsMenu extends WatchUi.Menu2 {
         Menu2.addItem(new WatchUi.MenuItem("Second Hand Shape:",
             $.secondHandOptions[$.Options_Dict["Second Hand Option"]],"Second Hand Option",{}));
 
+           
+
         //boolean = Storage.getValue("Wide Second") ? true : false;
         //Menu2.addItem(new WatchUi.ToggleMenuItem("Second Hand Size: Narrow-Wide", null, "Wide Second", boolean, null));                
 
@@ -61,6 +65,10 @@ class ElegantAnaSettingsMenu extends WatchUi.Menu2 {
 
         boolean = Storage.getValue("Show Date") ? true : false;
         Menu2.addItem(new WatchUi.ToggleMenuItem("Show Date: No-Yes", null, "Show Date", boolean, null));
+
+        if ($.Options_Dict["Dawn/Dusk Markers"] == null) { $.Options_Dict["Dawn/Dusk Markers"] = $.dawnDuskOptions_default; }
+        Menu2.addItem(new WatchUi.MenuItem("Day/Night Markers:",
+            $.dawnDuskOptions[$.Options_Dict["Dawn/Dusk Markers"]],"Dawn/Dusk Markers",{}));         
 
         boolean = Storage.getValue("Hour Numbers") ? true : false;
         Menu2.addItem(new WatchUi.ToggleMenuItem("Hour Numbers: Off-On", null, "Hour Numbers", boolean, null));        
@@ -117,6 +125,16 @@ class ElegantAnaSettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
         if(id.equals("Second Hand Option")) {
             $.Options_Dict[id]=($.Options_Dict[id]+1)%secondHandOptions_size;
             menuItem.setSubLabel($.secondHandOptions[$.Options_Dict[id]]);
+
+            Storage.setValue(id as String, $.Options_Dict[id]);            
+            $.Settings_ran = true;
+            //MySettings.writeKey(MySettings.backgroundKey,MySettings.backgroundIdx);
+            //MySettings.background=MySettings.getColor(null,null,null,MySettings.backgroundIdx);
+        }
+
+        if(id.equals("Dawn/Dusk Markers")) {
+            $.Options_Dict[id]=($.Options_Dict[id]+1)%dawnDuskOptions_size;
+            menuItem.setSubLabel($.dawnDuskOptions[$.Options_Dict[id]]);
 
             Storage.setValue(id as String, $.Options_Dict[id]);            
             $.Settings_ran = true;

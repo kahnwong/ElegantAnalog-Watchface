@@ -25,6 +25,10 @@ var secondHandOptions=[ "Big Pointer", "Outline Pointer", "Big Blunt", "Outline 
 var secondHandOptions_size = 8;
 var secondHandOptions_default = 2;
 
+var dawnDuskOptions=[ "Dawn/Dusk Markers", "Sunrise/Sunset Markers", "No Markers", ];
+var dawnDuskOptions_size = 3;
+var dawnDuskOptions_default = 0;
+
 //! Initial app settings view
 class ElegantAnaSettingsView extends WatchUi.View {
 

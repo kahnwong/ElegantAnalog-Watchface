@@ -427,7 +427,8 @@ class ElegantAnaView extends WatchUi.WatchFace {
     //var testMBL = 0; //for testing
 
     var update_ran = false;
-
+    var dawnDusk_ran = false;
+    var dawnDusk_info = null;
     //! Handle the update event
     //! @param dc Device context
     public function onUpdate(dc as Dc) as Void {
@@ -442,7 +443,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
             _secondHandCounter = 0;
         }
 
-
+        //System.println ("oud1");
         
         show_sec= true;
         if (!_isAwake) {_secondHandCounter += 1;}        
@@ -450,6 +451,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
 
         if ($.Settings_ran || ! update_ran) {
             setSecondHandOptions ();
+            dawnDusk_ran = false;
         }
         
 
@@ -466,7 +468,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
         }
         update_ran = true;
 
-        
+        //System.println ("oud2");
         //Storage.getValue("Wide Second") = Storage.getValue("Wide Second") ? true : false;
     
 
@@ -555,7 +557,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
             */            
 
             targetDc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_TRANSPARENT);
-            
+            //System.println ("oud3");
             var drawHashes = true;
             var drawHours = true;
             var avoidCircle = ($.Options_Dict["Show Date"] || $.Options_Dict["Second Display"] == 2) ? true : false;
@@ -577,7 +579,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
             }            
 
             drawHashMarks(targetDc, drawHashes, drawHours, avoidCircle);
-
+            //System.println ("oud4");
             
             if ($.Options_Dict["Second Hashes"]) {
                 if (sec_length<50) {
@@ -635,7 +637,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
         moveBarLevel = info.moveBarLevel;
         if (moveBarLevel == null ) {moveBarLevel=0;}
         moveExpired = (moveBarLevel != null && moveBarLevel >= 5);
-
+        //System.println ("oud5");
         
         //if (!(activeMinutesWeek instanceof Lang.Float) ) { activeMinutesWeek = 
         //activeMinutesWeek.toFloat();}
@@ -694,37 +696,75 @@ class ElegantAnaView extends WatchUi.WatchFace {
                 drawDate(targetDc, Gfx.COLOR_WHITE, false);
             }
         }     
-
-         
         
-        // var res = si.getDayNightPosition();
-        //System.println ("Current conditions: " + res);
-        var res = si.getNextDawnDusk();
-        System.println ("getNextDawnDusk: " + res);
-        //drawArc(x, y, r, attr, degreeStart, degreeEnd)
+        //System.println ("oud6");
+        var ddm =  $.Options_Dict["Dawn/Dusk Markers"];
+        if ( ddm < 2 ) {
 
-        //        var options = {:dc=>targetDc, :angle=>res[1],:length=>width_screen*.6 , :width=>10,:overheadLine=>-width_screen*.4, :drawCircleOnTop=>false, :shape=>5,:squeezeX=>true, :squeezeY=>true, :centerX=>centerX_main, :centerY=>centerY_main};
+            //only run every 10 mins OR if it hasn't run before, settings run, etc
+            //it's a rather expensive run...
+            if (!dawnDusk_ran || clockTime.min % 10 == 0 ) 
+            {
+                //System.println ("oud7");
+                dawnDusk_ran = true;
+                var which = [  DAWN,DUSK,];   
+                if (ddm ==1) {
+                    which = [  SUNRISE,SUNSET,];   
+                }
+                // var res = si.getDayNightPosition();
+                //System.println ("Current conditions: " + res);
+                dawnDusk_info = si.getNextDawnDusk(which);
+                System.println ("getNextDawnDusk: " + dawnDusk_info);
+                //drawArc(x, y, r, attr, degreeStart, degreeEnd)
+            }
 
-        //drawHand(options);
-        if (res != null) {
-            var sh = 5;
-            if (res[0].equals("Dusk")) {sh = 2;}
-            
+            //        var options = {:dc=>targetDc, :angle=>res[1],:length=>width_screen*.6 , :width=>10,:overheadLine=>-width_screen*.4, :drawCircleOnTop=>false, :shape=>5,:squeezeX=>true, :squeezeY=>true, :centerX=>centerX_main, :centerY=>centerY_main};
 
-            //System.println ("Current conditions: " + res);
-            //System.println ("Current conditions: " + res[0]);
-            //System.println ("Current conditions: " + res[0].equals("Dawn"));
-            
-            
-            //drawHandplain (targetDc, res[1], width_screen*.47, 8, -width_screen * .5, 5);
+            //drawHand(options);
 
-            var options = {:dc=>targetDc, :angle=>res[1],:length=>width_screen*.47 , :width=>8,:overheadLine=>-width_screen*.5, :drawCircleOnTop=>false, :shape=>sh,:squeezeX=>true, :squeezeY=>true, :centerX=>centerX_main, :centerY=>centerY_main};
-            drawHand(options);
+            if (dawnDusk_info != null) {
+                for (var i = 0; i<dawnDusk_info.size(); i++) {
+                var sh = 5;
+                if (dawnDusk_info[i][0].equals("Dusk")) {sh = 2;}
+                
+
+                //System.println ("Current conditions: " + res);
+                //System.println ("Current conditions: " + res[0]);
+                //System.println ("Current conditions: " + res[0].equals("Dawn"));
+                
+                //System.println ("oud8");
+                
+                //drawHandplain (targetDc, res[1], width_screen*.47, 8, -width_screen * .5, 5);
+                var ohl = -width_screen*.53 ;
+                var ln =  width_screen*.49 ;
+                if (($.Options_Dict["Second Hashes"] && $.Options_Dict["Second Display"] == 0) || $.Options_Dict["Hour Hashes"] ) {
+                    ohl = -width_screen*.5 ;
+                    ln =  width_screen*.47 ;
+                }
+                //System.println ("oud9");
+                //System.println ("getNextDawnDusk2: " + dawnDusk_info);
+                //System.println ("getNextDawnDusk3: " + dawnDusk_info[1] + " " + ohl + " " + ln);
+
+                //System.println ("oud10");
+
+                var options = {:dc=>targetDc, :angle=>dawnDusk_info[i][1],:length=> ln, :width=>8,:overheadLine=>ohl, :drawCircleOnTop=>false, :shape=>sh,:squeezeX=>true, :squeezeY=>true, :centerX=>centerX_main, :centerY=>centerY_main};
+                drawHand(options);
+                /*
+                var in = {
+                :hour => 0
+                };
+                var date = Time.Gregorian.moment(in);
+                var out = Time.Gregorian.info(date, Time.FORMAT_SHORT);
+                System.println(">>>" + out.hour);
+                */
+                //System.println ("oud11");
+                }
+            }
         }
 
 
     
-        
+        //System.println ("oud12");
 
         //drawDate(targetDc, Gfx.COLOR_WHITE);        
         drawHands(targetDc, clockTime.hour, clockTime.min, clockTime.sec, Gfx.COLOR_WHITE, Gfx.COLOR_WHITE, Gfx.COLOR_WHITE);
@@ -1083,6 +1123,12 @@ class ElegantAnaView extends WatchUi.WatchFace {
         if ($.Options_Dict["Second Hand Option"]<0) {$.Options_Dict["Second Hand Option"] = $.secondHandOptions_default;}
         Storage.setValue("Second Hand Option",$.Options_Dict["Second Hand Option"]);
 
+        temp = Storage.getValue("Dawn/Dusk Markers");        
+        $.Options_Dict["Dawn/Dusk Markers"] = temp  != null ? temp : $.dawnDuskOptions_default;
+        if ($.Options_Dict["Dawn/Dusk Markers"]>$.dawnDuskOptions_size-1) {$.Options_Dict["Dawn/Dusk Markers"] = $.dawnDuskOptions_default;}
+        if ($.Options_Dict["Dawn/Dusk Markers"]<0) {$.Options_Dict["Dawn/Dusk Markers"] = $.dawnDuskOptions_default;}
+        Storage.setValue("Dawn/Dusk Markers",$.Options_Dict["Dawn/Dusk Markers"]);
+
         temp = Storage.getValue("Show Battery");
         $.Options_Dict["Show Battery"] = temp  != null ? temp : true;
         Storage.setValue("Show Battery",$.Options_Dict["Show Battery"]);        
@@ -1118,6 +1164,10 @@ class ElegantAnaView extends WatchUi.WatchFace {
         temp = Storage.getValue("Second Hashes");
         $.Options_Dict["Second Hashes"] = temp  != null ? temp : true;
         Storage.setValue("Second Hashes",$.Options_Dict["Second Hashes"]);        
+
+        temp = Storage.getValue("Location");
+        $.Options_Dict["Location"] = temp  != null ? temp : null;
+        Storage.setValue("Location",$.Options_Dict["Location"]);        
 
         //temp = Storage.getValue("Wide Second");
         //$.Options_Dict["Wide Second"] = temp  != null ? temp : false;
