@@ -42,18 +42,22 @@ class ElegantAnaSettingsMenu extends WatchUi.Menu2 {
 
         //boolean = Storage.getValue("Wide Second") ? true : false;
         //Menu2.addItem(new WatchUi.ToggleMenuItem("Second Hand Size: Narrow-Wide", null, "Wide Second", boolean, null));                
-        
-        var boolean = Storage.getValue("Show Minutes") ? true : false;
+
+        var boolean = Storage.getValue("Show Battery") ? true : false;
+        Menu2.addItem(new WatchUi.ToggleMenuItem("Show Battery %: No-Yes", null, "Show Battery", boolean, null));            
+
+        boolean = Storage.getValue("Show Minutes") ? true : false;
         Menu2.addItem(new WatchUi.ToggleMenuItem("Show Wkly Activity Minutes: No-Yes", null, "Show Minutes", boolean, null));
+
+        boolean = Storage.getValue("Show Day Minutes") ? true : false;
+        Menu2.addItem(new WatchUi.ToggleMenuItem("Show Daily Activity Minutes: No-Yes", null, "Show Day Minutes", boolean, null));
 
         boolean = Storage.getValue("Show Steps") ? true : false;
         Menu2.addItem(new WatchUi.ToggleMenuItem("Show Daily Steps: No-Yes", null, "Show Steps", boolean, null));
 
         boolean = Storage.getValue("Show Move") ? true : false;
-        Menu2.addItem(new WatchUi.ToggleMenuItem("Show Move Bar: No-Yes", null, "Show Move", boolean, null));
+        Menu2.addItem(new WatchUi.ToggleMenuItem("Show Move Bar: No-Yes", null, "Show Move", boolean, null));        
 
-        boolean = Storage.getValue("Show Battery") ? true : false;
-        Menu2.addItem(new WatchUi.ToggleMenuItem("Show Battery %: No-Yes", null, "Show Battery", boolean, null));
 
         boolean = Storage.getValue("Show Date") ? true : false;
         Menu2.addItem(new WatchUi.ToggleMenuItem("Show Date: No-Yes", null, "Show Date", boolean, null));

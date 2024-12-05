@@ -60,11 +60,10 @@ class ElegantAnaView extends WatchUi.WatchFace {
 
     var stepGoal;
     var steps;
-    var activeMinutesWeek;
-    var activeMinutesWeekGoal;
-    var moveBarLevel;
-    var moveExpired;
-    var info;
+    var activeMinutesWeek, activeMinutesDay;
+    var activeMinutesWeekGoal, activeMinutesDayGoal;
+    var moveBarLevel, moveExpired;
+    var info, si;
 
 
     //! Initialize variables for this view
@@ -78,6 +77,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
         _partialUpdatesAllowed = (WatchUi.WatchFace has :onPartialUpdate);
         _secondHandCounter = 0;
         _isAwake = true;
+        si = new ElegantAna_SunInfo();
         readStorageValues();
         //System.println("5B");
     }
@@ -186,7 +186,8 @@ class ElegantAnaView extends WatchUi.WatchFace {
 
         //Figure Move Dot positions
         dmd_w4 =Math.ceil((batt_width_rect + batt_width_rect_small+3)/4);
-        dmd_yy = batt_y + 1.5 * batt_height_rect;
+        //dmd_yy = batt_y + 1.5 * batt_height_rect;
+        dmd_yy = batt_y;
         dmd_w = Math.ceil((batt_width_rect + batt_width_rect_small+3)/4-1);
         dmd_h = batt_height_rect-3;
         dmd_x = centerX_main;
@@ -209,6 +210,11 @@ class ElegantAnaView extends WatchUi.WatchFace {
         //sec_length = $.Options_Dict["Long Second"] ? width_screen*.475 : width_screen*.175;
         //TEST circle
         //sec_length = 25; //for small circle
+        
+
+    }
+
+    private function setSecondHandOptions () {
         switch ($.Options_Dict["Second Display"]) {
             case 1: {
                 sec_length = width_screen*.175;
@@ -311,7 +317,6 @@ class ElegantAnaView extends WatchUi.WatchFace {
             }
 
         }
-
     }
 
     //! This function is used to generate the coordinates of the 4 corners of the polygon
@@ -392,11 +397,11 @@ class ElegantAnaView extends WatchUi.WatchFace {
         */
     }
 
-    var getActivityData_inited = false;
+    var _getActivityData_inited = false;
 
     private function getActivityData() {
 
-        getActivityData_inited = true;
+        _getActivityData_inited = true;
 
         info = Toybox.ActivityMonitor.getInfo();                            
 
@@ -412,7 +417,11 @@ class ElegantAnaView extends WatchUi.WatchFace {
         activeMinutesWeek = info.activeMinutesWeek.total;
         activeMinutesWeekGoal = info.activeMinutesWeekGoal;
         if (activeMinutesWeekGoal == null || activeMinutesWeekGoal == 0) {activeMinutesWeekGoal=150;}
-        if ( activeMinutesWeek == null) { activeMinutesWeek=0;}    
+        if ( activeMinutesWeek == null) { activeMinutesWeek=0;} 
+
+        activeMinutesDay = info.activeMinutesDay.total;
+        activeMinutesDayGoal = activeMinutesWeekGoal/7.0;        
+        if ( activeMinutesDay == null) { activeMinutesDay=0;}    
     }
 
     //var testMBL = 0; //for testing
@@ -432,14 +441,28 @@ class ElegantAnaView extends WatchUi.WatchFace {
         else if (_secondHandCounter >= 10000000) { //sec_on was off but has been turned on via the menu
             _secondHandCounter = 0;
         }
+
+
         
         show_sec= true;
         if (!_isAwake) {_secondHandCounter += 1;}        
         if (!_isAwake && _secondHandCounter > $.infiniteSecondLengths[$.Options_Dict["Infinite Second Option"]] ) { show_sec = false; }
+
+        if ($.Settings_ran || ! update_ran) {
+            setSecondHandOptions ();
+        }
         
 
         if ((! _isAwake) && ( clockTime.sec < 1 )) {            
             System.println(clockTime.hour +":" + clockTime.min +" - current second hand counter = " + _secondHandCounter);
+        }
+
+        //when woken up we don't need to do draw anaything on the main screen;
+        //only at the top of the minute as usual.  So, except for the top
+        //of the minute, skip it all & just update seconds.
+        if (_isAwake && update_ran && !$.Settings_ran && ( clockTime.sec > 0 )) {
+            onPartialUpdate(dc);
+            return;
         }
         update_ran = true;
 
@@ -605,8 +628,8 @@ class ElegantAnaView extends WatchUi.WatchFace {
         }        
 
         //refreshed move,steps,activity mins every 2 mod 6 mins
-        if (!getActivityData_inited || clockTime.min % 6 ==2 ) {
-            getActivityData();
+        if (!_getActivityData_inited || clockTime.sec == 0 ) {
+           getActivityData();
         }
         //Get the move info every minute...
         moveBarLevel = info.moveBarLevel;
@@ -643,13 +666,19 @@ class ElegantAnaView extends WatchUi.WatchFace {
 
         } else {
             
+            var index = 0;
             //drawMove(targetDc, Gfx.COLOR_WHITE);
             if ($.Options_Dict["Show Battery"]) {
                 drawBattery(targetDc, Gfx.COLOR_WHITE, Gfx.COLOR_BLACK, Gfx.COLOR_WHITE);
+                index +=1.75;
             }
-            var index = 0;
+            
             if ($.Options_Dict["Show Minutes"]) { 
                 drawMoveDots(targetDc, activeMinutesWeek, activeMinutesWeekGoal, index, Gfx.COLOR_WHITE);
+                index += 1;
+            }
+            if ($.Options_Dict["Show Day Minutes"]) { 
+                drawMoveDots(targetDc, activeMinutesDay, activeMinutesDayGoal, index, Gfx.COLOR_WHITE);
                 index += 1;
             }            
             if ($.Options_Dict["Show Steps"]) { 
@@ -664,7 +693,25 @@ class ElegantAnaView extends WatchUi.WatchFace {
             if ($.Options_Dict["Show Date"] && $.Options_Dict["Second Display"] != 2) {
                 drawDate(targetDc, Gfx.COLOR_WHITE, false);
             }
-        }        
+        }     
+
+         
+        
+        // var res = si.getDayNightPosition();
+        //System.println ("Current conditions: " + res);
+        var res = si.getNextDawnDusk();
+        //System.println ("Current conditions: " + res);
+        //drawArc(x, y, r, attr, degreeStart, degreeEnd)
+
+        //        var options = {:dc=>targetDc, :angle=>res[1],:length=>width_screen*.6 , :width=>10,:overheadLine=>-width_screen*.4, :drawCircleOnTop=>false, :shape=>5,:squeezeX=>true, :squeezeY=>true, :centerX=>centerX_main, :centerY=>centerY_main};
+
+        //drawHand(options);
+        var sh = 5;
+        if (res[0]=="Dusk") {sh = 2;}
+        drawHandplain (targetDc, res[1], width_screen*.47, 8, -width_screen * .5, 5);
+
+
+    
         
 
         //drawDate(targetDc, Gfx.COLOR_WHITE);        
@@ -989,6 +1036,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
     public function onEnterSleep() as Void {
         _isAwake = false;
         _secondHandCounter = 0;
+        _getActivityData_inited = false; //we retrieve this data whenever the user looks @ the watch, or once per minute otherwise
         System.println(":"+System.getClockTime().min.format("%02d") + " - Enter Sleep, second hand counter = " + _secondHandCounter);
     }
 
@@ -997,6 +1045,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
     public function onExitSleep() as Void {
         _isAwake = true;
         _secondHandCounter = 0; //lets the 2nd hand run for 2 mins *only* after going to sleep
+        _getActivityData_inited = false; //we retrieve this data whenever the user looks @ the watch, or once per minute otherwise
         System.println(":"+System.getClockTime().min.format("%02d") + " - Exit Sleep, second hand counter = " + _secondHandCounter);
         
     }
@@ -1022,9 +1071,17 @@ class ElegantAnaView extends WatchUi.WatchFace {
         if ($.Options_Dict["Second Hand Option"]<0) {$.Options_Dict["Second Hand Option"] = $.secondHandOptions_default;}
         Storage.setValue("Second Hand Option",$.Options_Dict["Second Hand Option"]);
 
+        temp = Storage.getValue("Show Battery");
+        $.Options_Dict["Show Battery"] = temp  != null ? temp : true;
+        Storage.setValue("Show Battery",$.Options_Dict["Show Battery"]);        
+
         temp = Storage.getValue("Show Minutes");
         $.Options_Dict["Show Minutes"] = temp  != null ? temp : true;
         Storage.setValue("Show Minutes",$.Options_Dict["Show Minutes"]);
+
+        temp = Storage.getValue("Show Day Minutes");
+        $.Options_Dict["Show Day Minutes"] = temp  != null ? temp : true;
+        Storage.setValue("Show Day Minutes",$.Options_Dict["Show Day Minutes"]);
 
         temp = Storage.getValue("Show Steps");
         $.Options_Dict["Show Steps"] = temp  != null ? temp : true;
@@ -1037,10 +1094,6 @@ class ElegantAnaView extends WatchUi.WatchFace {
         temp = Storage.getValue("Show Date");
         $.Options_Dict["Show Date"] = temp  != null ? temp : true;
         Storage.setValue("Show Date",$.Options_Dict["Show Date"]);
-
-        temp = Storage.getValue("Show Battery");
-        $.Options_Dict["Show Battery"] = temp  != null ? temp : true;
-        Storage.setValue("Show Battery",$.Options_Dict["Show Battery"]);        
 
         temp = Storage.getValue("Hour Numbers");
         $.Options_Dict["Hour Numbers"] = temp  != null ? temp : true;
@@ -1562,15 +1615,18 @@ class ElegantAnaView extends WatchUi.WatchFace {
         var numD_floor = Math.floor(numDots);
         var partial = numDots - numD_floor;
 
-        if (numDots==0 && partial < 0.1 ) { return; }
+        if (numDots==0 && partial < 0.33 ) { return; }
         if ( numDots>6 ) { numDots = 6; partial = 0;  }
         numD_floor = Math.floor(numDots);
-        if (partial <0.1) {partial = 0;}
+        if (partial <0.3333) {partial = 0;} 
+
         var squares = numD_floor;
-        if (numDots < 6 && partial >= 0.1) { squares +=1; }
+        var partial_mx = Math.floor (partial * 3);
+        if (numDots < 6 && partial >= 0.3333) { squares +=1; }
+
         //var x_start = dmd_x - (numDots*dmd_w + numDots -1)/2; //Dots will be centered under the battery;
         var fact = numD_floor*dmd_w + squares -1;
-        if (partial >= 0.1) { fact = fact + partial;}
+        if (partial >= 0.3333) { fact = fact + partial;}
         
         var x_start = dmd_x - (fact)/2; //Dots will be centered under the battery;
 
@@ -1579,14 +1635,22 @@ class ElegantAnaView extends WatchUi.WatchFace {
         dc.setColor(text_color, Gfx.COLOR_TRANSPARENT);  
         
         for (var i = 0; i < squares; i++) {
-            var xx = x_start + i * dmd_w4;            
+            //var xx = x_start + i * dmd_w4;            
+            var xx = x_start + i * 4;            
             var yy = dmd_yy + index * (dmd_h + 1);
             if (i < 5 || (i==5 && partial > 0)) {
-                if (i < numD_floor) {
-                    dc.fillRectangle(xx, yy, dmd_w, dmd_h);            
-                } else { //the partial square
-                    dc.fillRectangle(xx, yy, dmd_w * partial, dmd_h);            
+                var mx = 3;
+                if (i == numD_floor) { mx = partial_mx; }
+                
+                //System.println("dMD: " + numDots + " " + partial  + " " + squares + " " + i + " " + mx);
+
+                //dc.fillRectangle(xx, yy, dmd_w, dmd_h);            
+                for (var j=0; j<mx; j++) {
+                    dc.drawLine(xx + j, yy,xx +j ,yy + dmd_h);                    
                 }
+                //} else { //the partial square
+                //    dc.fillRectangle(xx, yy, dmd_w * partial, dmd_h);            
+                //}
             } else {
                 //plus sign
                 //dc.drawRectangle(xx, yy, dmd_w, dmd_h);            
