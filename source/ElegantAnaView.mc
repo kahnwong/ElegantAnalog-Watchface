@@ -429,6 +429,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
     var update_ran = false;
     var dawnDusk_ran = false;
     var dawnDusk_info = null;
+    var dawnDusk_info24 = null;
     //! Handle the update event
     //! @param dc Device context
     public function onUpdate(dc as Dc) as Void {
@@ -699,7 +700,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
         
         //System.println ("oud6");
         var ddm =  $.Options_Dict["Dawn/Dusk Markers"];
-        if ( ddm < 2 ) {
+        if ( ddm < 4 ) {
 
             //only run every 10 mins OR if it hasn't run before, settings run, etc
             //it's a rather expensive run...
@@ -721,46 +722,103 @@ class ElegantAnaView extends WatchUi.WatchFace {
             //        var options = {:dc=>targetDc, :angle=>res[1],:length=>width_screen*.6 , :width=>10,:overheadLine=>-width_screen*.4, :drawCircleOnTop=>false, :shape=>5,:squeezeX=>true, :squeezeY=>true, :centerX=>centerX_main, :centerY=>centerY_main};
 
             //drawHand(options);
+            
 
             if (dawnDusk_info != null) {
-                for (var i = 0; i<dawnDusk_info.size(); i++) {
-                var sh = 5;
-                if (dawnDusk_info[i][0].equals("Dusk")) {sh = 2;}
-                
 
-                //System.println ("Current conditions: " + res);
-                //System.println ("Current conditions: " + res[0]);
-                //System.println ("Current conditions: " + res[0].equals("Dawn"));
-                
-                //System.println ("oud8");
-                
-                //drawHandplain (targetDc, res[1], width_screen*.47, 8, -width_screen * .5, 5);
-                var ohl = -width_screen*.53 ;
-                var ln =  width_screen*.49 ;
-                if (($.Options_Dict["Second Hashes"] && $.Options_Dict["Second Display"] == 0) || $.Options_Dict["Hour Hashes"] ) {
-                    ohl = -width_screen*.5 ;
-                    ln =  width_screen*.47 ;
-                }
-                //System.println ("oud9");
-                //System.println ("getNextDawnDusk2: " + dawnDusk_info);
-                //System.println ("getNextDawnDusk3: " + dawnDusk_info[1] + " " + ohl + " " + ln);
+                //LITTLE MARKS ON THE MAIN CLOCK
+                if ( ddm < 2 ) {
+                    for (var i = 0; i<dawnDusk_info.size(); i++) {
 
-                //System.println ("oud10");
+                        //System.println ("Current conditions: " + res);
+                        //System.println ("Current conditions: " + res[0]);
+                        //System.println ("Current conditions: " + res[0].equals("Dawn"));
+                        
+                        //System.println ("oud8");
+                        
+                        //drawHandplain (targetDc, res[1], width_screen*.47, 8, -width_screen * .5, 5);
 
-                var options = {:dc=>targetDc, :angle=>dawnDusk_info[i][1],:length=> ln, :width=>8,:overheadLine=>ohl, :drawCircleOnTop=>false, :shape=>sh,:squeezeX=>true, :squeezeY=>true, :centerX=>centerX_main, :centerY=>centerY_main};
-                drawHand(options);
-                /*
-                var in = {
-                :hour => 0
-                };
-                var date = Time.Gregorian.moment(in);
-                var out = Time.Gregorian.info(date, Time.FORMAT_SHORT);
-                System.println(">>>" + out.hour);
-                */
-                //System.println ("oud11");
+                        /*
+                        //Little triangles - works pretty well, squashed when along bottom
+
+                        for (var i = 0; i<dawnDusk_info.size(); i++) {
+                        var sh = 5;
+                        if (dawnDusk_info[i][0].equals("Dusk")) {sh = 2;}
+
+                        var ohl = -width_screen*.53 ;
+                        var ln =  width_screen*.49 ;
+                        if (($.Options_Dict["Second Hashes"] && $.Options_Dict["Second Display"] == 0) || $.Options_Dict["Hour Hashes"] ) {
+                            ohl = -width_screen*.5 ;
+                            ln =  width_screen*.47 ;
+                        }
+                        //System.println ("oud9");
+                        //System.println ("getNextDawnDusk2: " + dawnDusk_info);
+                        //System.println ("getNextDawnDusk3: " + dawnDusk_info[1] + " " + ohl + " " + ln);
+
+                        //System.println ("oud10");
+
+                        var options = {:dc=>targetDc, :angle=>dawnDusk_info[i][1],:length=> ln, :width=>8,:overheadLine=>ohl, :drawCircleOnTop=>false, :shape=>sh,:squeezeX=>true, :squeezeY=>true, :centerX=>centerX_main, :centerY=>centerY_main};
+                        drawHand(options);
+                        */
+
+                        //Trying little circles
+                        
+                        var sh = 7;
+                        if (dawnDusk_info[i][0].equals("Dusk")) {sh = 9;}
+
+                        var radius = 2;
+
+                        var ln =  width_screen*.53 ;
+                        if (($.Options_Dict["Second Hashes"] && $.Options_Dict["Second Display"] == 0) || $.Options_Dict["Hour Hashes"] ) {              
+                            ln =  width_screen*.51 ;
+                        }
+                        //System.println ("oud9");
+                        //System.println ("getNextDawnDusk2: " + dawnDusk_info);
+                        //System.println ("getNextDawnDusk3: " + dawnDusk_info[1] + " " + ohl + " " + ln);
+
+                        //System.println ("oud10");
+
+                        var options = {:dc=>targetDc, :angle=>dawnDusk_info[i][1],:length=> ln, :width=>8,:overheadLine=>radius, :drawCircleOnTop=>false, :shape=>sh,:squeezeX=>true, :squeezeY=>true, :centerX=>centerX_main, :centerY=>centerY_main};
+                        drawHand(options);
+
+
+                        /*
+                        var in = {
+                        :hour => 0
+                        };
+                        var date = Time.Gregorian.moment(in);
+                        var out = Time.Gregorian.info(date, Time.FORMAT_SHORT);
+                        System.println(">>>" + out.hour);
+                        */
+                        //System.println ("oud11");
+                    }
+                } else if (ddm <4) {
+
+                    //dawnDusk_info24 = si.getNextDawnDusk(which,24);
+
+                    var dawnAngle_rad = dawnDusk_info[0][1] / 2.0;
+                    var duskAngle_rad = dawnDusk_info[1][1] / 2.0;
+                    if (dawnDusk_info[0][0].equals("Dusk")) {
+                        dawnAngle_rad = dawnDusk_info[1][1] / 2.0;                        
+                        duskAngle_rad = dawnDusk_info[0][1] / 2.0;
+                    }
+                    dawnAngle_rad = mod (dawnAngle_rad, (Math.PI * 2));
+                    duskAngle_rad = mod (duskAngle_rad, (Math.PI * 2));;
+
+
+                    var now = Time.now();
+                    var mid_date = Time.today();
+
+                    var currTimeAngle_rad = (now.value().toDouble() - mid_date.value().toDouble() )/(Time.Gregorian.SECONDS_PER_DAY) * Math.PI * 2.0;  
+
+                    //System.println ("getNextDawnDusk: " + dawnDusk_info);
+                    //System.println("getNextDawnDusk2: " + currTimeAngle_rad + " " + now.value() + " " + mid_date.value());
+
+                    drawDayNight_animation (targetDc, dawnAngle_rad,duskAngle_rad, currTimeAngle_rad, centerX_circle, centerY_circle, centerY_circle * .8, centerY_circle + 4);
                 }
             }
         }
+        
 
 
     
@@ -771,8 +829,8 @@ class ElegantAnaView extends WatchUi.WatchFace {
         
         targetDc.setClip(width_screen/2 - 7, height_screen/2 -7, 14, 14);
         // Draw the inner circle (at center of the 3 hands)
-        targetDc.setColor(Gfx.COLOR_WHITE, background_color);
-        targetDc.fillCircle(width_screen/2, height_screen/2, 6);
+        targetDc.setColor (Gfx.COLOR_WHITE, background_color);
+        targetDc.fillCircle (width_screen/2, height_screen/2, 6);
         targetDc.setColor(background_color,background_color);
         targetDc.drawCircle(width_screen/2, height_screen/2, 6);
 
@@ -1198,6 +1256,54 @@ class ElegantAnaView extends WatchUi.WatchFace {
         _partialUpdatesAllowed = false;
     }
 
+    public function drawDayNight_animation (dc, dawnAngle_rad, duskAngle_rad, currTimeAngle_rad, centerX, centerY, radius, blankradius) {
+        //For ARC drawing purposes 0 deg is 3 o'clock & the circle proceeds around
+        //counterclockwise.  This is the opposite direction & 90 degrees
+        //offset from our usual clock angle
+        var dawnAngle_rad2 = Math.PI/2 + dawnAngle_rad;
+        var duskAngle_rad2 = Math.PI/2 + duskAngle_rad;
+        var currTimeAngle_rad2 = Math.PI/2 + currTimeAngle_rad;
+
+        var dawnAngle_deg = 270 - Math.toDegrees(dawnAngle_rad);
+        var duskAngle_deg = 270 -  Math.toDegrees(duskAngle_rad);
+        var currTimeAngle_deg = 90 - Math.toDegrees(currTimeAngle_rad);
+
+        //System.println ("getNextDawnDusk: " + dawnAngle_deg + " " + duskAngle_deg + " " +currTimeAngle_rad2);
+
+        if (blankradius > 0) {
+            dc.setColor(Gfx.COLOR_BLACK, background_color);
+            dc.fillCircle(centerX,centerY, blankradius);
+        }
+
+        dc.setColor(Gfx.COLOR_WHITE, background_color);
+
+        dc.setPenWidth(4);
+
+        dc.drawArc(centerX, centerY,radius, Graphics.ARC_CLOCKWISE, dawnAngle_deg, duskAngle_deg);
+
+        dc.setPenWidth(1);
+
+        dc.drawArc(centerX, centerY,radius, Graphics.ARC_CLOCKWISE, duskAngle_deg, dawnAngle_deg);
+
+        var now_radius = radius - 2;
+        var smallcircle_radius = 3;
+
+        var nowX = Math.cos(currTimeAngle_rad2) * now_radius + centerX;
+        var nowY = Math.sin(currTimeAngle_rad2) * radius + centerY;
+
+        //if (currTimeAngle_rad > dawnAngle_rad && currTimeAngle_rad <= duskAngle_rad) {
+        //            dc.fillCircle(nowX,nowY, smallcircle_radius);
+        //} else {
+            dc.setColor(Gfx.COLOR_BLACK, background_color);
+            dc.fillCircle(nowX,nowY, smallcircle_radius);
+            dc.setColor(Gfx.COLOR_WHITE, background_color);
+            dc.drawCircle(nowX,nowY, smallcircle_radius);
+        //}
+
+
+
+    }
+
     //! Draw the watch hand
     //! @param dc Device Context to Draw
     //! @param angle Angle to draw the watch hand
@@ -1213,6 +1319,9 @@ class ElegantAnaView extends WatchUi.WatchFace {
     //      4 = blanked rectangle outline
     //      5 = triangle outline
     //      6 = blanked triangle outline
+    //      7 = filled circle  [overheadline = radius]
+    //      8 = outline circle
+    //      9 = blanked outline circle
 
     //[:dc=dc, :angle=angle,:length=length, :width=width,:overheadLine=overheadLine, :drawCircleOnTop=drawCircleOnTop, :shape=shape,:squeezeX=squeezeX, :squeezeY=squeezeY, :centerX=centerX, :centerY=centerY]
 
@@ -1227,7 +1336,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
         
 
 
-        if (shape == 1) {
+        if (shape == 1   ) {
 
             coords = [ 
                 [0, 0 + overheadLine],
@@ -1246,6 +1355,12 @@ class ElegantAnaView extends WatchUi.WatchFace {
                 [width/2 * mult, 0 + overheadLine]
             ];
             count = 3;
+        } else if (shape >=7 && shape  <=9) {
+            coords = [ 
+                [0, -length],                
+            ];
+            count = 1;
+        
 
         } else {
             
@@ -1283,17 +1398,25 @@ class ElegantAnaView extends WatchUi.WatchFace {
 
             var X = centerX + x;
             var Y = centerY + y;
+            var squeezeX_amt = 3;
+            var squeezeY_amt = 2;
+            //for circles we make sure the whole circle is in frame
+            if (shape >=7 && shape  <=9) {
+                squeezeX_amt = 5 + overheadLine;
+                squeezeY_amt = 4 + overheadLine;
+            }
+
 
             if (squeezeX) {
                 if ((i==0 || i==count-1 )) {
-                    if ( X>width_screen-3 ) {
-                        X = width_screen-3;
+                    if ( X>width_screen-squeezeX_amt ) {
+                        X = width_screen-squeezeX_amt;
                         if (Y<height_screen/2-4) {Y+=1;}
                         else if (Y>height_screen/2+4) {Y-=1;}
                         
                     }
-                    if (X<3) {
-                        X=3;
+                    if (X<squeezeX_amt) {
+                        X=squeezeX_amt;
                         if (Y<height_screen/2-4) {Y+=1;}
                         else if (Y>height_screen/2 + 4) {Y-=1;}
                     }
@@ -1304,13 +1427,13 @@ class ElegantAnaView extends WatchUi.WatchFace {
             }
             if (squeezeY) {
                 if ((i==0 || i==count-1 )) {
-                    if ( Y>height_screen-2 ) {
-                        Y = height_screen-2;
+                    if ( Y>height_screen-squeezeY_amt ) {
+                        Y = height_screen-squeezeY_amt;
                         if (X<width_screen/2-4) {X+=1;}
                         else if (X>width_screen/2  + 4) {X-=1;}
                     }
-                    if (Y<2) {
-                        Y=2;
+                    if (Y<squeezeY_amt) {
+                        Y=squeezeY_amt;
                         if (X<width_screen/2 - 4) {X+=1;}
                         else if (X>width_screen/2 - 4) {X-=1;}
                     }
@@ -1346,7 +1469,14 @@ class ElegantAnaView extends WatchUi.WatchFace {
             */
         }
         //        dc.setClip(minX  -4 ,minY -4,maxX-minX + 8,maxY-minY + 8);
-        dc.setClip(0, minY - 3, width_screen , maxY-minY + 6); //don't need clip on X axis as it doesnt affect graphics/display energy usage.
+
+        if (shape >=7 && shape  <=9) {
+
+            dc.setClip(0, minY - overheadLine - 2, width_screen , 2 * overheadLine + 4);
+
+        } else {
+            dc.setClip(0, minY - 3, width_screen , maxY-minY + 6); //don't need clip on X axis as it doesnt affect graphics/display energy usage.
+        }
         //System.println("polygon:" + result);
         // Draw the polygon
         /*
@@ -1370,7 +1500,18 @@ class ElegantAnaView extends WatchUi.WatchFace {
         } else if (shape== 3 || shape ==5) { //outline poly
             drawPolygon(dc, result, false);
         } else if (shape== 4|| shape ==6) { //black/blank outline poly
-            drawPolygon(dc, result, true);        
+            drawPolygon(dc, result, true);    
+        } else if (shape ==7) {
+            dc.fillCircle(result[0][0], result[0][1], overheadLine);
+        } else if (shape ==8) {    
+            dc.drawCircle(result[0][0], result[0][1], overheadLine);
+            
+        } else if (shape ==9) {
+            dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
+            dc.fillCircle(result[0][0], result[0][1], overheadLine);
+            dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);         
+            dc.drawCircle(result[0][0], result[0][1], overheadLine);
+
         } else { //regular filled poly
              dc.fillPolygon(result);
         }  
@@ -1796,6 +1937,13 @@ class ElegantAnaView extends WatchUi.WatchFace {
         dc.drawText(width_screen * ws , (height_screen * hs1), f1, dateStr2, Gfx.TEXT_JUSTIFY_CENTER);
         dc.drawText(width_screen * ws , (height_screen * hs2), f2, dateStr1, Gfx.TEXT_JUSTIFY_CENTER);      //better for watch, this first
         
+    }
+
+    function mod (x, y) {
+
+        var part = x/y - Math.floor(x/y);
+        return part * y;
+
     }
 
 
