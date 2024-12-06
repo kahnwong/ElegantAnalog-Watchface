@@ -697,7 +697,22 @@ class ElegantAnaView extends WatchUi.WatchFace {
                 drawDate(targetDc, Gfx.COLOR_WHITE, false);
             }
         }     
+
+        //drawDate(targetDc, Gfx.COLOR_WHITE);        
+        drawHands(targetDc, clockTime.hour, clockTime.min, clockTime.sec, Gfx.COLOR_WHITE, Gfx.COLOR_WHITE, Gfx.COLOR_WHITE);
         
+        targetDc.setClip(width_screen/2 - 7, height_screen/2 -7, 14, 14);
+        // Draw the inner circle (at center of the 3 hands)
+        targetDc.setColor (Gfx.COLOR_WHITE, background_color);
+        targetDc.fillCircle (width_screen/2, height_screen/2, 6);
+        targetDc.setColor(background_color,background_color);
+        targetDc.drawCircle(width_screen/2, height_screen/2, 6);
+
+        
+
+        //DAWN DUSK MARKERS
+        //Draw this AFTER the hands so that if in the inset circle, will cover
+        //up hands inside there to prevent interference.
         //System.println ("oud6");
         var ddm =  $.Options_Dict["Dawn/Dusk Markers"];
         if ( ddm < 4 ) {
@@ -824,15 +839,6 @@ class ElegantAnaView extends WatchUi.WatchFace {
     
         //System.println ("oud12");
 
-        //drawDate(targetDc, Gfx.COLOR_WHITE);        
-        drawHands(targetDc, clockTime.hour, clockTime.min, clockTime.sec, Gfx.COLOR_WHITE, Gfx.COLOR_WHITE, Gfx.COLOR_WHITE);
-        
-        targetDc.setClip(width_screen/2 - 7, height_screen/2 -7, 14, 14);
-        // Draw the inner circle (at center of the 3 hands)
-        targetDc.setColor (Gfx.COLOR_WHITE, background_color);
-        targetDc.fillCircle (width_screen/2, height_screen/2, 6);
-        targetDc.setColor(background_color,background_color);
-        targetDc.drawCircle(width_screen/2, height_screen/2, 6);
 
         
 
@@ -1270,6 +1276,8 @@ class ElegantAnaView extends WatchUi.WatchFace {
 
         //System.println ("getNextDawnDusk: " + dawnAngle_deg + " " + duskAngle_deg + " " +currTimeAngle_rad2);
 
+        dc.setClip(0,centerY-blankradius-2,width_screen, centerY+blankradius+2);
+
         if (blankradius > 0) {
             dc.setColor(Gfx.COLOR_BLACK, background_color);
             dc.fillCircle(centerX,centerY, blankradius);
@@ -1285,8 +1293,8 @@ class ElegantAnaView extends WatchUi.WatchFace {
 
         dc.drawArc(centerX, centerY,radius, Graphics.ARC_CLOCKWISE, duskAngle_deg, dawnAngle_deg);
 
-        var now_radius = radius - 2;
-        var smallcircle_radius = 3;
+        var now_radius = radius - 1;
+        var smallcircle_radius = 5;
 
         var nowX = Math.cos(currTimeAngle_rad2) * now_radius + centerX;
         var nowY = Math.sin(currTimeAngle_rad2) * radius + centerY;
