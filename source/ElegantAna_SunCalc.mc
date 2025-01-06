@@ -509,8 +509,12 @@ var DISPLAY = [
 
         //System.println ("sc11");     
         var mid_date = Time.today(); //midnight today.  Aarrgh.   
+        
+        System.println ("next event times: " + times[pos][2] + " " + mid_date.value().toDouble());
 
-        //System.println ("next event times: " + times[pos][2] + " " + mid_date.value().toDouble());
+        System.println ("next event times: " + (times[pos][2] - mid_date.value().toDouble())/Time.Gregorian.SECONDS_PER_DAY * 24.0);
+
+        System.println(which);
 
         var angle = (times[pos][2] - mid_date.value().toDouble() )/(Time.Gregorian.SECONDS_PER_DAY/2.0) * Math.PI * 2.0;        
         var ret = [[nd,  angle]];
@@ -520,6 +524,8 @@ var DISPLAY = [
 
             nd = "Dawn";
             if (times[pos][1] > 6) {nd = "Dusk";}
+
+            System.println ("next event times: " + (times[pos][2] - (mid_date.value().toDouble()))/Time.Gregorian.SECONDS_PER_DAY * 24.0);
 
             angle = (times[pos][2] - mid_date.value().toDouble() )/(Time.Gregorian.SECONDS_PER_DAY/2.0) * Math.PI * 2.0;
 

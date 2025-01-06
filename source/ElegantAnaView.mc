@@ -743,13 +743,13 @@ class ElegantAnaView extends WatchUi.WatchFace {
                 //System.println ("oud7");
                 dawnDusk_ran = true;
                 var which = [  DAWN,DUSK,];   
-                if (ddm ==1) {
+                if (ddm == 1 || ddm == 3) {
                     which = [  SUNRISE,SUNSET,];   
                 }
                 // var res = si.getDayNightPosition();
                 //System.println ("Current conditions: " + res);
                 dawnDusk_info = si.getNextDawnDusk(which);
-                System.println ("getNextDawnDusk: " + dawnDusk_info);
+                System.println ("getNextDawnDusk: " + dawnDusk_info + " "  + which );
                 //drawArc(x, y, r, attr, degreeStart, degreeEnd)
             }
 
@@ -797,8 +797,9 @@ class ElegantAnaView extends WatchUi.WatchFace {
 
                         //Trying little circles
                         
-                        var sh = 7;
-                        if (dawnDusk_info[i][0].equals("Dusk")) {sh = 9;}
+                        var sh = 7; //filled circle
+                        if (dawnDusk_info[i][0].equals("Dusk")) {sh = 9;} //open circle
+                        //sh = 4;
 
                         var radius = 2;
 
@@ -809,10 +810,21 @@ class ElegantAnaView extends WatchUi.WatchFace {
                         //System.println ("oud9");
                         //System.println ("getNextDawnDusk2: " + dawnDusk_info);
                         //System.println ("getNextDawnDusk3: " + dawnDusk_info[1] + " " + ohl + " " + ln);
+                        //System.println ("getNextDawnDusk3: " + dawnDusk_info[i] + " " + ln);
 
-                        //System.println ("oud10");
+                        //System.println ("getNextDawnDusk3: " + mod(dawnDusk_info[i][1], Math.PI * 2.0) + " "  + Math.toDegrees(mod(dawnDusk_info[i][1], Math.PI * 2.0)) + " "  + Math.toDegrees(mod(dawnDusk_info[i][1], Math.PI * 2.0)/15.0) );
 
-                        var options = {:dc=>targetDc, :angle=>dawnDusk_info[i][1],:length=> ln, :width=>8,:overheadLine=>radius, :drawCircleOnTop=>false, :shape=>sh,:squeezeX=>true, :squeezeY=>true, :centerX=>centerX_main, :centerY=>centerY_main};
+
+
+                        //so this sends back a RADIANS ANGLE suitable to send straight to drawHand
+
+                        //var ang_rad_tonoon = mod(dawnDusk_info[i][1] * 2.0 + Math.PI, (Math.PI * 2));
+                        var ang_rad_clock = mod(dawnDusk_info[i][1], (Math.PI * 2));
+
+                        //System.println ("ang_rad_noon " + ang_rad_clock);
+
+
+                        var options = {:dc=>targetDc, :angle=>ang_rad_clock,:length=> ln, :width=>8,:overheadLine=>radius, :drawCircleOnTop=>false, :shape=>sh,:squeezeX=>true, :squeezeY=>true, :centerX=>centerX_main, :centerY=>centerY_main};
                         drawHand(options);
 
 
@@ -830,6 +842,10 @@ class ElegantAnaView extends WatchUi.WatchFace {
 
                     //dawnDusk_info24 = si.getNextDawnDusk(which,24);
 
+                    //so this sends back a RADIANS ANGLE suitable to send straight to drawHand
+                    //but since the small circle is a 24 hr SOLAR CLOCK that is a slight different sit.
+                    //conversions:
+
                     var dawnAngle_rad = dawnDusk_info[0][1] / 2.0;
                     var duskAngle_rad = dawnDusk_info[1][1] / 2.0;
                     if (dawnDusk_info[0][0].equals("Dusk")) {
@@ -837,7 +853,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
                         duskAngle_rad = dawnDusk_info[0][1] / 2.0;
                     }
                     dawnAngle_rad = mod (dawnAngle_rad, (Math.PI * 2));
-                    duskAngle_rad = mod (duskAngle_rad, (Math.PI * 2));;
+                    duskAngle_rad = mod (duskAngle_rad, (Math.PI * 2));
 
 
                     var now = Time.now();
@@ -1533,12 +1549,12 @@ class ElegantAnaView extends WatchUi.WatchFace {
             drawPolygon(dc, result, false);
         } else if (shape== 4|| shape ==6) { //black/blank outline poly
             drawPolygon(dc, result, true);    
-        } else if (shape ==7) {
+        } else if (shape ==7) { //filled white circle
             dc.fillCircle(result[0][0], result[0][1], overheadLine);
         } else if (shape ==8) {    
-            dc.drawCircle(result[0][0], result[0][1], overheadLine);
+            dc.drawCircle(result[0][0], result[0][1], overheadLine); //white circle non-filled/non-blanked
             
-        } else if (shape ==9) {
+        } else if (shape ==9) { //white circle blanked
             dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
             dc.fillCircle(result[0][0], result[0][1], overheadLine);
             dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);         
