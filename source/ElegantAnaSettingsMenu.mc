@@ -78,6 +78,9 @@ class ElegantAnaSettingsMenu extends WatchUi.Menu2 {
 
         boolean = Storage.getValue("Second Hashes") ? true : false;
         Menu2.addItem(new WatchUi.ToggleMenuItem("Second Hashes: Off-On", null, "Second Hashes", boolean, null));                        
+
+        boolean = Storage.getValue("Aggressive Clear") ? true : false;
+        Menu2.addItem(new WatchUi.ToggleMenuItem("Aggressive Screen Clear?", null, "Aggressive Clear", boolean, null));                        
         
     }
 }

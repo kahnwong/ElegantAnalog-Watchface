@@ -283,7 +283,7 @@ var DISPLAY = [
     var lastLoc;
     //var is24HOur;
 
-
+ 
     function initialize() {
         sc = new ElegantAna_SunCalc();
         //now = Time.now();

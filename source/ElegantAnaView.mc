@@ -82,6 +82,20 @@ class ElegantAnaView extends WatchUi.WatchFace {
         //System.println("5B");
     }
 
+        //! Handle view being hidden
+    public function onHide() as Void {
+
+    }
+
+    //! Restore the state of the app and prepare the view to be shown
+    public function onShow() as Void {
+ 
+        //we have been somewhere else, need to clean house...
+        update_ran = false;
+        $.Settings_ran = true;
+
+    }
+
     //! Configure the layout of the watchface for this device
     //! @param dc Device context
     public function onLayout(dc as Dc) as Void {
@@ -91,11 +105,13 @@ class ElegantAnaView extends WatchUi.WatchFace {
 
         // If this device supports the Do Not Disturb feature,
         // load the associated Icon into memory.
+        /*
         if (System.getDeviceSettings() has :doNotDisturb) {
             _dndIcon = WatchUi.loadResource($.Rez.Drawables.DoNotDisturbIcon) as BitmapResource;
         } else {
             _dndIcon = null;
         }
+        */
 
         var offscreenBufferOptions = {
                 :width=>dc.getWidth(),
@@ -463,7 +479,10 @@ class ElegantAnaView extends WatchUi.WatchFace {
         //when woken up we don't need to do draw anaything on the main screen;
         //only at the top of the minute as usual.  So, except for the top
         //of the minute, skip it all & just update seconds.
-        if (_isAwake && update_ran && !$.Settings_ran && ( clockTime.sec > 0 )) {
+        //however, sometimes this leads to a dirty screen
+        //(returning from a toast or some other app)
+        //so we leave this as an option
+        if (_isAwake && update_ran && !$.Settings_ran && ( clockTime.sec > 0 && !$.Options_Dict["Aggressive Clear"] )) {
             onPartialUpdate(dc);
             return;
         }
@@ -1225,9 +1244,14 @@ class ElegantAnaView extends WatchUi.WatchFace {
         $.Options_Dict["Hour Hashes"] = temp  != null ? temp : true;
         Storage.setValue("Hour Hashes",$.Options_Dict["Hour Hashes"]);
 
+        
         temp = Storage.getValue("Second Hashes");
         $.Options_Dict["Second Hashes"] = temp  != null ? temp : true;
         Storage.setValue("Second Hashes",$.Options_Dict["Second Hashes"]);        
+
+        temp = Storage.getValue("Aggressive Clear");
+        $.Options_Dict["Aggressive Clear"] = temp  != null ? temp : true;
+        Storage.setValue("Aggressive Clear",$.Options_Dict["Aggressive Clear"]);        
 
         temp = Storage.getValue("Location");
         $.Options_Dict["Location"] = temp  != null ? temp : null;
@@ -1986,6 +2010,7 @@ class ElegantAnaDelegate extends WatchUi.WatchFaceDelegate {
     }
 }
 
+/*
 //Note, below doesn't work as watchfaces can't receive button input @ all
 class ElegantAnaInputDelegate extends WatchUi.InputDelegate {
 
@@ -2004,3 +2029,4 @@ class ElegantAnaInputDelegate extends WatchUi.InputDelegate {
         return false;
     }
 }
+*/
