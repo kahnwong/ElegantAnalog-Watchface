@@ -101,7 +101,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
     public function onLayout(dc as Dc) as Void {
         //System.println("1");
         // Load the custom font we use for drawing the 3, 6, 9, and 12 on the watchface.
-        _font = WatchUi.loadResource($.Rez.Fonts.id_font_black_diamond) as FontResource;
+        //_font = WatchUi.loadResource($.Rez.Fonts.id_font_black_diamond) as FontResource;
 
         // If this device supports the Do Not Disturb feature,
         // load the associated Icon into memory.
@@ -695,6 +695,8 @@ class ElegantAnaView extends WatchUi.WatchFace {
             && $.Options_Dict["Dawn/Dusk Markers"] != 2 && $.Options_Dict["Dawn/Dusk Markers"] != 3 )
             {
                 drawDateInset(targetDc, Gfx.COLOR_WHITE, true);
+            } else {
+                drawDateMain(targetDc, Gfx.COLOR_WHITE, true);
             }
             
 
