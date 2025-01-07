@@ -43,7 +43,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
     var width_screen, height_screen, min_screen;
     var sec_length, sec_width, sec_base, sec_type;
     var centerY_seconds, centerX_seconds, centerX_main, centerY_main,
-    centerX_circle, centerY_circle;
+    centerX_circle, centerY_circle, radius_circle;
 
     var hashMarksArray = new [24];
 
@@ -173,9 +173,18 @@ class ElegantAnaView extends WatchUi.WatchFace {
         centerY_main = height_screen/2;
         centerX_circle =  145.5; //??
         centerY_circle = 32  ; //??
-        if (width_screen<175) { //Instinct 2S
-            centerX_circle =  130; //????
-            centerY_circle = 25; //??????
+        radius_circle = 32;
+        var ss = WatchUi.getSubscreen();
+        System.println("ss" + ss.height + " " + ss.width + " " + ss.x + " " + ss.y);
+
+        if (width_screen<175) { //Instinct 2S 163 x 156
+            /*centerX_circle =  133; //???? 54x54 & 109 from left
+            centerY_circle = 28; //??????
+            radius_circle = 22; */
+
+            centerX_circle =  135; //???? 54x54 & 109 from left per docs
+            centerY_circle = 27; //?????? 54x54 & x=108, y = 0 per call to getSubscreen()
+            radius_circle = 26; //just give it one pixel...
         }
 
         //TEST
@@ -239,7 +248,8 @@ class ElegantAnaView extends WatchUi.WatchFace {
                 break;
             }
             case 2: {
-                sec_length = centerY_circle-5;
+                //sec_length = centerY_circle-5;
+                sec_length = radius_circle-5;
                 centerX_seconds = centerX_circle;
                 centerY_seconds = centerY_circle;
                 break;
@@ -681,8 +691,10 @@ class ElegantAnaView extends WatchUi.WatchFace {
         {
             drawMove(targetDc, Gfx.COLOR_WHITE);
             //drawMoveDots(targetDc, info.moveBarLevel, Gfx.COLOR_WHITE);
-            if ($.Options_Dict["Show Date"] && $.Options_Dict["Second Display"] != 2) {
-                drawDate(targetDc, Gfx.COLOR_WHITE, true);
+            if ($.Options_Dict["Show Date"] && $.Options_Dict["Second Display"] != 2
+            && $.Options_Dict["Dawn/Dusk Markers"] != 2 && $.Options_Dict["Dawn/Dusk Markers"] != 3 )
+            {
+                drawDateInset(targetDc, Gfx.COLOR_WHITE, true);
             }
             
 
@@ -712,8 +724,19 @@ class ElegantAnaView extends WatchUi.WatchFace {
                 index += 1;
             }
 
-            if ($.Options_Dict["Show Date"] && $.Options_Dict["Second Display"] != 2) {
-                drawDate(targetDc, Gfx.COLOR_WHITE, false);
+            if ($.Options_Dict["Show Date"]) {
+
+                 //drawdate in inset circle
+                 if ($.Options_Dict["Second Display"] != 2
+                    && $.Options_Dict["Dawn/Dusk Markers"] != 2 && $.Options_Dict["Dawn/Dusk Markers"] != 3 )
+                {
+                    drawDateInset(targetDc, Gfx.COLOR_WHITE, false);
+
+                } else { //inset circle is filled so put it on the main display
+                    
+                    drawDateMain(targetDc, Gfx.COLOR_WHITE, false);
+
+                }
             }
         }     
 
@@ -799,7 +822,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
                         
                         var sh = 7; //filled circle
                         if (dawnDusk_info[i][0].equals("Dusk")) {sh = 9;} //open circle
-                        //sh = 4;
+                        //sh = 9;
 
                         var radius = 2;
 
@@ -807,7 +830,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
                         if (($.Options_Dict["Second Hashes"] && $.Options_Dict["Second Display"] == 0) || $.Options_Dict["Hour Hashes"] ) {              
                             ln =  width_screen*.51 ;
                         }
-                        //System.println ("oud9");
+                        System.println ("mainscreen dawn/dusk #" + i);
                         //System.println ("getNextDawnDusk2: " + dawnDusk_info);
                         //System.println ("getNextDawnDusk3: " + dawnDusk_info[1] + " " + ohl + " " + ln);
                         //System.println ("getNextDawnDusk3: " + dawnDusk_info[i] + " " + ln);
@@ -821,10 +844,11 @@ class ElegantAnaView extends WatchUi.WatchFace {
                         //var ang_rad_tonoon = mod(dawnDusk_info[i][1] * 2.0 + Math.PI, (Math.PI * 2));
                         var ang_rad_clock = mod(dawnDusk_info[i][1], (Math.PI * 2));
 
-                        //System.println ("ang_rad_noon " + ang_rad_clock);
+                        System.println ("ang_rad_noon " + i + " " + ang_rad_clock);
 
 
                         var options = {:dc=>targetDc, :angle=>ang_rad_clock,:length=> ln, :width=>8,:overheadLine=>radius, :drawCircleOnTop=>false, :shape=>sh,:squeezeX=>true, :squeezeY=>true, :centerX=>centerX_main, :centerY=>centerY_main};
+                        System.println ("ang_rad_noon " + options);
                         drawHand(options);
 
 
@@ -864,7 +888,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
                     //System.println ("getNextDawnDusk: " + dawnDusk_info);
                     //System.println("getNextDawnDusk2: " + currTimeAngle_rad + " " + now.value() + " " + mid_date.value());
 
-                    drawDayNight_animation (targetDc, dawnAngle_rad,duskAngle_rad, currTimeAngle_rad, centerX_circle, centerY_circle, centerY_circle * .8, centerY_circle + 4);
+                    drawDayNight_animation (targetDc, dawnAngle_rad,duskAngle_rad, currTimeAngle_rad, centerX_circle, centerY_circle, radius_circle * .8, radius_circle + 4);
                 }
             }
         }
@@ -925,6 +949,8 @@ class ElegantAnaView extends WatchUi.WatchFace {
         _fullScreenRefresh = false;
     }
 
+    /*
+
     //! Draw the date string into the provided buffer at the specified location
     //! @param dc Device context
     //! @param x The x location of the text
@@ -932,6 +958,9 @@ class ElegantAnaView extends WatchUi.WatchFace {
     private function drawDateString(dc as Dc, x as Number, y as Number, reverse as Boolean) as Void {
         var info = Gregorian.info(Time.now(), Time.FORMAT_LONG);
         var dateStr = Lang.format("$1$ $2$ $3$", [info.day_of_week, info.month, info.day]);
+
+        //$.Options_Dict["Second Display"]
+        //$.Options_Dict["Dawn/Dusk Markers"]
         if (reverse) {
             dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
             if (width_screen >= 175)  {
@@ -947,6 +976,8 @@ class ElegantAnaView extends WatchUi.WatchFace {
             dc.drawText(x, y, Graphics.FONT_MEDIUM, dateStr, Graphics.TEXT_JUSTIFY_CENTER);
         }
     }
+    */
+
     //var sec_colorset = false;
     //var sec_set = false;
     var sec_counter = 0;
@@ -1248,6 +1279,10 @@ class ElegantAnaView extends WatchUi.WatchFace {
         $.Options_Dict["Show Move"] = temp  != null ? temp : true;
         Storage.setValue("Show Move",$.Options_Dict["Show Move"]);
 
+        temp = Storage.getValue("Show Month/Day");
+        $.Options_Dict["Show Month/Day"] = temp  != null ? temp : true;
+        Storage.setValue("Show Month/Day",$.Options_Dict["Show Month/Day"]);
+
         temp = Storage.getValue("Show Date");
         $.Options_Dict["Show Date"] = temp  != null ? temp : true;
         Storage.setValue("Show Date",$.Options_Dict["Show Date"]);
@@ -1541,6 +1576,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
         } else {
              dc.fillPolygon(result);
         }*/
+        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);         
 
         if (shape== 1) {
             dc.drawLine(result[0][0], result[0][1], result[1][0], result[1][1]);            
@@ -1934,17 +1970,21 @@ class ElegantAnaView extends WatchUi.WatchFace {
         
     }
 
-    function drawDate(dc, text_color, reverse as Boolean)
+    function drawDateInset(dc, text_color, reverse as Boolean)
     {
         var now = Time.now();
         var info = Calendar.info(now, Time.FORMAT_LONG);
         //var dateStr = Lang.format("$1$ $2$ $3$", [info.day_of_week, info.month, info.day]);
+        System.println("DATEDATEDATE");
 
         //dc.setColor(Gfx.COLOR_BLACK, Gfx.COLOR_TRANSPARENT);
         //dc.drawRectangle(0,0,dc.getWidth(),dc.getHeight());
         
         var dateStr2 = Lang.format("$1$", [info.day.format("%02d")]);
         var dateStr1 = Lang.format("$1$", [info.day_of_week]);
+        if($.Options_Dict["Show Month/Day"]) {
+            dateStr1 = Lang.format("$1$", [info.month]);
+        }
 
         if (reverse) {
             dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
@@ -1984,6 +2024,89 @@ class ElegantAnaView extends WatchUi.WatchFace {
         //dc.drawText(width_screen * ws , (height_screen * hs2), f2, dateStr1, Gfx.TEXT_JUSTIFY_CENTER);      //better for sim this first
         dc.drawText(width_screen * ws , (height_screen * hs1), f1, dateStr2, Gfx.TEXT_JUSTIFY_CENTER);
         dc.drawText(width_screen * ws , (height_screen * hs2), f2, dateStr1, Gfx.TEXT_JUSTIFY_CENTER);      //better for watch, this first
+        
+    }
+
+
+    function drawDateMain(dc, text_color, reverse as Boolean)
+    {
+        var now = Time.now();
+        var info = Calendar.info(now, Time.FORMAT_LONG);
+        //var dateStr = Lang.format("$1$ $2$ $3$", [info.day_of_week, info.month, info.day]);
+        //System.println("DATEDATEDATEMAIN");
+
+        //dc.setColor(Gfx.COLOR_BLACK, Gfx.COLOR_TRANSPARENT);
+        //dc.drawRectangle(0,0,dc.getWidth(),dc.getHeight());
+        
+        var dateStr2 = Lang.format("$1$", [info.day.format("%02d")]);
+        var dateStr1 = Lang.format("$1$", [info.day_of_week]);
+        if($.Options_Dict["Show Month/Day"]) {
+            dateStr1 = Lang.format("$1$", [info.month]);
+        }
+        //dateStr1 += " " + dateStr2;
+
+        if (reverse) {
+            /*
+            dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+            if (width_screen >= 175)  {
+                dc.fillCircle(144, 34, 34); 
+            } else {
+                dc.fillCircle(130, 27, 30);  //Instinct S, smaller screen & weird. center of circle is about  131,27 & radius 27
+            }
+            dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
+            //dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_WHITE); //This works better on sim but worse on real watch
+            */
+        
+        } else {
+            //dc.setColor(text_color, Gfx.COLOR_TRANSPARENT);
+            dc.setColor(text_color, Gfx.COLOR_BLACK);//This works better on sim but worse on real watch
+        }
+        
+        //dc.drawText(width_screen * .15 , (height_screen * -.04), Gfx.FONT_SYSTEM_NUMBER_THAI_HOT, dateStr2, Gfx.TEXT_JUSTIFY_CENTER);
+        //dc.drawText(width_screen * .15 , (height_screen * .22), Gfx.FONT_SYSTEM_MEDIUM, dateStr1, Gfx.TEXT_JUSTIFY_CENTER);
+        var f1 = Gfx.FONT_SMALL;
+        //var f1 = Gfx.FONT_SYSTEM_NUMBER_THAI_HOT;
+        //var f2 = Gfx.FONT_SYSTEM_SMALL;
+        var f2 = Gfx.FONT_SMALL;
+
+        var th = dc.getFontHeight(f2);
+        //System.println("TH" + th);
+
+        //small second hand main display CENTER
+        
+
+            var ws1 = .23;
+            var ws2 = .23;
+            //var hs1 = -.03;
+            var hs1 =.7;
+            var hs2 = hs1 + 0.8* th.toFloat()/height_screen;
+        
+        //Second hand small circle OR whole watchface main
+        if ($.Options_Dict["Second Display"] != 1) {
+
+            ws1 = .29;
+            //ws2 = .75;
+            //var hs1 = -.03;
+            hs1 =.5;
+            hs2 = hs1;
+
+            dateStr1 += " " + dateStr2;
+            dateStr2 = "";
+
+        }
+
+        /*if (width_screen < 175) {  //case of Instinct S, smaller screen
+            ws = .86;
+            hs1 = -.01;
+            hs2 = .20;
+            f1 = Gfx.FONT_SYSTEM_NUMBER_MEDIUM;
+            f2 = Gfx.FONT_SYSTEM_TINY;
+        }*/
+
+        //dc.drawText(width_screen * ws , (height_screen * hs2), f2, dateStr1, Gfx.TEXT_JUSTIFY_CENTER);      //better for sim this first
+        
+        dc.drawText(width_screen * ws2 , (height_screen * hs2), f2, dateStr2, Gfx.TEXT_JUSTIFY_CENTER | Gfx.TEXT_JUSTIFY_VCENTER);
+        dc.drawText(width_screen * ws1 , (height_screen * hs1), f1, dateStr1, Gfx.TEXT_JUSTIFY_CENTER | Gfx.TEXT_JUSTIFY_VCENTER);
         
     }
 
