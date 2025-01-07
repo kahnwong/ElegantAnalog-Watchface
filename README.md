@@ -5,7 +5,7 @@ Garmin IQ Store page: https://apps.garmin.com/apps/1f40d506-1151-49ae-8991-e06a7
 
 **ABOUT**
 
-A simple, elegant Analog watchface specifically designed for Instinct 2, 2S, & 2X. Includes a working, usable, battery-sparing second hand with several display options. Analog design is inspired by classic watches like Rolex, Omega and Seiko.
+Elegant Ana - A simple, elegant Analog watchface specifically designed for Instinct 2, 2S, 2X, and their cousin the Descent G1. Includes a working, usable, battery-sparing second hand with several display options. Analog design inspired by classic watches of the 1950s & 60s, like Rolex, Omega and Seiko.
 
 The display can be varied from simple, elegant hour, minute, and second hands to include date, battery, Move Bar, and several various of hour numbers and marks for hours and/or minutes.
 
@@ -17,17 +17,17 @@ Options:
 
  - Show second hand for ~1, 2, 3, 4, 5, 10 minutes after viewing the watch. Or show the second hand at all times. Or disable the second hand entirely.
 
- - Thin & thick second hand styles. Ver 2.0: Several NEW second hand styles, include some extra battery-sparing designs.
+ - Thin & thick second hand styles. Ver 2.0: Several NEW second hand styles, including some new extra battery-sparing designs.
 
- - Long, short, and inset-circle second hand styles.  (The shorter or inset-circle second hand uses about 1/2 the battery.)
+ - Long, short, and inset-circle second hand styles.  (The shorter or inset-circle second hand uses about 1/2 the battery; combined with new small second  hand shapes saves even more.)
 
  - Show or hide day & date, battery icon, Move Bar & MOVE! indicator.
 
- - Show sunrise/sunset OR dawn/dusk on the inset circle OR main clock face. In the inset circle, this is a solar clock with sun.  On the main clockface, it is small indicators showing time of sunrise & sunset, or dawn & dusk.)
+ - Show sunrise/sunset OR dawn/dusk on the inset circle OR main clock face. In the inset circle, this is a Solar Clock with sun.  On the main clockface, it is small indicators showing time of sunrise & sunset, or dawn & dusk.)
 
  - Show or hide several variations of hour numbers, hour marks, and minute/second marks.
 
- - Aggressive Screen Clear option: This is a choice between battery savings plus smoother operation vs. the occasional slightly messy screen. When the watchface first appears or reappears it, can aggressively clear the entire screen each time the OS requests it.  This makes sure the display is always "clean" but does use a fair bit of battery once per second whenever this is request. Also, with this miore aggressive screen clearing you will often see stutters and delays the first few times the second hand appears after bringing the watch up to view or after returning from another screen.
+ - Aggressive Screen Clear option: This is a choice between battery savings plus smoother operation vs. the occasional slightly messy screen. When the watchface first appears or reappears it, can aggressively clear the entire screen each time the OS requests it.  This makes sure the display is always "clean" but does use a fair bit of battery once per second whenever this is request. Also, with this more aggressive screen clearing you will often see stutters/delays the first few times the second hand appears after bringing the watch up to view or after returning from another screen.
 
 With Aggressive Screen Clear un-checked, the battery usage is minimized AND those stutters are noticeably reduced. But on some occasions there are remnants of previous screens left on parts of the screen until the second hand sweeps past or the top of the minute is reached.
 
@@ -35,11 +35,11 @@ About battery life:
 
  - Having an active second hand will inevitably impact battery life.  If you are on an expedition and need to get 40 or 50 days out of your battery you will certainly want to disable the second hand.  But with Instinct's excellent battery life and general low energy expenditure, it is possible to have a watch face that shows the second hand whenever you are looking at it, and still have reasonable battery life.
 
- - You can set the second hand to run 1, 2, 3, 4, 5 or 10 minutes after you look at the watch.  A setting of 2 minutes, for example, means that the second hand will show for a reasonable and usable amount time each time you raise the watch to look at it.  Yet it is off (and so, not using any battery) the vast majority of the time.
+ - You can set the second hand to run 1, 2, 3, .. 10 minutes after you look at the watch.  A setting of 2 minutes, for example, means that the second hand will show for a reasonable and usable amount time each time you raise the watch to look at it.  Yet it is off (and so, not using any battery) the vast majority of the time.
 
  - The second hand always turns off at the top of the minute, so selecting "1 min" run time gives you up to 1 minute, "2 min" up to 2 minutes, and so on.  Usually a setting of "2 min" is about right for most people.
 
- - Choosing the "short" second hand length - which can be in the center of the screen or in the small offset circle - is another battery saving option. The short second hand, in either location, uses about 1/2 the battery of the "long" second hand length.
+ - Choosing the "short" second hand length - center of the screen or in the offset circle - is another battery saving option. The short second hand, in either location, uses about 1/2 the battery of the "long" second hand length.
 
  - Additionally, starting in Ver 2.0 there are several new second-hand options that are as battery-sparing as the short second hands: Small Block, Small Pointer, and Small Needle.  These use as little energy as moving the second hand to Main Face Center or the Inset Circle.
 
@@ -61,8 +61,14 @@ You  can even combine the Solar Clock and Second Hand in the inset circle - a st
 
 All of these combinations give you a number of different looks with different information - all fitting well with Instinct's minimalistic vibe.
 
+Personally, I usually run a plain watchface with no numbers or hashmarks, second hand on the main display as "Outline Pointer" and Solar Clock in the Inset Circle set to Dawn/Dusk.  
+
+Weekly Activity Minutes, Daily Activity Minutes, Daily Steps, and the Move Bar are all turned on. Date is off and Battery is off (I can see those any time I like with a simple click of the Down button.)
+
+This gives a simple, completely uncluttered, striking watchface that shows me all the information I need at a glance - and really shows off Instinct's beautiful silvery display.
+
 To access the settings & configuration menu:
 
  - MENU/WATCH FACE then press GPS twice (to select the watch face, then select "Customize") and you are in the settings menu.
 
-Ver 2.01 has some bug fixes and minor tweaks to Ver 2.0.
+Updates: Ver 2.01 & 2.02 have some bug fixes and minor tweaks to Ver 2.0.
