@@ -70,7 +70,7 @@ class ElegantAnaSettingsMenu extends WatchUi.Menu2 {
         Menu2.addItem(new WatchUi.ToggleMenuItem("Show Day of Week or Month", null, "Show Month/Day", boolean, null));
 
         if ($.Options_Dict["Dawn/Dusk Markers"] == null) { $.Options_Dict["Dawn/Dusk Markers"] = $.dawnDuskOptions_default; }
-        Menu2.addItem(new WatchUi.MenuItem("Day/Night Markers:",
+        Menu2.addItem(new WatchUi.MenuItem("Solar Clock Option:",
             $.dawnDuskOptions[$.Options_Dict["Dawn/Dusk Markers"]],"Dawn/Dusk Markers",{}));         
 
         boolean = Storage.getValue("Hour Numbers") ? true : false;

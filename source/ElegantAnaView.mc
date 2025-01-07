@@ -2072,30 +2072,51 @@ class ElegantAnaView extends WatchUi.WatchFace {
         var f2 = Gfx.FONT_SMALL;
 
         var th = dc.getFontHeight(f2);
+        
         //System.println("TH" + th);
 
         //small second hand main display CENTER
         
+        /*
 
             var ws1 = .23;
             var ws2 = .23;
             //var hs1 = -.03;
             var hs1 =.7;
             var hs2 = hs1 + 0.8* th.toFloat()/height_screen;
+            var just1 = Gfx.TEXT_JUSTIFY_CENTER;
+            var just2 = just1;
+            */
         
-        //Second hand small circle OR whole watchface main
-        if ($.Options_Dict["Second Display"] != 1) {
-
-            ws1 = .29;
-            //ws2 = .75;
+        //Second hand small circle (above) OR whole watchface main (below)
+        //if ($.Options_Dict["Second Display"] != 1) {
+            f1 = Gfx.FONT_MEDIUM;
+            f2= f1;
+            th = dc.getFontHeight(f2);
+        var   just1 = Gfx.TEXT_JUSTIFY_LEFT;
+        var            just2 = Gfx.TEXT_JUSTIFY_RIGHT;
+        var         ws1 = .051;
+        var    ws2 = .965;
+            /*if (!$.Options_Dict["Hour Numbers"]) {
+                ws1 = .23;
+                ws2 = .77;
+            }*/
+            
             //var hs1 = -.03;
-            hs1 =.5;
-            hs2 = hs1;
+        var    hs1 =.49;
+        var   hs2 = hs1;
 
+        if (!$.Options_Dict["Hour Numbers"]) {
+
+    
             dateStr1 += " " + dateStr2;
             dateStr2 = "";
-
         }
+
+        //}
+
+        var tw1 = dc.getTextWidthInPixels(dateStr1, f1);
+        var tw2 = dc.getTextWidthInPixels(dateStr2, f2); 
 
         /*if (width_screen < 175) {  //case of Instinct S, smaller screen
             ws = .86;
@@ -2106,9 +2127,44 @@ class ElegantAnaView extends WatchUi.WatchFace {
         }*/
 
         //dc.drawText(width_screen * ws , (height_screen * hs2), f2, dateStr1, Gfx.TEXT_JUSTIFY_CENTER);      //better for sim this first
+
+        //And...2S needs boxes raised 2 pixels FOR SOME REASON...
+        var rect_cor_top = 0;
+        var rect_cor_bot = 0;
+        if (width_screen < 175) {
+            rect_cor_top = -2;
+            rect_cor_bot = 1;
+            hs1 += .005;
+            hs2 += .005;
+            //ws2 += .005;
+        }
+
+
         
-        dc.drawText(width_screen * ws2 , (height_screen * hs2), f2, dateStr2, Gfx.TEXT_JUSTIFY_CENTER | Gfx.TEXT_JUSTIFY_VCENTER);
-        dc.drawText(width_screen * ws1 , (height_screen * hs1), f1, dateStr1, Gfx.TEXT_JUSTIFY_CENTER | Gfx.TEXT_JUSTIFY_VCENTER);
+        dc.setColor(Gfx.COLOR_BLACK, Gfx.COLOR_BLACK);
+
+        //if ($.Options_Dict["Hour Numbers"]) {
+            dc.fillRectangle(width_screen * ws1-2 , height_screen * hs1 - th/2.0 +4 + rect_cor_top, tw1 + 3, th -3  + rect_cor_bot);
+
+            dc.fillRectangle(width_screen * ws2-2 - tw2 + 1 , height_screen * hs2 - th/2.0 +4  + rect_cor_top, tw2 + 3, th - 3  + rect_cor_bot);
+        //}
+
+        dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_BLACK);
+
+        
+        
+        dc.drawText(width_screen * ws2 , (height_screen * hs2), f2, dateStr2, just2 | Gfx.TEXT_JUSTIFY_VCENTER);
+        dc.drawText(width_screen * ws1 , (height_screen * hs1), f1, dateStr1, just1 | Gfx.TEXT_JUSTIFY_VCENTER);
+
+        dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_TRANSPARENT);
+
+        if ($.Options_Dict["Hour Numbers"]) {
+            dc.drawRectangle(width_screen * ws1-2 , height_screen * hs1 - th/2.0 +4 + rect_cor_top, tw1 + 3, th -3  + rect_cor_bot);
+
+            dc.drawRectangle(width_screen * ws2-2 - tw2 + 1 , height_screen * hs2 - th/2.0 +4  + rect_cor_top, tw2 + 3, th - 3  + rect_cor_bot);
+        }
+
+
         
     }
 
