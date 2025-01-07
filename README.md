@@ -4,6 +4,7 @@ Garmin Instinct 2 watchface with continuous second hand - will run forever or fo
 Garmin IQ Store page: https://apps.garmin.com/apps/1f40d506-1151-49ae-8991-e06a72925012
 
 **ABOUT**
+
 A simple, elegant Analog watchface specifically designed for Instinct 2, 2S, & 2X. Includes a working, usable, battery-sparing second hand with several display options. Analog design is inspired by classic watches like Rolex, Omega and Seiko.
 
 The display can be varied from simple, elegant hour, minute, and second hands to include date, battery, Move Bar, and several various of hour numbers and marks for hours and/or minutes.
@@ -43,6 +44,7 @@ About battery life:
  - Additionally, starting in Ver 2.0 there are several new second-hand options that are as battery-sparing as the short second hands: Small Block, Small Pointer, and Small Needle.  These use as little energy as moving the second hand to Main Face Center or the Inset Circle.
 
 **WHAT'S NEW**
+
 Version 2.0 has some exciting new features!
 
 SOLAR CLOCK & DAWN/DUSK INDICATORS. The small inset circle can be a small solar clock OR you can display small marks along the outside of the main clockface showing hour times of sunrise/sunset (or dawn/dusk - at your choice).
