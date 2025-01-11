@@ -1917,11 +1917,14 @@ class ElegantAnaView extends WatchUi.WatchFace {
         }
 
         if (drawHashes) {
-            
+            var devset = System.getDeviceSettings();
             for(var i = 0; i < 12; i += 1)
             {
                 if((!drawHours || (i != 0 && i != 3 && i != 6 && i != 9)) && ( !avoidCircle || (i != 1 && i != 2 )))
                 {
+                    
+                    if (devset.screenShape == System.SCREEN_SHAPE_SEMI_OCTAGON	 && i%3==0) {continue;} //skip the hour hashes 3, 6, 9, 12 for Instinct ; looks better that way
+
                     var adder = 0;
                     var width_adder = 0;
                     if (width_screen<166) {
