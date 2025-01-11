@@ -8,6 +8,26 @@ import Toybox.Application.Storage;
 import Toybox.Lang;
 import Toybox.WatchUi;
 
+var Options_Dict = {  };
+var Settings_ran = false;
+
+var infiniteSecondOptions=["No Second Hand","<1 min", "<2 min", "<3 min", "<4 min","<5 min","<10 min", "Always"];
+var infiniteSecondLengths = [0, 1, 2, 3, 4, 5, 10, 1000000 ];
+var infiniteSecondOptions_size = 8;
+var infiniteSecondOptions_default = 2;
+
+var secondDisplayOptions=[ "Main Face Large", "Main Face Center", "Inset Circle"];
+var secondDisplayOptions_size = 3;
+var secondDisplayOptions_default = 0;
+
+var secondHandOptions=[ "Big Pointer", "Outline Pointer", "Big Blunt", "Outline Blunt",  "Big Needle", "Small Block", "Small Pointer","Small Needle"];
+var secondHandOptions_size = 8;
+var secondHandOptions_default = 1;
+
+var dawnDuskOptions=[ "Dawn/Dusk Markers", "Sunrise/Set Markers", "Dawn/Dusk Inset Circle", "Sunrise/Set Inset Circle", "No Solar Clock", ];
+var dawnDuskOptions_size = 5;
+var dawnDuskOptions_default = 0;
+
 //! The app settings menu
 class ElegantAnaSettingsMenu extends WatchUi.Menu2 {
 
@@ -150,7 +170,8 @@ class ElegantAnaSettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
     }
 
     function onBack() {
+        System.println("onBack");
         WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
-        //return false;
+        return false;
     }
 }

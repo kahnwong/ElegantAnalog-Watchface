@@ -35,12 +35,12 @@ class ElegantAnaView extends WatchUi.WatchFace {
     private var _fullScreenRefresh as Boolean;
     private var _hashMarksDrawn as Boolean;
     private var _partialUpdatesAllowed as Boolean;
-    private var _secondHandCounter as Number;
+    public var _secondHandCounter as Number;
 
-    var showSecond = true;
+    //var showSecond = true;
     var background_color = Gfx.COLOR_BLACK;
     var sec_color = Gfx.COLOR_WHITE;
-    var width_screen, height_screen, min_screen;
+    var width_screen, height_screen, min_screen, max_screen;
     var sec_length, sec_width, sec_base, sec_type;
     var centerY_seconds, centerX_seconds, centerX_main, centerY_main,
     centerX_circle, centerY_circle, radius_circle;
@@ -64,6 +64,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
     var activeMinutesWeekGoal, activeMinutesDayGoal;
     var moveBarLevel, moveExpired;
     var info, si;
+    var hasSubscreen = true;
 
 
     //! Initialize variables for this view
@@ -93,6 +94,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
         //we have been somewhere else, need to clean house...
         update_ran = false;
         $.Settings_ran = true;
+        System.println("onShow");
 
     }
 
@@ -116,23 +118,23 @@ class ElegantAnaView extends WatchUi.WatchFace {
         var offscreenBufferOptions = {
                 :width=>dc.getWidth(),
                 :height=>dc.getHeight(),
-                :palette=> [
+                /*:palette=> [
                     //Graphics.COLOR_DK_GRAY,
                     //Graphics.COLOR_LT_GRAY,
                     Graphics.COLOR_BLACK,
                     Graphics.COLOR_WHITE
-                ]
+                ] */
             };
         //System.println("2");
         var hashMarksBufferOptions ={
                 :width=>dc.getWidth(),
                 :height=>dc.getHeight(),
-                :palette=> [
+                /*:palette=> [
                     //Graphics.COLOR_DK_GRAY,
                     //Graphics.COLOR_LT_GRAY,
                     Graphics.COLOR_BLACK,
                     Graphics.COLOR_WHITE
-                ]
+                ]*/
             };
 
         if (Graphics has :createBufferedBitmap) {
@@ -160,11 +162,14 @@ class ElegantAnaView extends WatchUi.WatchFace {
         _screenCenterPoint = [dc.getWidth() / 2, dc.getHeight() / 2];
                 //get screen dimensions
         width_screen = dc.getWidth();
-        if (width_screen < 175) { width_screen -=8; } //Instinct S adjustment bec. the right edge of the bezel ends a bit before the actual right screen edge
+        if (width_screen < 166) { width_screen -=8; } //Instinct S adjustment bec. the right edge of the bezel ends a bit before the actual right screen edge
         height_screen = dc.getHeight();
         min_screen = ( width_screen<height_screen ) ? width_screen : height_screen;
+        max_screen = ( width_screen<height_screen ) ? height_screen : width_screen;
         var hm_factor = -1.08;
-        if (width_screen < 175) { hm_factor = -1.1; } //Instinct S adjustment
+        if (width_screen < 166) { hm_factor = -1.1; } //Instinct S adjustment
+
+        if (width_screen > 176) { hm_factor = -.95; } //Instinct S adjustment
 
         //center of dial for second hand
         centerX_seconds = width_screen/2;
@@ -174,10 +179,29 @@ class ElegantAnaView extends WatchUi.WatchFace {
         centerX_circle =  145.5; //??
         centerY_circle = 32  ; //??
         radius_circle = 32;
-        var ss = WatchUi.getSubscreen();
-        System.println("ss" + ss.height + " " + ss.width + " " + ss.x + " " + ss.y);
 
-        if (width_screen<175) { //Instinct 2S 163 x 156
+        if (WatchUi has :getSubscreen) {
+          var ss = WatchUi.getSubscreen();
+          //System.println("Has subScreen:" + ss.height + " " + ss.width + " " + ss.x + " " + ss.y);
+          hasSubscreen = true;
+          radius_circle = ss.height/2 + 1;
+          centerX_circle = ss.x + radius_circle+ 0.5;
+          centerY_circle = ss.y + radius_circle ;
+        } else {
+
+            //System.println("NO subScreen:");
+            hasSubscreen = false;
+            radius_circle = height_screen/8.0;
+            
+            centerX_circle = centerX_main + centerX_main/2  + 1;
+            centerY_circle = centerY_main - centerY_main/2 + 1;
+
+            //System.println("NO subScreen:" + centerX_circle + " " + centerY_circle + " " + radius_circle);
+
+            
+        }
+        //below is hand-tuned so just leaving it be INSTINCT 2S*********
+        if (width_screen<166) { //Instinct 2S 163 x 156
             /*centerX_circle =  133; //???? 54x54 & 109 from left
             centerY_circle = 28; //??????
             radius_circle = 22; */
@@ -185,7 +209,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
             centerX_circle =  135; //???? 54x54 & 109 from left per docs
             centerY_circle = 27; //?????? 54x54 & x=108, y = 0 per call to getSubscreen()
             radius_circle = 26; //just give it one pixel...
-        }
+        } 
 
         //TEST
         //centerX_seconds = centerX_circle;
@@ -256,6 +280,9 @@ class ElegantAnaView extends WatchUi.WatchFace {
             }
             default: {
                 sec_length = width_screen*.475;
+                if (width_screen>176) {
+                    sec_length = width_screen*.45;
+                }
                 centerX_seconds = centerX_main;
                 centerY_seconds = centerY_main;
                 break;
@@ -376,6 +403,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
         return result;
     }
 
+    /*
     //! Draws the clock tick marks around the outside edges of the screen.
     //! @param dc Device context
     private function drawHashMarksOld(dc as Dc) as Void {
@@ -421,7 +449,8 @@ class ElegantAnaView extends WatchUi.WatchFace {
             }
         }
         */
-    }
+    //}
+    
 
     var _getActivityData_inited = false;
 
@@ -461,9 +490,10 @@ class ElegantAnaView extends WatchUi.WatchFace {
     public function onUpdate(dc as Dc) as Void {
         var clockTime = System.getClockTime();
         var targetDc = null;
+        var avoidCircle;
 
         //var inf_sec = ($.Options_Dict["Infinite Second"] == $.infiniteSecondOptions_size-1);
-        var sec_on = $.Options_Dict["Infinite Second Option"] > 0 ;
+        var sec_on = ($.Options_Dict["Infinite Second Option"] > 0) ;
 
         if (!sec_on) {_secondHandCounter = 10000000;}
         else if (_secondHandCounter >= 10000000) { //sec_on was off but has been turned on via the menu
@@ -474,7 +504,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
         
         show_sec= true;
         if (!_isAwake) {_secondHandCounter += 1;}        
-        if (!_isAwake && _secondHandCounter > $.infiniteSecondLengths[$.Options_Dict["Infinite Second Option"]] ) { show_sec = false; }
+        if ((!_isAwake && _secondHandCounter > $.infiniteSecondLengths[$.Options_Dict["Infinite Second Option"]] ) || $.Options_Dict["Infinite Second Option"] == 0 ) { show_sec = false; }
 
         if ($.Settings_ran || ! update_ran) {
             setSecondHandOptions ();
@@ -483,7 +513,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
         
 
         if ((! _isAwake) && ( clockTime.sec < 1 )) {            
-            System.println(clockTime.hour +":" + clockTime.min +" - current second hand counter = " + _secondHandCounter);
+            //System.println(clockTime.hour +":" + clockTime.min +" - current second hand counter = " + _secondHandCounter);
         }
 
         //when woken up we don't need to do draw anaything on the main screen;
@@ -503,13 +533,20 @@ class ElegantAnaView extends WatchUi.WatchFace {
     
 
 
-        
+        //System.println("oud2");
         
         _fullScreenRefresh = true;
+        
+        avoidCircle = ($.Options_Dict["Show Date"] || $.Options_Dict["Second Display"] == 2 || $.Options_Dict["Dawn/Dusk Markers"] ==2 || $.Options_Dict["Dawn/Dusk Markers"] ==3 ) ? true : false;
+        
+        var squeeze = true;
+        if (width_screen>176)  {squeeze=false;}     
+
         dc.clearClip();
         if (!_hashMarksDrawn || $.Settings_ran ) {
             $.Settings_ran = false; //reset all the hash marks whenever settings are changed
                                     //because some settings will change hashmarks
+           //system.println("oud2a");                                    
             if (null != _hashMarksBuffer) {
                 // If we have an offscreen buffer that we are using to draw the background,
                 // set the draw context of that buffer as our target.
@@ -521,16 +558,19 @@ class ElegantAnaView extends WatchUi.WatchFace {
                 _hashMarksDrawn = false;
             }
 
-            System.println(clockTime.hour +":" + clockTime.min + " - Drawing all hashmarks");
+           //system.println("oud2a");
+
+            //System.println(clockTime.hour +":" + clockTime.min + " - Drawing all hashmarks");
 
             //var width = targetDc.getWidth();
-            //if (width < 175) { screen -=5; } //Instinct S adjustment
+            //if (width < 176) { screen -=5; } //Instinct S adjustment
             //var height = targetDc.getHeight();
 
             // Fill the entire background with Black.
+            targetDc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
+            //targetDc.fillRectangle(0, 0, targetDc.getWidth(), targetDc.getHeight());
+            targetDc.clear();
             targetDc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_WHITE);
-            targetDc.fillRectangle(0, 0, targetDc.getWidth(), targetDc.getHeight());
-
             // Draw a grey triangle over the upper right half of the screen.
             //targetDc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_DK_GRAY);
             //targetDc.fillPolygon([[0, 0],
@@ -584,13 +624,17 @@ class ElegantAnaView extends WatchUi.WatchFace {
                 targetDc.drawText(width / 2, height - 30, font, "6", Graphics.TEXT_JUSTIFY_CENTER);
                 targetDc.drawText(2, (height / 2) - 15, font, "9", Graphics.TEXT_JUSTIFY_LEFT);
             }
-            */            
+            */           
+
+           //system.println("oud2c"); 
 
             targetDc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_TRANSPARENT);
             //System.println ("oud3");
             var drawHashes = true;
             var drawHours = true;
-            var avoidCircle = ($.Options_Dict["Show Date"] || $.Options_Dict["Second Display"] == 2) ? true : false;
+       
+
+           //system.println("oud2d");
             
             if (($.Options_Dict["Second Hashes"] && $.Options_Dict["Second Display"] == 0) || !$.Options_Dict["Hour Hashes"] ) { drawHashes = false;} //Don't draw hour hashes if LONG SECOND HAND on MAIN DISPLAY & SECOND HASHES (they overlap) OR if they are just turned off.
 
@@ -606,44 +650,68 @@ class ElegantAnaView extends WatchUi.WatchFace {
                 //targetDc.fillCircle(90, 20, 6);
 
                 //targetDc.fillCircle(160, 15, 6);
-            }            
+            }  
 
-            drawHashMarks(targetDc, drawHashes, drawHours, avoidCircle);
+         
+
+            drawHashMarks(targetDc, drawHashes, drawHours, avoidCircle, squeeze);
             //System.println ("oud4");
+
+           //system.println("oud2e");
             
             if ($.Options_Dict["Second Hashes"]) {
-                if (sec_length<50) {
+                if (sec_length<width_screen /3.0) {
                     //[:dc=dc, :radius=radius, :includeOnes=include, length1, width1, includeFives, length5, width5, avoidCircle,squeezeX, squeezeY]
+                   //system.println("oud2ee");
                     drawSecondHashMarks({:dc=>targetDc,:radius=>sec_length + 5
                     ,:includeOnes=> true,
                     :length1=>2, :width1=>1, :includeFives=>true, :length5=>5, :width5=>2, :avoidCircle=>false, :squeezeX=>false, :squeezeY=>false,
                     :centerX=>centerX_seconds,:centerY=>centerY_seconds});
+                    
                 } else {
                     var l = 100;
                     var sub1 = 14;
                     var sub2 = 10;
-
-                    if (width_screen < 175) { //Instinct 2S
+                    var sub3 = 11;
+                    
+                   //system.println("oud2ef");
+                    if (width_screen < 166) { //Instinct 2S
                         l = 85;
                         sub1 = 14;
                         sub2 = 7;
+                        sub3 = 11;
+                        //squeeze = true;
+                    } else if (width_screen > 176) { //larger watches/circular
+                        //l = centerX_secondsse+9;
+                        l = sec_length + 4;
+                        sub1 = 14;
+                        sub2 = 30;
+                        sub3 = sec_length/20.0;
+                        //squeeze = false;
+
                     }
                     //var ac = $.Options_Dict["Show Date"] ? true : false;
                     //drawSecondHashMarks(targetDc, l, true, l - sec_length - 15, 1, true, l-sec_length-12, 2, true, true, true);
-                    drawSecondHashMarks({:dc=>targetDc,:radius=>l,:includeOnes=> true,
+                   //system.println("oud2eg");
+                   drawSecondHashMarks({:dc=>targetDc,:radius=>l,:includeOnes=> true,
                     :length1=>l-sec_length-sub1, :width1=>2, :includeFives=>true,
                     :length5=>l-sec_length-sub2, 
-                    :length36912=>l-sec_length-sub2 + 11,
+                    :length36912=>l-sec_length-sub2 + sub3,
                     
-                    :width5=>6, :avoidCircle=>avoidCircle, :squeezeX=>true, :squeezeY=>true,
+                    :width5=>6, :avoidCircle=>avoidCircle, :squeezeX=>squeeze, :squeezeY=>squeeze,
                     :centerX=>centerX_seconds,:centerY=>centerY_seconds});
+                   //system.println("oud2eg2");
+                    
                 }
                 //drawSecondHashMarks(dc, radius, includeOnes, length1, width1, includeFives, length5, width5)
             }
+           //system.println("oud2f");
+
 
 
             
         } 
+       //system.println("oud3");
 
         if (null != _offscreenBuffer) {
             // If we have an offscreen buffer that we are using to draw the background,
@@ -658,6 +726,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
         if (null != _hashMarksBuffer) {
             targetDc.drawBitmap(0, 0, _hashMarksBuffer);
         }        
+       //system.println("oud4");
 
         //refreshed move,steps,activity mins every 2 mod 6 mins
         if (!_getActivityData_inited || clockTime.sec == 0 ) {
@@ -685,7 +754,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
             */
             //FOR TESTING
 
-
+       //system.println("oud5");
         //moveExpired = true; //for testing
         if ($.Options_Dict["Show Move"]  && moveExpired  )
         {
@@ -695,7 +764,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
             && $.Options_Dict["Dawn/Dusk Markers"] != 2 && $.Options_Dict["Dawn/Dusk Markers"] != 3 )
             {
                 drawDateInset(targetDc, Gfx.COLOR_WHITE, true);
-            } else {
+            } else  if ($.Options_Dict["Show Date"] ) {
                 drawDateMain(targetDc, Gfx.COLOR_WHITE, true);
             }
             
@@ -727,25 +796,49 @@ class ElegantAnaView extends WatchUi.WatchFace {
             }
 
             if ($.Options_Dict["Show Date"]) {
+                var rev = false;
+                if ($.Options_Dict["Show Move"]  && moveExpired) { rev = true;}
 
                  //drawdate in inset circle
                  if ($.Options_Dict["Second Display"] != 2
                     && $.Options_Dict["Dawn/Dusk Markers"] != 2 && $.Options_Dict["Dawn/Dusk Markers"] != 3 )
                 {
-                    drawDateInset(targetDc, Gfx.COLOR_WHITE, false);
+                    drawDateInset(targetDc, Gfx.COLOR_WHITE, rev);
 
                 } else { //inset circle is filled so put it on the main display
                     
-                    drawDateMain(targetDc, Gfx.COLOR_WHITE, false);
+                    drawDateMain(targetDc, Gfx.COLOR_WHITE, rev);
 
                 }
             }
-        }     
+                                
+
+        }  
+
+        //System.println("SUBSCRE!");
+        //DRAW THE FAKE INSET CIRCLE IF NEEDED
+        //draw circle around inset area if
+        //    - on device with no subscreen
+        //    - sojmething is being drawn in the inset circle
+        //    - that something doesn't include the second hashes
+        if (!hasSubscreen && avoidCircle && 
+        !($.Options_Dict["Infinite Second Option"]>0 && $.Options_Dict["Second Display"]==2 && $.Options_Dict["Second Hashes"]) && 
+        !($.Options_Dict["Dawn/Dusk Markers"]==2 ||$.Options_Dict["Dawn/Dusk Markers"]==3)) 
+        {
+                //System.println("SUBSCRE2222!");
+                targetDc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_TRANSPARENT);
+                targetDc.setPenWidth(6);
+                targetDc.drawArc(centerX_circle, centerY_circle, radius_circle + 4, Gfx.ARC_CLOCKWISE, 0, 360);
+                targetDc.setPenWidth(1);
+                
+        }  
+  
 
         //drawDate(targetDc, Gfx.COLOR_WHITE);        
         drawHands(targetDc, clockTime.hour, clockTime.min, clockTime.sec, Gfx.COLOR_WHITE, Gfx.COLOR_WHITE, Gfx.COLOR_WHITE);
         
-        targetDc.setClip(width_screen/2 - 7, height_screen/2 -7, 14, 14);
+        targetDc.setPenWidth(1);
+        targetDc.setClip(0, height_screen/2 -20, width_screen, 40);
         // Draw the inner circle (at center of the 3 hands)
         targetDc.setColor (Gfx.COLOR_WHITE, background_color);
         targetDc.fillCircle (width_screen/2, height_screen/2, 6);
@@ -774,7 +867,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
                 // var res = si.getDayNightPosition();
                 //System.println ("Current conditions: " + res);
                 dawnDusk_info = si.getNextDawnDusk(which);
-                System.println ("getNextDawnDusk: " + dawnDusk_info + " "  + which );
+                //System.println ("getNextDawnDusk: " + dawnDusk_info + " "  + which );
                 //drawArc(x, y, r, attr, degreeStart, degreeEnd)
             }
 
@@ -828,11 +921,14 @@ class ElegantAnaView extends WatchUi.WatchFace {
 
                         var radius = 2;
 
-                        var ln =  width_screen*.53 ;
+                        var ln =  width_screen*.48 ;
                         if (($.Options_Dict["Second Hashes"] && $.Options_Dict["Second Display"] == 0) || $.Options_Dict["Hour Hashes"] ) {              
-                            ln =  width_screen*.51 ;
+                            ln =  width_screen*.48 ;
                         }
-                        System.println ("mainscreen dawn/dusk #" + i);
+                        if (width_screen >176) {
+                            ln =  width_screen*.43 ;
+                        }
+                        //System.println ("mainscreen dawn/dusk #" + i);
                         //System.println ("getNextDawnDusk2: " + dawnDusk_info);
                         //System.println ("getNextDawnDusk3: " + dawnDusk_info[1] + " " + ohl + " " + ln);
                         //System.println ("getNextDawnDusk3: " + dawnDusk_info[i] + " " + ln);
@@ -846,11 +942,11 @@ class ElegantAnaView extends WatchUi.WatchFace {
                         //var ang_rad_tonoon = mod(dawnDusk_info[i][1] * 2.0 + Math.PI, (Math.PI * 2));
                         var ang_rad_clock = mod(dawnDusk_info[i][1], (Math.PI * 2));
 
-                        System.println ("ang_rad_noon " + i + " " + ang_rad_clock);
+                        //System.println ("ang_rad_noon " + i + " " + ang_rad_clock);
 
 
-                        var options = {:dc=>targetDc, :angle=>ang_rad_clock,:length=> ln, :width=>8,:overheadLine=>radius, :drawCircleOnTop=>false, :shape=>sh,:squeezeX=>true, :squeezeY=>true, :centerX=>centerX_main, :centerY=>centerY_main};
-                        System.println ("ang_rad_noon " + options);
+                        var options = {:dc=>targetDc, :angle=>ang_rad_clock,:length=> ln, :width=>8,:overheadLine=>radius, :drawCircleOnTop=>false, :shape=>sh,:squeezeX=>squeeze, :squeezeY=>squeeze, :centerX=>centerX_main, :centerY=>centerY_main};
+                        //System.println ("ang_rad_noon " + options);
                         drawHand(options);
 
 
@@ -965,7 +1061,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
         //$.Options_Dict["Dawn/Dusk Markers"]
         if (reverse) {
             dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-            if (width_screen >= 175)  {
+            if (width_screen >= 166)  {
                 dc.drawCircle(144, 34, 34); 
             } else {
                 dc.drawCircle(130, 27, 27);  //Instinct S, smaller screen & weird. center of circle is about  128,26 & radius 26
@@ -992,9 +1088,10 @@ class ElegantAnaView extends WatchUi.WatchFace {
         // before drawing the updated second hand position. Note this will only re-draw
         // the background in the area specified by the previously computed clipping region.
         
+       //system.println("3C1");
         if (!show_sec) {return;}
 
-        //System.println("3C");
+       //system.println("3C2");
         if (!_fullScreenRefresh) {
             drawBackground(dc);
         }
@@ -1019,6 +1116,8 @@ class ElegantAnaView extends WatchUi.WatchFace {
         }
         update_ran = false;
         */
+
+       //system.println("3D");
 
         dc.setColor(sec_color, Gfx.COLOR_TRANSPARENT);
         sec_counter = System.getClockTime().sec;            
@@ -1135,6 +1234,8 @@ class ElegantAnaView extends WatchUi.WatchFace {
             //drawHandplain(dc, secondHand, sec_length, 2 , 2 - sec_length, 0); //small squares * ALSO OK NEW OPTION
             //drawHandplain(dc, secondHand, sec_length, sec_width , -5, 0); //regular arrows ****** ORIGINAL
 
+           //system.println("3F");
+
             drawHandplain(dc, secondHand, sec_length, sec_width, sec_base, sec_type);
 
             //function drawHandplain (dc, angle, length, width, overheadLine, shape)
@@ -1221,7 +1322,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
         _isAwake = false;
         _secondHandCounter = 0;
         _getActivityData_inited = false; //we retrieve this data whenever the user looks @ the watch, or once per minute otherwise
-        System.println(":"+System.getClockTime().min.format("%02d") + " - Enter Sleep, second hand counter = " + _secondHandCounter);
+       //system.println(":"+System.getClockTime().min.format("%02d") + " - Enter Sleep, second hand counter = " + _secondHandCounter);
     }
 
     //! This method is called when the device exits sleep mode.
@@ -1230,7 +1331,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
         _isAwake = true;
         _secondHandCounter = 0; //lets the 2nd hand run for 2 mins *only* after going to sleep
         _getActivityData_inited = false; //we retrieve this data whenever the user looks @ the watch, or once per minute otherwise
-        System.println(":"+System.getClockTime().min.format("%02d") + " - Exit Sleep, second hand counter = " + _secondHandCounter);
+       //system.println(":"+System.getClockTime().min.format("%02d") + " - Exit Sleep, second hand counter = " + _secondHandCounter);
         
     }
 
@@ -1290,7 +1391,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
         Storage.setValue("Show Date",$.Options_Dict["Show Date"]);
 
         temp = Storage.getValue("Hour Numbers");
-        $.Options_Dict["Hour Numbers"] = temp  != null ? temp : true;
+        $.Options_Dict["Hour Numbers"] = temp  != null ? temp : false;
         Storage.setValue("Hour Numbers",$.Options_Dict["Hour Numbers"]);
 
         temp = Storage.getValue("Hour Hashes");
@@ -1299,11 +1400,11 @@ class ElegantAnaView extends WatchUi.WatchFace {
 
         
         temp = Storage.getValue("Second Hashes");
-        $.Options_Dict["Second Hashes"] = temp  != null ? temp : true;
+        $.Options_Dict["Second Hashes"] = temp  != null ? temp : false;
         Storage.setValue("Second Hashes",$.Options_Dict["Second Hashes"]);        
 
         temp = Storage.getValue("Aggressive Clear");
-        $.Options_Dict["Aggressive Clear"] = temp  != null ? temp : true;
+        $.Options_Dict["Aggressive Clear"] = temp  != null ? temp : false;
         Storage.setValue("Aggressive Clear",$.Options_Dict["Aggressive Clear"]);        
 
         temp = Storage.getValue("Location");
@@ -1746,8 +1847,14 @@ class ElegantAnaView extends WatchUi.WatchFace {
         hour = hour / (12 * 60.0);
         hour = hour * Math.PI * 2;
         dc.setColor(hour_color, Gfx.COLOR_TRANSPARENT);
+        var hr_width = 5;
+        var min_width = 4;
+        if (width_screen >  176) {
+            hr_width = 5/176.0*max_screen;
+            min_width = 4/176.0*max_screen;
+        }
         
-        var options = {:dc=>dc, :angle=>hour,:length=>width_screen*.41 * .6, :width=>5,:overheadLine=>15, :drawCircleOnTop=>false, :shape=>0,:squeezeX=>false, :squeezeY=>false, :centerX=>centerX_main, :centerY=>centerY_main};
+        var options = {:dc=>dc, :angle=>hour,:length=>width_screen*.41 * .6, :width=>hr_width,:overheadLine=>15, :drawCircleOnTop=>false, :shape=>0,:squeezeX=>false, :squeezeY=>false, :centerX=>centerX_main, :centerY=>centerY_main};
         //drawHand(dc, hour, width_screen*.41 * .6, 5, 15, false, 0,false, false);
         drawHand(options);
 
@@ -1755,7 +1862,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
         min = ( clock_min / 60.0) * Math.PI * 2;
         dc.setColor(min_color, Gfx.COLOR_TRANSPARENT);
 
-        options = {:dc=>dc, :angle=>min,:length=>width_screen*.41, :width=>4,:overheadLine=>15, :drawCircleOnTop=>false, :shape=>0,:squeezeX=>false, :squeezeY=>false, :centerX=>centerX_main, :centerY=>centerY_main};
+        options = {:dc=>dc, :angle=>min,:length=>width_screen*.41, :width=>min_width,:overheadLine=>15, :drawCircleOnTop=>false, :shape=>0,:squeezeX=>false, :squeezeY=>false, :centerX=>centerX_main, :centerY=>centerY_main};
         //drawHand(dc, min, width_screen*.41, 4, 15, false, 0,false, false);
         drawHand(options);
 
@@ -1780,21 +1887,32 @@ class ElegantAnaView extends WatchUi.WatchFace {
 
     //! Draw the hash mark symbols on the watch
     //! @param dc Device context
-    function drawHashMarks(dc, drawHashes, drawHours, avoidCircle)
+    function drawHashMarks(dc, drawHashes, drawHours, avoidCircle, squeeze)
     {
         if (drawHours) {
             // Draw the numbers
+            var font = Gfx.FONT_LARGE;
             var adj1 = -1;
             var adj2 = 1;
-            if (width_screen < 175) {
+            if (width_screen < 166) {
                 adj1 = -3;
                 adj2 = 0;
             }
-            var font = Gfx.FONT_LARGE;
+            var adj12 = 1;
+            var adj6 = -32;
+            if (width_screen>176) {
+                var fact = (width_screen) / 25;
+                adj12 = fact;
+                adj6 = - dc.getFontHeight(font) -fact;
+                adj1 = -fact;
+                adj2 = fact;
+
+            }
+            
             dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_BLACK);
-            dc.drawText((width_screen/2), 1, font, "12",Gfx.TEXT_JUSTIFY_CENTER);
+            dc.drawText((width_screen/2), adj12, font, "12",Gfx.TEXT_JUSTIFY_CENTER);
             dc.drawText(width_screen + adj1, height_screen/2, font, "3 ", Gfx.TEXT_JUSTIFY_RIGHT + Gfx.TEXT_JUSTIFY_VCENTER);
-            dc.drawText(width_screen/2, height_screen-32, font, "6", Gfx.TEXT_JUSTIFY_CENTER);
+            dc.drawText(width_screen/2, height_screen + adj6, font, "6", Gfx.TEXT_JUSTIFY_CENTER);
             dc.drawText(adj2, height_screen/2, font, " 9",Gfx.TEXT_JUSTIFY_LEFT + Gfx.TEXT_JUSTIFY_VCENTER);
         }
 
@@ -1806,19 +1924,24 @@ class ElegantAnaView extends WatchUi.WatchFace {
                 {
                     var adder = 0;
                     var width_adder = 0;
-                    if (width_screen<175) {
+                    if (width_screen<166) {
                         if (i==1) { adder = 3; width_adder = 4;}
                         if (i==2) {adder = -7;}
-                    } else {
-                        if (i==1) { adder = -2; width_adder = 0;}
-                        if (i==2) {adder = -1;}
+                    } else if (width_screen <= 176) {
+                        if (i==1) { adder = -4; width_adder = 0;}
+                        if (i==2) {adder = -3;}
                     }
 
                     if (i%3==0) {
+                        //adder = max_screen/12.0;
                         adder = 15;
                     }
+                    //if (width_screen > 176) {adder +=-75;}
                     //drawHand(dc, hashMarksArray[i][0], 100, 2 + width_adder, hashMarksArray[i][1]+adder, false, 0, false, false);
-                    var options = {:dc=>dc, :angle=>hashMarksArray[i][0],:length=>100, :width=>2 + width_adder,:overheadLine=>hashMarksArray[i][1]+adder, :drawCircleOnTop=>false, :shape=>0,:squeezeX=>true, :squeezeY=>true, :centerX=>centerX_main, :centerY=>centerY_main};
+                    var options = {:dc=>dc, :angle=>hashMarksArray[i][0],:length=>max_screen * 0.55, :width=>2 + width_adder,:overheadLine=>hashMarksArray[i][1]+adder, :drawCircleOnTop=>false, :shape=>0,:squeezeX=>squeeze, :squeezeY=>squeeze, :centerX=>centerX_main, :centerY=>centerY_main};
+
+                   //system.println("option" + options);
+                    
                     drawHand(options);
                     
                     //drawHand(dc, angle, length, width, overheadLine, drawCircleOnTop)
@@ -1833,9 +1956,11 @@ class ElegantAnaView extends WatchUi.WatchFace {
     // [:dc=dc, :radius=radius, :includeOnes=include, length1, width1, includeFives, length5, width5, avoidCircle,squeezeX, squeezeY, centerX, centerY]
     function drawSecondHashMarks(options)
     {
+       //system.println("dshh1");
 
         for(var i = 0; i < 60; i += 1)
         {
+           //system.println("dshh2");
             if (options[:avoidCircle] && i >2 && i < 13 ){
                 continue;
             }
@@ -1843,7 +1968,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
             var angle = i/60.0 * Math.PI * 2;
             if(i %5 == 0  )
             {
-                
+               //system.println("dshh3");
                 if (options[:includeFives]) {
                     var shape = 0;
                     if (options[:width5] == 1) {shape = 1;}
@@ -1854,11 +1979,14 @@ class ElegantAnaView extends WatchUi.WatchFace {
                     if (i%3==0 && options[:length36912] != null) {length = options[:length36912];}
 
                     var newoptions = {:dc=>options[:dc], :angle=>angle,:length=>options[:radius], :width=>options[:width5],:overheadLine=>length - options[:radius], :drawCircleOnTop=>false, :shape=>shape,:squeezeX=>options[:squeezeX], :squeezeY=>options[:squeezeY], :centerX=>options[:centerX], :centerY=>options[:centerY]};
-                    drawHand(newoptions);                  
+                   //system.println("dh1");
+                    drawHand(newoptions); 
+                   //system.println("dh1a");                 
                     //drawHand(dc, angle, length, width, overheadLine, drawCircleOnTop, shape, squeezeX, squeezeY)
                 }
                 
             } else {
+               //system.println("dshh3");
                 if (options[:includeOnes]) {
                     var shape = 0;
                     if (options[:width5] == 1) {shape = 1;}
@@ -1866,7 +1994,9 @@ class ElegantAnaView extends WatchUi.WatchFace {
                     //drawHand(options[:dc], angle, options[:radius], options[:width1], options[:length1] - options[:radius], false, shape,options[:squeezeX],options[:squeezeY]);  
 
                     var newoptions = {:dc=>options[:dc], :angle=>angle,:length=>options[:radius], :width=>options[:width1],:overheadLine=>(options[:length1] - options[:radius]), :drawCircleOnTop=>false, :shape=>shape,:squeezeX=>options[:squeezeX], :squeezeY=>options[:squeezeY], :centerX=>options[:centerX], :centerY=>options[:centerY]};
+                   //system.println("dh2");
                     drawHand(newoptions);                                    
+                   //system.println("dh2a");
                 }
             }
         }
@@ -1977,7 +2107,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
         var now = Time.now();
         var info = Calendar.info(now, Time.FORMAT_LONG);
         //var dateStr = Lang.format("$1$ $2$ $3$", [info.day_of_week, info.month, info.day]);
-        System.println("DATEDATEDATE");
+        //System.println("DATEDATEDATE");
 
         //dc.setColor(Gfx.COLOR_BLACK, Gfx.COLOR_TRANSPARENT);
         //dc.drawRectangle(0,0,dc.getWidth(),dc.getHeight());
@@ -1990,11 +2120,14 @@ class ElegantAnaView extends WatchUi.WatchFace {
 
         if (reverse) {
             dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-            if (width_screen >= 175)  {
+            /*if (width_screen >= 175)  {
+                dc.fillCircle(144, 34, 34); 
+            } else if (width_screen >= 166)  {
                 dc.fillCircle(144, 34, 34); 
             } else {
                 dc.fillCircle(130, 27, 30);  //Instinct S, smaller screen & weird. center of circle is about  131,27 & radius 27
-            }
+            }*/
+            dc.fillCircle(centerX_circle, centerY_circle, radius_circle + 2);
             dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
             //dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_WHITE); //This works better on sim but worse on real watch
         
@@ -2006,26 +2139,39 @@ class ElegantAnaView extends WatchUi.WatchFace {
         //dc.drawText(width_screen * .15 , (height_screen * -.04), Gfx.FONT_SYSTEM_NUMBER_THAI_HOT, dateStr2, Gfx.TEXT_JUSTIFY_CENTER);
         //dc.drawText(width_screen * .15 , (height_screen * .22), Gfx.FONT_SYSTEM_MEDIUM, dateStr1, Gfx.TEXT_JUSTIFY_CENTER);
 
-        var ws = .82;
-        //var hs1 = -.03;
-        var hs1 =.00;
-        var hs2 = .21;
         var f1 = Gfx.FONT_SYSTEM_NUMBER_MEDIUM;
         //var f1 = Gfx.FONT_SYSTEM_NUMBER_THAI_HOT;
         //var f2 = Gfx.FONT_SYSTEM_SMALL;
         var f2 = Gfx.FONT_SYSTEM_TINY;
 
-        if (width_screen < 175) {  //case of Instinct S, smaller screen
-            ws = .86;
-            hs1 = -.01;
-            hs2 = .20;
-            f1 = Gfx.FONT_SYSTEM_NUMBER_MEDIUM;
-            f2 = Gfx.FONT_SYSTEM_TINY;
-        }
+        if (width_screen <= 176) {
+            var ws = .82;
+            //var hs1 = -.03;
+            var hs1 =.00;
+            var hs2 = .21;
 
-        //dc.drawText(width_screen * ws , (height_screen * hs2), f2, dateStr1, Gfx.TEXT_JUSTIFY_CENTER);      //better for sim this first
-        dc.drawText(width_screen * ws , (height_screen * hs1), f1, dateStr2, Gfx.TEXT_JUSTIFY_CENTER);
-        dc.drawText(width_screen * ws , (height_screen * hs2), f2, dateStr1, Gfx.TEXT_JUSTIFY_CENTER);      //better for watch, this first
+
+            if (width_screen < 166) {  //case of Instinct S, smaller screen
+                ws = .86;
+                hs1 = -.01;
+                hs2 = .20;
+                f1 = Gfx.FONT_SYSTEM_NUMBER_MEDIUM;
+                f2 = Gfx.FONT_SYSTEM_TINY;
+            }
+
+            //dc.drawText(width_screen * ws , (height_screen * hs2), f2, dateStr1, Gfx.TEXT_JUSTIFY_CENTER);      //better for sim this first
+            dc.drawText(width_screen * ws , (height_screen * hs1), f1, dateStr2, Gfx.TEXT_JUSTIFY_CENTER);
+            dc.drawText(width_screen * ws , (height_screen * hs2), f2, dateStr1, Gfx.TEXT_JUSTIFY_CENTER);      //better for watch, this first
+
+        } else { //LARGER SCREENS & AMOLED
+
+            var f1_h = dc.getFontHeight(f1);
+            var f2_h = dc.getFontHeight(f2);
+
+            dc.drawText(centerX_circle, centerY_circle - f1_h * .7 , f1, dateStr2, Gfx.TEXT_JUSTIFY_CENTER);
+            dc.drawText(centerX_circle, centerY_circle + f1_h * 0.1 + 2, f2, dateStr1, Gfx.TEXT_JUSTIFY_CENTER);      //better for watch, this first
+            
+        }
         
     }
 
@@ -2050,7 +2196,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
         if (reverse) {
             /*
             dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-            if (width_screen >= 175)  {
+            if (width_screen >= 166)  {
                 dc.fillCircle(144, 34, 34); 
             } else {
                 dc.fillCircle(130, 27, 30);  //Instinct S, smaller screen & weird. center of circle is about  131,27 & radius 27
@@ -2118,7 +2264,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
         var tw1 = dc.getTextWidthInPixels(dateStr1, f1);
         var tw2 = dc.getTextWidthInPixels(dateStr2, f2); 
 
-        /*if (width_screen < 175) {  //case of Instinct S, smaller screen
+        /*if (width_screen < 166) {  //case of Instinct S, smaller screen
             ws = .86;
             hs1 = -.01;
             hs2 = .20;
@@ -2131,7 +2277,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
         //And...2S needs boxes raised 2 pixels FOR SOME REASON...
         var rect_cor_top = 0;
         var rect_cor_bot = 0;
-        if (width_screen < 175) {
+        if (width_screen < 166) {
             rect_cor_top = -2;
             rect_cor_bot = 1;
             hs1 += .005;

@@ -298,26 +298,41 @@ var DISPLAY = [
     //Otherwise, use geo center of continental U.S. as location
 
     function setPositionAndTime () {
+        var curr_pos = null;
+        now = Time.now();
         //System.println ("sc1");
 
-        now = Time.now();
 
-        if ($.Options_Dict.hasKey("Location") && $.Options_Dict["Location"] != null && (now.value() - $.Options_Dict["Location"][1] < 5 * Time.Gregorian.SECONDS_PER_DAY) ) {
-            self.lastLoc = $.Options_Dict["Location"][0];
-            System.println ("sc0: Options_Dict " + ($.Options_Dict["Location"][0]) + " now: " + now.value() + " saved: " + $.Options_Dict["Location"][1] );    
-            if  (self.lastLoc != null) {return;}
+        //From activity is the PREFERRED way for watch faces
+        if (curr_pos == null) {
+            var a_info = Activity.getActivityInfo();
+            var a_pos = null;
+            System.println ("sc1.2:Activity a_pos==Null3? " + (a_pos==null));
+            
+             if (a_info!=null && a_info has :currentLocation && a_info.currentLocation != null)
+                { a_pos = a_info.currentLocation;}
+            //System.println ("setPosition4");
+            if (a_pos != null ) {
+                System.println ("Position: Got from Activity.getActivityInfo() currentLocation" + a_pos + " " + a_pos.toDegrees());
+                curr_pos = a_pos; 
+            }
         }
 
-        var pinfo = Position.getInfo();
-        System.println ("sc1: Null? " + (pinfo==null));
-        if (pinfo != null ) {System.println ("sc1: pinfo " + pinfo.position.toDegrees());}
 
-        var curr_pos = null;
-        if (pinfo.position != null) { curr_pos = pinfo.position; }
         
-        var temp = curr_pos.toDegrees()[0];
-        if ( (temp - 180).abs() < 0.1 || temp.abs() < 0.1 ) {curr_pos = null;} //bad data
 
+        if (curr_pos == null) { 
+            if ($.Options_Dict.hasKey("Location") && $.Options_Dict["Location"] != null && (now.value() - $.Options_Dict["Location"][1] < 0.5 * Time.Gregorian.SECONDS_PER_DAY) ) {
+                self.lastLoc = $.Options_Dict["Location"][0];
+                System.println ("sc0: Options_Dict " + ($.Options_Dict["Location"][0]) + " now: " + now.value() + " saved: " + $.Options_Dict["Location"][1] );  
+                System.println ("lastLoc final saved: " + self.lastLoc + Math.toDegrees(self.lastLoc[0]) + "," + Math.toDegrees(self.lastLoc[1]));  
+                if  (self.lastLoc != null) {return;}
+            }
+        }
+
+        
+
+        /* //Weather POS just gives a lot of trouble/errors
         if (curr_pos == null) {
             var wcc = Weather.getCurrentConditions();
 
@@ -332,19 +347,34 @@ var DISPLAY = [
             temp = curr_pos.toDegrees()[0];
             if ( temp == 180 || temp == 0 ) {curr_pos = null;} //bad data
         }
+        */
+
+
+        //use old stored value if that's what we have
         if (curr_pos == null) {
-            var a_info = Activity.getActivityInfo();
-            var a_pos = null;
-            System.println ("sc1.2:Activity a_pos==Null3? " + (a_pos==null));
-            
-            if (a_info!=null && a_info has :position && a_info.position != null)
-            { a_pos = a_info.position;}
-            if (a_pos != null ) {
-                System.println ("sc1.2: a_pos " + a_pos.toDegrees());
-                curr_pos = a_pos; 
+            if ($.Options_Dict.hasKey("Location") && $.Options_Dict["Location"] != null )  {
+                self.lastLoc = $.Options_Dict["Location"][0];
+                System.println ("sc01: Options_Dict " + ($.Options_Dict["Location"][0]) + " now: " + now.value() + " saved: " + $.Options_Dict["Location"][1] ); 
+                System.println ("lastLoc saved but stale: " + self.lastLoc + Math.toDegrees(self.lastLoc[0]) + "," + Math.toDegrees(self.lastLoc[1]));                   
+                if  (self.lastLoc != null) {return;}
             }
+        
         }
         
+        //very last resort, try getting position directly.  This is not really
+        //supposed to be allowed for watches, but it seems to work just fine?
+        //This is just reading whatever value it will give us now, vs requesting GPS to turn on & get a new fix.
+        if (curr_pos == null) {
+            var pinfo = Position.getInfo();
+            System.println ("sc1: Null? " + (pinfo==null));
+            if (pinfo != null ) {System.println ("sc1: pinfo " + pinfo.position.toDegrees());}
+
+            //var curr_pos = null;
+            if (pinfo.position != null) { curr_pos = pinfo.position; }
+            
+            var temp = curr_pos.toDegrees()[0];
+            if ( (temp - 180).abs() < 0.1 || temp.abs() < 0.1 ) {curr_pos = null;} //bad data
+        }
 
         //System.println ("sc1a:");
         //In case position info not available, we'll use either the previously obtained value OR the geog center of 48 US states as default.
@@ -376,7 +406,7 @@ var DISPLAY = [
             { :latitude => 70.6632359, :longitude => 23.681726, :format => :degrees }
             ).toRadians();
         */
-        //System.println ("lastLoc: " + lastLoc );
+        System.println ("lastLoc final saved: " + self.lastLoc + Math.toDegrees(self.lastLoc[0]) + "," + Math.toDegrees(self.lastLoc[1]));
     }
 
     //gets all sunevent times for yesterday, today, tomorrow
@@ -510,11 +540,11 @@ var DISPLAY = [
         //System.println ("sc11");     
         var mid_date = Time.today(); //midnight today.  Aarrgh.   
         
-        System.println ("next event times: " + times[pos][2] + " " + mid_date.value().toDouble());
+        //System.println ("next event times: " + times[pos][2] + " " + mid_date.value().toDouble());
 
-        System.println ("next event times: " + (times[pos][2] - mid_date.value().toDouble())/Time.Gregorian.SECONDS_PER_DAY * 24.0);
+        //System.println ("next event times: " + (times[pos][2] - mid_date.value().toDouble())/Time.Gregorian.SECONDS_PER_DAY * 24.0);
 
-        System.println(which);
+        //System.println(which);
 
         var angle = (times[pos][2] - mid_date.value().toDouble() )/(Time.Gregorian.SECONDS_PER_DAY/2.0) * Math.PI * 2.0;        
         var ret = [[nd,  angle]];
@@ -525,7 +555,7 @@ var DISPLAY = [
             nd = "Dawn";
             if (times[pos][1] > 6) {nd = "Dusk";}
 
-            System.println ("next event times: " + (times[pos][2] - (mid_date.value().toDouble()))/Time.Gregorian.SECONDS_PER_DAY * 24.0);
+            //System.println ("next event times: " + (times[pos][2] - (mid_date.value().toDouble()))/Time.Gregorian.SECONDS_PER_DAY * 24.0);
 
             angle = (times[pos][2] - mid_date.value().toDouble() )/(Time.Gregorian.SECONDS_PER_DAY/2.0) * Math.PI * 2.0;
 
