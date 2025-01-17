@@ -287,8 +287,11 @@ class ElegantAnaView extends WatchUi.WatchFace {
         dmd_w = Math.ceil((batt_width_rect + batt_width_rect_small+3)/4.0-1).toNumber();
         dmd_h = Math.round(batt_height_rect-3).toNumber();
         dmd_x = centerX_main;
+        
 
         //always make it a square of the larger size
+        if (dmd_w%2 == 0) { dmd_w++;} //makes the plus signs nicer if it's even
+        if (dmd_h%2 == 0) { dmd_h++;}
         dmd_w = (dmd_w>dmd_h) ? dmd_w : dmd_h;
         dmd_h = dmd_w;
 
@@ -2201,7 +2204,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
     }
     */
 
-     function drawMoveDots(dc, num, goal, index, text_color)
+function drawMoveDots(dc, num, goal, index, text_color)
     {
         dc.setPenWidth(1);
         //System.println("dMD: " + num + " " + goal  + " " + index);
@@ -2236,8 +2239,8 @@ class ElegantAnaView extends WatchUi.WatchFace {
         //deBug("col", [squares]);
         for (var i = 0; i < squares; i++) {
             //var xx = x_start + i * dmd_w4;            
-            var xx = x_start + i * (dmd_w+1);//4            
-            var yy = dmd_yy + index * (dmd_h + activities_gap);
+            var xx = Math.round(x_start + i * (dmd_w+1)).toNumber();//4            
+            var yy = Math.round(dmd_yy + index * (dmd_h + activities_gap)).toNumber();
             if (i < 5 || (i==5 && partial > 0)) {
                 var mx = dmd_w;//3;
                 if (i == numD_floor) { mx = partial_mx; }
@@ -2256,10 +2259,9 @@ class ElegantAnaView extends WatchUi.WatchFace {
             } else {
                 //plus sign
                 //dc.drawRectangle(xx, yy, dmd_w, dmd_h);            
-                var x_add = xx + Math.floor(dmd_w/2.0);
-                var y_add = yy + Math.floor(dmd_h/2.0);
-                //if (dmd_h%2 != 0) {y_add++;}
-
+                //deBug("plus", [xx, yy,dmd_h, dmd_w]);
+                var x_add = xx + (dmd_w)/2.0;
+                var y_add = yy + (dmd_h)/2.0;
                 dc.drawLine(x_add, yy,x_add ,yy + dmd_h);            
                 dc.drawLine(xx, y_add ,xx + dmd_w , y_add);            
             }
