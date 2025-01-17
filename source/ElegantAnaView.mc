@@ -281,11 +281,11 @@ class ElegantAnaView extends WatchUi.WatchFace {
         batt_x = Math.round(batt_x);
 
         //Figure Move Dot positions
-        dmd_w4 =Math.ceil((batt_width_rect + batt_width_rect_small+3)/4);
+        dmd_w4 =Math.ceil((batt_width_rect + batt_width_rect_small+3)/4).toNumber();
         //dmd_yy = batt_y + 1.5 * batt_height_rect;
         dmd_yy = Math.round(batt_y);
-        dmd_w = Math.ceil((batt_width_rect + batt_width_rect_small+3)/4.0-1);
-        dmd_h = Math.round(batt_height_rect-3);
+        dmd_w = Math.ceil((batt_width_rect + batt_width_rect_small+3)/4.0-1).toNumber();
+        dmd_h = Math.round(batt_height_rect-3).toNumber();
         dmd_x = centerX_main;
 
         //always make it a square of the larger size
@@ -2256,8 +2256,10 @@ class ElegantAnaView extends WatchUi.WatchFace {
             } else {
                 //plus sign
                 //dc.drawRectangle(xx, yy, dmd_w, dmd_h);            
-                var x_add = xx + Math.ceil(dmd_w/2.0);
-                var y_add = yy + Math.ceil(dmd_h/2.0);
+                var x_add = xx + Math.floor(dmd_w/2.0);
+                var y_add = yy + Math.floor(dmd_h/2.0);
+                //if (dmd_h%2 != 0) {y_add++;}
+
                 dc.drawLine(x_add, yy,x_add ,yy + dmd_h);            
                 dc.drawLine(xx, y_add ,xx + dmd_w , y_add);            
             }

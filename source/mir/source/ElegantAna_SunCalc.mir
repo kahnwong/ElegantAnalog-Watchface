@@ -1,0 +1,2069 @@
+[ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 12; ]
+using Toybox.Math as :Math;
+[ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 13; ]
+using Toybox.Time as :Time;
+[ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 14; ]
+using Toybox.Time.Gregorian;
+[ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 15; ]
+using Toybox.Position as :Pos;
+[ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 16; ]
+using Toybox.WatchUi as :Ui;
+[ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 17; ]
+using Toybox.Graphics as :Gfx;
+[ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 18; ]
+using Toybox.System as :Sys;
+[ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 19; ]
+using Toybox.Weather as :Weather;
+[ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 20; ]
+using Toybox.Activity as :Activity;
+[ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 21; ]
+import Toybox.Application.Storage;
+[ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 23; ]
+enum {
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 24; @position = 8; ]
+    ASTRO_DAWN,
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 25; @position = 8; ]
+    NAUTIC_DAWN,
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 26; @position = 8; ]
+    DAWN,
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 27; @position = 8; ]
+    BLUE_HOUR_AM,
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 28; @position = 8; ]
+    SUNRISE,
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 29; @position = 8; ]
+    SUNRISE_END,
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 30; @position = 8; ]
+    GOLDEN_HOUR_AM,
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 31; @position = 8; ]
+    NOON,
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 32; @position = 8; ]
+    GOLDEN_HOUR_PM,
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 33; @position = 8; ]
+    SUNSET_START,
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 34; @position = 8; ]
+    SUNSET,
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 35; @position = 8; ]
+    BLUE_HOUR_PM,
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 36; @position = 8; ]
+    DUSK,
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 37; @position = 8; ]
+    NAUTIC_DUSK,
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 38; @position = 8; ]
+    ASTRO_DUSK,
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 39; @position = 8; ]
+    NUM_RESULTS
+}
+[ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 42; ]
+class ElegantAna_SunCalc{
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 42; ]
+    <init> {
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 44 8 ]
+        %tmp.1 = newa 15;
+        %tmp.3 = getv ? :ASTRO_DAWN;
+        %tmp.4 = dup %tmp.1;
+        %tmp.5 = aputv %tmp.4 0 %tmp.3;
+        %tmp.7 = getv ? :NAUTIC_DAWN;
+        %tmp.8 = dup %tmp.5;
+        %tmp.9 = aputv %tmp.8 1 %tmp.7;
+        %tmp.11 = getv ? :DAWN;
+        %tmp.12 = dup %tmp.9;
+        %tmp.13 = aputv %tmp.12 2 %tmp.11;
+        %tmp.15 = getv ? :BLUE_HOUR_AM;
+        %tmp.16 = dup %tmp.13;
+        %tmp.17 = aputv %tmp.16 3 %tmp.15;
+        %tmp.19 = getv ? :SUNRISE;
+        %tmp.20 = dup %tmp.17;
+        %tmp.21 = aputv %tmp.20 4 %tmp.19;
+        %tmp.23 = getv ? :SUNRISE_END;
+        %tmp.24 = dup %tmp.21;
+        %tmp.25 = aputv %tmp.24 5 %tmp.23;
+        %tmp.27 = getv ? :GOLDEN_HOUR_AM;
+        %tmp.28 = dup %tmp.25;
+        %tmp.29 = aputv %tmp.28 6 %tmp.27;
+        %tmp.31 = getv ? :NOON;
+        %tmp.32 = dup %tmp.29;
+        %tmp.33 = aputv %tmp.32 7 %tmp.31;
+        %tmp.35 = getv ? :GOLDEN_HOUR_PM;
+        %tmp.36 = dup %tmp.33;
+        %tmp.37 = aputv %tmp.36 8 %tmp.35;
+        %tmp.39 = getv ? :SUNSET_START;
+        %tmp.40 = dup %tmp.37;
+        %tmp.41 = aputv %tmp.40 9 %tmp.39;
+        %tmp.43 = getv ? :SUNSET;
+        %tmp.44 = dup %tmp.41;
+        %tmp.45 = aputv %tmp.44 10 %tmp.43;
+        %tmp.47 = getv ? :BLUE_HOUR_PM;
+        %tmp.48 = dup %tmp.45;
+        %tmp.49 = aputv %tmp.48 11 %tmp.47;
+        %tmp.51 = getv ? :DUSK;
+        %tmp.52 = dup %tmp.49;
+        %tmp.53 = aputv %tmp.52 12 %tmp.51;
+        %tmp.55 = getv ? :NAUTIC_DUSK;
+        %tmp.56 = dup %tmp.53;
+        %tmp.57 = aputv %tmp.56 13 %tmp.55;
+        %tmp.59 = getv ? :ASTRO_DUSK;
+        %tmp.60 = dup %tmp.57;
+        %tmp.61 = aputv %tmp.60 14 %tmp.59;
+        putv self :sunEvents %tmp.61;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 81 17 ]
+        %tmp.62 = getm $.Toybox.Math;
+        %tmp.63 = getv %tmp.62 :PI;
+        putv self :PI %tmp.63;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 82 8 ]
+        %tmp.64 = getm $.Toybox.Math;
+        %tmp.65 = getv %tmp.64 :PI;
+        %tmp.66 = 180.0;
+        %tmp.67 = div %tmp.65 %tmp.66;
+        putv self :RAD %tmp.67;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 83 8 ]
+        %tmp.68 = getm $.Toybox.Math;
+        %tmp.69 = getv %tmp.68 :PI;
+        %tmp.70 = 2.0;
+        %tmp.71 = mul %tmp.69 %tmp.70;
+        putv self :PI2 %tmp.71;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 84 8 ]
+        %tmp.72 = getm $.Toybox.Time;
+        %tmp.73 = getv %tmp.72 :Gregorian;
+        %tmp.74 = getv %tmp.73 :SECONDS_PER_DAY;
+        putv self :DAYS %tmp.74;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 89 17 ]
+        %tmp.75 = newa 15;
+        %tmp.76 = -18;
+        %tmp.78 = getv ? :RAD;
+        %tmp.79 = mul %tmp.76 %tmp.78;
+        %tmp.80 = dup %tmp.75;
+        %tmp.81 = aputv %tmp.80 0 %tmp.79;
+        %tmp.82 = -12;
+        %tmp.84 = getv ? :RAD;
+        %tmp.85 = mul %tmp.82 %tmp.84;
+        %tmp.86 = dup %tmp.81;
+        %tmp.87 = aputv %tmp.86 1 %tmp.85;
+        %tmp.88 = -6;
+        %tmp.90 = getv ? :RAD;
+        %tmp.91 = mul %tmp.88 %tmp.90;
+        %tmp.92 = dup %tmp.87;
+        %tmp.93 = aputv %tmp.92 2 %tmp.91;
+        %tmp.94 = -4;
+        %tmp.96 = getv ? :RAD;
+        %tmp.97 = mul %tmp.94 %tmp.96;
+        %tmp.98 = dup %tmp.93;
+        %tmp.99 = aputv %tmp.98 3 %tmp.97;
+        %tmp.100 = -0.833;
+        %tmp.102 = getv ? :RAD;
+        %tmp.103 = mul %tmp.100 %tmp.102;
+        %tmp.104 = dup %tmp.99;
+        %tmp.105 = aputv %tmp.104 4 %tmp.103;
+        %tmp.106 = -0.3;
+        %tmp.108 = getv ? :RAD;
+        %tmp.109 = mul %tmp.106 %tmp.108;
+        %tmp.110 = dup %tmp.105;
+        %tmp.111 = aputv %tmp.110 5 %tmp.109;
+        %tmp.112 = 6;
+        %tmp.114 = getv ? :RAD;
+        %tmp.115 = mul %tmp.112 %tmp.114;
+        %tmp.116 = dup %tmp.111;
+        %tmp.117 = aputv %tmp.116 6 %tmp.115;
+        %tmp.118 = null;
+        %tmp.119 = dup %tmp.117;
+        %tmp.120 = aputv %tmp.119 7 %tmp.118;
+        %tmp.121 = 6;
+        %tmp.123 = getv ? :RAD;
+        %tmp.124 = mul %tmp.121 %tmp.123;
+        %tmp.125 = dup %tmp.120;
+        %tmp.126 = aputv %tmp.125 8 %tmp.124;
+        %tmp.127 = -0.3;
+        %tmp.129 = getv ? :RAD;
+        %tmp.130 = mul %tmp.127 %tmp.129;
+        %tmp.131 = dup %tmp.126;
+        %tmp.132 = aputv %tmp.131 9 %tmp.130;
+        %tmp.133 = -0.833;
+        %tmp.135 = getv ? :RAD;
+        %tmp.136 = mul %tmp.133 %tmp.135;
+        %tmp.137 = dup %tmp.132;
+        %tmp.138 = aputv %tmp.137 10 %tmp.136;
+        %tmp.139 = -4;
+        %tmp.141 = getv ? :RAD;
+        %tmp.142 = mul %tmp.139 %tmp.141;
+        %tmp.143 = dup %tmp.138;
+        %tmp.144 = aputv %tmp.143 11 %tmp.142;
+        %tmp.145 = -6;
+        %tmp.147 = getv ? :RAD;
+        %tmp.148 = mul %tmp.145 %tmp.147;
+        %tmp.149 = dup %tmp.144;
+        %tmp.150 = aputv %tmp.149 12 %tmp.148;
+        %tmp.151 = -12;
+        %tmp.153 = getv ? :RAD;
+        %tmp.154 = mul %tmp.151 %tmp.153;
+        %tmp.155 = dup %tmp.150;
+        %tmp.156 = aputv %tmp.155 13 %tmp.154;
+        %tmp.157 = -18;
+        %tmp.159 = getv ? :RAD;
+        %tmp.160 = mul %tmp.157 %tmp.159;
+        %tmp.161 = dup %tmp.156;
+        %tmp.162 = aputv %tmp.161 14 %tmp.160;
+        putv self :TIMES %tmp.162;
+    }
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 42; ]
+    static
+    <init> {
+    }
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 44; @position = 8; ]
+    var sunEvents;
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 81; @position = 17; ]
+    protected
+    const PI;
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 82; @position = 8; ]
+    protected
+    const RAD;
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 83; @position = 8; ]
+    protected
+    const PI2;
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 84; @position = 8; ]
+    protected
+    const DAYS;
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 85; @position = 8; ]
+    protected
+    const J1970 = 2440588;
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 86; @position = 8; ]
+    protected
+    const J2000 = 2451545;
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 87; @position = 8; ]
+    protected
+    const J0 = 0.0009;
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 89; @position = 17; ]
+    public
+    const TIMES;
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 107; @position = 8; ]
+    var lastD;
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 107; @position = 15; ]
+    var lastLng;
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 108; @position = 8; ]
+    var n;
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 108; @position = 11; ]
+    var ds;
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 108; @position = 15; ]
+    var M;
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 108; @position = 18; ]
+    var sinM;
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 108; @position = 24; ]
+    var C;
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 108; @position = 27; ]
+    var L;
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 108; @position = 30; ]
+    var sin2L;
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 108; @position = 37; ]
+    var dec;
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 108; @position = 42; ]
+    var Jnoon;
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 110; ]
+    function initialize() as Void {
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_110_26_113_4_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 111 8 ]
+        %tmp.1 = null;
+        putv self :lastD %tmp.1;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 112 8 ]
+        %tmp.2 = null;
+        putv self :lastLng %tmp.2;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_110_26_113_4_stop:
+    }
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 115; ]
+    function fromJulian(j) {
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_115_27_117_4_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 116 8 ]
+        %tmp.3 = getm $.Toybox.Time;
+        %tmp.4 = getv function ? %tmp.3 :Moment;
+        %tmp.6 = lgetv %j;
+        %tmp.7 = 0.5;
+        %tmp.8 = add %tmp.6 %tmp.7;
+        %tmp.10 = getv ? :J1970;
+        %tmp.11 = sub %tmp.8 %tmp.10;
+        %tmp.13 = getv ? :DAYS;
+        %tmp.14 = mul %tmp.11 %tmp.13;
+        %tmp.1 = newc %tmp.4 (%tmp.14);
+        ret %tmp.1;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_115_27_117_4_stop:
+    }
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 119; ]
+    function round(a) {
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_119_22_125_4_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 120 8 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_120_8_124_8_if_stmt:
+        %tmp.2 = lgetv %a;
+        %tmp.3 = 0;
+        %tmp.4 = gt %tmp.2 %tmp.3;
+        bf %tmp.4 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_120_8_124_8_if_false;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_120_8_124_8_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_120_19_122_8_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 121 12 ]
+        %tmp.6 = lgetv %a;
+        %tmp.7 = 0.5;
+        %tmp.8 = add %tmp.6 %tmp.7;
+        %tmp.9 = getv function %tmp.8 :toNumber;
+        %tmp.10 = invoke %tmp.8 %tmp.9();
+        %tmp.11 = getv function %tmp.10 :toFloat;
+        %tmp.12 = invoke %tmp.10 %tmp.11();
+        ret %tmp.12;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_120_19_122_8_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_120_8_124_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_120_8_124_8_if_false:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_122_15_124_8_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 123 12 ]
+        %tmp.14 = lgetv %a;
+        %tmp.15 = 0.5;
+        %tmp.16 = sub %tmp.14 %tmp.15;
+        %tmp.17 = getv function %tmp.16 :toNumber;
+        %tmp.18 = invoke %tmp.16 %tmp.17();
+        %tmp.19 = getv function %tmp.18 :toFloat;
+        %tmp.20 = invoke %tmp.18 %tmp.19();
+        ret %tmp.20;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_122_15_124_8_stop:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_120_8_124_8_if_end:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_119_22_125_4_stop:
+    }
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 128; ]
+    function calculate(moment, pos, what) {
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_128_42_168_4_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 129 8 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_128_42_168_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_128_42_168_4_stop" ]
+        %lat.1 = local;
+        %tmp.2 = lgetv %pos;
+        %tmp.3 = 0;
+        %tmp.4 = agetv %tmp.2 %tmp.3;
+        lputv %lat.1 %tmp.4;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 130 8 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_128_42_168_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_128_42_168_4_stop" ]
+        %lng.2 = local;
+        %tmp.6 = lgetv %pos;
+        %tmp.7 = 1;
+        %tmp.8 = agetv %tmp.6 %tmp.7;
+        lputv %lng.2 %tmp.8;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 132 8 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_128_42_168_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_128_42_168_4_stop" ]
+        %d.3 = local;
+        %tmp.9 = lgetv %moment;
+        %tmp.10 = getv function %tmp.9 :value;
+        %tmp.11 = invoke %tmp.9 %tmp.10();
+        %tmp.12 = getv function %tmp.11 :toDouble;
+        %tmp.13 = invoke %tmp.11 %tmp.12();
+        %tmp.15 = getv ? :DAYS;
+        %tmp.16 = div %tmp.13 %tmp.15;
+        %tmp.17 = 0.5;
+        %tmp.18 = sub %tmp.16 %tmp.17;
+        %tmp.20 = getv ? :J1970;
+        %tmp.21 = add %tmp.18 %tmp.20;
+        %tmp.23 = getv ? :J2000;
+        %tmp.24 = sub %tmp.21 %tmp.23;
+        lputv %d.3 %tmp.24;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 133 8 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_133_8_146_8_if_stmt:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_133_12_133_37_begin:
+        %tmp.26 = getv ? :lastD;
+        %tmp.28 = lgetv %d.3;
+        %tmp.29 = ne %tmp.26 %tmp.28;
+        bt %tmp.29 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_133_8_146_8_if_true;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_133_26_133_37_false:
+        %tmp.31 = getv ? :lastLng;
+        %tmp.33 = lgetv %lng.2;
+        %tmp.34 = ne %tmp.31 %tmp.33;
+        push %tmp.34;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_133_26_133_37_end:
+        %tmp.35 = phi [%tmp.29 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_133_12_133_37_begin] [%tmp.34 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_133_26_133_37_false] [%tmp.35 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_133_26_133_37_end];
+        bf %tmp.35 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_133_8_146_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_133_8_146_8_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_133_42_146_8_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 134 12 ]
+        %tmp.36 = self;
+        %tmp.37 = getv function %tmp.36 :round;
+        %tmp.39 = lgetv %d.3;
+        %tmp.41 = getv ? :J0;
+        %tmp.42 = sub %tmp.39 %tmp.41;
+        %tmp.44 = lgetv %lng.2;
+        %tmp.46 = getv ? :PI2;
+        %tmp.47 = div %tmp.44 %tmp.46;
+        %tmp.48 = add %tmp.42 %tmp.47;
+        %tmp.49 = invoke %tmp.36 %tmp.37(%tmp.48);
+        putv self :n %tmp.49;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 136 12 ]
+        %tmp.51 = getv ? :J0;
+        %tmp.53 = lgetv %lng.2;
+        %tmp.55 = getv ? :PI2;
+        %tmp.56 = div %tmp.53 %tmp.55;
+        %tmp.57 = sub %tmp.51 %tmp.56;
+        %tmp.59 = getv ? :n;
+        %tmp.60 = add %tmp.57 %tmp.59;
+        %tmp.61 = 1.1574e-5;
+        %tmp.62 = 68;
+        %tmp.63 = mul %tmp.61 %tmp.62;
+        %tmp.64 = sub %tmp.60 %tmp.63;
+        putv self :ds %tmp.64;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 137 12 ]
+        %tmp.65 = 6.240059967;
+        %tmp.66 = 0.0172019715;
+        %tmp.68 = getv ? :ds;
+        %tmp.69 = mul %tmp.66 %tmp.68;
+        %tmp.70 = add %tmp.65 %tmp.69;
+        putv self :M %tmp.70;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 138 12 ]
+        %tmp.71 = getm $.Toybox.Math;
+        %tmp.72 = getv function %tmp.71 :sin;
+        %tmp.74 = getv ? :M;
+        %tmp.75 = invoke %tmp.71 %tmp.72(%tmp.74);
+        putv self :sinM %tmp.75;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 139 12 ]
+        %tmp.76 = 1.9148;
+        %tmp.78 = getv ? :sinM;
+        %tmp.79 = mul %tmp.76 %tmp.78;
+        %tmp.80 = 0.02;
+        %tmp.81 = getm $.Toybox.Math;
+        %tmp.82 = getv function %tmp.81 :sin;
+        %tmp.83 = 2;
+        %tmp.85 = getv ? :M;
+        %tmp.86 = mul %tmp.83 %tmp.85;
+        %tmp.87 = invoke %tmp.81 %tmp.82(%tmp.86);
+        %tmp.88 = mul %tmp.80 %tmp.87;
+        %tmp.89 = add %tmp.79 %tmp.88;
+        %tmp.90 = 0.0003;
+        %tmp.91 = getm $.Toybox.Math;
+        %tmp.92 = getv function %tmp.91 :sin;
+        %tmp.93 = 3;
+        %tmp.95 = getv ? :M;
+        %tmp.96 = mul %tmp.93 %tmp.95;
+        %tmp.97 = invoke %tmp.91 %tmp.92(%tmp.96);
+        %tmp.98 = mul %tmp.90 %tmp.97;
+        %tmp.99 = add %tmp.89 %tmp.98;
+        %tmp.101 = getv ? :RAD;
+        %tmp.102 = mul %tmp.99 %tmp.101;
+        putv self :C %tmp.102;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 140 12 ]
+        %tmp.104 = getv ? :M;
+        %tmp.106 = getv ? :C;
+        %tmp.107 = add %tmp.104 %tmp.106;
+        %tmp.108 = 1.796593063;
+        %tmp.109 = add %tmp.107 %tmp.108;
+        %tmp.111 = getv ? :PI;
+        %tmp.112 = add %tmp.109 %tmp.111;
+        putv self :L %tmp.112;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 141 12 ]
+        %tmp.113 = getm $.Toybox.Math;
+        %tmp.114 = getv function %tmp.113 :sin;
+        %tmp.115 = 2;
+        %tmp.117 = getv ? :L;
+        %tmp.118 = mul %tmp.115 %tmp.117;
+        %tmp.119 = invoke %tmp.113 %tmp.114(%tmp.118);
+        putv self :sin2L %tmp.119;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 142 12 ]
+        %tmp.120 = getm $.Toybox.Math;
+        %tmp.121 = getv function %tmp.120 :asin;
+        %tmp.122 = 0.397783703;
+        %tmp.123 = getm $.Toybox.Math;
+        %tmp.124 = getv function %tmp.123 :sin;
+        %tmp.126 = getv ? :L;
+        %tmp.127 = invoke %tmp.123 %tmp.124(%tmp.126);
+        %tmp.128 = mul %tmp.122 %tmp.127;
+        %tmp.129 = invoke %tmp.120 %tmp.121(%tmp.128);
+        putv self :dec %tmp.129;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 143 12 ]
+        %tmp.131 = getv ? :J2000;
+        %tmp.133 = getv ? :ds;
+        %tmp.134 = add %tmp.131 %tmp.133;
+        %tmp.135 = 0.0053;
+        %tmp.137 = getv ? :sinM;
+        %tmp.138 = mul %tmp.135 %tmp.137;
+        %tmp.139 = add %tmp.134 %tmp.138;
+        %tmp.140 = 0.0069;
+        %tmp.142 = getv ? :sin2L;
+        %tmp.143 = mul %tmp.140 %tmp.142;
+        %tmp.144 = sub %tmp.139 %tmp.143;
+        putv self :Jnoon %tmp.144;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 144 12 ]
+        %tmp.146 = lgetv %d.3;
+        putv self :lastD %tmp.146;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 145 12 ]
+        %tmp.148 = lgetv %lng.2;
+        putv self :lastLng %tmp.148;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_133_42_146_8_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_133_8_146_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_133_8_146_8_if_end:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 148 8 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_148_8_150_8_if_stmt:
+        %tmp.150 = lgetv %what;
+        %tmp.152 = getv ? :NOON;
+        %tmp.153 = eq %tmp.150 %tmp.152;
+        bf %tmp.153 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_148_8_150_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_148_8_150_8_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_148_26_150_8_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 149 12 ]
+        %tmp.154 = self;
+        %tmp.155 = getv function %tmp.154 :fromJulian;
+        %tmp.157 = getv ? :Jnoon;
+        %tmp.158 = invoke %tmp.154 %tmp.155(%tmp.157);
+        ret %tmp.158;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_148_26_150_8_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_148_8_150_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_148_8_150_8_if_end:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 152 8 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_128_42_168_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_128_42_168_4_stop" ]
+        %x.4 = local;
+        %tmp.159 = getm $.Toybox.Math;
+        %tmp.160 = getv function %tmp.159 :sin;
+        %tmp.162 = getv ? :TIMES;
+        %tmp.164 = lgetv %what;
+        %tmp.165 = agetv %tmp.162 %tmp.164;
+        %tmp.166 = invoke %tmp.159 %tmp.160(%tmp.165);
+        %tmp.167 = getm $.Toybox.Math;
+        %tmp.168 = getv function %tmp.167 :sin;
+        %tmp.170 = lgetv %lat.1;
+        %tmp.171 = invoke %tmp.167 %tmp.168(%tmp.170);
+        %tmp.172 = getm $.Toybox.Math;
+        %tmp.173 = getv function %tmp.172 :sin;
+        %tmp.175 = getv ? :dec;
+        %tmp.176 = invoke %tmp.172 %tmp.173(%tmp.175);
+        %tmp.177 = mul %tmp.171 %tmp.176;
+        %tmp.178 = sub %tmp.166 %tmp.177;
+        %tmp.179 = getm $.Toybox.Math;
+        %tmp.180 = getv function %tmp.179 :cos;
+        %tmp.182 = lgetv %lat.1;
+        %tmp.183 = invoke %tmp.179 %tmp.180(%tmp.182);
+        %tmp.184 = getm $.Toybox.Math;
+        %tmp.185 = getv function %tmp.184 :cos;
+        %tmp.187 = getv ? :dec;
+        %tmp.188 = invoke %tmp.184 %tmp.185(%tmp.187);
+        %tmp.189 = mul %tmp.183 %tmp.188;
+        %tmp.190 = div %tmp.178 %tmp.189;
+        lputv %x.4 %tmp.190;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 154 8 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_154_8_156_8_if_stmt:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_154_12_154_28_begin:
+        %tmp.192 = lgetv %x.4;
+        %tmp.193 = 1.0;
+        %tmp.194 = gt %tmp.192 %tmp.193;
+        bt %tmp.194 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_154_8_156_8_if_true;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_154_23_154_28_false:
+        %tmp.196 = lgetv %x.4;
+        %tmp.197 = -1.0;
+        %tmp.198 = lt %tmp.196 %tmp.197;
+        push %tmp.198;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_154_23_154_28_end:
+        %tmp.199 = phi [%tmp.194 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_154_12_154_28_begin] [%tmp.198 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_154_23_154_28_false] [%tmp.199 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_154_23_154_28_end];
+        bf %tmp.199 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_154_8_156_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_154_8_156_8_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_154_33_156_8_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 155 12 ]
+        %tmp.200 = null;
+        ret %tmp.200;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_154_33_156_8_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_154_8_156_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_154_8_156_8_if_end:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 158 8 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_128_42_168_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_128_42_168_4_stop" ]
+        %ds.5 = local;
+        %tmp.202 = getv ? :J0;
+        %tmp.203 = getm $.Toybox.Math;
+        %tmp.204 = getv function %tmp.203 :acos;
+        %tmp.206 = lgetv %x.4;
+        %tmp.207 = invoke %tmp.203 %tmp.204(%tmp.206);
+        %tmp.209 = lgetv %lng.2;
+        %tmp.210 = sub %tmp.207 %tmp.209;
+        %tmp.212 = getv ? :PI2;
+        %tmp.213 = div %tmp.210 %tmp.212;
+        %tmp.214 = add %tmp.202 %tmp.213;
+        %tmp.216 = getv ? :n;
+        %tmp.217 = add %tmp.214 %tmp.216;
+        %tmp.218 = 1.1574e-5;
+        %tmp.219 = 68;
+        %tmp.220 = mul %tmp.218 %tmp.219;
+        %tmp.221 = sub %tmp.217 %tmp.220;
+        lputv %ds.5 %tmp.221;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 160 8 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_128_42_168_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_128_42_168_4_stop" ]
+        %Jset.6 = local;
+        %tmp.223 = getv ? :J2000;
+        %tmp.225 = lgetv %ds.5;
+        %tmp.226 = add %tmp.223 %tmp.225;
+        %tmp.227 = 0.0053;
+        %tmp.229 = getv ? :sinM;
+        %tmp.230 = mul %tmp.227 %tmp.229;
+        %tmp.231 = add %tmp.226 %tmp.230;
+        %tmp.232 = 0.0069;
+        %tmp.234 = getv ? :sin2L;
+        %tmp.235 = mul %tmp.232 %tmp.234;
+        %tmp.236 = sub %tmp.231 %tmp.235;
+        lputv %Jset.6 %tmp.236;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 161 8 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_161_8_163_8_if_stmt:
+        %tmp.238 = lgetv %what;
+        %tmp.240 = getv ? :NOON;
+        %tmp.241 = gt %tmp.238 %tmp.240;
+        bf %tmp.241 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_161_8_163_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_161_8_163_8_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_161_25_163_8_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 162 12 ]
+        %tmp.242 = self;
+        %tmp.243 = getv function %tmp.242 :fromJulian;
+        %tmp.245 = lgetv %Jset.6;
+        %tmp.246 = invoke %tmp.242 %tmp.243(%tmp.245);
+        ret %tmp.246;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_161_25_163_8_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_161_8_163_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_161_8_163_8_if_end:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 165 8 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_128_42_168_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_128_42_168_4_stop" ]
+        %Jrise.7 = local;
+        %tmp.248 = getv ? :Jnoon;
+        %tmp.250 = lgetv %Jset.6;
+        %tmp.252 = getv ? :Jnoon;
+        %tmp.253 = sub %tmp.250 %tmp.252;
+        %tmp.254 = sub %tmp.248 %tmp.253;
+        lputv %Jrise.7 %tmp.254;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 167 8 ]
+        %tmp.255 = self;
+        %tmp.256 = getv function %tmp.255 :fromJulian;
+        %tmp.258 = lgetv %Jrise.7;
+        %tmp.259 = invoke %tmp.255 %tmp.256(%tmp.258);
+        ret %tmp.259;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_128_42_168_4_stop:
+    }
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 170; ]
+    function momentToString(moment, is24Hour) {
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_170_46_205_4_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 172 8 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_172_8_174_8_if_stmt:
+        %tmp.2 = lgetv %moment;
+        %tmp.3 = null;
+        %tmp.4 = eq %tmp.2 %tmp.3;
+        bf %tmp.4 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_172_8_174_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_172_8_174_8_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_172_28_174_8_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 173 12 ]
+        %tmp.5 = "--:--";
+        ret %tmp.5;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_172_28_174_8_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_172_8_174_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_172_8_174_8_if_end:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 176 8 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_170_46_205_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_170_46_205_4_stop" ]
+        %tinfo.1 = local;
+        %tmp.6 = getm $.Toybox.Time;
+        %tmp.7 = getv %tmp.6 :Gregorian;
+        %tmp.8 = getv function %tmp.7 :info;
+        %tmp.11 = getm $.Toybox.Time;
+        %tmp.12 = getv function ? %tmp.11 :Moment;
+        %tmp.13 = lgetv %moment;
+        %tmp.14 = getv function %tmp.13 :value;
+        %tmp.15 = invoke %tmp.13 %tmp.14();
+        %tmp.16 = 30;
+        %tmp.17 = add %tmp.15 %tmp.16;
+        %tmp.9 = newc %tmp.12 (%tmp.17);
+        %tmp.18 = getm $.Toybox.Time;
+        %tmp.19 = getv %tmp.18 :FORMAT_SHORT;
+        %tmp.20 = invoke %tmp.7 %tmp.8(%tmp.9, %tmp.19);
+        lputv %tinfo.1 %tmp.20;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 177 8 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_170_46_205_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_170_46_205_4_stop" ]
+        %text.2 = local;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 178 8 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_178_8_192_8_if_stmt:
+        %tmp.22 = lgetv %is24Hour;
+        bf %tmp.22 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_178_8_192_8_if_false;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_178_8_192_8_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_178_22_180_8_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 179 12 ]
+        %tmp.23 = lgetv %tinfo.1;
+        %tmp.24 = getv %tmp.23 :hour;
+        %tmp.25 = getv function %tmp.24 :format;
+        %tmp.26 = "%02d";
+        %tmp.27 = invoke %tmp.24 %tmp.25(%tmp.26);
+        %tmp.28 = ":";
+        %tmp.29 = add %tmp.27 %tmp.28;
+        %tmp.30 = lgetv %tinfo.1;
+        %tmp.31 = getv %tmp.30 :min;
+        %tmp.32 = getv function %tmp.31 :format;
+        %tmp.33 = "%02d";
+        %tmp.34 = invoke %tmp.31 %tmp.32(%tmp.33);
+        %tmp.35 = add %tmp.29 %tmp.34;
+        lputv %text.2 %tmp.35;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_178_22_180_8_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_178_8_192_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_178_8_192_8_if_false:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_180_15_192_8_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 181 12 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_180_15_192_8_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_180_15_192_8_stop" ]
+        %hour.3 = local;
+        %tmp.36 = lgetv %tinfo.1;
+        %tmp.37 = getv %tmp.36 :hour;
+        %tmp.38 = 12;
+        %tmp.39 = mod %tmp.37 %tmp.38;
+        lputv %hour.3 %tmp.39;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 182 12 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_182_12_184_12_if_stmt:
+        %tmp.41 = lgetv %hour.3;
+        %tmp.42 = 0;
+        %tmp.43 = eq %tmp.41 %tmp.42;
+        bf %tmp.43 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_182_12_184_12_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_182_12_184_12_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_182_27_184_12_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 183 16 ]
+        %tmp.44 = 12;
+        lputv %hour.3 %tmp.44;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_182_27_184_12_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_182_12_184_12_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_182_12_184_12_if_end:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 185 12 ]
+        %tmp.45 = lgetv %hour.3;
+        %tmp.46 = getv function %tmp.45 :format;
+        %tmp.47 = "%02d";
+        %tmp.48 = invoke %tmp.45 %tmp.46(%tmp.47);
+        %tmp.49 = ":";
+        %tmp.50 = add %tmp.48 %tmp.49;
+        %tmp.51 = lgetv %tinfo.1;
+        %tmp.52 = getv %tmp.51 :min;
+        %tmp.53 = getv function %tmp.52 :format;
+        %tmp.54 = "%02d";
+        %tmp.55 = invoke %tmp.52 %tmp.53(%tmp.54);
+        %tmp.56 = add %tmp.50 %tmp.55;
+        lputv %text.2 %tmp.56;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 187 12 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_187_12_191_12_if_stmt:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_187_16_187_49_begin:
+        %tmp.57 = lgetv %tinfo.1;
+        %tmp.58 = getv %tmp.57 :hour;
+        %tmp.59 = 12;
+        %tmp.60 = lt %tmp.58 %tmp.59;
+        bt %tmp.60 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_187_12_191_12_if_true;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_187_35_187_49_false:
+        %tmp.61 = lgetv %tinfo.1;
+        %tmp.62 = getv %tmp.61 :hour;
+        %tmp.63 = 24;
+        %tmp.64 = eq %tmp.62 %tmp.63;
+        push %tmp.64;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_187_35_187_49_end:
+        %tmp.65 = phi [%tmp.60 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_187_16_187_49_begin] [%tmp.64 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_187_35_187_49_false] [%tmp.65 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_187_35_187_49_end];
+        bf %tmp.65 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_187_12_191_12_if_false;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_187_12_191_12_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_187_53_189_12_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 188 16 ]
+        %tmp.67 = lgetv %text.2;
+        %tmp.68 = " AM";
+        %tmp.69 = add %tmp.67 %tmp.68;
+        lputv %text.2 %tmp.69;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_187_53_189_12_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_187_12_191_12_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_187_12_191_12_if_false:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_189_19_191_12_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 190 16 ]
+        %tmp.71 = lgetv %text.2;
+        %tmp.72 = " PM";
+        %tmp.73 = add %tmp.71 %tmp.72;
+        lputv %text.2 %tmp.73;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_189_19_191_12_stop:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_187_12_191_12_if_end:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_180_15_192_8_stop:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_178_8_192_8_if_end:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 193 8 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_170_46_205_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_170_46_205_4_stop" ]
+        %today.4 = local;
+        %tmp.74 = getm $.Toybox.Time;
+        %tmp.75 = getv function %tmp.74 :today;
+        %tmp.76 = invoke %tmp.74 %tmp.75();
+        lputv %today.4 %tmp.76;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 194 8 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_170_46_205_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_170_46_205_4_stop" ]
+        %days.5 = local;
+        %tmp.77 = lgetv %moment;
+        %tmp.78 = getv function %tmp.77 :value;
+        %tmp.79 = invoke %tmp.77 %tmp.78();
+        %tmp.80 = lgetv %today.4;
+        %tmp.81 = getv function %tmp.80 :value;
+        %tmp.82 = invoke %tmp.80 %tmp.81();
+        %tmp.83 = sub %tmp.79 %tmp.82;
+        %tmp.84 = getm $.Toybox.Time;
+        %tmp.85 = getv %tmp.84 :Gregorian;
+        %tmp.86 = getv %tmp.85 :SECONDS_PER_DAY;
+        %tmp.87 = div %tmp.83 %tmp.86;
+        %tmp.88 = getv function %tmp.87 :toNumber;
+        %tmp.89 = invoke %tmp.87 %tmp.88();
+        lputv %days.5 %tmp.89;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 196 8 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_196_8_203_8_if_stmt:
+        %tmp.90 = lgetv %moment;
+        %tmp.91 = getv function %tmp.90 :value;
+        %tmp.92 = invoke %tmp.90 %tmp.91();
+        %tmp.93 = lgetv %today.4;
+        %tmp.94 = getv function %tmp.93 :value;
+        %tmp.95 = invoke %tmp.93 %tmp.94();
+        %tmp.96 = gt %tmp.92 %tmp.95;
+        bf %tmp.96 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_196_8_203_8_if_false;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_196_8_203_8_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_196_45_200_8_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 197 12 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_197_12_199_12_if_stmt:
+        %tmp.98 = lgetv %days.5;
+        %tmp.99 = 0;
+        %tmp.100 = gt %tmp.98 %tmp.99;
+        bf %tmp.100 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_197_12_199_12_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_197_12_199_12_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_197_26_199_12_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 198 16 ]
+        %tmp.102 = lgetv %text.2;
+        %tmp.103 = " +";
+        %tmp.104 = add %tmp.102 %tmp.103;
+        %tmp.106 = lgetv %days.5;
+        %tmp.107 = add %tmp.104 %tmp.106;
+        lputv %text.2 %tmp.107;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_197_26_199_12_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_197_12_199_12_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_197_12_199_12_if_end:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_196_45_200_8_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_196_8_203_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_196_8_203_8_if_false:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_200_15_203_8_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 201 12 ]
+        %tmp.109 = lgetv %days.5;
+        %tmp.110 = 1;
+        %tmp.111 = sub %tmp.109 %tmp.110;
+        lputv %days.5 %tmp.111;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 202 12 ]
+        %tmp.113 = lgetv %text.2;
+        %tmp.114 = " ";
+        %tmp.115 = add %tmp.113 %tmp.114;
+        %tmp.117 = lgetv %days.5;
+        %tmp.118 = add %tmp.115 %tmp.117;
+        lputv %text.2 %tmp.118;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_200_15_203_8_stop:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_196_8_203_8_if_end:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 204 8 ]
+        %tmp.120 = lgetv %text.2;
+        ret %tmp.120;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_170_46_205_4_stop:
+    }
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 207; ]
+    static
+    function printMoment(moment) {
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_207_40_211_4_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 208 8 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_207_40_211_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_207_40_211_4_stop" ]
+        %info.1 = local;
+        %tmp.1 = getm $.Toybox.Time;
+        %tmp.2 = getv %tmp.1 :Gregorian;
+        %tmp.3 = getv function %tmp.2 :info;
+        %tmp.5 = lgetv %moment;
+        %tmp.6 = getm $.Toybox.Time;
+        %tmp.7 = getv %tmp.6 :FORMAT_SHORT;
+        %tmp.8 = invoke %tmp.2 %tmp.3(%tmp.5, %tmp.7);
+        lputv %info.1 %tmp.8;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 209 8 ]
+        %tmp.9 = lgetv %info.1;
+        %tmp.10 = getv %tmp.9 :day;
+        %tmp.11 = getv function %tmp.10 :format;
+        %tmp.12 = "%02d";
+        %tmp.13 = invoke %tmp.10 %tmp.11(%tmp.12);
+        %tmp.14 = ".";
+        %tmp.15 = add %tmp.13 %tmp.14;
+        %tmp.16 = lgetv %info.1;
+        %tmp.17 = getv %tmp.16 :month;
+        %tmp.18 = getv function %tmp.17 :format;
+        %tmp.19 = "%02d";
+        %tmp.20 = invoke %tmp.17 %tmp.18(%tmp.19);
+        %tmp.21 = add %tmp.15 %tmp.20;
+        %tmp.22 = ".";
+        %tmp.23 = add %tmp.21 %tmp.22;
+        %tmp.24 = lgetv %info.1;
+        %tmp.25 = getv %tmp.24 :year;
+        %tmp.26 = getv function %tmp.25 :toString;
+        %tmp.27 = invoke %tmp.25 %tmp.26();
+        %tmp.28 = add %tmp.23 %tmp.27;
+        %tmp.29 = " ";
+        %tmp.30 = add %tmp.28 %tmp.29;
+        %tmp.31 = lgetv %info.1;
+        %tmp.32 = getv %tmp.31 :hour;
+        %tmp.33 = getv function %tmp.32 :format;
+        %tmp.34 = "%02d";
+        %tmp.35 = invoke %tmp.32 %tmp.33(%tmp.34);
+        %tmp.36 = add %tmp.30 %tmp.35;
+        %tmp.37 = ":";
+        %tmp.38 = add %tmp.36 %tmp.37;
+        %tmp.39 = lgetv %info.1;
+        %tmp.40 = getv %tmp.39 :min;
+        %tmp.41 = getv function %tmp.40 :format;
+        %tmp.42 = "%02d";
+        %tmp.43 = invoke %tmp.40 %tmp.41(%tmp.42);
+        %tmp.44 = add %tmp.38 %tmp.43;
+        %tmp.45 = ":";
+        %tmp.46 = add %tmp.44 %tmp.45;
+        %tmp.47 = lgetv %info.1;
+        %tmp.48 = getv %tmp.47 :sec;
+        %tmp.49 = getv function %tmp.48 :format;
+        %tmp.50 = "%02d";
+        %tmp.51 = invoke %tmp.48 %tmp.49(%tmp.50);
+        %tmp.52 = add %tmp.46 %tmp.51;
+        ret %tmp.52;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_207_40_211_4_stop:
+    }
+}
+[ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 261; ]
+class ElegantAna_SunInfo{
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 261; ]
+    <init> {
+    }
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 261; ]
+    static
+    <init> {
+    }
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 281; @position = 8; ]
+    var sc;
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 282; @position = 8; ]
+    var now;
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 283; @position = 8; ]
+    var lastLoc;
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 287; ]
+    function initialize() as Void {
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_287_26_293_4_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 288 8 ]
+        %tmp.4 = getv ? :ElegantAna_SunCalc;
+        %tmp.1 = newc %tmp.4 ();
+        putv self :sc %tmp.1;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 291 8 ]
+        %tmp.5 = null;
+        putv self :lastLoc %tmp.5;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_287_26_293_4_stop:
+    }
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 300; ]
+    function setPositionAndTime() {
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_300_35_410_4_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 301 8 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_300_35_410_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_300_35_410_4_stop" ]
+        %curr_pos.1 = local;
+        %tmp.1 = null;
+        lputv %curr_pos.1 %tmp.1;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 302 8 ]
+        %tmp.2 = getm $.Toybox.Time;
+        %tmp.3 = getv function %tmp.2 :now;
+        %tmp.4 = invoke %tmp.2 %tmp.3();
+        putv self :now %tmp.4;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 307 8 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_307_8_319_8_if_stmt:
+        %tmp.6 = lgetv %curr_pos.1;
+        %tmp.7 = null;
+        %tmp.8 = eq %tmp.6 %tmp.7;
+        bf %tmp.8 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_307_8_319_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_307_8_319_8_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_307_30_319_8_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 308 12 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_307_30_319_8_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_307_30_319_8_stop" ]
+        %a_info.2 = local;
+        %tmp.9 = getm $.Toybox.Activity;
+        %tmp.10 = getv function %tmp.9 :getActivityInfo;
+        %tmp.11 = invoke %tmp.9 %tmp.10();
+        lputv %a_info.2 %tmp.11;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 309 12 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_307_30_319_8_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_307_30_319_8_stop" ]
+        %a_pos.3 = local;
+        %tmp.12 = null;
+        lputv %a_pos.3 %tmp.12;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 310 12 ]
+        %tmp.14 = getv ? :System;
+        %tmp.15 = getv function %tmp.14 :println;
+        %tmp.16 = "sc1.2:Activity a_pos==Null3? ";
+        %tmp.18 = lgetv %a_pos.3;
+        %tmp.19 = null;
+        %tmp.20 = eq %tmp.18 %tmp.19;
+        %tmp.21 = add %tmp.16 %tmp.20;
+        invoke %tmp.14 %tmp.15(%tmp.21);
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 312 13 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_312_13_313_49_if_stmt:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_312_17_312_90_begin:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_312_17_312_45_begin:
+        %tmp.23 = lgetv %a_info.2;
+        %tmp.24 = null;
+        %tmp.25 = ne %tmp.23 %tmp.24;
+        bf %tmp.25 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_312_13_313_49_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_312_33_312_45_true:
+        %tmp.27 = lgetv %a_info.2;
+        %tmp.28 = as %tmp.27 { (!Null) };
+        %tmp.30 = const :currentLocation;
+        %tmp.31 = canhazplz %tmp.28 %tmp.30;
+        push %tmp.31;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_312_33_312_45_end:
+        %tmp.32 = phi [%tmp.25 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_312_17_312_45_begin] [%tmp.31 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_312_33_312_45_true] [%tmp.32 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_312_33_312_45_end];
+        bf %tmp.32 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_312_13_313_49_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_312_64_312_90_true:
+        %tmp.33 = lgetv %a_info.2;
+        %tmp.34 = as %tmp.33 { (interface { var currentLocation; }) && (!Null) };
+        %tmp.35 = getv %tmp.34 :currentLocation;
+        %tmp.36 = null;
+        %tmp.37 = ne %tmp.35 %tmp.36;
+        push %tmp.37;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_312_64_312_90_end:
+        %tmp.38 = phi [%tmp.32 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_312_17_312_90_begin] [%tmp.37 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_312_64_312_90_true] [%tmp.38 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_312_64_312_90_end];
+        bf %tmp.38 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_312_13_313_49_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_312_13_313_49_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_313_16_313_49_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 313 18 ]
+        %tmp.39 = lgetv %a_info.2;
+        %tmp.40 = as %tmp.39 { (interface { var currentLocation; }) && (!Null) };
+        %tmp.41 = getv %tmp.40 :currentLocation;
+        lputv %a_pos.3 %tmp.41;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_313_16_313_49_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_312_13_313_49_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_312_13_313_49_if_end:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 315 12 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_315_12_318_12_if_stmt:
+        %tmp.43 = lgetv %a_pos.3;
+        %tmp.44 = null;
+        %tmp.45 = ne %tmp.43 %tmp.44;
+        bf %tmp.45 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_315_12_318_12_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_315_12_318_12_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_315_32_318_12_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 316 16 ]
+        %tmp.47 = getv ? :System;
+        %tmp.48 = getv function %tmp.47 :println;
+        %tmp.49 = "Position: Got from Activity.getActivityInfo() currentLocation";
+        %tmp.51 = lgetv %a_pos.3;
+        %tmp.52 = as %tmp.51 { (!Null) };
+        %tmp.53 = add %tmp.49 %tmp.52;
+        %tmp.54 = " ";
+        %tmp.55 = add %tmp.53 %tmp.54;
+        %tmp.56 = lgetv %a_pos.3;
+        %tmp.57 = as %tmp.56 { (!Null) };
+        %tmp.58 = getv function %tmp.57 :toDegrees;
+        %tmp.59 = invoke %tmp.57 %tmp.58();
+        %tmp.60 = add %tmp.55 %tmp.59;
+        invoke %tmp.47 %tmp.48(%tmp.60);
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 317 16 ]
+        %tmp.62 = lgetv %a_pos.3;
+        %tmp.63 = as %tmp.62 { (!Null) };
+        lputv %curr_pos.1 %tmp.63;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_315_32_318_12_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_315_12_318_12_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_315_12_318_12_if_end:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_307_30_319_8_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_307_8_319_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_307_8_319_8_if_end:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 324 8 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_324_8_331_8_if_stmt:
+        %tmp.65 = lgetv %curr_pos.1;
+        %tmp.66 = null;
+        %tmp.67 = eq %tmp.65 %tmp.66;
+        bf %tmp.67 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_324_8_331_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_324_8_331_8_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_324_30_331_8_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 325 12 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_325_12_330_12_if_stmt:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_325_16_325_174_begin:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_325_16_325_83_begin:
+        %tmp.68 = getm $;
+        %tmp.69 = getv %tmp.68 :Options_Dict;
+        %tmp.70 = getv function %tmp.69 :hasKey;
+        %tmp.71 = "Location";
+        %tmp.72 = invoke %tmp.69 %tmp.70(%tmp.71);
+        bf %tmp.72 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_325_12_330_12_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_325_53_325_83_true:
+        %tmp.73 = getm $;
+        %tmp.74 = getv %tmp.73 :Options_Dict;
+        %tmp.75 = "Location";
+        %tmp.76 = agetv %tmp.74 %tmp.75;
+        %tmp.77 = null;
+        %tmp.78 = ne %tmp.76 %tmp.77;
+        push %tmp.78;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_325_53_325_83_end:
+        %tmp.79 = phi [%tmp.72 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_325_16_325_83_begin] [%tmp.78 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_325_53_325_83_true] [%tmp.79 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_325_53_325_83_end];
+        bf %tmp.79 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_325_12_330_12_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_325_91_325_174_true:
+        %tmp.81 = getv ? :now;
+        %tmp.82 = getv function %tmp.81 :value;
+        %tmp.83 = invoke %tmp.81 %tmp.82();
+        %tmp.84 = getm $;
+        %tmp.85 = getv %tmp.84 :Options_Dict;
+        %tmp.86 = "Location";
+        %tmp.87 = agetv %tmp.85 %tmp.86;
+        %tmp.88 = 1;
+        %tmp.89 = agetv %tmp.87 %tmp.88;
+        %tmp.90 = sub %tmp.83 %tmp.89;
+        %tmp.91 = 0.5;
+        %tmp.92 = getm $.Toybox.Time;
+        %tmp.93 = getv %tmp.92 :Gregorian;
+        %tmp.94 = getv %tmp.93 :SECONDS_PER_DAY;
+        %tmp.95 = mul %tmp.91 %tmp.94;
+        %tmp.96 = lt %tmp.90 %tmp.95;
+        push %tmp.96;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_325_91_325_174_end:
+        %tmp.97 = phi [%tmp.79 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_325_16_325_174_begin] [%tmp.96 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_325_91_325_174_true] [%tmp.97 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_325_91_325_174_end];
+        bf %tmp.97 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_325_12_330_12_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_325_12_330_12_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_325_178_330_12_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 326 16 ]
+        %tmp.98 = getm $;
+        %tmp.99 = getv %tmp.98 :Options_Dict;
+        %tmp.100 = "Location";
+        %tmp.101 = agetv %tmp.99 %tmp.100;
+        %tmp.102 = 0;
+        %tmp.103 = agetv %tmp.101 %tmp.102;
+        putv self :lastLoc %tmp.103;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 327 16 ]
+        %tmp.105 = getv ? :System;
+        %tmp.106 = getv function %tmp.105 :println;
+        %tmp.107 = "sc0: Options_Dict ";
+        %tmp.108 = getm $;
+        %tmp.109 = getv %tmp.108 :Options_Dict;
+        %tmp.110 = "Location";
+        %tmp.111 = agetv %tmp.109 %tmp.110;
+        %tmp.112 = 0;
+        %tmp.113 = agetv %tmp.111 %tmp.112;
+        %tmp.114 = add %tmp.107 %tmp.113;
+        %tmp.115 = " now: ";
+        %tmp.116 = add %tmp.114 %tmp.115;
+        %tmp.118 = getv ? :now;
+        %tmp.119 = getv function %tmp.118 :value;
+        %tmp.120 = invoke %tmp.118 %tmp.119();
+        %tmp.121 = add %tmp.116 %tmp.120;
+        %tmp.122 = " saved: ";
+        %tmp.123 = add %tmp.121 %tmp.122;
+        %tmp.124 = getm $;
+        %tmp.125 = getv %tmp.124 :Options_Dict;
+        %tmp.126 = "Location";
+        %tmp.127 = agetv %tmp.125 %tmp.126;
+        %tmp.128 = 1;
+        %tmp.129 = agetv %tmp.127 %tmp.128;
+        %tmp.130 = add %tmp.123 %tmp.129;
+        invoke %tmp.105 %tmp.106(%tmp.130);
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 328 16 ]
+        %tmp.132 = getv ? :System;
+        %tmp.133 = getv function %tmp.132 :println;
+        %tmp.134 = "lastLoc final saved: ";
+        %tmp.135 = lgetv %self;
+        %tmp.136 = getv %tmp.135 :lastLoc;
+        %tmp.137 = add %tmp.134 %tmp.136;
+        %tmp.138 = getm $.Toybox.Math;
+        %tmp.139 = getv function %tmp.138 :toDegrees;
+        %tmp.140 = lgetv %self;
+        %tmp.141 = getv %tmp.140 :lastLoc;
+        %tmp.142 = 0;
+        %tmp.143 = agetv %tmp.141 %tmp.142;
+        %tmp.144 = invoke %tmp.138 %tmp.139(%tmp.143);
+        %tmp.145 = add %tmp.137 %tmp.144;
+        %tmp.146 = ",";
+        %tmp.147 = add %tmp.145 %tmp.146;
+        %tmp.148 = getm $.Toybox.Math;
+        %tmp.149 = getv function %tmp.148 :toDegrees;
+        %tmp.150 = lgetv %self;
+        %tmp.151 = getv %tmp.150 :lastLoc;
+        %tmp.152 = 1;
+        %tmp.153 = agetv %tmp.151 %tmp.152;
+        %tmp.154 = invoke %tmp.148 %tmp.149(%tmp.153);
+        %tmp.155 = add %tmp.147 %tmp.154;
+        invoke %tmp.132 %tmp.133(%tmp.155);
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 329 16 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_329_16_329_51_if_stmt:
+        %tmp.156 = lgetv %self;
+        %tmp.157 = getv %tmp.156 :lastLoc;
+        %tmp.158 = null;
+        %tmp.159 = ne %tmp.157 %tmp.158;
+        bf %tmp.159 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_329_16_329_51_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_329_16_329_51_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_329_43_329_51_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 329 44 ]
+        ret ?;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_329_43_329_51_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_329_16_329_51_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_329_16_329_51_if_end:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_325_178_330_12_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_325_12_330_12_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_325_12_330_12_if_end:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_324_30_331_8_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_324_8_331_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_324_8_331_8_if_end:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 354 8 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_354_8_362_8_if_stmt:
+        %tmp.161 = lgetv %curr_pos.1;
+        %tmp.162 = null;
+        %tmp.163 = eq %tmp.161 %tmp.162;
+        bf %tmp.163 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_354_8_362_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_354_8_362_8_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_354_30_362_8_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 355 12 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_355_12_360_12_if_stmt:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_355_16_355_83_begin:
+        %tmp.164 = getm $;
+        %tmp.165 = getv %tmp.164 :Options_Dict;
+        %tmp.166 = getv function %tmp.165 :hasKey;
+        %tmp.167 = "Location";
+        %tmp.168 = invoke %tmp.165 %tmp.166(%tmp.167);
+        bf %tmp.168 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_355_12_360_12_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_355_53_355_83_true:
+        %tmp.169 = getm $;
+        %tmp.170 = getv %tmp.169 :Options_Dict;
+        %tmp.171 = "Location";
+        %tmp.172 = agetv %tmp.170 %tmp.171;
+        %tmp.173 = null;
+        %tmp.174 = ne %tmp.172 %tmp.173;
+        push %tmp.174;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_355_53_355_83_end:
+        %tmp.175 = phi [%tmp.168 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_355_16_355_83_begin] [%tmp.174 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_355_53_355_83_true] [%tmp.175 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_355_53_355_83_end];
+        bf %tmp.175 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_355_12_360_12_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_355_12_360_12_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_355_91_360_12_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 356 16 ]
+        %tmp.176 = getm $;
+        %tmp.177 = getv %tmp.176 :Options_Dict;
+        %tmp.178 = "Location";
+        %tmp.179 = agetv %tmp.177 %tmp.178;
+        %tmp.180 = 0;
+        %tmp.181 = agetv %tmp.179 %tmp.180;
+        putv self :lastLoc %tmp.181;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 357 16 ]
+        %tmp.183 = getv ? :System;
+        %tmp.184 = getv function %tmp.183 :println;
+        %tmp.185 = "sc01: Options_Dict ";
+        %tmp.186 = getm $;
+        %tmp.187 = getv %tmp.186 :Options_Dict;
+        %tmp.188 = "Location";
+        %tmp.189 = agetv %tmp.187 %tmp.188;
+        %tmp.190 = 0;
+        %tmp.191 = agetv %tmp.189 %tmp.190;
+        %tmp.192 = add %tmp.185 %tmp.191;
+        %tmp.193 = " now: ";
+        %tmp.194 = add %tmp.192 %tmp.193;
+        %tmp.196 = getv ? :now;
+        %tmp.197 = getv function %tmp.196 :value;
+        %tmp.198 = invoke %tmp.196 %tmp.197();
+        %tmp.199 = add %tmp.194 %tmp.198;
+        %tmp.200 = " saved: ";
+        %tmp.201 = add %tmp.199 %tmp.200;
+        %tmp.202 = getm $;
+        %tmp.203 = getv %tmp.202 :Options_Dict;
+        %tmp.204 = "Location";
+        %tmp.205 = agetv %tmp.203 %tmp.204;
+        %tmp.206 = 1;
+        %tmp.207 = agetv %tmp.205 %tmp.206;
+        %tmp.208 = add %tmp.201 %tmp.207;
+        invoke %tmp.183 %tmp.184(%tmp.208);
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 358 16 ]
+        %tmp.210 = getv ? :System;
+        %tmp.211 = getv function %tmp.210 :println;
+        %tmp.212 = "lastLoc saved but stale: ";
+        %tmp.213 = lgetv %self;
+        %tmp.214 = getv %tmp.213 :lastLoc;
+        %tmp.215 = add %tmp.212 %tmp.214;
+        %tmp.216 = getm $.Toybox.Math;
+        %tmp.217 = getv function %tmp.216 :toDegrees;
+        %tmp.218 = lgetv %self;
+        %tmp.219 = getv %tmp.218 :lastLoc;
+        %tmp.220 = 0;
+        %tmp.221 = agetv %tmp.219 %tmp.220;
+        %tmp.222 = invoke %tmp.216 %tmp.217(%tmp.221);
+        %tmp.223 = add %tmp.215 %tmp.222;
+        %tmp.224 = ",";
+        %tmp.225 = add %tmp.223 %tmp.224;
+        %tmp.226 = getm $.Toybox.Math;
+        %tmp.227 = getv function %tmp.226 :toDegrees;
+        %tmp.228 = lgetv %self;
+        %tmp.229 = getv %tmp.228 :lastLoc;
+        %tmp.230 = 1;
+        %tmp.231 = agetv %tmp.229 %tmp.230;
+        %tmp.232 = invoke %tmp.226 %tmp.227(%tmp.231);
+        %tmp.233 = add %tmp.225 %tmp.232;
+        invoke %tmp.210 %tmp.211(%tmp.233);
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 359 16 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_359_16_359_51_if_stmt:
+        %tmp.234 = lgetv %self;
+        %tmp.235 = getv %tmp.234 :lastLoc;
+        %tmp.236 = null;
+        %tmp.237 = ne %tmp.235 %tmp.236;
+        bf %tmp.237 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_359_16_359_51_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_359_16_359_51_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_359_43_359_51_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 359 44 ]
+        ret ?;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_359_43_359_51_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_359_16_359_51_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_359_16_359_51_if_end:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_355_91_360_12_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_355_12_360_12_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_355_12_360_12_if_end:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_354_30_362_8_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_354_8_362_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_354_8_362_8_if_end:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 367 8 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_367_8_377_8_if_stmt:
+        %tmp.239 = lgetv %curr_pos.1;
+        %tmp.240 = null;
+        %tmp.241 = eq %tmp.239 %tmp.240;
+        bf %tmp.241 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_367_8_377_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_367_8_377_8_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_367_30_377_8_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 368 12 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_367_30_377_8_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_367_30_377_8_stop" ]
+        %pinfo.4 = local;
+        %tmp.243 = getv ? :Position;
+        %tmp.244 = getv function %tmp.243 :getInfo;
+        %tmp.245 = invoke %tmp.243 %tmp.244();
+        lputv %pinfo.4 %tmp.245;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 369 12 ]
+        %tmp.247 = getv ? :System;
+        %tmp.248 = getv function %tmp.247 :println;
+        %tmp.249 = "sc1: Null? ";
+        %tmp.251 = lgetv %pinfo.4;
+        %tmp.252 = null;
+        %tmp.253 = eq %tmp.251 %tmp.252;
+        %tmp.254 = add %tmp.249 %tmp.253;
+        invoke %tmp.247 %tmp.248(%tmp.254);
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 370 12 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_370_12_370_93_if_stmt:
+        %tmp.256 = lgetv %pinfo.4;
+        %tmp.257 = null;
+        %tmp.258 = ne %tmp.256 %tmp.257;
+        bf %tmp.258 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_370_12_370_93_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_370_12_370_93_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_370_32_370_93_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 370 33 ]
+        %tmp.260 = getv ? :System;
+        %tmp.261 = getv function %tmp.260 :println;
+        %tmp.262 = "sc1: pinfo ";
+        %tmp.263 = lgetv %pinfo.4;
+        %tmp.264 = as %tmp.263 { (!Null) };
+        %tmp.265 = getv %tmp.264 :position;
+        %tmp.266 = getv function %tmp.265 :toDegrees;
+        %tmp.267 = invoke %tmp.265 %tmp.266();
+        %tmp.268 = add %tmp.262 %tmp.267;
+        invoke %tmp.260 %tmp.261(%tmp.268);
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_370_32_370_93_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_370_12_370_93_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_370_12_370_93_if_end:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 373 12 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_373_12_373_69_if_stmt:
+        %tmp.269 = lgetv %pinfo.4;
+        %tmp.270 = getv %tmp.269 :position;
+        %tmp.271 = null;
+        %tmp.272 = ne %tmp.270 %tmp.271;
+        bf %tmp.272 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_373_12_373_69_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_373_12_373_69_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_373_40_373_69_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 373 42 ]
+        %tmp.273 = lgetv %pinfo.4;
+        %tmp.274 = getv %tmp.273 :position;
+        lputv %curr_pos.1 %tmp.274;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_373_40_373_69_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_373_12_373_69_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_373_12_373_69_if_end:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 375 12 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_367_30_377_8_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_367_30_377_8_stop" ]
+        %temp.5 = local;
+        %tmp.275 = lgetv %curr_pos.1;
+        %tmp.276 = getv function %tmp.275 :toDegrees;
+        %tmp.277 = invoke %tmp.275 %tmp.276();
+        %tmp.278 = 0;
+        %tmp.279 = agetv %tmp.277 %tmp.278;
+        lputv %temp.5 %tmp.279;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 376 12 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_376_12_376_81_if_stmt:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_376_17_376_58_begin:
+        %tmp.281 = lgetv %temp.5;
+        %tmp.282 = 180;
+        %tmp.283 = sub %tmp.281 %tmp.282;
+        %tmp.284 = getv function %tmp.283 :abs;
+        %tmp.285 = invoke %tmp.283 %tmp.284();
+        %tmp.286 = 0.1;
+        %tmp.287 = lt %tmp.285 %tmp.286;
+        bt %tmp.287 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_376_12_376_81_if_true;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_376_45_376_58_false:
+        %tmp.288 = lgetv %temp.5;
+        %tmp.289 = getv function %tmp.288 :abs;
+        %tmp.290 = invoke %tmp.288 %tmp.289();
+        %tmp.291 = 0.1;
+        %tmp.292 = lt %tmp.290 %tmp.291;
+        push %tmp.292;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_376_45_376_58_end:
+        %tmp.293 = phi [%tmp.287 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_376_17_376_58_begin] [%tmp.292 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_376_45_376_58_false] [%tmp.293 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_376_45_376_58_end];
+        bf %tmp.293 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_376_12_376_81_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_376_12_376_81_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_376_64_376_81_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 376 65 ]
+        %tmp.294 = null;
+        lputv %curr_pos.1 %tmp.294;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_376_64_376_81_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_376_12_376_81_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_376_12_376_81_if_end:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_367_30_377_8_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_367_8_377_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_367_8_377_8_if_end:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 382 8 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_382_8_395_8_if_stmt:
+        %tmp.296 = lgetv %curr_pos.1;
+        %tmp.297 = null;
+        %tmp.298 = eq %tmp.296 %tmp.297;
+        bf %tmp.298 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_382_8_395_8_if_false;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_382_8_395_8_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_382_30_389_8_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 383 11 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_383_11_388_11_if_stmt:
+        %tmp.299 = lgetv %self;
+        %tmp.300 = getv %tmp.299 :lastLoc;
+        %tmp.301 = null;
+        %tmp.302 = eq %tmp.300 %tmp.301;
+        bf %tmp.302 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_383_11_388_11_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_383_11_388_11_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_383_37_388_11_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 384 16 ]
+        %tmp.305 = getm $.Toybox.Position;
+        %tmp.306 = getv function ? %tmp.305 :Location;
+        %tmp.307 = newd 3;
+        %tmp.309 = const :latitude;
+        %tmp.310 = 39.833333;
+        %tmp.311 = dup %tmp.307;
+        %tmp.312 = aputv %tmp.311 %tmp.309 %tmp.310;
+        %tmp.314 = const :longitude;
+        %tmp.315 = -98.583333;
+        %tmp.316 = dup %tmp.312;
+        %tmp.317 = aputv %tmp.316 %tmp.314 %tmp.315;
+        %tmp.319 = const :format;
+        %tmp.321 = const :degrees;
+        %tmp.322 = dup %tmp.317;
+        %tmp.323 = aputv %tmp.322 %tmp.319 %tmp.321;
+        %tmp.324 = invoke %tmp.305 %tmp.306(%tmp.323);
+        %tmp.325 = getv function ? %tmp.324 :toRadians;
+        %tmp.303 = newc %tmp.325 ();
+        putv self :lastLoc %tmp.303;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 387 20 ]
+        %tmp.327 = getv ? :System;
+        %tmp.328 = getv function %tmp.327 :println;
+        %tmp.329 = "sc1b: ";
+        %tmp.330 = lgetv %self;
+        %tmp.331 = getv %tmp.330 :lastLoc;
+        %tmp.332 = add %tmp.329 %tmp.331;
+        invoke %tmp.327 %tmp.328(%tmp.332);
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_383_37_388_11_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_383_11_388_11_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_383_11_388_11_if_end:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_382_30_389_8_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_382_8_395_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_382_8_395_8_if_false:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_389_15_395_8_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 391 12 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_389_15_395_8_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_389_15_395_8_stop" ]
+        %loc.6 = local;
+        %tmp.333 = lgetv %curr_pos.1;
+        %tmp.334 = as %tmp.333 { (!Null) };
+        %tmp.335 = getv function %tmp.334 :toRadians;
+        %tmp.336 = invoke %tmp.334 %tmp.335();
+        lputv %loc.6 %tmp.336;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 392 12 ]
+        %tmp.338 = lgetv %loc.6;
+        putv self :lastLoc %tmp.338;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 393 12 ]
+        %tmp.340 = getv ? :System;
+        %tmp.341 = getv function %tmp.340 :println;
+        %tmp.342 = "sc1c:";
+        %tmp.343 = lgetv %curr_pos.1;
+        %tmp.344 = as %tmp.343 { (!Null) };
+        %tmp.345 = getv function %tmp.344 :toDegrees;
+        %tmp.346 = invoke %tmp.344 %tmp.345();
+        %tmp.347 = add %tmp.342 %tmp.346;
+        invoke %tmp.340 %tmp.341(%tmp.347);
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_389_15_395_8_stop:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_382_8_395_8_if_end:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 400 8 ]
+        %tmp.348 = getm $;
+        %tmp.349 = getv %tmp.348 :Options_Dict;
+        %tmp.350 = newa 2;
+        %tmp.351 = lgetv %self;
+        %tmp.352 = getv %tmp.351 :lastLoc;
+        %tmp.353 = dup %tmp.350;
+        %tmp.354 = aputv %tmp.353 0 %tmp.352;
+        %tmp.356 = getv ? :now;
+        %tmp.357 = getv function %tmp.356 :value;
+        %tmp.358 = invoke %tmp.356 %tmp.357();
+        %tmp.359 = dup %tmp.354;
+        %tmp.360 = aputv %tmp.359 1 %tmp.358;
+        %tmp.361 = "Location";
+        aputv %tmp.349 %tmp.361 %tmp.360;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 401 8 ]
+        %tmp.362 = getm $.Toybox.Application.Storage;
+        %tmp.363 = getv function %tmp.362 :setValue;
+        %tmp.364 = "Location";
+        %tmp.365 = getm $;
+        %tmp.366 = getv %tmp.365 :Options_Dict;
+        %tmp.367 = "Location";
+        %tmp.368 = agetv %tmp.366 %tmp.367;
+        invoke %tmp.362 %tmp.363(%tmp.364, %tmp.368);
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 409 8 ]
+        %tmp.370 = getv ? :System;
+        %tmp.371 = getv function %tmp.370 :println;
+        %tmp.372 = "lastLoc final saved: ";
+        %tmp.373 = lgetv %self;
+        %tmp.374 = getv %tmp.373 :lastLoc;
+        %tmp.375 = add %tmp.372 %tmp.374;
+        %tmp.376 = getm $.Toybox.Math;
+        %tmp.377 = getv function %tmp.376 :toDegrees;
+        %tmp.378 = lgetv %self;
+        %tmp.379 = getv %tmp.378 :lastLoc;
+        %tmp.380 = 0;
+        %tmp.381 = agetv %tmp.379 %tmp.380;
+        %tmp.382 = invoke %tmp.376 %tmp.377(%tmp.381);
+        %tmp.383 = add %tmp.375 %tmp.382;
+        %tmp.384 = ",";
+        %tmp.385 = add %tmp.383 %tmp.384;
+        %tmp.386 = getm $.Toybox.Math;
+        %tmp.387 = getv function %tmp.386 :toDegrees;
+        %tmp.388 = lgetv %self;
+        %tmp.389 = getv %tmp.388 :lastLoc;
+        %tmp.390 = 1;
+        %tmp.391 = agetv %tmp.389 %tmp.390;
+        %tmp.392 = invoke %tmp.386 %tmp.387(%tmp.391);
+        %tmp.393 = add %tmp.385 %tmp.392;
+        invoke %tmp.370 %tmp.371(%tmp.393);
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_300_35_410_4_stop:
+    }
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 415; ]
+    function calcAllSunTimes(which, startDay, endDay) {
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_415_54_456_4_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 417 8 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_415_54_456_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_415_54_456_4_stop" ]
+        %sunTimes.1 = local;
+        %tmp.1 = newd 0;
+        lputv %sunTimes.1 %tmp.1;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 419 8 ]
+        %tmp.2 = self;
+        %tmp.3 = getv function %tmp.2 :setPositionAndTime;
+        invoke %tmp.2 %tmp.3();
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 421 8 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_415_54_456_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_415_54_456_4_stop" ]
+        %nowval.2 = local;
+        %tmp.5 = getv ? :now;
+        %tmp.6 = getv function %tmp.5 :value;
+        %tmp.7 = invoke %tmp.5 %tmp.6();
+        lputv %nowval.2 %tmp.7;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 423 8 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_415_54_456_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_415_54_456_4_stop" ]
+        %sc_size.3 = local;
+        %tmp.9 = getv ? :sc;
+        %tmp.10 = getv %tmp.9 :sunEvents;
+        %tmp.11 = getv function %tmp.10 :size;
+        %tmp.12 = invoke %tmp.10 %tmp.11();
+        lputv %sc_size.3 %tmp.12;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 424 8 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_415_54_456_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_415_54_456_4_stop" ]
+        %count.4 = local;
+        %tmp.13 = 0;
+        lputv %count.4 %tmp.13;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 425 8 ]
+        for @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_425_8_450_8_for_test @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_425_8_450_8_for_incr @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_425_8_450_8_for_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_425_8_450_8_for_init:
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_425_8_450_8_for_begin" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_425_8_450_8_for_end" ]
+        %day.5 = local;
+        %tmp.15 = lgetv %startDay;
+        lputv %day.5 %tmp.15;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_425_8_450_8_for_test:
+        %tmp.17 = lgetv %day.5;
+        %tmp.19 = lgetv %endDay;
+        %tmp.20 = lte %tmp.17 %tmp.19;
+        bf %tmp.20 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_425_8_450_8_for_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_425_8_450_8_for_begin:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_425_56_450_8_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 426 12 ]
+        for @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_426_12_447_12_for_test @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_426_12_447_12_for_incr @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_426_12_447_12_for_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_426_12_447_12_for_init:
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_426_12_447_12_for_begin" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_426_12_447_12_for_end" ]
+        %i.6 = local;
+        %tmp.21 = 0;
+        lputv %i.6 %tmp.21;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_426_12_447_12_for_test:
+        %tmp.23 = lgetv %i.6;
+        %tmp.25 = getv ? :sc;
+        %tmp.26 = getv %tmp.25 :sunEvents;
+        %tmp.27 = getv function %tmp.26 :size;
+        %tmp.28 = invoke %tmp.26 %tmp.27();
+        %tmp.29 = lt %tmp.23 %tmp.28;
+        bf %tmp.29 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_426_12_447_12_for_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_426_12_447_12_for_begin:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_426_57_447_12_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 428 16 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_428_16_428_52_if_stmt:
+        %tmp.30 = lgetv %which;
+        %tmp.31 = getv function %tmp.30 :indexOf;
+        %tmp.33 = lgetv %i.6;
+        %tmp.34 = invoke %tmp.30 %tmp.31(%tmp.33);
+        %tmp.35 = -1;
+        %tmp.36 = eq %tmp.34 %tmp.35;
+        bf %tmp.36 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_428_16_428_52_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_428_16_428_52_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_428_42_428_52_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 428 43 ]
+        goto break @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_426_12_447_12_for_incr;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_428_42_428_52_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_428_16_428_52_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_428_16_428_52_if_end:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 429 16 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_426_57_447_12_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_426_57_447_12_stop" ]
+        %mom.7 = local;
+        %tmp.39 = getm $.Toybox.Time;
+        %tmp.40 = getv function ? %tmp.39 :Moment;
+        %tmp.42 = lgetv %nowval.2;
+        %tmp.44 = lgetv %day.5;
+        %tmp.45 = getm $.Toybox.Time;
+        %tmp.46 = getv %tmp.45 :Gregorian;
+        %tmp.47 = getv %tmp.46 :SECONDS_PER_DAY;
+        %tmp.48 = mul %tmp.44 %tmp.47;
+        %tmp.49 = add %tmp.42 %tmp.48;
+        %tmp.37 = newc %tmp.40 (%tmp.49);
+        lputv %mom.7 %tmp.37;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 431 16 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_426_57_447_12_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_426_57_447_12_stop" ]
+        %event.8 = local;
+        %tmp.51 = getv ? :sc;
+        %tmp.52 = getv %tmp.51 :sunEvents;
+        %tmp.54 = lgetv %i.6;
+        %tmp.55 = agetv %tmp.52 %tmp.54;
+        lputv %event.8 %tmp.55;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 432 16 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_426_57_447_12_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_426_57_447_12_stop" ]
+        %sunTime.9 = local;
+        %tmp.57 = getv ? :sc;
+        %tmp.58 = getv function %tmp.57 :calculate;
+        %tmp.60 = lgetv %mom.7;
+        %tmp.62 = getv ? :lastLoc;
+        %tmp.64 = lgetv %i.6;
+        %tmp.65 = invoke %tmp.57 %tmp.58(%tmp.60, %tmp.62, %tmp.64);
+        lputv %sunTime.9 %tmp.65;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 440 16 ]
+        %tmp.66 = lgetv %sunTimes.1;
+        %tmp.67 = newa 3;
+        %tmp.69 = lgetv %day.5;
+        %tmp.70 = dup %tmp.67;
+        %tmp.71 = aputv %tmp.70 0 %tmp.69;
+        %tmp.73 = lgetv %event.8;
+        %tmp.74 = dup %tmp.71;
+        %tmp.75 = aputv %tmp.74 1 %tmp.73;
+        %tmp.76 = lgetv %sunTime.9;
+        %tmp.77 = getv function %tmp.76 :value;
+        %tmp.78 = invoke %tmp.76 %tmp.77();
+        %tmp.79 = dup %tmp.75;
+        %tmp.80 = aputv %tmp.79 2 %tmp.78;
+        %tmp.82 = lgetv %count.4;
+        aputv %tmp.66 %tmp.82 %tmp.80;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 442 16 ]
+        %tmp.85 = lgetv %count.4;
+        %tmp.86 = add %tmp.85 1;
+        lputv %count.4 %tmp.86;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_426_57_447_12_stop:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_426_12_447_12_for_incr:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 426 ]
+        %tmp.89 = lgetv %i.6;
+        %tmp.90 = add %tmp.89 1;
+        lputv %i.6 %tmp.90;
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_426_12_447_12_for_test;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_426_12_447_12_for_end:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_425_56_450_8_stop:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_425_8_450_8_for_incr:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 425 ]
+        %tmp.93 = lgetv %day.5;
+        %tmp.94 = add %tmp.93 1;
+        lputv %day.5 %tmp.94;
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_425_8_450_8_for_test;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_425_8_450_8_for_end:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 454 8 ]
+        %tmp.96 = lgetv %sunTimes.1;
+        ret %tmp.96;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_415_54_456_4_stop:
+    }
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 459; ]
+    function getDayNightPosition() {
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_459_34_489_4_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 461 8 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_459_34_489_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_459_34_489_4_stop" ]
+        %which.1 = local;
+        %tmp.1 = newa 2;
+        %tmp.3 = getv ? :DAWN;
+        %tmp.4 = dup %tmp.1;
+        %tmp.5 = aputv %tmp.4 0 %tmp.3;
+        %tmp.7 = getv ? :DUSK;
+        %tmp.8 = dup %tmp.5;
+        %tmp.9 = aputv %tmp.8 1 %tmp.7;
+        lputv %which.1 %tmp.9;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 464 8 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_459_34_489_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_459_34_489_4_stop" ]
+        %times.2 = local;
+        %tmp.10 = self;
+        %tmp.11 = getv function %tmp.10 :calcAllSunTimes;
+        %tmp.13 = lgetv %which.1;
+        %tmp.14 = -1;
+        %tmp.15 = 1;
+        %tmp.16 = invoke %tmp.10 %tmp.11(%tmp.13, %tmp.14, %tmp.15);
+        lputv %times.2 %tmp.16;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 467 8 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_459_34_489_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_459_34_489_4_stop" ]
+        %nowval.3 = local;
+        %tmp.18 = getv ? :now;
+        %tmp.19 = getv function %tmp.18 :value;
+        %tmp.20 = invoke %tmp.18 %tmp.19();
+        lputv %nowval.3 %tmp.20;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 468 8 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_459_34_489_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_459_34_489_4_stop" ]
+        %pos.4 = local;
+        %tmp.21 = -1;
+        lputv %pos.4 %tmp.21;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 470 8 ]
+        for @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_470_8_475_8_for_test @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_470_8_475_8_for_incr @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_470_8_475_8_for_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_470_8_475_8_for_init:
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_470_8_475_8_for_begin" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_470_8_475_8_for_end" ]
+        %i.5 = local;
+        %tmp.22 = 0;
+        lputv %i.5 %tmp.22;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_470_8_475_8_for_test:
+        %tmp.24 = lgetv %i.5;
+        %tmp.25 = lgetv %times.2;
+        %tmp.26 = getv function %tmp.25 :size;
+        %tmp.27 = invoke %tmp.25 %tmp.26();
+        %tmp.28 = lt %tmp.24 %tmp.27;
+        bf %tmp.28 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_470_8_475_8_for_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_470_8_475_8_for_begin:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_470_43_475_8_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 471 12 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_471_12_474_12_if_stmt:
+        %tmp.30 = lgetv %nowval.3;
+        %tmp.32 = lgetv %times.2;
+        %tmp.34 = lgetv %i.5;
+        %tmp.35 = agetv %tmp.32 %tmp.34;
+        %tmp.36 = 2;
+        %tmp.37 = agetv %tmp.35 %tmp.36;
+        %tmp.38 = lt %tmp.30 %tmp.37;
+        bf %tmp.38 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_471_12_474_12_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_471_12_474_12_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_471_38_474_12_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 472 16 ]
+        %tmp.40 = lgetv %i.5;
+        lputv %pos.4 %tmp.40;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 473 16 ]
+        goto break @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_470_8_475_8_for_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_471_38_474_12_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_471_12_474_12_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_471_12_474_12_if_end:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_470_43_475_8_stop:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_470_8_475_8_for_incr:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 470 ]
+        %tmp.43 = lgetv %i.5;
+        %tmp.44 = add %tmp.43 1;
+        lputv %i.5 %tmp.44;
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_470_8_475_8_for_test;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_470_8_475_8_for_end:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 477 8 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_477_8_477_34_if_stmt:
+        %tmp.46 = lgetv %pos.4;
+        %tmp.47 = 1;
+        %tmp.48 = lt %tmp.46 %tmp.47;
+        bf %tmp.48 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_477_8_477_34_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_477_8_477_34_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_477_21_477_34_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 477 22 ]
+        %tmp.49 = null;
+        ret %tmp.49;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_477_21_477_34_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_477_8_477_34_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_477_8_477_34_if_end:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 479 8 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_459_34_489_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_459_34_489_4_stop" ]
+        %nd.6 = local;
+        %tmp.50 = "Night";
+        lputv %nd.6 %tmp.50;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 480 8 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_480_8_480_45_if_stmt:
+        %tmp.52 = lgetv %times.2;
+        %tmp.54 = lgetv %pos.4;
+        %tmp.55 = agetv %tmp.52 %tmp.54;
+        %tmp.56 = 1;
+        %tmp.57 = agetv %tmp.55 %tmp.56;
+        %tmp.58 = 12;
+        %tmp.59 = eq %tmp.57 %tmp.58;
+        bf %tmp.59 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_480_8_480_45_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_480_8_480_45_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_480_33_480_45_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 480 34 ]
+        %tmp.60 = "Day";
+        lputv %nd.6 %tmp.60;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_480_33_480_45_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_480_8_480_45_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_480_8_480_45_if_end:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 482 8 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_459_34_489_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_459_34_489_4_stop" ]
+        %duration.7 = local;
+        %tmp.62 = lgetv %times.2;
+        %tmp.64 = lgetv %pos.4;
+        %tmp.65 = agetv %tmp.62 %tmp.64;
+        %tmp.66 = 2;
+        %tmp.67 = agetv %tmp.65 %tmp.66;
+        %tmp.69 = lgetv %times.2;
+        %tmp.71 = lgetv %pos.4;
+        %tmp.72 = 1;
+        %tmp.73 = sub %tmp.71 %tmp.72;
+        %tmp.74 = agetv %tmp.69 %tmp.73;
+        %tmp.75 = 2;
+        %tmp.76 = agetv %tmp.74 %tmp.75;
+        %tmp.77 = sub %tmp.67 %tmp.76;
+        lputv %duration.7 %tmp.77;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 483 8 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_459_34_489_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_459_34_489_4_stop" ]
+        %now_length.8 = local;
+        %tmp.79 = lgetv %nowval.3;
+        %tmp.81 = lgetv %times.2;
+        %tmp.83 = lgetv %pos.4;
+        %tmp.84 = 1;
+        %tmp.85 = sub %tmp.83 %tmp.84;
+        %tmp.86 = agetv %tmp.81 %tmp.85;
+        %tmp.87 = 2;
+        %tmp.88 = agetv %tmp.86 %tmp.87;
+        %tmp.89 = sub %tmp.79 %tmp.88;
+        lputv %now_length.8 %tmp.89;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 484 8 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_459_34_489_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_459_34_489_4_stop" ]
+        %percent.9 = local;
+        %tmp.91 = lgetv %now_length.8;
+        %tmp.93 = lgetv %duration.7;
+        %tmp.94 = div %tmp.91 %tmp.93;
+        lputv %percent.9 %tmp.94;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 488 8 ]
+        %tmp.95 = newa 2;
+        %tmp.97 = lgetv %nd.6;
+        %tmp.98 = dup %tmp.95;
+        %tmp.99 = aputv %tmp.98 0 %tmp.97;
+        %tmp.101 = lgetv %percent.9;
+        %tmp.102 = dup %tmp.99;
+        %tmp.103 = aputv %tmp.102 1 %tmp.101;
+        ret %tmp.103;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_459_34_489_4_stop:
+    }
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 495; ]
+    function getNextDawnDusk(which) {
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_495_35_568_4_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 499 8 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_495_35_568_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_495_35_568_4_stop" ]
+        %times.1 = local;
+        %tmp.1 = self;
+        %tmp.2 = getv function %tmp.1 :calcAllSunTimes;
+        %tmp.4 = lgetv %which;
+        %tmp.5 = 0;
+        %tmp.6 = 1;
+        %tmp.7 = invoke %tmp.1 %tmp.2(%tmp.4, %tmp.5, %tmp.6);
+        lputv %times.1 %tmp.7;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 502 8 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_495_35_568_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_495_35_568_4_stop" ]
+        %nowval.2 = local;
+        %tmp.9 = getv ? :now;
+        %tmp.10 = getv function %tmp.9 :value;
+        %tmp.11 = invoke %tmp.9 %tmp.10();
+        lputv %nowval.2 %tmp.11;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 503 8 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_495_35_568_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_495_35_568_4_stop" ]
+        %pos.3 = local;
+        %tmp.12 = -1;
+        lputv %pos.3 %tmp.12;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 505 8 ]
+        for @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_505_8_510_8_for_test @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_505_8_510_8_for_incr @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_505_8_510_8_for_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_505_8_510_8_for_init:
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_505_8_510_8_for_begin" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_505_8_510_8_for_end" ]
+        %i.4 = local;
+        %tmp.13 = 0;
+        lputv %i.4 %tmp.13;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_505_8_510_8_for_test:
+        %tmp.15 = lgetv %i.4;
+        %tmp.16 = lgetv %times.1;
+        %tmp.17 = getv function %tmp.16 :size;
+        %tmp.18 = invoke %tmp.16 %tmp.17();
+        %tmp.19 = lt %tmp.15 %tmp.18;
+        bf %tmp.19 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_505_8_510_8_for_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_505_8_510_8_for_begin:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_505_43_510_8_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 506 12 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_506_12_509_12_if_stmt:
+        %tmp.21 = lgetv %nowval.2;
+        %tmp.23 = lgetv %times.1;
+        %tmp.25 = lgetv %i.4;
+        %tmp.26 = agetv %tmp.23 %tmp.25;
+        %tmp.27 = 2;
+        %tmp.28 = agetv %tmp.26 %tmp.27;
+        %tmp.29 = lt %tmp.21 %tmp.28;
+        bf %tmp.29 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_506_12_509_12_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_506_12_509_12_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_506_38_509_12_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 507 16 ]
+        %tmp.31 = lgetv %i.4;
+        lputv %pos.3 %tmp.31;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 508 16 ]
+        goto break @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_505_8_510_8_for_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_506_38_509_12_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_506_12_509_12_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_506_12_509_12_if_end:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_505_43_510_8_stop:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_505_8_510_8_for_incr:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 505 ]
+        %tmp.34 = lgetv %i.4;
+        %tmp.35 = add %tmp.34 1;
+        lputv %i.4 %tmp.35;
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_505_8_510_8_for_test;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_505_8_510_8_for_end:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 512 8 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_512_8_512_34_if_stmt:
+        %tmp.37 = lgetv %pos.3;
+        %tmp.38 = 0;
+        %tmp.39 = lt %tmp.37 %tmp.38;
+        bf %tmp.39 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_512_8_512_34_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_512_8_512_34_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_512_21_512_34_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 512 22 ]
+        %tmp.40 = null;
+        ret %tmp.40;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_512_21_512_34_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_512_8_512_34_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_512_8_512_34_if_end:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 514 8 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_495_35_568_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_495_35_568_4_stop" ]
+        %nd.5 = local;
+        %tmp.41 = "Dawn";
+        lputv %nd.5 %tmp.41;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 515 8 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_515_8_515_44_if_stmt:
+        %tmp.43 = lgetv %times.1;
+        %tmp.45 = lgetv %pos.3;
+        %tmp.46 = agetv %tmp.43 %tmp.45;
+        %tmp.47 = 1;
+        %tmp.48 = agetv %tmp.46 %tmp.47;
+        %tmp.49 = 6;
+        %tmp.50 = gt %tmp.48 %tmp.49;
+        bf %tmp.50 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_515_8_515_44_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_515_8_515_44_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_515_31_515_44_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 515 32 ]
+        %tmp.51 = "Dusk";
+        lputv %nd.5 %tmp.51;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_515_31_515_44_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_515_8_515_44_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_515_8_515_44_if_end:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 541 8 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_495_35_568_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_495_35_568_4_stop" ]
+        %mid_date.6 = local;
+        %tmp.52 = getm $.Toybox.Time;
+        %tmp.53 = getv function %tmp.52 :today;
+        %tmp.54 = invoke %tmp.52 %tmp.53();
+        lputv %mid_date.6 %tmp.54;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 549 8 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_495_35_568_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_495_35_568_4_stop" ]
+        %angle.7 = local;
+        %tmp.56 = lgetv %times.1;
+        %tmp.58 = lgetv %pos.3;
+        %tmp.59 = agetv %tmp.56 %tmp.58;
+        %tmp.60 = 2;
+        %tmp.61 = agetv %tmp.59 %tmp.60;
+        %tmp.62 = lgetv %mid_date.6;
+        %tmp.63 = getv function %tmp.62 :value;
+        %tmp.64 = invoke %tmp.62 %tmp.63();
+        %tmp.65 = getv function %tmp.64 :toDouble;
+        %tmp.66 = invoke %tmp.64 %tmp.65();
+        %tmp.67 = sub %tmp.61 %tmp.66;
+        %tmp.68 = getm $.Toybox.Time;
+        %tmp.69 = getv %tmp.68 :Gregorian;
+        %tmp.70 = getv %tmp.69 :SECONDS_PER_DAY;
+        %tmp.71 = 2.0;
+        %tmp.72 = div %tmp.70 %tmp.71;
+        %tmp.73 = div %tmp.67 %tmp.72;
+        %tmp.74 = getm $.Toybox.Math;
+        %tmp.75 = getv %tmp.74 :PI;
+        %tmp.76 = mul %tmp.73 %tmp.75;
+        %tmp.77 = 2.0;
+        %tmp.78 = mul %tmp.76 %tmp.77;
+        lputv %angle.7 %tmp.78;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 550 8 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_495_35_568_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_495_35_568_4_stop" ]
+        %ret.8 = local;
+        %tmp.79 = newa 1;
+        %tmp.80 = newa 2;
+        %tmp.82 = lgetv %nd.5;
+        %tmp.83 = dup %tmp.80;
+        %tmp.84 = aputv %tmp.83 0 %tmp.82;
+        %tmp.86 = lgetv %angle.7;
+        %tmp.87 = dup %tmp.84;
+        %tmp.88 = aputv %tmp.87 1 %tmp.86;
+        %tmp.89 = dup %tmp.79;
+        %tmp.90 = aputv %tmp.89 0 %tmp.88;
+        lputv %ret.8 %tmp.90;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 552 8 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_552_8_564_8_if_stmt:
+        %tmp.92 = lgetv %pos.3;
+        %tmp.93 = 1;
+        %tmp.94 = add %tmp.92 %tmp.93;
+        %tmp.95 = lgetv %times.1;
+        %tmp.96 = getv function %tmp.95 :size;
+        %tmp.97 = invoke %tmp.95 %tmp.96();
+        %tmp.98 = lt %tmp.94 %tmp.97;
+        bf %tmp.98 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_552_8_564_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_552_8_564_8_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_552_36_564_8_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 553 12 ]
+        %tmp.101 = lgetv %pos.3;
+        %tmp.102 = add %tmp.101 1;
+        lputv %pos.3 %tmp.102;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 555 12 ]
+        %tmp.103 = "Dawn";
+        lputv %nd.5 %tmp.103;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 556 12 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_556_12_556_48_if_stmt:
+        %tmp.105 = lgetv %times.1;
+        %tmp.107 = lgetv %pos.3;
+        %tmp.108 = agetv %tmp.105 %tmp.107;
+        %tmp.109 = 1;
+        %tmp.110 = agetv %tmp.108 %tmp.109;
+        %tmp.111 = 6;
+        %tmp.112 = gt %tmp.110 %tmp.111;
+        bf %tmp.112 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_556_12_556_48_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_556_12_556_48_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_556_35_556_48_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 556 36 ]
+        %tmp.113 = "Dusk";
+        lputv %nd.5 %tmp.113;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_556_35_556_48_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_556_12_556_48_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_556_12_556_48_if_end:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 560 12 ]
+        %tmp.115 = lgetv %times.1;
+        %tmp.117 = lgetv %pos.3;
+        %tmp.118 = agetv %tmp.115 %tmp.117;
+        %tmp.119 = 2;
+        %tmp.120 = agetv %tmp.118 %tmp.119;
+        %tmp.121 = lgetv %mid_date.6;
+        %tmp.122 = getv function %tmp.121 :value;
+        %tmp.123 = invoke %tmp.121 %tmp.122();
+        %tmp.124 = getv function %tmp.123 :toDouble;
+        %tmp.125 = invoke %tmp.123 %tmp.124();
+        %tmp.126 = sub %tmp.120 %tmp.125;
+        %tmp.127 = getm $.Toybox.Time;
+        %tmp.128 = getv %tmp.127 :Gregorian;
+        %tmp.129 = getv %tmp.128 :SECONDS_PER_DAY;
+        %tmp.130 = 2.0;
+        %tmp.131 = div %tmp.129 %tmp.130;
+        %tmp.132 = div %tmp.126 %tmp.131;
+        %tmp.133 = getm $.Toybox.Math;
+        %tmp.134 = getv %tmp.133 :PI;
+        %tmp.135 = mul %tmp.132 %tmp.134;
+        %tmp.136 = 2.0;
+        %tmp.137 = mul %tmp.135 %tmp.136;
+        lputv %angle.7 %tmp.137;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 562 12 ]
+        %tmp.138 = lgetv %ret.8;
+        %tmp.139 = getv function %tmp.138 :add;
+        %tmp.140 = newa 2;
+        %tmp.142 = lgetv %nd.5;
+        %tmp.143 = dup %tmp.140;
+        %tmp.144 = aputv %tmp.143 0 %tmp.142;
+        %tmp.146 = lgetv %angle.7;
+        %tmp.147 = dup %tmp.144;
+        %tmp.148 = aputv %tmp.147 1 %tmp.146;
+        invoke %tmp.138 %tmp.139(%tmp.148);
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_552_36_564_8_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_552_8_564_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_552_8_564_8_if_end:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc" 567 8 ]
+        %tmp.150 = lgetv %ret.8;
+        ret %tmp.150;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAna_SunCalc_mc_495_35_568_4_stop:
+    }
+}
+[ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAna_SunCalc.mc"; @line = 12; ]
+<init> {
+}
