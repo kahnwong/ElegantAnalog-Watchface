@@ -2309,7 +2309,8 @@ function drawMoveDots(dc, num, goal, index, text_color)
         //dc.drawText(width_screen * .15 , (height_screen * -.04), Gfx.FONT_SYSTEM_NUMBER_THAI_HOT, dateStr2, Gfx.TEXT_JUSTIFY_CENTER);
         //dc.drawText(width_screen * .15 , (height_screen * .22), Gfx.FONT_SYSTEM_MEDIUM, dateStr1, Gfx.TEXT_JUSTIFY_CENTER);
 
-        var f1 = Gfx.FONT_SYSTEM_NUMBER_MEDIUM;
+        //var f1 = Gfx.FONT_SYSTEM_NUMBER_MEDIUM;
+        var f1 = Gfx.FONT_SYSTEM_LARGE;
         //var f1 = Gfx.FONT_SYSTEM_NUMBER_THAI_HOT;
         //var f2 = Gfx.FONT_SYSTEM_SMALL;
         var f2 = Gfx.FONT_SYSTEM_TINY;
