@@ -54,11 +54,11 @@ class ElegantAnaWatch extends Application.AppBase {
                     
                     showDayMinutes => false,
                     showSteps => false,
-                    showMove => false,
-                    showDate => false,
+                    showMove => true,
+                    showDate => true,
                     showMonthDay => false,
                     hourNumbers => false,
-                    hourHashes => false,
+                    hourHashes => true,
                     secondHashes => false,
                     aggressiveClear => false,
                     

@@ -1053,46 +1053,46 @@
 <entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="63" lineNum="151" parent="globals/ElegantAnaSettingsMenu" pc="268460853" symbol="initialize"/>
 <entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="63" lineNum="153" parent="globals/ElegantAnaSettingsMenu" pc="268460894" symbol="initialize"/>
 <entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="63" lineNum="154" parent="globals/ElegantAnaSettingsMenu" pc="268460915" symbol="initialize"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="64" lineNum="221" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461018" symbol="onBack"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="64" lineNum="222" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461020" symbol="onBack"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="64" lineNum="223" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461043" symbol="onBack"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="64" lineNum="224" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461052" symbol="onBack"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="64" lineNum="225" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461061" symbol="onBack"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="64" lineNum="226" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461070" symbol="onBack"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="64" lineNum="227" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461079" symbol="onBack"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="64" lineNum="228" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461100" symbol="onBack"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="65" lineNum="165" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461103" symbol="initialize"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="65" lineNum="166" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461105" symbol="initialize"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="65" lineNum="167" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461123" symbol="initialize"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="172" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461144" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="173" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461148" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="174" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461166" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="175" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461204" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="176" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461239" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="179" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461256" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="180" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461269" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="181" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461288" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="182" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461342" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="184" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461382" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="185" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461415" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="190" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461432" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="191" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461451" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="192" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461505" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="194" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461545" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="195" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461578" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="200" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461595" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="201" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461614" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="202" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461668" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="204" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461708" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="205" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461741" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="210" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461758" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="211" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461777" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="212" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461831" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="214" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461871" symbol="onSelect"/>
-<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="215" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461904" symbol="onSelect"/>
-<entry filename="e:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\bin\\gen\\006-B3888-00\\source\\Rez.mcgen" id="67" lineNum="23" parent="globals/Rez/Layouts" pc="268461922" symbol="WatchFace"/>
-<entry filename="e:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\bin\\gen\\006-B3888-00\\source\\Rez.mcgen" id="67" lineNum="24" parent="globals/Rez/Layouts" pc="268461934" symbol="WatchFace"/>
-<entry filename="e:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\bin\\gen\\006-B3888-00\\source\\Rez.mcgen" id="67" lineNum="26" parent="globals/Rez/Layouts" pc="268462069" symbol="WatchFace"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="64" lineNum="221" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461024" symbol="onBack"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="64" lineNum="222" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461026" symbol="onBack"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="64" lineNum="223" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461049" symbol="onBack"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="64" lineNum="224" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461058" symbol="onBack"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="64" lineNum="225" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461067" symbol="onBack"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="64" lineNum="226" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461076" symbol="onBack"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="64" lineNum="227" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461085" symbol="onBack"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="64" lineNum="228" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461106" symbol="onBack"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="65" lineNum="165" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461109" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="65" lineNum="166" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461111" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="65" lineNum="167" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461129" symbol="initialize"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="172" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461150" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="173" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461154" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="174" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461172" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="175" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461210" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="176" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461245" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="179" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461262" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="180" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461275" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="181" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461294" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="182" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461348" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="184" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461388" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="185" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461421" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="190" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461438" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="191" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461457" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="192" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461511" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="194" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461551" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="195" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461584" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="200" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461601" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="201" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461620" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="202" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461674" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="204" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461714" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="205" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461747" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="210" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461764" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="211" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461783" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="212" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461837" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="214" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461877" symbol="onSelect"/>
+<entry filename="E:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\source\\ElegantAnaSettingsMenu.mc" id="66" lineNum="215" parent="globals/ElegantAnaSettingsMenuDelegate" pc="268461910" symbol="onSelect"/>
+<entry filename="e:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\bin\\gen\\006-B3888-00\\source\\Rez.mcgen" id="67" lineNum="23" parent="globals/Rez/Layouts" pc="268461928" symbol="WatchFace"/>
+<entry filename="e:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\bin\\gen\\006-B3888-00\\source\\Rez.mcgen" id="67" lineNum="24" parent="globals/Rez/Layouts" pc="268461940" symbol="WatchFace"/>
+<entry filename="e:\\Data-Brent\\Garmin-App-Development\\SDK-examples\\ElegantAnalog-Watchface\\bin\\gen\\006-B3888-00\\source\\Rez.mcgen" id="67" lineNum="26" parent="globals/Rez/Layouts" pc="268462075" symbol="WatchFace"/>
 </pcToLineNum>
 <symbolTable>
 <entry id="24" method="true" symbol="readStorageValues"/>
@@ -1610,14 +1610,14 @@
 <entry endPc="268460094" name="mom" stackId="10" startPc="268459918"/>
 <entry endPc="268460094" name="event" stackId="11" startPc="268459918"/>
 <entry endPc="268460094" name="sunTime" stackId="12" startPc="268459918"/>
-<entry endPc="268461016" name="clockTime" stackId="1" startPc="268460128"/>
-<entry endPc="268461016" name="OptionsLabels_man" stackId="2" startPc="268460128"/>
-<entry endPc="268461016" name="OptionsLabels" stackId="3" startPc="268460128"/>
-<entry endPc="268461016" name="i" stackId="4" startPc="268460915"/>
-<entry arg="true" endPc="268461921" name="menuItem" stackId="1" startPc="268461144"/>
-<entry endPc="268461920" name="id" stackId="2" startPc="268461148"/>
-<entry arg="true" endPc="268462085" name="dc" stackId="1" startPc="268461922"/>
-<entry endPc="268462085" name="rez_cmp_local_text_TimeLabel" stackId="2" startPc="268461934"/>
+<entry endPc="268461022" name="clockTime" stackId="1" startPc="268460128"/>
+<entry endPc="268461022" name="OptionsLabels_man" stackId="2" startPc="268460128"/>
+<entry endPc="268461022" name="OptionsLabels" stackId="3" startPc="268460128"/>
+<entry endPc="268461022" name="i" stackId="4" startPc="268460915"/>
+<entry arg="true" endPc="268461927" name="menuItem" stackId="1" startPc="268461150"/>
+<entry endPc="268461926" name="id" stackId="2" startPc="268461154"/>
+<entry arg="true" endPc="268462091" name="dc" stackId="1" startPc="268461928"/>
+<entry endPc="268462091" name="rez_cmp_local_text_TimeLabel" stackId="2" startPc="268461940"/>
 </localVars>
 <deviceInfo partNumber="006-B3888-00"/>
 <annotations>
@@ -1917,20 +1917,20 @@
 <param id="endDay"/>
 <documentation/>
 </functionEntry>
-<functionEntry accessMode="public" endPc="268461017" name="initialize" parent="ElegantAnaSettingsMenu" startPc="268460124">
+<functionEntry accessMode="public" endPc="268461023" name="initialize" parent="ElegantAnaSettingsMenu" startPc="268460124">
 <documentation><![CDATA[<div class="description"> Constructor<br/></div>]]></documentation>
 </functionEntry>
-<functionEntry accessMode="public" endPc="268461102" name="onBack" parent="ElegantAnaSettingsMenuDelegate" startPc="268461018">
+<functionEntry accessMode="public" endPc="268461108" name="onBack" parent="ElegantAnaSettingsMenuDelegate" startPc="268461024">
 <documentation/>
 </functionEntry>
-<functionEntry accessMode="public" endPc="268461143" name="initialize" parent="ElegantAnaSettingsMenuDelegate" startPc="268461103">
+<functionEntry accessMode="public" endPc="268461149" name="initialize" parent="ElegantAnaSettingsMenuDelegate" startPc="268461109">
 <documentation><![CDATA[<div class="description"> Constructor<br/></div>]]></documentation>
 </functionEntry>
-<functionEntry accessMode="public" endPc="268461921" name="onSelect" parent="ElegantAnaSettingsMenuDelegate" startPc="268461144">
+<functionEntry accessMode="public" endPc="268461927" name="onSelect" parent="ElegantAnaSettingsMenuDelegate" startPc="268461150">
 <param id="menuItem"/>
 <documentation><![CDATA[<div class="description"> Handle a menu item being selected<br/> <div class="param"> menuItem The menu item selected</div><br/></div>]]></documentation>
 </functionEntry>
-<functionEntry accessMode="public" endPc="268462085" name="WatchFace" parent="Layouts" startPc="268461922">
+<functionEntry accessMode="public" endPc="268462091" name="WatchFace" parent="Layouts" startPc="268461928">
 <param id="dc"/>
 <documentation/>
 </functionEntry>

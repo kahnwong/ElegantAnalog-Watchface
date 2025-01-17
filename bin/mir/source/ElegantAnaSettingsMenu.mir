@@ -251,7 +251,7 @@ E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaSettingsMenu_mc_153_8_155_8_for_init:
         [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaSettingsMenu_mc_153_8_155_8_for_begin" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaSettingsMenu_mc_153_8_155_8_for_end" ]
         %i.4 = local;
-        %tmp.167 = 0;
+        %tmp.167 = 4;
         lputv %i.4 %tmp.167;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaSettingsMenu_mc_153_8_155_8_for_test:
         %tmp.169 = lgetv %i.4;
@@ -267,28 +267,30 @@ E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_
         %tmp.179 = getv function ? %tmp.178 :ToggleMenuItem;
         %tmp.181 = lgetv %OptionsLabels.3;
         %tmp.183 = lgetv %i.4;
-        %tmp.184 = agetv %tmp.181 %tmp.183;
-        %tmp.185 = null;
-        %tmp.187 = getv ? :Options;
-        %tmp.189 = lgetv %i.4;
-        %tmp.190 = agetv %tmp.187 %tmp.189;
-        %tmp.191 = getm $;
-        %tmp.192 = getv %tmp.191 :Options_Dict;
-        %tmp.194 = getv ? :Options;
-        %tmp.196 = lgetv %i.4;
-        %tmp.197 = agetv %tmp.194 %tmp.196;
-        %tmp.198 = agetv %tmp.192 %tmp.197;
-        %tmp.199 = true;
-        %tmp.200 = eq %tmp.198 %tmp.199;
-        %tmp.201 = null;
-        %tmp.176 = newc %tmp.179 (%tmp.184, %tmp.185, %tmp.190, %tmp.200, %tmp.201);
+        %tmp.184 = 4;
+        %tmp.185 = sub %tmp.183 %tmp.184;
+        %tmp.186 = agetv %tmp.181 %tmp.185;
+        %tmp.187 = null;
+        %tmp.189 = getv ? :Options;
+        %tmp.191 = lgetv %i.4;
+        %tmp.192 = agetv %tmp.189 %tmp.191;
+        %tmp.193 = getm $;
+        %tmp.194 = getv %tmp.193 :Options_Dict;
+        %tmp.196 = getv ? :Options;
+        %tmp.198 = lgetv %i.4;
+        %tmp.199 = agetv %tmp.196 %tmp.198;
+        %tmp.200 = agetv %tmp.194 %tmp.199;
+        %tmp.201 = true;
+        %tmp.202 = eq %tmp.200 %tmp.201;
+        %tmp.203 = null;
+        %tmp.176 = newc %tmp.179 (%tmp.186, %tmp.187, %tmp.192, %tmp.202, %tmp.203);
         invoke %tmp.174 %tmp.175(%tmp.176);
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaSettingsMenu_mc_153_45_155_8_stop:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaSettingsMenu_mc_153_8_155_8_for_incr:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaSettingsMenu.mc" 153 ]
-        %tmp.204 = lgetv %i.4;
-        %tmp.205 = add %tmp.204 1;
-        lputv %i.4 %tmp.205;
+        %tmp.206 = lgetv %i.4;
+        %tmp.207 = add %tmp.206 1;
+        lputv %i.4 %tmp.207;
         goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaSettingsMenu_mc_153_8_155_8_for_test;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaSettingsMenu_mc_153_8_155_8_for_end:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaSettingsMenu_mc_65_33_157_4_stop:

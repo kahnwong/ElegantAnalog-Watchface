@@ -114,11 +114,11 @@ E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_
         %tmp.108 = dup %tmp.104;
         %tmp.109 = aputv %tmp.108 %tmp.106 %tmp.107;
         %tmp.111 = getv ? :showMove;
-        %tmp.112 = false;
+        %tmp.112 = true;
         %tmp.113 = dup %tmp.109;
         %tmp.114 = aputv %tmp.113 %tmp.111 %tmp.112;
         %tmp.116 = getv ? :showDate;
-        %tmp.117 = false;
+        %tmp.117 = true;
         %tmp.118 = dup %tmp.114;
         %tmp.119 = aputv %tmp.118 %tmp.116 %tmp.117;
         %tmp.121 = getv ? :showMonthDay;
@@ -130,7 +130,7 @@ E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_
         %tmp.128 = dup %tmp.124;
         %tmp.129 = aputv %tmp.128 %tmp.126 %tmp.127;
         %tmp.131 = getv ? :hourHashes;
-        %tmp.132 = false;
+        %tmp.132 = true;
         %tmp.133 = dup %tmp.129;
         %tmp.134 = aputv %tmp.133 %tmp.131 %tmp.132;
         %tmp.136 = getv ? :secondHashes;

@@ -150,8 +150,8 @@ class ElegantAnaSettingsMenu extends WatchUi.Menu2 {
 
         var OptionsLabels = (WatchUi.loadResource( $.Rez.JsonData.OptionsLabels) as Array);
 
-        for (var i = 0; i < numOptions; i++) {
-        Menu2.addItem(new WatchUi.ToggleMenuItem(OptionsLabels[i], null, Options[i], $.Options_Dict[Options[i]]==true, null));
+        for (var i = 4; i < numOptions; i++) {
+        Menu2.addItem(new WatchUi.ToggleMenuItem(OptionsLabels[i-4], null, Options[i], $.Options_Dict[Options[i]]==true, null));
         }                    
         
     }
