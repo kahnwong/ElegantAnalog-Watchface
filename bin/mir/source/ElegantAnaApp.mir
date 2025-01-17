@@ -21,119 +21,220 @@ class ElegantAnaWatch extends Application.AppBase{
     [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc"; @line = 19; ]
     public
     function initialize() as Void {
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_19_33_23_4_start:
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 20 8 ]
-        %tmp.2 = getv ? :System;
-        %tmp.3 = getv function %tmp.2 :println;
-        %tmp.4 = "0A";
-        invoke %tmp.2 %tmp.3(%tmp.4);
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_19_33_70_4_start:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 21 8 ]
-        %tmp.6 = getv ? :AppBase;
-        %tmp.7 = getv function %tmp.6 :initialize;
-        invoke %tmp.6 %tmp.7();
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 22 8 ]
-        %tmp.9 = getv ? :System;
-        %tmp.10 = getv function %tmp.9 :println;
-        %tmp.11 = "1A";
-        invoke %tmp.9 %tmp.10(%tmp.11);
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_19_33_23_4_stop:
+        %tmp.2 = getv ? :AppBase;
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 24 9 ]
+        %tmp.4 = newa 15;
+        %tmp.6 = getv ? :infiniteSecondOption;
+        %tmp.7 = dup %tmp.4;
+        %tmp.8 = aputv %tmp.7 0 %tmp.6;
+        %tmp.10 = getv ? :secondDisplay;
+        %tmp.11 = dup %tmp.8;
+        %tmp.12 = aputv %tmp.11 1 %tmp.10;
+        %tmp.14 = getv ? :secondHandOption;
+        %tmp.15 = dup %tmp.12;
+        %tmp.16 = aputv %tmp.15 2 %tmp.14;
+        %tmp.18 = getv ? :dawnDuskMarkers;
+        %tmp.19 = dup %tmp.16;
+        %tmp.20 = aputv %tmp.19 3 %tmp.18;
+        %tmp.22 = getv ? :showBattery;
+        %tmp.23 = dup %tmp.20;
+        %tmp.24 = aputv %tmp.23 4 %tmp.22;
+        %tmp.26 = getv ? :showMinutes;
+        %tmp.27 = dup %tmp.24;
+        %tmp.28 = aputv %tmp.27 5 %tmp.26;
+        %tmp.30 = getv ? :showDayMinutes;
+        %tmp.31 = dup %tmp.28;
+        %tmp.32 = aputv %tmp.31 6 %tmp.30;
+        %tmp.34 = getv ? :showSteps;
+        %tmp.35 = dup %tmp.32;
+        %tmp.36 = aputv %tmp.35 7 %tmp.34;
+        %tmp.38 = getv ? :showMove;
+        %tmp.39 = dup %tmp.36;
+        %tmp.40 = aputv %tmp.39 8 %tmp.38;
+        %tmp.42 = getv ? :showDate;
+        %tmp.43 = dup %tmp.40;
+        %tmp.44 = aputv %tmp.43 9 %tmp.42;
+        %tmp.46 = getv ? :showMonthDay;
+        %tmp.47 = dup %tmp.44;
+        %tmp.48 = aputv %tmp.47 10 %tmp.46;
+        %tmp.50 = getv ? :hourNumbers;
+        %tmp.51 = dup %tmp.48;
+        %tmp.52 = aputv %tmp.51 11 %tmp.50;
+        %tmp.54 = getv ? :hourHashes;
+        %tmp.55 = dup %tmp.52;
+        %tmp.56 = aputv %tmp.55 12 %tmp.54;
+        %tmp.58 = getv ? :secondHashes;
+        %tmp.59 = dup %tmp.56;
+        %tmp.60 = aputv %tmp.59 13 %tmp.58;
+        %tmp.62 = getv ? :aggressiveClear;
+        %tmp.63 = dup %tmp.60;
+        %tmp.64 = aputv %tmp.63 14 %tmp.62;
+        putv self :Options %tmp.64;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 45 8 ]
+        %tmp.66 = getv ? :Options;
+        %tmp.67 = getv function %tmp.66 :size;
+        %tmp.68 = invoke %tmp.66 %tmp.67();
+        putv self :numOptions %tmp.68;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 47 8 ]
+        %tmp.69 = newd 15;
+        %tmp.71 = getv ? :infiniteSecondOption;
+        %tmp.72 = 2;
+        %tmp.73 = dup %tmp.69;
+        %tmp.74 = aputv %tmp.73 %tmp.71 %tmp.72;
+        %tmp.76 = getv ? :secondDisplay;
+        %tmp.77 = 0;
+        %tmp.78 = dup %tmp.74;
+        %tmp.79 = aputv %tmp.78 %tmp.76 %tmp.77;
+        %tmp.81 = getv ? :secondHandOption;
+        %tmp.82 = 1;
+        %tmp.83 = dup %tmp.79;
+        %tmp.84 = aputv %tmp.83 %tmp.81 %tmp.82;
+        %tmp.86 = getv ? :dawnDuskMarkers;
+        %tmp.87 = 0;
+        %tmp.88 = dup %tmp.84;
+        %tmp.89 = aputv %tmp.88 %tmp.86 %tmp.87;
+        %tmp.91 = getv ? :showBattery;
+        %tmp.92 = false;
+        %tmp.93 = dup %tmp.89;
+        %tmp.94 = aputv %tmp.93 %tmp.91 %tmp.92;
+        %tmp.96 = getv ? :showMinutes;
+        %tmp.97 = false;
+        %tmp.98 = dup %tmp.94;
+        %tmp.99 = aputv %tmp.98 %tmp.96 %tmp.97;
+        %tmp.101 = getv ? :showDayMinutes;
+        %tmp.102 = false;
+        %tmp.103 = dup %tmp.99;
+        %tmp.104 = aputv %tmp.103 %tmp.101 %tmp.102;
+        %tmp.106 = getv ? :showSteps;
+        %tmp.107 = false;
+        %tmp.108 = dup %tmp.104;
+        %tmp.109 = aputv %tmp.108 %tmp.106 %tmp.107;
+        %tmp.111 = getv ? :showMove;
+        %tmp.112 = false;
+        %tmp.113 = dup %tmp.109;
+        %tmp.114 = aputv %tmp.113 %tmp.111 %tmp.112;
+        %tmp.116 = getv ? :showDate;
+        %tmp.117 = false;
+        %tmp.118 = dup %tmp.114;
+        %tmp.119 = aputv %tmp.118 %tmp.116 %tmp.117;
+        %tmp.121 = getv ? :showMonthDay;
+        %tmp.122 = false;
+        %tmp.123 = dup %tmp.119;
+        %tmp.124 = aputv %tmp.123 %tmp.121 %tmp.122;
+        %tmp.126 = getv ? :hourNumbers;
+        %tmp.127 = false;
+        %tmp.128 = dup %tmp.124;
+        %tmp.129 = aputv %tmp.128 %tmp.126 %tmp.127;
+        %tmp.131 = getv ? :hourHashes;
+        %tmp.132 = false;
+        %tmp.133 = dup %tmp.129;
+        %tmp.134 = aputv %tmp.133 %tmp.131 %tmp.132;
+        %tmp.136 = getv ? :secondHashes;
+        %tmp.137 = false;
+        %tmp.138 = dup %tmp.134;
+        %tmp.139 = aputv %tmp.138 %tmp.136 %tmp.137;
+        %tmp.141 = getv ? :aggressiveClear;
+        %tmp.142 = false;
+        %tmp.143 = dup %tmp.139;
+        %tmp.144 = aputv %tmp.143 %tmp.141 %tmp.142;
+        putv self :defOptions %tmp.144;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 68 8 ]
+        %tmp.145 = self;
+        %tmp.146 = getv function %tmp.145 :readStorageValues;
+        invoke %tmp.145 %tmp.146();
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 69 8 ]
+        %tmp.147 = null;
+        putv self :defOptions %tmp.147;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_19_33_70_4_stop:
     }
     //! Handle app startup
     //! @param state Startup arguments
-    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc"; @line = 28; ]
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc"; @line = 75; ]
     public
     function onStart(state as Dictionary or Null) as Void {
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_28_58_32_4_start:
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 29 8 ]
-        %tmp.2 = getv ? :System;
-        %tmp.3 = getv function %tmp.2 :println;
-        %tmp.4 = "2A";
-        invoke %tmp.2 %tmp.3(%tmp.4);
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_28_58_32_4_stop:
     }
     //! Handle app shutdown
     //! @param state Shutdown arguments
-    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc"; @line = 37; ]
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc"; @line = 84; ]
     public
     function onStop(state as Dictionary or Null) as Void {
     }
     //! Return the initial view for the app
     //! @return Array Pair [View, Delegate] or Array [View]
-    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc"; @line = 43; ]
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc"; @line = 90; ]
     public
     function getInitialView() as [Views] or [Views, InputDelegates] {
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_43_75_54_4_start:
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 44 8 ]
-        %tmp.2 = getv ? :System;
-        %tmp.3 = getv function %tmp.2 :println;
-        %tmp.4 = "4A";
-        invoke %tmp.2 %tmp.3(%tmp.4);
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 45 8 ]
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_45_8_53_8_if_stmt:
-        %tmp.6 = getm $.Toybox.WatchUi;
-        %tmp.8 = const :WatchFaceDelegate;
-        %tmp.9 = canhazplz %tmp.6 %tmp.8;
-        bf %tmp.9 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_45_8_53_8_if_false;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_45_8_53_8_if_true:
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_45_44_51_8_start:
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 46 12 ]
-        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_45_44_51_8_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_45_44_51_8_stop" ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_90_75_101_4_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 92 8 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_92_8_100_8_if_stmt:
+        %tmp.2 = getm $.Toybox.WatchUi;
+        %tmp.4 = const :WatchFaceDelegate;
+        %tmp.5 = canhazplz %tmp.2 %tmp.4;
+        bf %tmp.5 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_92_8_100_8_if_false;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_92_8_100_8_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_92_44_98_8_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 93 12 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_92_44_98_8_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_92_44_98_8_stop" ]
         %view.1 = local;
-        %tmp.13 = getm $;
-        %tmp.14 = getv %tmp.13 :ElegantAnaView;
-        %tmp.10 = newc %tmp.14 ();
-        lputv %view.1 %tmp.10;
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 47 12 ]
-        %tmp.16 = lgetv %view.1;
-        putv self :mainView %tmp.16;
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 48 12 ]
-        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_45_44_51_8_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_45_44_51_8_stop" ]
+        %tmp.9 = getm $;
+        %tmp.10 = getv %tmp.9 :ElegantAnaView;
+        %tmp.6 = newc %tmp.10 ();
+        lputv %view.1 %tmp.6;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 94 12 ]
+        %tmp.12 = lgetv %view.1;
+        putv self :mainView %tmp.12;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 95 12 ]
+        [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_92_44_98_8_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_92_44_98_8_stop" ]
         %delegate.2 = local;
-        %tmp.20 = getm $;
-        %tmp.21 = getv %tmp.20 :ElegantAnaDelegate;
-        %tmp.23 = lgetv %view.1;
-        %tmp.17 = newc %tmp.21 (%tmp.23);
-        lputv %delegate.2 %tmp.17;
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 50 12 ]
-        %tmp.24 = newa 2;
-        %tmp.26 = lgetv %view.1;
+        %tmp.16 = getm $;
+        %tmp.17 = getv %tmp.16 :ElegantAnaDelegate;
+        %tmp.19 = lgetv %view.1;
+        %tmp.13 = newc %tmp.17 (%tmp.19);
+        lputv %delegate.2 %tmp.13;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 97 12 ]
+        %tmp.20 = newa 2;
+        %tmp.22 = lgetv %view.1;
+        %tmp.23 = dup %tmp.20;
+        %tmp.24 = aputv %tmp.23 0 %tmp.22;
+        %tmp.26 = lgetv %delegate.2;
         %tmp.27 = dup %tmp.24;
-        %tmp.28 = aputv %tmp.27 0 %tmp.26;
-        %tmp.30 = lgetv %delegate.2;
-        %tmp.31 = dup %tmp.28;
-        %tmp.32 = aputv %tmp.31 1 %tmp.30;
-        ret %tmp.32;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_45_44_51_8_stop:
-        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_45_8_53_8_if_end;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_45_8_53_8_if_false:
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_51_15_53_8_start:
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 52 12 ]
-        %tmp.33 = newa 1;
-        %tmp.37 = getm $;
-        %tmp.38 = getv %tmp.37 :ElegantAnaView;
-        %tmp.34 = newc %tmp.38 ();
-        %tmp.39 = dup %tmp.33;
-        %tmp.40 = aputv %tmp.39 0 %tmp.34;
-        ret %tmp.40;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_51_15_53_8_stop:
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_45_8_53_8_if_end:
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_43_75_54_4_stop:
+        %tmp.28 = aputv %tmp.27 1 %tmp.26;
+        ret %tmp.28;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_92_44_98_8_stop:
+        goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_92_8_100_8_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_92_8_100_8_if_false:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_98_15_100_8_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 99 12 ]
+        %tmp.29 = newa 1;
+        %tmp.33 = getm $;
+        %tmp.34 = getv %tmp.33 :ElegantAnaView;
+        %tmp.30 = newc %tmp.34 ();
+        %tmp.35 = dup %tmp.29;
+        %tmp.36 = aputv %tmp.35 0 %tmp.30;
+        ret %tmp.36;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_98_15_100_8_stop:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_92_8_100_8_if_end:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_90_75_101_4_stop:
     }
     //! This method runs when a goal is triggered and the goal view is started.
     //! @param goal The goal type that triggered
     //! @return The view to push
     //! Return the settings view and delegate
     //! @return Array Pair [View, Delegate]
-    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc"; @line = 67; ]
+    [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc"; @line = 114; ]
     public
     function getSettingsView() as [Views] or [Views, InputDelegates] or Null {
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_67_84_70_4_start:
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 68 8 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_114_84_117_4_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 115 8 ]
         %tmp.2 = getv ? :System;
         %tmp.3 = getv function %tmp.2 :println;
         %tmp.4 = "6A";
         invoke %tmp.2 %tmp.3(%tmp.4);
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 69 8 ]
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 116 8 ]
         %tmp.5 = newa 2;
         %tmp.9 = getm $;
         %tmp.10 = getv %tmp.9 :ElegantAnaSettingsMenu;
@@ -146,8 +247,103 @@ E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_
         %tmp.18 = dup %tmp.12;
         %tmp.19 = aputv %tmp.18 1 %tmp.13;
         ret %tmp.19;
-E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_67_84_70_4_stop:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_114_84_117_4_stop:
     }
+}
+[ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc"; @line = 122; ]
+function readStorageValues() as Void {
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_122_44_136_0_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 123 4 ]
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_123_4_126_5_if_stmt:
+    %tmp.2 = getm $.Toybox.Application;
+    %tmp.4 = const :Storage;
+    %tmp.5 = canhazplz %tmp.2 %tmp.4;
+    %tmp.6 = not %tmp.5;
+    bf %tmp.6 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_123_4_126_5_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_123_4_126_5_if_true:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_123_37_126_5_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 124 12 ]
+    %tmp.7 = getm $;
+    %tmp.9 = getv ? :defOptions;
+    putv %tmp.7 :Options_Dict %tmp.9;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 125 12 ]
+    ret ?;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_123_37_126_5_stop:
+    goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_123_4_126_5_if_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_123_4_126_5_if_end:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 128 4 ]
+    [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_122_44_136_0_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_122_44_136_0_stop" ]
+    %temp.1 = local;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 130 4 ]
+    for @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_130_4_135_4_for_test @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_130_4_135_4_for_incr @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_130_4_135_4_for_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_130_4_135_4_for_init:
+    [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_130_4_135_4_for_begin" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_130_4_135_4_for_end" ]
+    %i.2 = local;
+    %tmp.10 = 0;
+    lputv %i.2 %tmp.10;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_130_4_135_4_for_test:
+    %tmp.12 = lgetv %i.2;
+    %tmp.14 = getv ? :numOptions;
+    %tmp.15 = lt %tmp.12 %tmp.14;
+    bf %tmp.15 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_130_4_135_4_for_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_130_4_135_4_for_begin:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_130_41_135_4_start:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 132 8 ]
+    %tmp.16 = getm $.Toybox.Application.Storage;
+    %tmp.17 = getv function %tmp.16 :getValue;
+    %tmp.19 = getv ? :Options;
+    %tmp.21 = lgetv %i.2;
+    %tmp.22 = agetv %tmp.19 %tmp.21;
+    %tmp.23 = invoke %tmp.16 %tmp.17(%tmp.22);
+    lputv %temp.1 %tmp.23;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 133 8 ]
+    %tmp.24 = getm $;
+    %tmp.25 = getv %tmp.24 :Options_Dict;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_133_37_133_81_begin:
+    %tmp.27 = lgetv %temp.1;
+    %tmp.28 = null;
+    %tmp.29 = ne %tmp.27 %tmp.28;
+    bf %tmp.29 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_133_37_133_81_false;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_133_37_133_81_true:
+    %tmp.31 = lgetv %temp.1;
+    %tmp.32 = as %tmp.31 { (!Null) };
+    push %tmp.32;
+    goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_133_37_133_81_end;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_133_37_133_81_false:
+    %tmp.34 = getv ? :defOptions;
+    %tmp.36 = getv ? :Options;
+    %tmp.38 = lgetv %i.2;
+    %tmp.39 = agetv %tmp.36 %tmp.38;
+    %tmp.40 = agetv %tmp.34 %tmp.39;
+    push %tmp.40;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_133_37_133_81_end:
+    %tmp.41 = phi [%tmp.29 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_133_37_133_81_begin] [%tmp.32 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_133_37_133_81_true] [%tmp.40 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_133_37_133_81_false] [%tmp.41 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_133_37_133_81_end];
+    %tmp.43 = getv ? :Options;
+    %tmp.45 = lgetv %i.2;
+    %tmp.46 = agetv %tmp.43 %tmp.45;
+    aputv %tmp.25 %tmp.46 %tmp.41;
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 134 8 ]
+    %tmp.47 = getm $.Toybox.Application.Storage;
+    %tmp.48 = getv function %tmp.47 :setValue;
+    %tmp.50 = getv ? :Options;
+    %tmp.52 = lgetv %i.2;
+    %tmp.53 = agetv %tmp.50 %tmp.52;
+    %tmp.54 = getm $;
+    %tmp.55 = getv %tmp.54 :Options_Dict;
+    %tmp.57 = getv ? :Options;
+    %tmp.59 = lgetv %i.2;
+    %tmp.60 = agetv %tmp.57 %tmp.59;
+    %tmp.61 = agetv %tmp.55 %tmp.60;
+    invoke %tmp.47 %tmp.48(%tmp.53, %tmp.61);
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_130_41_135_4_stop:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_130_4_135_4_for_incr:
+[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc" 130 ]
+    %tmp.64 = lgetv %i.2;
+    %tmp.65 = add %tmp.64 1;
+    lputv %i.2 %tmp.65;
+    goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_130_4_135_4_for_test;
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_130_4_135_4_for_end:
+E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaApp_mc_122_44_136_0_stop:
 }
 [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaApp.mc"; @line = 7; ]
 <init> {

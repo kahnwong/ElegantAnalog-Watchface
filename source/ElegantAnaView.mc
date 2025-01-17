@@ -305,7 +305,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
         lowBatteryColor = 0xff6666;
         activities_primaryColor = Graphics.COLOR_LT_GRAY;
 
-        sec_length = width_screen*.43; //this will be change @ runtime per Storage.getValue("Second Display"), see below.
+        sec_length = width_screen*.43; //this will be change @ runtime per Storage.getValue(secondDisplay), see below.
         //sec_length = width_screen*.23;
         sec_width = 2;  
         sec_base = -5;
@@ -326,7 +326,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
     }
 
     private function setSecondHandOptions () {
-        switch ($.Options_Dict["Second Display"]) {
+        switch ($.Options_Dict[secondDisplay]) {
             case 1: {
                 sec_length = width_screen*.175;
                 centerX_seconds = centerX_main;
@@ -354,7 +354,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
         
         
         //sec_width = $.Options_Dict["Wide Second"] ? 2 : 1;
-        var sho = $.Options_Dict["Second Hand Option"];
+        var sho = $.Options_Dict[secondHandOption];
         //sec_type:
             //    0=regular filled rectangle
             //    1=thin line
@@ -364,37 +364,37 @@ class ElegantAnaView extends WatchUi.WatchFace {
             //      5 = triangle outline
             //      6 = blanked triangle outline
             
-        //System.println("ODSD: " + $.Options_Dict["Second Display"]  + " : "+ sho);
+        //System.println("ODSD: " + $.Options_Dict[secondDisplay]  + " : "+ sho);
         switch (sho) {
             case 1 : { //Outline Pointer
                 sec_width = 5; //in pixels
-                if ($.Options_Dict["Second Display"] != 0) {sec_width = 8;} //fat little pointer for the small center hand
+                if ($.Options_Dict[secondDisplay] != 0) {sec_width = 8;} //fat little pointer for the small center hand
                 sec_base = -5; //how far from base to start shape - positive=opposite side of center; negative = same side of center
-                if ($.Options_Dict["Second Display"] == 2) {sec_base = -7;} //center circle smaller in inset circle
+                if ($.Options_Dict[secondDisplay] == 2) {sec_base = -7;} //center circle smaller in inset circle
                 sec_type = 6; //0 = rectangle; 1=line; 2= triangle
-                if ($.Options_Dict["Second Display"] == 2) {sec_type = 5;}
+                if ($.Options_Dict[secondDisplay] == 2) {sec_type = 5;}
                 break;
             }
             case 2 : { //Big Blunt
                 sec_width = 5; //in pixels
                 sec_base = -5; //how far from base to start shape - positive=opposite side of center; negative = same side of center
-                if ($.Options_Dict["Second Display"] == 2) {sec_base = -7;} //center circle smaller in inset circle
+                if ($.Options_Dict[secondDisplay] == 2) {sec_base = -7;} //center circle smaller in inset circle
                 sec_type = 0; //0 = rectangle; 1=line; 2= triangle
                 break;
             }
             case 3 : { //Outline Blunt
                 sec_width = 6; //in pixels
                 sec_base = -5; //how far from base to start shape - positive=opposite side of center; negative = same side of center
-                if ($.Options_Dict["Second Display"] == 2) {sec_base = -7;} //center circle smaller in inset circle
+                if ($.Options_Dict[secondDisplay] == 2) {sec_base = -7;} //center circle smaller in inset circle
                 sec_type = 4; //0 = rectangle; 1=line; 2= triangle
-                if ($.Options_Dict["Second Display"] == 2) {sec_type = 3;}
+                if ($.Options_Dict[secondDisplay] == 2) {sec_type = 3;}
                 break;
             }
                                              
             case 4: { //Big Needle
                 sec_width = 1; //in pixels
                 sec_base = -5; //how far from base to start shape - positive=opposite side of center; negative = same side of center
-                if ($.Options_Dict["Second Display"] == 2) {sec_base = -7;} //center circle smaller in inset circle
+                if ($.Options_Dict[secondDisplay] == 2) {sec_base = -7;} //center circle smaller in inset circle
                 sec_type = 1; //0 = rectangle; 1=line; 2= triangle, = outline, 4=blanked outline
                 break;      
             }   
@@ -403,7 +403,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
                 
                 sec_base = 12 - sec_length; //how far from base to start shape - positive=opposite side of center; negative = same side of center
                 
-                if ($.Options_Dict["Second Display"] != 0) {sec_width = 6; sec_base = 10 - sec_length;} //fat little pointer for the small center hand
+                if ($.Options_Dict[secondDisplay] != 0) {sec_width = 6; sec_base = 10 - sec_length;} //fat little pointer for the small center hand
                 sec_type = 0; //0 = rectangle; 1=line; 2= triangle
 
                 break;
@@ -424,9 +424,9 @@ class ElegantAnaView extends WatchUi.WatchFace {
             }                             
             default : { //Big Pointer (Case 0)
                 sec_width = 4; //in pixels
-                if ($.Options_Dict["Second Display"] != 0) {sec_width = 8;} //fat little pointer for the small center hand
+                if ($.Options_Dict[secondDisplay] != 0) {sec_width = 8;} //fat little pointer for the small center hand
                 sec_base = -5; //how far from base to start shape - positive=opposite side of center; negative = same side of center
-                if ($.Options_Dict["Second Display"] == 2) {sec_base = -7;} //center circle smaller in inset circle
+                if ($.Options_Dict[secondDisplay] == 2) {sec_base = -7;} //center circle smaller in inset circle
                 sec_type = 2; //0 = rectangle; 1=line; 2= triangle
                 break;
             }
@@ -523,7 +523,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
         info = Toybox.ActivityMonitor.getInfo();                            
 
 
-        //if ($.Options_Dict["Show Move"]) {
+        //if ($.Options_Dict[showMove]) {
         
         stepGoal = info.stepGoal;
         steps = info.steps;
@@ -555,7 +555,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
         var avoidCircle;
 
         //var inf_sec = ($.Options_Dict["Infinite Second"] == $.infiniteSecondOptions_size-1);
-        var sec_on = ($.Options_Dict["Infinite Second Option"] > 0) ;
+        var sec_on = ($.Options_Dict[infiniteSecondOption] > 0) ;
 
         if (!sec_on) {_secondHandCounter = 10000000;}
         else if (_secondHandCounter >= 10000000) { //sec_on was off but has been turned on via the menu
@@ -566,7 +566,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
         
         show_sec= true;
         if (!_isAwake) {_secondHandCounter += 1;}        
-        if ((!_isAwake && _secondHandCounter > $.infiniteSecondLengths[$.Options_Dict["Infinite Second Option"]] ) || $.Options_Dict["Infinite Second Option"] == 0 ) { show_sec = false; }
+        if ((!_isAwake && _secondHandCounter > $.infiniteSecondLengths[$.Options_Dict[infiniteSecondOption]] ) || $.Options_Dict[infiniteSecondOption] == 0 ) { show_sec = false; }
 
         if ($.Settings_ran || ! update_ran) {
             setSecondHandOptions ();
@@ -584,7 +584,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
         //however, sometimes this leads to a dirty screen
         //(returning from a toast or some other app)
         //so we leave this as an option
-        if (_isAwake && update_ran && !$.Settings_ran && ( clockTime.sec > 0 && !$.Options_Dict["Aggressive Clear"] )) {
+        if (_isAwake && update_ran && !$.Settings_ran && ( clockTime.sec > 0 && !$.Options_Dict[aggressiveClear] )) {
             onPartialUpdate(dc);
             return;
         }
@@ -599,7 +599,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
         
         _fullScreenRefresh = true;
         
-        avoidCircle = ($.Options_Dict["Show Date"] || $.Options_Dict["Second Display"] == 2 || $.Options_Dict["Dawn/Dusk Markers"] ==2 || $.Options_Dict["Dawn/Dusk Markers"] ==3 ) ? true : false;
+        avoidCircle = ($.Options_Dict[showDate] || $.Options_Dict[secondDisplay] == 2 || $.Options_Dict[dawnDuskMarkers] ==2 || $.Options_Dict[dawnDuskMarkers] ==3 ) ? true : false;
         
         var squeeze = true;
         if (width_screen>176)  {squeeze=false;}     
@@ -698,13 +698,13 @@ class ElegantAnaView extends WatchUi.WatchFace {
 
            //system.println("oud2d");
             
-            if (($.Options_Dict["Second Hashes"] && $.Options_Dict["Second Display"] == 0) || !$.Options_Dict["Hour Hashes"] ) { drawHashes = false;} //Don't draw hour hashes if LONG SECOND HAND on MAIN DISPLAY & SECOND HASHES (they overlap) OR if they are just turned off.
+            if (($.Options_Dict[secondHashes] && $.Options_Dict[secondDisplay] == 0) || !$.Options_Dict[hourHashes] ) { drawHashes = false;} //Don't draw hour hashes if LONG SECOND HAND on MAIN DISPLAY & SECOND HASHES (they overlap) OR if they are just turned off.
 
-            if (!$.Options_Dict["Hour Numbers"]) {drawHours = false;}
+            if (!$.Options_Dict[hourNumbers]) {drawHours = false;}
 
             //Small circle for center of inset circle, when seconds are there
-            //System.println("SD: " + $.Options_Dict["Second Display"])
-            if ($.Options_Dict["Second Display"] == 2) {
+            //System.println("SD: " + $.Options_Dict[secondDisplay])
+            if ($.Options_Dict[secondDisplay] == 2) {
                 targetDc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_WHITE);
                 targetDc.fillCircle(centerX_circle, centerY_circle, 8);
                 //targetDc.fillCircle(50, 70, 6);
@@ -721,7 +721,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
 
            //system.println("oud2e");
             
-            if ($.Options_Dict["Second Hashes"]) {
+            if ($.Options_Dict[secondHashes]) {
                 if (sec_length<width_screen /3.0) {
                     //[:dc=dc, :radius=radius, :includeOnes=include, length1, width1, includeFives, length5, width5, avoidCircle,squeezeX, squeezeY]
                    //system.println("oud2ee");
@@ -752,7 +752,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
                         //squeeze = false;
 
                     }
-                    //var ac = $.Options_Dict["Show Date"] ? true : false;
+                    //var ac = $.Options_Dict[showDate] ? true : false;
                     //drawSecondHashMarks(targetDc, l, true, l - sec_length - 15, 1, true, l-sec_length-12, 2, true, true, true);
                    //system.println("oud2eg");
                    drawSecondHashMarks({:dc=>targetDc,:radius=>l,:includeOnes=> true,
@@ -818,15 +818,15 @@ class ElegantAnaView extends WatchUi.WatchFace {
 
        //system.println("oud5");
         //moveExpired = true; //for testing
-        if ($.Options_Dict["Show Move"]  && moveExpired  )
+        if ($.Options_Dict[showMove]  && moveExpired  )
         {
             drawMove(targetDc, Gfx.COLOR_WHITE);
             //drawMoveDots(targetDc, info.moveBarLevel, Gfx.COLOR_WHITE);
-            if ($.Options_Dict["Show Date"] && $.Options_Dict["Second Display"] != 2
-            && $.Options_Dict["Dawn/Dusk Markers"] != 2 && $.Options_Dict["Dawn/Dusk Markers"] != 3 )
+            if ($.Options_Dict[showDate] && $.Options_Dict[secondDisplay] != 2
+            && $.Options_Dict[dawnDuskMarkers] != 2 && $.Options_Dict[dawnDuskMarkers] != 3 )
             {
                 drawDateInset(targetDc, Gfx.COLOR_WHITE, true);
-            } else  if ($.Options_Dict["Show Date"] ) {
+            } else  if ($.Options_Dict[showDate] ) {
                 drawDateMain(targetDc, Gfx.COLOR_WHITE, true);
             }
             
@@ -835,35 +835,35 @@ class ElegantAnaView extends WatchUi.WatchFace {
             
             var index = 0;
             //drawMove(targetDc, Gfx.COLOR_WHITE);
-            if ($.Options_Dict["Show Battery"]) {
+            if ($.Options_Dict[showBattery]) {
                 drawBattery(targetDc, Gfx.COLOR_WHITE, Gfx.COLOR_BLACK, Gfx.COLOR_WHITE);
                 index +=1.75;
             }
             
-            if ($.Options_Dict["Show Minutes"]) { 
+            if ($.Options_Dict[showMinutes]) { 
                 drawMoveDots(targetDc, activeMinutesWeek, activeMinutesWeekGoal, index, Gfx.COLOR_WHITE);
                 index += 1;
             }
-            if ($.Options_Dict["Show Day Minutes"]) { 
+            if ($.Options_Dict[showDayMinutes]) { 
                 drawMoveDots(targetDc, activeMinutesDay, activeMinutesDayGoal, index, Gfx.COLOR_WHITE);
                 index += 1;
             }            
-            if ($.Options_Dict["Show Steps"]) { 
+            if ($.Options_Dict[showSteps]) { 
                 drawMoveDots(targetDc, steps, stepGoal, index, Gfx.COLOR_WHITE);
                 index += 1;
             }
-            if ($.Options_Dict["Show Move"]) { 
+            if ($.Options_Dict[showMove]) { 
                 drawMoveDots(targetDc, moveBarLevel, 5, index, Gfx.COLOR_WHITE);
                 index += 1;
             }
 
-            if ($.Options_Dict["Show Date"]) {
+            if ($.Options_Dict[showDate]) {
                 var rev = false;
-                if ($.Options_Dict["Show Move"]  && moveExpired) { rev = true;}
+                if ($.Options_Dict[showMove]  && moveExpired) { rev = true;}
 
                  //drawdate in inset circle
-                 if ($.Options_Dict["Second Display"] != 2
-                    && $.Options_Dict["Dawn/Dusk Markers"] != 2 && $.Options_Dict["Dawn/Dusk Markers"] != 3 )
+                 if ($.Options_Dict[secondDisplay] != 2
+                    && $.Options_Dict[dawnDuskMarkers] != 2 && $.Options_Dict[dawnDuskMarkers] != 3 )
                 {
                     drawDateInset(targetDc, Gfx.COLOR_WHITE, rev);
 
@@ -884,8 +884,8 @@ class ElegantAnaView extends WatchUi.WatchFace {
         //    - sojmething is being drawn in the inset circle
         //    - that something doesn't include the second hashes
         if (!hasSubscreen && avoidCircle && 
-        !($.Options_Dict["Infinite Second Option"]>0 && $.Options_Dict["Second Display"]==2 && $.Options_Dict["Second Hashes"]) && 
-        !($.Options_Dict["Dawn/Dusk Markers"]==2 ||$.Options_Dict["Dawn/Dusk Markers"]==3)) 
+        !($.Options_Dict[infiniteSecondOption]>0 && $.Options_Dict[secondDisplay]==2 && $.Options_Dict[secondHashes]) && 
+        !($.Options_Dict[dawnDuskMarkers]==2 ||$.Options_Dict[dawnDuskMarkers]==3)) 
         {
                 //System.println("SUBSCRE2222!");
                 targetDc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_TRANSPARENT);
@@ -913,7 +913,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
         //Draw this AFTER the hands so that if in the inset circle, will cover
         //up hands inside there to prevent interference.
         //System.println ("oud6");
-        var ddm =  $.Options_Dict["Dawn/Dusk Markers"];
+        var ddm =  $.Options_Dict[dawnDuskMarkers];
         if ( ddm < 4 ) {
 
             //only run every 10 mins OR if it hasn't run before, settings run, etc
@@ -961,7 +961,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
 
                         var ohl = -width_screen*.53 ;
                         var ln =  width_screen*.49 ;
-                        if (($.Options_Dict["Second Hashes"] && $.Options_Dict["Second Display"] == 0) || $.Options_Dict["Hour Hashes"] ) {
+                        if (($.Options_Dict[secondHashes] && $.Options_Dict[secondDisplay] == 0) || $.Options_Dict[hourHashes] ) {
                             ohl = -width_screen*.5 ;
                             ln =  width_screen*.47 ;
                         }
@@ -984,7 +984,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
                         var radius = 2;
 
                         var ln =  width_screen*.48 ;
-                        if (($.Options_Dict["Second Hashes"] && $.Options_Dict["Second Display"] == 0) || $.Options_Dict["Hour Hashes"] ) {              
+                        if (($.Options_Dict[secondHashes] && $.Options_Dict[secondDisplay] == 0) || $.Options_Dict[hourHashes] ) {              
                             ln =  width_screen*.48 ;
                         }
                         if (width_screen >176) {
@@ -1119,8 +1119,8 @@ class ElegantAnaView extends WatchUi.WatchFace {
         var info = Gregorian.info(Time.now(), Time.FORMAT_LONG);
         var dateStr = Lang.format("$1$ $2$ $3$", [info.day_of_week, info.month, info.day]);
 
-        //$.Options_Dict["Second Display"]
-        //$.Options_Dict["Dawn/Dusk Markers"]
+        //$.Options_Dict[secondDisplay]
+        //$.Options_Dict[dawnDuskMarkers]
         if (reverse) {
             dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
             if (width_screen >= 166)  {
@@ -1397,77 +1397,79 @@ class ElegantAnaView extends WatchUi.WatchFace {
         
     }
 
+    /*
+
     //read stored settings & set default values if nothing stored
     public function readStorageValues() as Void {
 
-        var temp = Storage.getValue("Infinite Second Option");        
-        $.Options_Dict["Infinite Second Option"] = temp  != null ? temp : $.infiniteSecondOptions_default;
-        if ($.Options_Dict["Infinite Second Option"]>$.infiniteSecondOptions_size-1) {$.Options_Dict["Infinite Second Option"] = $.infiniteSecondOptions_default;}
-        if ($.Options_Dict["Infinite Second Option"]<0) {$.Options_Dict["Infinite Second Option"] = $.infiniteSecondOptions_default;}
-        Storage.setValue("Infinite Second Option",$.Options_Dict["Infinite Second Option"]);
+        var temp = Storage.getValue(infiniteSecondOption);        
+        $.Options_Dict[infiniteSecondOption] = temp  != null ? temp : $.infiniteSecondOptions_default;
+        if ($.Options_Dict[infiniteSecondOption]>$.infiniteSecondOptions_size-1) {$.Options_Dict[infiniteSecondOption] = $.infiniteSecondOptions_default;}
+        if ($.Options_Dict[infiniteSecondOption]<0) {$.Options_Dict[infiniteSecondOption] = $.infiniteSecondOptions_default;}
+        Storage.setValue(infiniteSecondOption,$.Options_Dict[infiniteSecondOption]);
 
-        temp = Storage.getValue("Second Display");        
-        $.Options_Dict["Second Display"] = temp  != null ? temp : $.secondDisplayOptions_default;
-        if ($.Options_Dict["Second Display"]>$.secondDisplayOptions_size-1) {$.Options_Dict["Second Display"] = $.secondDisplayOptions_default;}
-        if ($.Options_Dict["Second Display"]<0) {$.Options_Dict["Second Display"] = $.secondDisplayOptions_default;}
-        Storage.setValue("Second Display",$.Options_Dict["Second Display"]);
+        temp = Storage.getValue(secondDisplay);        
+        $.Options_Dict[secondDisplay] = temp  != null ? temp : $.secondDisplayOptions_default;
+        if ($.Options_Dict[secondDisplay]>$.secondDisplayOptions_size-1) {$.Options_Dict[secondDisplay] = $.secondDisplayOptions_default;}
+        if ($.Options_Dict[secondDisplay]<0) {$.Options_Dict[secondDisplay] = $.secondDisplayOptions_default;}
+        Storage.setValue(secondDisplay,$.Options_Dict[secondDisplay]);
 
-        temp = Storage.getValue("Second Hand Option");        
-        $.Options_Dict["Second Hand Option"] = temp  != null ? temp : $.secondHandOptions_default;
-        if ($.Options_Dict["Second Hand Option"]>$.secondHandOptions_size-1) {$.Options_Dict["Second Hand Option"] = $.secondHandOptions_default;}
-        if ($.Options_Dict["Second Hand Option"]<0) {$.Options_Dict["Second Hand Option"] = $.secondHandOptions_default;}
-        Storage.setValue("Second Hand Option",$.Options_Dict["Second Hand Option"]);
+        temp = Storage.getValue(secondHandOption);        
+        $.Options_Dict[secondHandOption] = temp  != null ? temp : $.secondHandOptions_default;
+        if ($.Options_Dict[secondHandOption]>$.secondHandOptions_size-1) {$.Options_Dict[secondHandOption] = $.secondHandOptions_default;}
+        if ($.Options_Dict[secondHandOption]<0) {$.Options_Dict[secondHandOption] = $.secondHandOptions_default;}
+        Storage.setValue(secondHandOption,$.Options_Dict[secondHandOption]);
 
-        temp = Storage.getValue("Dawn/Dusk Markers");        
-        $.Options_Dict["Dawn/Dusk Markers"] = temp  != null ? temp : $.dawnDuskOptions_default;
-        if ($.Options_Dict["Dawn/Dusk Markers"]>$.dawnDuskOptions_size-1) {$.Options_Dict["Dawn/Dusk Markers"] = $.dawnDuskOptions_default;}
-        if ($.Options_Dict["Dawn/Dusk Markers"]<0) {$.Options_Dict["Dawn/Dusk Markers"] = $.dawnDuskOptions_default;}
-        Storage.setValue("Dawn/Dusk Markers",$.Options_Dict["Dawn/Dusk Markers"]);
+        temp = Storage.getValue(dawnDuskMarkers);        
+        $.Options_Dict[dawnDuskMarkers] = temp  != null ? temp : $.dawnDuskOptions_default;
+        if ($.Options_Dict[dawnDuskMarkers]>$.dawnDuskOptions_size-1) {$.Options_Dict[dawnDuskMarkers] = $.dawnDuskOptions_default;}
+        if ($.Options_Dict[dawnDuskMarkers]<0) {$.Options_Dict[dawnDuskMarkers] = $.dawnDuskOptions_default;}
+        Storage.setValue(dawnDuskMarkers,$.Options_Dict[dawnDuskMarkers]);
 
-        temp = Storage.getValue("Show Battery");
-        $.Options_Dict["Show Battery"] = temp  != null ? temp : true;
-        Storage.setValue("Show Battery",$.Options_Dict["Show Battery"]);        
+        temp = Storage.getValue(showBattery);
+        $.Options_Dict[showBattery] = temp  != null ? temp : true;
+        Storage.setValue(showBattery,$.Options_Dict[showBattery]);        
 
-        temp = Storage.getValue("Show Minutes");
-        $.Options_Dict["Show Minutes"] = temp  != null ? temp : true;
-        Storage.setValue("Show Minutes",$.Options_Dict["Show Minutes"]);
+        temp = Storage.getValue(showMinutes);
+        $.Options_Dict[showMinutes] = temp  != null ? temp : true;
+        Storage.setValue(showMinutes,$.Options_Dict[showMinutes]);
 
-        temp = Storage.getValue("Show Day Minutes");
-        $.Options_Dict["Show Day Minutes"] = temp  != null ? temp : true;
-        Storage.setValue("Show Day Minutes",$.Options_Dict["Show Day Minutes"]);
+        temp = Storage.getValue(showDayMinutes);
+        $.Options_Dict[showDayMinutes] = temp  != null ? temp : true;
+        Storage.setValue(showDayMinutes,$.Options_Dict[showDayMinutes]);
 
-        temp = Storage.getValue("Show Steps");
-        $.Options_Dict["Show Steps"] = temp  != null ? temp : true;
-        Storage.setValue("Show Steps",$.Options_Dict["Show Steps"]);
+        temp = Storage.getValue(showSteps);
+        $.Options_Dict[showSteps] = temp  != null ? temp : true;
+        Storage.setValue(showSteps,$.Options_Dict[showSteps]);
 
-        temp = Storage.getValue("Show Move");
-        $.Options_Dict["Show Move"] = temp  != null ? temp : true;
-        Storage.setValue("Show Move",$.Options_Dict["Show Move"]);
+        temp = Storage.getValue(showMove);
+        $.Options_Dict[showMove] = temp  != null ? temp : true;
+        Storage.setValue(showMove,$.Options_Dict[showMove]);
 
-        temp = Storage.getValue("Show Month/Day");
-        $.Options_Dict["Show Month/Day"] = temp  != null ? temp : true;
-        Storage.setValue("Show Month/Day",$.Options_Dict["Show Month/Day"]);
+        temp = Storage.getValue(showMonthDay);
+        $.Options_Dict[showMonthDay] = temp  != null ? temp : true;
+        Storage.setValue(showMonthDay,$.Options_Dict[showMonthDay]);
 
-        temp = Storage.getValue("Show Date");
-        $.Options_Dict["Show Date"] = temp  != null ? temp : true;
-        Storage.setValue("Show Date",$.Options_Dict["Show Date"]);
+        temp = Storage.getValue(showDate);
+        $.Options_Dict[showDate] = temp  != null ? temp : true;
+        Storage.setValue(showDate,$.Options_Dict[showDate]);
 
-        temp = Storage.getValue("Hour Numbers");
-        $.Options_Dict["Hour Numbers"] = temp  != null ? temp : false;
-        Storage.setValue("Hour Numbers",$.Options_Dict["Hour Numbers"]);
+        temp = Storage.getValue(hourNumbers);
+        $.Options_Dict[hourNumbers] = temp  != null ? temp : false;
+        Storage.setValue(hourNumbers,$.Options_Dict[hourNumbers]);
 
-        temp = Storage.getValue("Hour Hashes");
-        $.Options_Dict["Hour Hashes"] = temp  != null ? temp : true;
-        Storage.setValue("Hour Hashes",$.Options_Dict["Hour Hashes"]);
+        temp = Storage.getValue(hourHashes);
+        $.Options_Dict[hourHashes] = temp  != null ? temp : true;
+        Storage.setValue(hourHashes,$.Options_Dict[hourHashes]);
 
         
-        temp = Storage.getValue("Second Hashes");
-        $.Options_Dict["Second Hashes"] = temp  != null ? temp : false;
-        Storage.setValue("Second Hashes",$.Options_Dict["Second Hashes"]);        
+        temp = Storage.getValue(secondHashes);
+        $.Options_Dict[secondHashes] = temp  != null ? temp : false;
+        Storage.setValue(secondHashes,$.Options_Dict[secondHashes]);        
 
-        temp = Storage.getValue("Aggressive Clear");
-        $.Options_Dict["Aggressive Clear"] = temp  != null ? temp : false;
-        Storage.setValue("Aggressive Clear",$.Options_Dict["Aggressive Clear"]);        
+        temp = Storage.getValue(aggressiveClear);
+        $.Options_Dict[aggressiveClear] = temp  != null ? temp : false;
+        Storage.setValue(aggressiveClear,$.Options_Dict[aggressiveClear]);        
 
         temp = Storage.getValue("Location");
         $.Options_Dict["Location"] = temp  != null ? temp : null;
@@ -1476,6 +1478,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
         //temp = Storage.getValue("Wide Second");
         //$.Options_Dict["Wide Second"] = temp  != null ? temp : false;
         //Storage.setValue("Wide Second",$.Options_Dict["Wide Second"]);
+        */
 
         /*
         temp = Storage.getValue("Long Second");
@@ -1488,7 +1491,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
         */
 
         
-    }
+    //}
 
     
 
@@ -1595,7 +1598,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
         } else if (shape == 2 || shape == 5 || shape == 6) { //TRIANGLE/pointer
 
             var mult = 1;
-            if ($.Options_Dict["Second Display"] != 0) {mult = 4;}
+            if ($.Options_Dict[secondDisplay] != 0) {mult = 4;}
 
             coords = [ 
                 [-(width/2) * mult, 0 + overheadLine],
@@ -2215,9 +2218,9 @@ function drawMoveDots(dc, num, goal, index, text_color)
         var numD_floor = Math.floor(numDots);
         var partial = numDots - numD_floor;
 
-        if (numDots==0 && partial < 1f/dmd_w ) { return; }
+        
         if ( numDots>6 ) { numDots = 6; partial = 0;  }
-        numD_floor = Math.floor(numDots);
+        numD_floor = Math.floor(numDots).toNumber();
         if (partial <0.3333) {partial = 0;} 
 
         var squares = numD_floor;
@@ -2230,10 +2233,29 @@ function drawMoveDots(dc, num, goal, index, text_color)
         
         var x_start = Math.round(dmd_x - (fact)/2.0); //Dots will be centered under the battery;
 
+        dc.setColor(text_color, Graphics.COLOR_TRANSPARENT);  
+
+        //deBug("numDs", [numDots, partial, dmd_w, 1f/dmd_w]);
+
+        //If this activity hasn't started yet/nothing registered they get a 
+        //MINUS SIGN just as a placeholder
+        if (numD_floor==0 && partial < 1f/dmd_w ) { 
+
+                var xx = Math.round(x_start).toNumber();//4            
+                var yy = Math.round(dmd_yy + index * (dmd_h + activities_gap)).toNumber();
+            
+                //var x_add = xx + (dmd_w)/2.0;
+                //var y_add = yy + (dmd_h)/2.0;
+                //dc.drawLine(x_add, yy,x_add ,yy + dmd_h);  
+                //deBug("NOTHING dots", [xx, yy ,yy + dmd_h ]);          
+                //dc.drawLine(xx, y_add ,xx + dmd_w , y_add); 
+                dc.drawLine(xx, yy,xx ,yy + dmd_h);            
+            return; 
+        }
         //System.println("dMD: " + numDots + " " + partial  + " " + squares);
 
         //deBug("col", [text_color, Graphics.COLOR_TRANSPARENT]);
-        dc.setColor(text_color, Graphics.COLOR_TRANSPARENT);  
+        
         //dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);  
         
         //deBug("col", [squares]);
@@ -2284,7 +2306,7 @@ function drawMoveDots(dc, num, goal, index, text_color)
         
         var dateStr2 = Lang.format("$1$", [info.day.format("%02d")]);
         var dateStr1 = Lang.format("$1$", [info.day_of_week]);
-        if($.Options_Dict["Show Month/Day"]) {
+        if($.Options_Dict[showMonthDay]) {
             dateStr1 = Lang.format("$1$", [info.month]);
         }
 
@@ -2310,9 +2332,9 @@ function drawMoveDots(dc, num, goal, index, text_color)
         //dc.drawText(width_screen * .15 , (height_screen * .22), Gfx.FONT_SYSTEM_MEDIUM, dateStr1, Gfx.TEXT_JUSTIFY_CENTER);
 
         //var f1 = Gfx.FONT_SYSTEM_NUMBER_MEDIUM;
-        deBug ("FONT size", [radius_circle,dc.getFontHeight(Gfx.FONT_SYSTEM_LARGE), 
-        dc.getFontHeight(Gfx.FONT_SYSTEM_NUMBER_MEDIUM), dc.getFontHeight(Gfx.FONT_SYSTEM_NUMBER_MILD), dc.getFontHeight(Gfx.FONT_SYSTEM_NUMBER_MEDIUM
-        ) ]);
+        //deBug ("FONT size", [radius_circle,dc.getFontHeight(Gfx.FONT_SYSTEM_LARGE), 
+        //dc.getFontHeight(Gfx.FONT_SYSTEM_NUMBER_MEDIUM), dc.getFontHeight(Gfx.FONT_SYSTEM_NUMBER_MILD), dc.getFontHeight(Gfx.FONT_SYSTEM_NUMBER_MEDIUM
+        //) ]);
 
         var f1 = Gfx.FONT_SYSTEM_NUMBER_MEDIUM; //good for instinct
 
@@ -2378,7 +2400,7 @@ function drawMoveDots(dc, num, goal, index, text_color)
         
         var dateStr2 = Lang.format("$1$", [info.day.format("%02d")]);
         var dateStr1 = Lang.format("$1$", [info.day_of_week]);
-        if($.Options_Dict["Show Month/Day"]) {
+        if($.Options_Dict[showMonthDay]) {
             dateStr1 = Lang.format("$1$", [info.month]);
         }
         //dateStr1 += " " + dateStr2;
@@ -2425,7 +2447,7 @@ function drawMoveDots(dc, num, goal, index, text_color)
             */
         
         //Second hand small circle (above) OR whole watchface main (below)
-        //if ($.Options_Dict["Second Display"] != 1) {
+        //if ($.Options_Dict[secondDisplay] != 1) {
             f1 = Gfx.FONT_MEDIUM;
             f2= f1;
             th = dc.getFontHeight(f2);
@@ -2433,7 +2455,7 @@ function drawMoveDots(dc, num, goal, index, text_color)
         var            just2 = Gfx.TEXT_JUSTIFY_RIGHT;
         var         ws1 = .051;
         var    ws2 = .965;
-            /*if (!$.Options_Dict["Hour Numbers"]) {
+            /*if (!$.Options_Dict[hourNumbers]) {
                 ws1 = .23;
                 ws2 = .77;
             }*/
@@ -2442,7 +2464,7 @@ function drawMoveDots(dc, num, goal, index, text_color)
         var    hs1 =.49;
         var   hs2 = hs1;
 
-        if (!$.Options_Dict["Hour Numbers"]) {
+        if (!$.Options_Dict[hourNumbers]) {
 
     
             dateStr1 += " " + dateStr2;
@@ -2479,7 +2501,7 @@ function drawMoveDots(dc, num, goal, index, text_color)
         
         dc.setColor(Gfx.COLOR_BLACK, Gfx.COLOR_BLACK);
 
-        //if ($.Options_Dict["Hour Numbers"]) {
+        //if ($.Options_Dict[hourNumbers]) {
             dc.fillRectangle(width_screen * ws1-2 , height_screen * hs1 - th/2.0 +4 + rect_cor_top, tw1 + 3, th -3  + rect_cor_bot);
 
             dc.fillRectangle(width_screen * ws2-2 - tw2 + 1 , height_screen * hs2 - th/2.0 +4  + rect_cor_top, tw2 + 3, th - 3  + rect_cor_bot);
@@ -2494,7 +2516,7 @@ function drawMoveDots(dc, num, goal, index, text_color)
 
         dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_TRANSPARENT);
 
-        if ($.Options_Dict["Hour Numbers"]) {
+        if ($.Options_Dict[hourNumbers]) {
             dc.drawRectangle(width_screen * ws1-2 , height_screen * hs1 - th/2.0 +4 + rect_cor_top, tw1 + 3, th -3  + rect_cor_bot);
 
             dc.drawRectangle(width_screen * ws2-2 - tw2 + 1 , height_screen * hs2 - th/2.0 +4  + rect_cor_top, tw2 + 3, th - 3  + rect_cor_bot);

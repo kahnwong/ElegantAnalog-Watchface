@@ -9,24 +9,54 @@ import Toybox.Lang;
 import Toybox.WatchUi;
 
 var Options_Dict = {  };
+var Options;
+var defOptions;
+var numOptions;
 var Settings_ran = false;
 
-var infiniteSecondOptions=["No Second Hand","<1 min", "<2 min", "<3 min", "<4 min","<5 min","<10 min", "Always"];
-var infiniteSecondLengths = [0, 1, 2, 3, 4, 5, 10, 1000000 ];
-var infiniteSecondOptions_size = 8;
-var infiniteSecondOptions_default = 2;
+enum {
+    infiniteSecondOption = 0,
+    secondDisplay = 1,
+    secondHandOption = 2,
+    dawnDuskMarkers = 3,
 
-var secondDisplayOptions=[ "Main Face Large", "Main Face Center", "Inset Circle"];
-var secondDisplayOptions_size = 3;
-var secondDisplayOptions_default = 0;
+    showBattery =  4,
+    showMinutes = 5,
+    
+    showDayMinutes = 6,
+    showSteps = 7,
+    showMove = 8,
+    showDate = 9,
+    showMonthDay =10,
+    hourNumbers =11,
+    hourHashes =12,
+    secondHashes =13,
+    aggressiveClear =14,
 
-var secondHandOptions=[ "Big Pointer", "Outline Pointer", "Big Blunt", "Outline Blunt",  "Big Needle", "Small Block", "Small Pointer","Small Needle"];
-var secondHandOptions_size = 8;
-var secondHandOptions_default = 1;
+    //lastLoc_saved = 99,
+}
 
-var dawnDuskOptions=[ "Dawn/Dusk Markers", "Sunrise/Set Markers", "Dawn/Dusk Inset Circle", "Sunrise/Set Inset Circle", "No Solar Clock", ];
-var dawnDuskOptions_size = 5;
-var dawnDuskOptions_default = 0;
+//var infiniteSecondOptions=WatchUi.loadResource( $.Rez.JsonData.infiniteSecondOptions) as Array;
+var infiniteSecondLengths = WatchUi.loadResource( $.Rez.JsonData.infiniteSecondLengths) as Array;
+//var infiniteSecondOptions_size = 8;
+//var infiniteSecondOptions_default = 2;
+
+//var secondDisplayOptions=WatchUi.loadResource( $.Rez.JsonData.secondDisplayOptions) as Array;
+//var secondDisplayOptions_size = 3;
+//var secondDisplayOptions_default = 0;
+
+//var secondHandOptions=WatchUi.loadResource( $.Rez.JsonData.secondHandOptions) as Array;
+//var secondHandOptions_size = 8;
+//var secondHandOptions_default = 1;
+
+//var dawnDuskOptions=WatchUi.loadResource( $.Rez.JsonData.dawnDuskOptions) as Array;
+//var dawnDuskOptions_size = 5;
+//var dawnDuskOptions_default = 0;
+
+var infiniteSecondOptions;
+var secondDisplayOptions;
+var secondHandOptions;
+var dawnDuskOptions;
 
 //! The app settings menu
 class ElegantAnaSettingsMenu extends WatchUi.Menu2 {
@@ -39,7 +69,14 @@ class ElegantAnaSettingsMenu extends WatchUi.Menu2 {
         var clockTime = System.getClockTime();
         System.println(clockTime.hour +":" + clockTime.min + " - Settings running");
 
-        Menu2.initialize({:title=>"Settings"});
+        infiniteSecondOptions=WatchUi.loadResource( $.Rez.JsonData.infiniteSecondOptions) as Array;
+        secondDisplayOptions=WatchUi.loadResource( $.Rez.JsonData.secondDisplayOptions) as Array;
+        secondHandOptions=WatchUi.loadResource( $.Rez.JsonData.secondHandOptions) as Array;
+        dawnDuskOptions=WatchUi.loadResource( $.Rez.JsonData.dawnDuskOptions) as Array;
+
+        var OptionsLabels_man = (WatchUi.loadResource( $.Rez.JsonData.OptionsLabels_man) as Array);
+
+        Menu2.initialize({:title=>OptionsLabels_man[0]});
         //var menu = new $.ElegantAnaSettingsMenu();
         //boolean = Storage.getValue("Second Hand On") ? true : false;
         //Menu2.addItem(new WatchUi.ToggleMenuItem("Second Hand: Off-On", null, "Second Hand On", boolean, null));
@@ -47,25 +84,31 @@ class ElegantAnaSettingsMenu extends WatchUi.Menu2 {
         //boolean = Storage.getValue("Infinite Second") ? true : false;
         //Menu2.addItem(new WatchUi.ToggleMenuItem("Second Hand after sleep: 2mins-Infinite", null, "Infinite Second", boolean, null));
 
-        if ($.Options_Dict["Infinite Second Option"] == null) { $.Options_Dict["Infinite Second Option"] = $.infiniteSecondOptions_default; }
-        Menu2.addItem(new WatchUi.MenuItem("Second Hand Run Time (after wake-up):",
-            $.infiniteSecondOptions[$.Options_Dict["Infinite Second Option"]],"Infinite Second Option",{}));
+        //if ($.Options_Dict[infiniteSecondOption] == null) { $.Options_Dict[infiniteSecondOption] = $.infiniteSecondOptions_default; }
+        Menu2.addItem(new WatchUi.MenuItem(OptionsLabels_man[1],
+            $.infiniteSecondOptions[$.Options_Dict[infiniteSecondOption]],infiniteSecondOption,{}));
 
         //var boolean = Storage.getValue("Long Second") ? true : false;
         //Menu2.addItem(new WatchUi.ToggleMenuItem("Second Hand Length: Short-Long", null, "Long Second", boolean, null));
 
-        if ($.Options_Dict["Second Display"] == null) { $.Options_Dict["Second Display"] = $.secondDisplayOptions_default; }
-        Menu2.addItem(new WatchUi.MenuItem("Second Hand Display:",
-            $.secondDisplayOptions[$.Options_Dict["Second Display"]],"Second Display",{}));
+        //if ($.Options_Dict[secondDisplay] == null) { $.Options_Dict[secondDisplay] = $.secondDisplayOptions_default; }
+        Menu2.addItem(new WatchUi.MenuItem(OptionsLabels_man[2],
+            $.secondDisplayOptions[$.Options_Dict[secondDisplay]],secondDisplay,{}));
 
-        if ($.Options_Dict["Second Hand Option"] == null) { $.Options_Dict["Second Hand Option"] = $.secondHandOptions_default; }
-        Menu2.addItem(new WatchUi.MenuItem("Second Hand Shape:",
-            $.secondHandOptions[$.Options_Dict["Second Hand Option"]],"Second Hand Option",{}));
+        //if ($.Options_Dict[secondHandOption] == null) { $.Options_Dict[secondHandOption] = $.secondHandOptions_default; }
+        Menu2.addItem(new WatchUi.MenuItem(OptionsLabels_man[3],
+            $.secondHandOptions[$.Options_Dict[secondHandOption]],secondHandOption,{}));
+
+        //if ($.Options_Dict[dawnDuskMarkers] == null) { $.Options_Dict[dawnDuskMarkers] = $.dawnDuskOptions_default; }
+        Menu2.addItem(new WatchUi.MenuItem(OptionsLabels_man[4],
+            $.dawnDuskOptions[$.Options_Dict[dawnDuskMarkers]],dawnDuskMarkers,{}));                
 
            
 
         //boolean = Storage.getValue("Wide Second") ? true : false;
-        //Menu2.addItem(new WatchUi.ToggleMenuItem("Second Hand Size: Narrow-Wide", null, "Wide Second", boolean, null));                
+        //Menu2.addItem(new WatchUi.ToggleMenuItem("Second Hand Size: Narrow-Wide", null, "Wide Second", boolean, null));  
+
+        /*             
 
         var boolean = Storage.getValue("Show Battery") ? true : false;
         Menu2.addItem(new WatchUi.ToggleMenuItem("Show Battery %: No-Yes", null, "Show Battery", boolean, null));            
@@ -89,9 +132,7 @@ class ElegantAnaSettingsMenu extends WatchUi.Menu2 {
         boolean = Storage.getValue("Show Month/Day") ? true : false;
         Menu2.addItem(new WatchUi.ToggleMenuItem("Show Day of Week or Month", null, "Show Month/Day", boolean, null));
 
-        if ($.Options_Dict["Dawn/Dusk Markers"] == null) { $.Options_Dict["Dawn/Dusk Markers"] = $.dawnDuskOptions_default; }
-        Menu2.addItem(new WatchUi.MenuItem("Solar Clock Option:",
-            $.dawnDuskOptions[$.Options_Dict["Dawn/Dusk Markers"]],"Dawn/Dusk Markers",{}));         
+     
 
         boolean = Storage.getValue("Hour Numbers") ? true : false;
         Menu2.addItem(new WatchUi.ToggleMenuItem("Hour Numbers: Off-On", null, "Hour Numbers", boolean, null));        
@@ -103,7 +144,15 @@ class ElegantAnaSettingsMenu extends WatchUi.Menu2 {
         Menu2.addItem(new WatchUi.ToggleMenuItem("Second Hashes: Off-On", null, "Second Hashes", boolean, null));                        
 
         boolean = Storage.getValue("Aggressive Clear") ? true : false;
-        Menu2.addItem(new WatchUi.ToggleMenuItem("Aggressive Screen Clear?", null, "Aggressive Clear", boolean, null));                        
+        Menu2.addItem(new WatchUi.ToggleMenuItem("Aggressive Screen Clear?", null, "Aggressive Clear", boolean, null));   
+
+        */ 
+
+        var OptionsLabels = (WatchUi.loadResource( $.Rez.JsonData.OptionsLabels) as Array);
+
+        for (var i = 0; i < numOptions; i++) {
+        Menu2.addItem(new WatchUi.ToggleMenuItem(OptionsLabels[i], null, Options[i], $.Options_Dict[Options[i]]==true, null));
+        }                    
         
     }
 }
@@ -128,8 +177,8 @@ class ElegantAnaSettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
         }
 
         var id=menuItem.getId();
-        if(id.equals("Infinite Second Option")) {
-            $.Options_Dict[id]=($.Options_Dict[id]+1)%infiniteSecondOptions_size;
+        if(id.equals(infiniteSecondOption)) {
+            $.Options_Dict[id]=($.Options_Dict[id]+1)%infiniteSecondOptions.size();
             menuItem.setSubLabel($.infiniteSecondOptions[$.Options_Dict[id]]);
 
             Storage.setValue(id as String, $.Options_Dict[id]);            
@@ -138,8 +187,8 @@ class ElegantAnaSettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
             //MySettings.background=MySettings.getColor(null,null,null,MySettings.backgroundIdx);
         }
 
-        if(id.equals("Second Display")) {
-            $.Options_Dict[id]=($.Options_Dict[id]+1)%secondDisplayOptions_size;
+        if(id.equals(secondDisplay)) {
+            $.Options_Dict[id]=($.Options_Dict[id]+1)%secondDisplayOptions.size();
             menuItem.setSubLabel($.secondDisplayOptions[$.Options_Dict[id]]);
 
             Storage.setValue(id as String, $.Options_Dict[id]);            
@@ -148,8 +197,8 @@ class ElegantAnaSettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
             //MySettings.background=MySettings.getColor(null,null,null,MySettings.backgroundIdx);
         }
 
-        if(id.equals("Second Hand Option")) {
-            $.Options_Dict[id]=($.Options_Dict[id]+1)%secondHandOptions_size;
+        if(id.equals(secondHandOption)) {
+            $.Options_Dict[id]=($.Options_Dict[id]+1)%secondHandOptions.size();
             menuItem.setSubLabel($.secondHandOptions[$.Options_Dict[id]]);
 
             Storage.setValue(id as String, $.Options_Dict[id]);            
@@ -158,8 +207,8 @@ class ElegantAnaSettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
             //MySettings.background=MySettings.getColor(null,null,null,MySettings.backgroundIdx);
         }
 
-        if(id.equals("Dawn/Dusk Markers")) {
-            $.Options_Dict[id]=($.Options_Dict[id]+1)%dawnDuskOptions_size;
+        if(id.equals(dawnDuskMarkers)) {
+            $.Options_Dict[id]=($.Options_Dict[id]+1)%dawnDuskOptions.size();
             menuItem.setSubLabel($.dawnDuskOptions[$.Options_Dict[id]]);
 
             Storage.setValue(id as String, $.Options_Dict[id]);            
@@ -171,6 +220,10 @@ class ElegantAnaSettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
 
     function onBack() {
         System.println("onBack");
+        infiniteSecondOptions = null;
+        secondDisplayOptions = null;
+        secondHandOptions = null;
+        dawnDuskOptions = null;
         WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
         return false;
     }

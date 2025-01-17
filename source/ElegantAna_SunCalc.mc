@@ -281,11 +281,15 @@ var DISPLAY = [
     var sc;    
     var now;
     var lastLoc;
+    var lastCalcExpires_sec;
+    var savedRet;
     //var is24HOur;
 
  
     function initialize() {
         sc = new ElegantAna_SunCalc();
+        lastCalcExpires_sec = 0;
+        savedRet = null;
         //now = Time.now();
         // for testing now = new Time.Moment(1483225200);
         lastLoc = null;
@@ -294,7 +298,7 @@ var DISPLAY = [
 
     //Urggh.
     //Check if location was saved in past 5 days, us it.
-    //If not, check Position, then Weather, the Activity for a good position, use it.
+    //If not, check Position, XXXXthen WeatherXXXX, the Activity for a good position, use it.
     //Otherwise, use geo center of continental U.S. as location
 
     function setPositionAndTime () {
@@ -307,10 +311,11 @@ var DISPLAY = [
         if (curr_pos == null) {
             var a_info = Activity.getActivityInfo();
             var a_pos = null;
-            System.println ("sc1.2:Activity a_pos==Null3? " + (a_pos==null));
+            System.println ("sc1.2:Activity a_info==Null3? " + (a_info==null) + " " + a_info);
             
              if (a_info!=null && a_info has :currentLocation && a_info.currentLocation != null)
                 { a_pos = a_info.currentLocation;}
+            System.println ("sc1.2:Activity a_pos==Null3? " + (a_pos==null) + " " + a_pos);
             //System.println ("setPosition4");
             if (a_pos != null ) {
                 System.println ("Position: Got from Activity.getActivityInfo() currentLocation" + a_pos + " " + a_pos.toDegrees());
@@ -324,8 +329,8 @@ var DISPLAY = [
         if (curr_pos == null) { 
             if ($.Options_Dict.hasKey("Location") && $.Options_Dict["Location"] != null && (now.value() - $.Options_Dict["Location"][1] < 0.5 * Time.Gregorian.SECONDS_PER_DAY) ) {
                 self.lastLoc = $.Options_Dict["Location"][0];
-                System.println ("sc0: Options_Dict " + ($.Options_Dict["Location"][0]) + " now: " + now.value() + " saved: " + $.Options_Dict["Location"][1] );  
-                System.println ("lastLoc final saved: " + self.lastLoc + Math.toDegrees(self.lastLoc[0]) + "," + Math.toDegrees(self.lastLoc[1]));  
+                //System.println ("sc0: Options_Dict " + ($.Options_Dict["Location"][0]) + " now: " + now.value() + " saved: " + $.Options_Dict["Location"][1] );  
+                //System.println ("lastLoc final saved: " + self.lastLoc + Math.toDegrees(self.lastLoc[0]) + "," + Math.toDegrees(self.lastLoc[1]));  
                 if  (self.lastLoc != null) {return;}
             }
         }
@@ -492,7 +497,7 @@ var DISPLAY = [
     //ASTRO_DAWN, NAUTIC_DAWN, DAWN, DUSK, SUNRISE, SUNSET, etc
     //returns array with string "Dawn" or "Dusk" to indicate morning/night and the 
     //angle in radians where the event can be placed on a 12-hour clock.
-    function getNextDawnDusk(which){
+    function getNextDawnDusk_calc(which){
      
         //System.println ("sc7");
         //var which = [  DAWN,DUSK,];   
@@ -547,7 +552,7 @@ var DISPLAY = [
         //System.println(which);
 
         var angle = (times[pos][2] - mid_date.value().toDouble() )/(Time.Gregorian.SECONDS_PER_DAY/2.0) * Math.PI * 2.0;        
-        var ret = [[nd,  angle]];
+        var ret = [[nd,  angle, times[pos][2]]];
 
         if (pos + 1 < times.size()) {
             pos ++;
@@ -559,12 +564,37 @@ var DISPLAY = [
 
             angle = (times[pos][2] - mid_date.value().toDouble() )/(Time.Gregorian.SECONDS_PER_DAY/2.0) * Math.PI * 2.0;
 
-            ret.add([nd,angle]);
+            ret.add([nd,angle,times[pos][2]]);
 
         }
         
         
         return ret;
+    }
+
+
+    //Cache the last calculated dawn/dusk array until the next dawn/dusk 
+    //event, OR 2 hours, whichever is less
+    function getNextDawnDusk(which){
+        now = Time.now();
+        //deBug("GNDD", [now.value(), lastCalcExpires_sec, savedRet]);
+        if (now.value()> lastCalcExpires_sec || savedRet == null){
+            var ret = getNextDawnDusk_calc(which);
+            if (ret[0] != null && ret[0][2] != null) {
+                savedRet = ret;
+                lastCalcExpires_sec = ret[0][2];
+                if (lastCalcExpires_sec - now.value() > 3600 * 2){
+                    lastCalcExpires_sec = now.value() + 3600 * 2;
+                }
+            }
+            //deBug("GNDD after return new", [now.value(), lastCalcExpires_sec, ret]);
+            return ret;
+        }
+
+        //deBug("GNDD after return cached", [now.value(), lastCalcExpires_sec, savedRet]);
+
+        return savedRet;
+
     }
 
 

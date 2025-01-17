@@ -17,16 +17,63 @@ class ElegantAnaWatch extends Application.AppBase {
 
     //! Constructor
     public function initialize() {
-        System.println("0A");
+        //System.println("0A");
         AppBase.initialize();
-        System.println("1A");
+        //System.println("1A");
+
+         Options = [infiniteSecondOption,
+                    secondDisplay,
+                    secondHandOption,
+                    dawnDuskMarkers,
+
+                    showBattery,
+                    showMinutes,
+                    
+                    showDayMinutes,
+                    showSteps,
+                    showMove,
+                    showDate,
+                    showMonthDay,
+                    hourNumbers,
+                    hourHashes,
+                    secondHashes,
+                    aggressiveClear,
+
+                    //lastLoc_saved9,
+        ];
+
+        numOptions = Options.size();
+
+        defOptions = {infiniteSecondOption => 2,
+                    secondDisplay => 0,
+                    secondHandOption => 1,
+                    dawnDuskMarkers => 0,
+
+                    showBattery => false,
+                    showMinutes => false,
+                    
+                    showDayMinutes => false,
+                    showSteps => false,
+                    showMove => false,
+                    showDate => false,
+                    showMonthDay => false,
+                    hourNumbers => false,
+                    hourHashes => false,
+                    secondHashes => false,
+                    aggressiveClear => false,
+                    
+                    //lastLoc_saved => [38, -94],
+                    };
+
+        readStorageValues();  
+        defOptions = null;
     }
 
     
     //! Handle app startup
     //! @param state Startup arguments
     public function onStart(state as Dictionary?) as Void {
-        System.println("2A");
+        //System.println("2A");
         //Get the stored value of the settings if it exists, OR set to defaul
      
     }
@@ -41,7 +88,7 @@ class ElegantAnaWatch extends Application.AppBase {
     //! Return the initial view for the app
     //! @return Array Pair [View, Delegate] or Array [View]
     public function getInitialView() as [Views] or [Views, InputDelegates] {
-        System.println("4A");
+        //System.println("4A");
         if (WatchUi has :WatchFaceDelegate) {
             var view = new $.ElegantAnaView();
             mainView = view;
@@ -69,4 +116,21 @@ class ElegantAnaWatch extends Application.AppBase {
         return [new $.ElegantAnaSettingsMenu(), new $.ElegantAnaSettingsMenuDelegate()];
     }
 
+}
+
+
+public function readStorageValues() as Void {
+    if (!(Application has :Storage)) {
+            $.Options_Dict = defOptions;
+            return;
+     }
+    
+    var temp;    
+
+    for (var i = 0; i < numOptions; i++) {
+
+        temp = Storage.getValue(Options[i]);
+        $.Options_Dict[Options[i]] = temp  != null ? temp : defOptions[Options[i]];
+        Storage.setValue(Options[i],$.Options_Dict[Options[i]]);
+    }
 }

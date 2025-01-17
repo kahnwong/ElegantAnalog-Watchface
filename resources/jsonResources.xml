@@ -1,0 +1,49 @@
+<jsonDataResources>
+
+
+    <jsonData id="infiniteSecondOptions"> 
+    ["No Second Hand","1 min", "&lt;2 min", "&lt;3 min", "&lt;4 min","&lt;5 min","&lt;10 min", "Always"]
+       
+   </jsonData>
+    <jsonData id="infiniteSecondLengths"> 
+    [0, 1, 2, 3, 4, 5, 10, 1000000 ]
+       
+   </jsonData>
+   
+    <jsonData id="secondDisplayOptions">
+    [ "Main Face Large", "Main Face Center", "Inset Circle"]
+        
+   </jsonData>
+
+   <jsonData id="secondHandOptions">
+    [ "Big Pointer", "Outline Pointer", "Big Blunt", "Outline Blunt",  "Big Needle", "Small Block", "Small Pointer","Small Needle"]
+        
+   </jsonData>
+
+   <jsonData id="dawnDuskOptions">
+    [ "Dawn/Dusk Markers", "Sunrise/Set Markers", "Dawn/Dusk Inset Circle", "Sunrise/Set Inset Circle", "No Solar Clock" ]
+        
+   </jsonData>
+
+    <jsonData id ="OptionsLabels"> ["Show Battery %: No-Yes", "Show Wkly Activity Minutes: No-Yes", "Show Daily Activity Minutes: No-Yes", "Show Daily Steps: No-Yes",
+       "Show Move Bar: No-Yes", "Show Date: No-Yes", "Show Day of Week or Month",
+       "Hour Numbers: Off-On", "Hour Hashes: Off-On", "Second Hashes: Off-On",
+       "Aggressive Screen Clear?"
+       ]
+    </jsonData>
+
+    <jsonData id ="OptionsLabels_man"> [
+        "Settings",
+        "Second Hand Run Time (after wake-up):",
+        "Second Hand Display:",
+        "Second Hand Shape:",
+        "Solar Clock Option:"
+       ]
+    </jsonData>
+
+
+
+
+
+
+</jsonDataResources>
