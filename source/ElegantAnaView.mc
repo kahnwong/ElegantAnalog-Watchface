@@ -2302,16 +2302,34 @@ function drawMoveDots(dc, num, goal, index, text_color)
             //dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_WHITE); //This works better on sim but worse on real watch
         
         } else {
-            //dc.setColor(text_color, Gfx.COLOR_TRANSPARENT);
-            dc.setColor(text_color, Gfx.COLOR_BLACK);//This works better on sim but worse on real watch
+            dc.setColor(text_color, Gfx.COLOR_TRANSPARENT);
+            //dc.setColor(text_color, Gfx.COLOR_BLACK);//This works better on sim but worse on real watch
         }
         
         //dc.drawText(width_screen * .15 , (height_screen * -.04), Gfx.FONT_SYSTEM_NUMBER_THAI_HOT, dateStr2, Gfx.TEXT_JUSTIFY_CENTER);
         //dc.drawText(width_screen * .15 , (height_screen * .22), Gfx.FONT_SYSTEM_MEDIUM, dateStr1, Gfx.TEXT_JUSTIFY_CENTER);
 
         //var f1 = Gfx.FONT_SYSTEM_NUMBER_MEDIUM;
-        var f1 = Gfx.FONT_SYSTEM_LARGE;
-        //var f1 = Gfx.FONT_SYSTEM_NUMBER_THAI_HOT;
+        deBug ("FONT size", [radius_circle,dc.getFontHeight(Gfx.FONT_SYSTEM_LARGE), 
+        dc.getFontHeight(Gfx.FONT_SYSTEM_NUMBER_MEDIUM), dc.getFontHeight(Gfx.FONT_SYSTEM_NUMBER_MILD), dc.getFontHeight(Gfx.FONT_SYSTEM_NUMBER_MEDIUM
+        ) ]);
+
+        var f1 = Gfx.FONT_SYSTEM_NUMBER_MEDIUM; //good for instinct
+
+        if (dc.getFontHeight(Gfx.FONT_SYSTEM_NUMBER_MEDIUM) > radius_circle * 1.4) {
+
+            if (dc.getFontHeight(Gfx.FONT_SYSTEM_LARGE) < radius_circle * 1.35) {
+                f1 = Gfx.FONT_SYSTEM_LARGE; //for for 965 & some/most others?!?!?!?!?
+            } else  
+                    if (dc.getFontHeight(Gfx.FONT_SYSTEM_MEDIUM) < radius_circle * 1.35) {
+                f1 = Gfx.FONT_SYSTEM_MEDIUM; //Just in case???!~???
+            } else  
+                    {
+                f1 = Gfx.FONT_SYSTEM_SMALL; 
+            }
+        }
+        //var f1 = Gfx.FONT_SYSTEM_LARGE; //for for 965 & some/most others?!?!?!?!?
+        //var f1 = Gfx.FONT_SYSTEM_NUMBER_MEDIUM; //good for instinct
         //var f2 = Gfx.FONT_SYSTEM_SMALL;
         var f2 = Gfx.FONT_SYSTEM_TINY;
 
@@ -2339,8 +2357,9 @@ function drawMoveDots(dc, num, goal, index, text_color)
             var f1_h = dc.getFontHeight(f1);
             var f2_h = dc.getFontHeight(f2);
 
-            dc.drawText(centerX_circle, centerY_circle - f1_h * .7 , f1, dateStr2, Gfx.TEXT_JUSTIFY_CENTER);
-            dc.drawText(centerX_circle, centerY_circle + f1_h * 0.1 + 2, f2, dateStr1, Gfx.TEXT_JUSTIFY_CENTER);      //better for watch, this first
+            dc.drawText(centerX_circle, centerY_circle + f1_h * 0.075 + 2, f2, dateStr1, Gfx.TEXT_JUSTIFY_CENTER);      //better for watch, this first\
+            dc.drawText(centerX_circle, centerY_circle - f1_h * .8 , f1, dateStr2, Gfx.TEXT_JUSTIFY_CENTER);
+
             
         }
         
@@ -2544,3 +2563,9 @@ class ElegantAnaInputDelegate extends WatchUi.InputDelegate {
     }
 }
 */
+
+
+function deBug(label, ary) {
+    System.println (label + ": " + ary);
+
+}

@@ -6,17 +6,12 @@ using Toybox.Graphics as Gfx;
 
 module Rez {
     module Drawables {
-        (:initialized) var DoNotDisturbIcon as ResourceId;
         (:initialized) var LauncherIcon as ResourceId;
     } // Drawables
 
-    module Fonts {
-        (:initialized) var id_font_black_diamond as ResourceId;
-    } // Fonts
-
     module Layouts {
         function WatchFace(dc as Graphics.Dc) as Array<WatchUi.Drawable> {
-            var rez_cmp_local_text_TimeLabel = new WatchUi.Text({:identifier=>"TimeLabel", :color=>Gfx.COLOR_BLUE, :locX=>(176 * 0.5), :locY=>((176 - dc.getFontHeight(Gfx.FONT_LARGE)) * 0.5), :justification=>Gfx.TEXT_JUSTIFY_CENTER, :font=>Gfx.FONT_LARGE});
+            var rez_cmp_local_text_TimeLabel = new WatchUi.Text({:identifier=>"TimeLabel", :color=>Gfx.COLOR_WHITE, :locX=>(176 * 0.5), :locY=>((176 - dc.getFontHeight(Gfx.FONT_LARGE)) * 0.5), :justification=>Gfx.TEXT_JUSTIFY_CENTER, :font=>Gfx.FONT_LARGE});
 
             return [rez_cmp_local_text_TimeLabel] as Array<WatchUi.Drawable>;
         }
