@@ -47,6 +47,11 @@ class ElegantAnaView extends WatchUi.WatchFace {
 
     var hashMarksArray = new [24];
 
+    var dateFont;
+    var timeFont;
+    var dateTextHeight;
+    var timeTextHeight;
+
     var batt_width_rect = 12;
     var batt_height_rect = 6;
     var batt_width_rect_small = 2;
@@ -57,6 +62,11 @@ class ElegantAnaView extends WatchUi.WatchFace {
     var dmd_yy, dmd_x;
     var dmd_w;
     var dmd_h;
+
+    var activities_background_color = Graphics.COLOR_BLACK;
+    var lowBatteryColor = Graphics.COLOR_RED;
+    var activities_primaryColor ;
+    var activities_gap = 1;
 
     var stepGoal;
     var steps;
@@ -227,6 +237,8 @@ class ElegantAnaView extends WatchUi.WatchFace {
             }
         }
 
+        /*
+
         //get battery icon position
         batt_x = (width_screen/2) - (batt_width_rect/2) - (batt_width_rect_small/2);
         batt_y = (height_screen* .74) - (batt_height_rect/2);
@@ -242,6 +254,53 @@ class ElegantAnaView extends WatchUi.WatchFace {
         dmd_x = centerX_main;
         
         //dmd_x = batt_x + (batt_width_rect + batt_width_rect_small - (4.5 * dmd_w4 -1))/2; //center the move dots under the battery.  If possible.
+        */
+
+        dateFont = Graphics.FONT_TINY;
+        timeFont = Graphics.FONT_LARGE;
+        dateTextHeight =  dc.getFontHeight(dateFont);        
+        timeTextHeight = dc.getFontHeight(timeFont);
+
+        //startAnimationTimer($.hz);        
+
+
+        batt_width_rect = Math.round(width_screen/14.6).toNumber(); //12
+        batt_height_rect = Math.round(height_screen/29.2).toNumber(); //6;
+        batt_width_rect_small = Math.round(batt_width_rect/6.0).toNumber(); //2;
+        batt_height_rect_small = Math.round(batt_height_rect*2/3.0).toNumber();//4;      
+
+        if ((batt_height_rect - batt_height_rect_small)%2 != 0 )
+        {batt_height_rect_small ++;}
+
+         //get battery icon position
+        batt_x = (width_screen/2.0) - (batt_width_rect/2.0) - (batt_width_rect_small/2.0);
+        //batt_y = (screenHeight* .63) - (batt_height_rect/2);
+        batt_y = Math.round(centerY_main + dateTextHeight + 2);
+        batt_x_small = batt_x + batt_width_rect;
+        batt_y_small = Math.floor(batt_y + ((batt_height_rect - batt_height_rect_small) / 2.0));
+        batt_x = Math.round(batt_x);
+
+        //Figure Move Dot positions
+        dmd_w4 =Math.ceil((batt_width_rect + batt_width_rect_small+3)/4);
+        //dmd_yy = batt_y + 1.5 * batt_height_rect;
+        dmd_yy = Math.round(batt_y);
+        dmd_w = Math.ceil((batt_width_rect + batt_width_rect_small+3)/4.0-1);
+        dmd_h = Math.round(batt_height_rect-3);
+        dmd_x = centerX_main;
+
+        //always make it a square of the larger size
+        dmd_w = (dmd_w>dmd_h) ? dmd_w : dmd_h;
+        dmd_h = dmd_w;
+
+        activities_gap = 1;
+        if (centerY_main > 129  ) {activities_gap =2;} //for whatever reason a couple of graphics things need to be +2 instead of +1 for some high-res devices like FR 965
+
+        activities_background_color = Graphics.COLOR_BLACK;
+        //lowBatteryColor = Graphics.COLOR_YELLOW;              
+        // #ff4488
+        //lowBatteryColor = Graphics.COLOR_YELLOW;                
+        lowBatteryColor = 0xff6666;
+        activities_primaryColor = Graphics.COLOR_LT_GRAY;
 
         sec_length = width_screen*.43; //this will be change @ runtime per Storage.getValue("Second Display"), see below.
         //sec_length = width_screen*.23;
@@ -2003,7 +2062,9 @@ class ElegantAnaView extends WatchUi.WatchFace {
                 }
             }
         }
-    }    
+    }   
+
+    /* 
     
     function drawBattery(dc, primaryColor, lowBatteryColor, fullBatteryColor)
     {
@@ -2035,6 +2096,40 @@ class ElegantAnaView extends WatchUi.WatchFace {
             dc.fillRectangle(batt_x_small, batt_y_small, batt_width_rect_small, batt_height_rect_small);
         }
     }
+    */
+
+    
+    function drawBattery(dc, primaryColor, lowBatteryColor, fullBatteryColor)
+    {
+        var battery = System.getSystemStats().battery;
+        
+        if(battery < 15.0)
+        {
+            primaryColor = lowBatteryColor;
+        }
+        //else if(battery == 100.0)
+        //{
+        //    primaryColor = fullBatteryColor;
+        //}
+        dc.setPenWidth(1);
+        dc.setColor(primaryColor, Graphics.COLOR_TRANSPARENT);
+        dc.drawRectangle(batt_x, batt_y, batt_width_rect, batt_height_rect);
+        //dc.setColor(activities_background_color, Graphics.COLOR_TRANSPARENT);
+        //dc.drawLine(batt_x_small-1, batt_y_small+1, batt_x_small-1, batt_y_small + batt_height_rect_small-1);
+        //return;
+
+        dc.setColor(primaryColor, Graphics.COLOR_TRANSPARENT);
+        dc.drawRectangle(batt_x_small, batt_y_small, batt_width_rect_small, batt_height_rect_small);
+        dc.setColor(activities_background_color, Graphics.COLOR_TRANSPARENT);
+        dc.drawLine(batt_x_small, batt_y_small+1, batt_x_small, batt_y_small + batt_height_rect_small-activities_gap);
+
+        dc.setColor(primaryColor, Graphics.COLOR_TRANSPARENT);
+        dc.fillRectangle(batt_x, batt_y, (Math.ceil(batt_width_rect * battery / 100.0f)), batt_height_rect);
+        if(battery == 100.0)
+        {
+            dc.fillRectangle(batt_x_small, batt_y_small, batt_width_rect_small, batt_height_rect_small);
+        }
+    }
 
     function drawMove(dc, text_color)
     {
@@ -2046,7 +2141,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
     }
 
 
-
+    /*
     function drawMoveDots(dc, num, goal, index, text_color)
     {
         //System.println("dMD: " + num + " " + goal  + " " + index);
@@ -2104,6 +2199,74 @@ class ElegantAnaView extends WatchUi.WatchFace {
         
         
     }
+    */
+
+     function drawMoveDots(dc, num, goal, index, text_color)
+    {
+        dc.setPenWidth(1);
+        //System.println("dMD: " + num + " " + goal  + " " + index);
+
+        //System.println("dMD: " + (num instanceof Lang.Object) + " " + (goal instanceof Lang.Object)  + " " + index);
+        if (goal ==0 ) { goal =100; }
+        var numDots = num * 1.0/ (goal * 1.0) * 5 + 0.00001; //to avoid 4.9999 type situations when we round by .floor() later
+        var numD_floor = Math.floor(numDots);
+        var partial = numDots - numD_floor;
+
+        if (numDots==0 && partial < 1f/dmd_w ) { return; }
+        if ( numDots>6 ) { numDots = 6; partial = 0;  }
+        numD_floor = Math.floor(numDots);
+        if (partial <0.3333) {partial = 0;} 
+
+        var squares = numD_floor;
+        var partial_mx = Math.floor (partial * dmd_w);
+        if (numDots < 6 && partial >= 0.3333) { squares +=1; }
+
+        //var x_start = dmd_x - (numDots*dmd_w + numDots -1)/2; //Dots will be centered under the battery;
+        var fact = numD_floor*dmd_w + squares -1;
+        if (partial >= 0.3333) { fact = fact + partial;}
+        
+        var x_start = Math.round(dmd_x - (fact)/2.0); //Dots will be centered under the battery;
+
+        //System.println("dMD: " + numDots + " " + partial  + " " + squares);
+
+        //deBug("col", [text_color, Graphics.COLOR_TRANSPARENT]);
+        dc.setColor(text_color, Graphics.COLOR_TRANSPARENT);  
+        //dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);  
+        
+        //deBug("col", [squares]);
+        for (var i = 0; i < squares; i++) {
+            //var xx = x_start + i * dmd_w4;            
+            var xx = x_start + i * (dmd_w+1);//4            
+            var yy = dmd_yy + index * (dmd_h + activities_gap);
+            if (i < 5 || (i==5 && partial > 0)) {
+                var mx = dmd_w;//3;
+                if (i == numD_floor) { mx = partial_mx; }
+                
+                //System.println("dMD: " + numDots + " " + partial  + " " + squares + " " + i + " " + mx);
+
+                //dc.fillRectangle(xx, yy, dmd_w, dmd_h);            
+                for (var j=0; j<mx; j++) {
+                    dc.drawLine(xx + j, yy,xx +j ,yy + dmd_h);                    
+                    //deBug("drawline", [xx + j, yy,xx +j ,yy + dmd_h]);
+                    //deBug("drawline", [xx, yy,dmd_h]);
+                }
+                //} else { //the partial square
+                //    dc.fillRectangle(xx, yy, dmd_w * partial, dmd_h);            
+                //}
+            } else {
+                //plus sign
+                //dc.drawRectangle(xx, yy, dmd_w, dmd_h);            
+                var x_add = xx + Math.ceil(dmd_w/2.0);
+                var y_add = yy + Math.ceil(dmd_h/2.0);
+                dc.drawLine(x_add, yy,x_add ,yy + dmd_h);            
+                dc.drawLine(xx, y_add ,xx + dmd_w , y_add);            
+            }
+        }
+
+        
+        
+    }
+    
 
     function drawDateInset(dc, text_color, reverse as Boolean)
     {
