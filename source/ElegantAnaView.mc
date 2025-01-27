@@ -825,7 +825,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
             var stats = System.getSystemStats();
             var battery = stats.battery;
             var batteryInDays = stats.batteryInDays;
-            deBug("batmove", [battery, batteryInDays]);
+            //deBug("batmove", [battery, batteryInDays]);
             var index = 0;
             if ($.Options_Dict[showBattery] || battery < 8.0 || batteryInDays < 1.1) {
                 drawBattery(targetDc, Gfx.COLOR_WHITE, lowBatteryColor, Gfx.COLOR_WHITE);
@@ -849,7 +849,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
             var stats = System.getSystemStats();
             var battery = stats.battery;
             var batteryInDays = stats.batteryInDays;
-            deBug("bat", [battery, batteryInDays]);
+            //deBug("bat", [battery, batteryInDays]);
             if ($.Options_Dict[showBattery] || battery < 8.0 || batteryInDays < 1.1) {
                 drawBattery(targetDc, Gfx.COLOR_WHITE, lowBatteryColor, Gfx.COLOR_WHITE);
                 index +=1.75;

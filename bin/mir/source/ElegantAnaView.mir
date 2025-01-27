@@ -2558,149 +2558,137 @@ E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_
         %tmp.520 = lgetv %stats.12;
         %tmp.521 = getv %tmp.520 :batteryInDays;
         lputv %batteryInDays.14 %tmp.521;
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 828 12 ]
-        %tmp.522 = self;
-        %tmp.523 = getv function %tmp.522 :deBug;
-        %tmp.524 = "batmove";
-        %tmp.525 = newa 2;
-        %tmp.527 = lgetv %battery.13;
-        %tmp.528 = dup %tmp.525;
-        %tmp.529 = aputv %tmp.528 0 %tmp.527;
-        %tmp.531 = lgetv %batteryInDays.14;
-        %tmp.532 = dup %tmp.529;
-        %tmp.533 = aputv %tmp.532 1 %tmp.531;
-        invoke %tmp.522 %tmp.523(%tmp.524, %tmp.533);
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 829 12 ]
         [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_824_8_845_8_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_824_8_845_8_stop" ]
         %index.15 = local;
-        %tmp.534 = 0;
-        lputv %index.15 %tmp.534;
+        %tmp.522 = 0;
+        lputv %index.15 %tmp.522;
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 830 12 ]
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_830_12_833_12_if_stmt:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_830_16_830_80_begin:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_830_16_830_57_begin:
-        %tmp.535 = getm $;
-        %tmp.536 = getv %tmp.535 :Options_Dict;
-        %tmp.538 = getv ? :showBattery;
-        %tmp.539 = agetv %tmp.536 %tmp.538;
-        bt %tmp.539 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_830_12_833_12_if_true;
+        %tmp.523 = getm $;
+        %tmp.524 = getv %tmp.523 :Options_Dict;
+        %tmp.526 = getv ? :showBattery;
+        %tmp.527 = agetv %tmp.524 %tmp.526;
+        bt %tmp.527 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_830_12_833_12_if_true;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_830_47_830_57_false:
-        %tmp.541 = lgetv %battery.13;
-        %tmp.542 = 8.0;
-        %tmp.543 = lt %tmp.541 %tmp.542;
-        push %tmp.543;
+        %tmp.529 = lgetv %battery.13;
+        %tmp.530 = 8.0;
+        %tmp.531 = lt %tmp.529 %tmp.530;
+        push %tmp.531;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_830_47_830_57_end:
-        %tmp.544 = phi [%tmp.539 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_830_16_830_57_begin] [%tmp.543 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_830_47_830_57_false] [%tmp.544 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_830_47_830_57_end];
-        bt %tmp.544 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_830_12_833_12_if_true;
+        %tmp.532 = phi [%tmp.527 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_830_16_830_57_begin] [%tmp.531 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_830_47_830_57_false] [%tmp.532 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_830_47_830_57_end];
+        bt %tmp.532 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_830_12_833_12_if_true;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_830_64_830_80_false:
-        %tmp.546 = lgetv %batteryInDays.14;
-        %tmp.547 = 1.1;
-        %tmp.548 = lt %tmp.546 %tmp.547;
-        push %tmp.548;
+        %tmp.534 = lgetv %batteryInDays.14;
+        %tmp.535 = 1.1;
+        %tmp.536 = lt %tmp.534 %tmp.535;
+        push %tmp.536;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_830_64_830_80_end:
-        %tmp.549 = phi [%tmp.544 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_830_16_830_80_begin] [%tmp.548 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_830_64_830_80_false] [%tmp.549 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_830_64_830_80_end];
-        bf %tmp.549 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_830_12_833_12_if_end;
+        %tmp.537 = phi [%tmp.532 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_830_16_830_80_begin] [%tmp.536 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_830_64_830_80_false] [%tmp.537 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_830_64_830_80_end];
+        bf %tmp.537 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_830_12_833_12_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_830_12_833_12_if_true:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_830_85_833_12_start:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 831 16 ]
-        %tmp.550 = self;
-        %tmp.551 = getv function %tmp.550 :drawBattery;
-        %tmp.553 = lgetv %targetDc.2;
-        %tmp.554 = getm $.Toybox.Graphics;
-        %tmp.555 = getv %tmp.554 :COLOR_WHITE;
-        %tmp.557 = getv ? :lowBatteryColor;
-        %tmp.558 = getm $.Toybox.Graphics;
-        %tmp.559 = getv %tmp.558 :COLOR_WHITE;
-        invoke %tmp.550 %tmp.551(%tmp.553, %tmp.555, %tmp.557, %tmp.559);
+        %tmp.538 = self;
+        %tmp.539 = getv function %tmp.538 :drawBattery;
+        %tmp.541 = lgetv %targetDc.2;
+        %tmp.542 = getm $.Toybox.Graphics;
+        %tmp.543 = getv %tmp.542 :COLOR_WHITE;
+        %tmp.545 = getv ? :lowBatteryColor;
+        %tmp.546 = getm $.Toybox.Graphics;
+        %tmp.547 = getv %tmp.546 :COLOR_WHITE;
+        invoke %tmp.538 %tmp.539(%tmp.541, %tmp.543, %tmp.545, %tmp.547);
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 832 16 ]
-        %tmp.560 = lgetv %index.15;
-        %tmp.561 = 2.6;
-        %tmp.562 = add %tmp.560 %tmp.561;
-        lputv %index.15 %tmp.562;
+        %tmp.548 = lgetv %index.15;
+        %tmp.549 = 2.6;
+        %tmp.550 = add %tmp.548 %tmp.549;
+        lputv %index.15 %tmp.550;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_830_85_833_12_stop:
         goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_830_12_833_12_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_830_12_833_12_if_end:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 834 12 ]
-        %tmp.563 = self;
-        %tmp.564 = getv function %tmp.563 :drawMove;
-        %tmp.566 = lgetv %targetDc.2;
-        %tmp.567 = getm $.Toybox.Graphics;
-        %tmp.568 = getv %tmp.567 :COLOR_WHITE;
-        %tmp.570 = lgetv %index.15;
-        invoke %tmp.563 %tmp.564(%tmp.566, %tmp.568, %tmp.570);
+        %tmp.551 = self;
+        %tmp.552 = getv function %tmp.551 :drawMove;
+        %tmp.554 = lgetv %targetDc.2;
+        %tmp.555 = getm $.Toybox.Graphics;
+        %tmp.556 = getv %tmp.555 :COLOR_WHITE;
+        %tmp.558 = lgetv %index.15;
+        invoke %tmp.551 %tmp.552(%tmp.554, %tmp.556, %tmp.558);
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 836 12 ]
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_836_12_842_12_if_stmt:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_836_16_837_90_begin:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_836_16_837_50_begin:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_836_16_836_77_begin:
-        %tmp.571 = getm $;
-        %tmp.572 = getv %tmp.571 :Options_Dict;
-        %tmp.574 = getv ? :showDate;
-        %tmp.575 = agetv %tmp.572 %tmp.574;
-        bf %tmp.575 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_836_12_842_12_if_false;
+        %tmp.559 = getm $;
+        %tmp.560 = getv %tmp.559 :Options_Dict;
+        %tmp.562 = getv ? :showDate;
+        %tmp.563 = agetv %tmp.560 %tmp.562;
+        bf %tmp.563 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_836_12_842_12_if_false;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_836_44_836_77_true:
-        %tmp.576 = getm $;
-        %tmp.577 = getv %tmp.576 :Options_Dict;
-        %tmp.579 = getv ? :secondDisplay;
-        %tmp.580 = agetv %tmp.577 %tmp.579;
-        %tmp.581 = 2;
-        %tmp.582 = ne %tmp.580 %tmp.581;
-        push %tmp.582;
+        %tmp.564 = getm $;
+        %tmp.565 = getv %tmp.564 :Options_Dict;
+        %tmp.567 = getv ? :secondDisplay;
+        %tmp.568 = agetv %tmp.565 %tmp.567;
+        %tmp.569 = 2;
+        %tmp.570 = ne %tmp.568 %tmp.569;
+        push %tmp.570;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_836_44_836_77_end:
-        %tmp.583 = phi [%tmp.575 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_836_16_836_77_begin] [%tmp.582 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_836_44_836_77_true] [%tmp.583 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_836_44_836_77_end];
-        bf %tmp.583 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_836_12_842_12_if_false;
+        %tmp.571 = phi [%tmp.563 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_836_16_836_77_begin] [%tmp.570 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_836_44_836_77_true] [%tmp.571 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_836_44_836_77_end];
+        bf %tmp.571 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_836_12_842_12_if_false;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_837_15_837_50_true:
-        %tmp.584 = getm $;
-        %tmp.585 = getv %tmp.584 :Options_Dict;
-        %tmp.587 = getv ? :dawnDuskMarkers;
-        %tmp.588 = agetv %tmp.585 %tmp.587;
-        %tmp.589 = 2;
-        %tmp.590 = ne %tmp.588 %tmp.589;
-        push %tmp.590;
+        %tmp.572 = getm $;
+        %tmp.573 = getv %tmp.572 :Options_Dict;
+        %tmp.575 = getv ? :dawnDuskMarkers;
+        %tmp.576 = agetv %tmp.573 %tmp.575;
+        %tmp.577 = 2;
+        %tmp.578 = ne %tmp.576 %tmp.577;
+        push %tmp.578;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_837_15_837_50_end:
-        %tmp.591 = phi [%tmp.583 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_836_16_837_50_begin] [%tmp.590 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_837_15_837_50_true] [%tmp.591 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_837_15_837_50_end];
-        bf %tmp.591 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_836_12_842_12_if_false;
+        %tmp.579 = phi [%tmp.571 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_836_16_837_50_begin] [%tmp.578 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_837_15_837_50_true] [%tmp.579 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_837_15_837_50_end];
+        bf %tmp.579 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_836_12_842_12_if_false;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_837_55_837_90_true:
-        %tmp.592 = getm $;
-        %tmp.593 = getv %tmp.592 :Options_Dict;
-        %tmp.595 = getv ? :dawnDuskMarkers;
-        %tmp.596 = agetv %tmp.593 %tmp.595;
-        %tmp.597 = 3;
-        %tmp.598 = ne %tmp.596 %tmp.597;
-        push %tmp.598;
+        %tmp.580 = getm $;
+        %tmp.581 = getv %tmp.580 :Options_Dict;
+        %tmp.583 = getv ? :dawnDuskMarkers;
+        %tmp.584 = agetv %tmp.581 %tmp.583;
+        %tmp.585 = 3;
+        %tmp.586 = ne %tmp.584 %tmp.585;
+        push %tmp.586;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_837_55_837_90_end:
-        %tmp.599 = phi [%tmp.591 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_836_16_837_90_begin] [%tmp.598 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_837_55_837_90_true] [%tmp.599 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_837_55_837_90_end];
-        bf %tmp.599 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_836_12_842_12_if_false;
+        %tmp.587 = phi [%tmp.579 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_836_16_837_90_begin] [%tmp.586 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_837_55_837_90_true] [%tmp.587 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_837_55_837_90_end];
+        bf %tmp.587 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_836_12_842_12_if_false;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_836_12_842_12_if_true:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_838_12_840_12_start:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 839 16 ]
-        %tmp.600 = self;
-        %tmp.601 = getv function %tmp.600 :drawDateInset;
-        %tmp.603 = lgetv %targetDc.2;
-        %tmp.604 = getm $.Toybox.Graphics;
-        %tmp.605 = getv %tmp.604 :COLOR_WHITE;
-        %tmp.606 = true;
-        invoke %tmp.600 %tmp.601(%tmp.603, %tmp.605, %tmp.606);
+        %tmp.588 = self;
+        %tmp.589 = getv function %tmp.588 :drawDateInset;
+        %tmp.591 = lgetv %targetDc.2;
+        %tmp.592 = getm $.Toybox.Graphics;
+        %tmp.593 = getv %tmp.592 :COLOR_WHITE;
+        %tmp.594 = true;
+        invoke %tmp.588 %tmp.589(%tmp.591, %tmp.593, %tmp.594);
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_838_12_840_12_stop:
         goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_836_12_842_12_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_836_12_842_12_if_false:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 840 20 ]
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_840_20_842_12_if_stmt:
-        %tmp.607 = getm $;
-        %tmp.608 = getv %tmp.607 :Options_Dict;
-        %tmp.610 = getv ? :showDate;
-        %tmp.611 = agetv %tmp.608 %tmp.610;
-        bf %tmp.611 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_840_20_842_12_if_end;
+        %tmp.595 = getm $;
+        %tmp.596 = getv %tmp.595 :Options_Dict;
+        %tmp.598 = getv ? :showDate;
+        %tmp.599 = agetv %tmp.596 %tmp.598;
+        bf %tmp.599 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_840_20_842_12_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_840_20_842_12_if_true:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_840_51_842_12_start:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 841 16 ]
-        %tmp.612 = self;
-        %tmp.613 = getv function %tmp.612 :drawDateMain;
-        %tmp.615 = lgetv %targetDc.2;
-        %tmp.616 = getm $.Toybox.Graphics;
-        %tmp.617 = getv %tmp.616 :COLOR_WHITE;
-        %tmp.618 = true;
-        invoke %tmp.612 %tmp.613(%tmp.615, %tmp.617, %tmp.618);
+        %tmp.600 = self;
+        %tmp.601 = getv function %tmp.600 :drawDateMain;
+        %tmp.603 = lgetv %targetDc.2;
+        %tmp.604 = getm $.Toybox.Graphics;
+        %tmp.605 = getv %tmp.604 :COLOR_WHITE;
+        %tmp.606 = true;
+        invoke %tmp.600 %tmp.601(%tmp.603, %tmp.605, %tmp.606);
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_840_51_842_12_stop:
         goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_840_20_842_12_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_840_20_842_12_if_end:
@@ -2712,225 +2700,213 @@ E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 847 12 ]
         [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_845_15_893_8_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_845_15_893_8_stop" ]
         %index.16 = local;
-        %tmp.619 = 0;
-        lputv %index.16 %tmp.619;
+        %tmp.607 = 0;
+        lputv %index.16 %tmp.607;
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 849 12 ]
         [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_845_15_893_8_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_845_15_893_8_stop" ]
         %stats.17 = local;
-        %tmp.620 = getm $.Toybox.System;
-        %tmp.621 = getv function %tmp.620 :getSystemStats;
-        %tmp.622 = invoke %tmp.620 %tmp.621();
-        lputv %stats.17 %tmp.622;
+        %tmp.608 = getm $.Toybox.System;
+        %tmp.609 = getv function %tmp.608 :getSystemStats;
+        %tmp.610 = invoke %tmp.608 %tmp.609();
+        lputv %stats.17 %tmp.610;
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 850 12 ]
         [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_845_15_893_8_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_845_15_893_8_stop" ]
         %battery.18 = local;
-        %tmp.623 = lgetv %stats.17;
-        %tmp.624 = getv %tmp.623 :battery;
-        lputv %battery.18 %tmp.624;
+        %tmp.611 = lgetv %stats.17;
+        %tmp.612 = getv %tmp.611 :battery;
+        lputv %battery.18 %tmp.612;
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 851 12 ]
         [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_845_15_893_8_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_845_15_893_8_stop" ]
         %batteryInDays.19 = local;
-        %tmp.625 = lgetv %stats.17;
-        %tmp.626 = getv %tmp.625 :batteryInDays;
-        lputv %batteryInDays.19 %tmp.626;
-[ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 852 12 ]
-        %tmp.627 = self;
-        %tmp.628 = getv function %tmp.627 :deBug;
-        %tmp.629 = "bat";
-        %tmp.630 = newa 2;
-        %tmp.632 = lgetv %battery.18;
-        %tmp.633 = dup %tmp.630;
-        %tmp.634 = aputv %tmp.633 0 %tmp.632;
-        %tmp.636 = lgetv %batteryInDays.19;
-        %tmp.637 = dup %tmp.634;
-        %tmp.638 = aputv %tmp.637 1 %tmp.636;
-        invoke %tmp.627 %tmp.628(%tmp.629, %tmp.638);
+        %tmp.613 = lgetv %stats.17;
+        %tmp.614 = getv %tmp.613 :batteryInDays;
+        lputv %batteryInDays.19 %tmp.614;
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 853 12 ]
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_853_12_856_12_if_stmt:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_853_16_853_80_begin:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_853_16_853_57_begin:
-        %tmp.639 = getm $;
-        %tmp.640 = getv %tmp.639 :Options_Dict;
-        %tmp.642 = getv ? :showBattery;
-        %tmp.643 = agetv %tmp.640 %tmp.642;
-        bt %tmp.643 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_853_12_856_12_if_true;
+        %tmp.615 = getm $;
+        %tmp.616 = getv %tmp.615 :Options_Dict;
+        %tmp.618 = getv ? :showBattery;
+        %tmp.619 = agetv %tmp.616 %tmp.618;
+        bt %tmp.619 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_853_12_856_12_if_true;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_853_47_853_57_false:
-        %tmp.645 = lgetv %battery.18;
-        %tmp.646 = 8.0;
-        %tmp.647 = lt %tmp.645 %tmp.646;
-        push %tmp.647;
+        %tmp.621 = lgetv %battery.18;
+        %tmp.622 = 8.0;
+        %tmp.623 = lt %tmp.621 %tmp.622;
+        push %tmp.623;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_853_47_853_57_end:
-        %tmp.648 = phi [%tmp.643 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_853_16_853_57_begin] [%tmp.647 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_853_47_853_57_false] [%tmp.648 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_853_47_853_57_end];
-        bt %tmp.648 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_853_12_856_12_if_true;
+        %tmp.624 = phi [%tmp.619 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_853_16_853_57_begin] [%tmp.623 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_853_47_853_57_false] [%tmp.624 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_853_47_853_57_end];
+        bt %tmp.624 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_853_12_856_12_if_true;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_853_64_853_80_false:
-        %tmp.650 = lgetv %batteryInDays.19;
-        %tmp.651 = 1.1;
-        %tmp.652 = lt %tmp.650 %tmp.651;
-        push %tmp.652;
+        %tmp.626 = lgetv %batteryInDays.19;
+        %tmp.627 = 1.1;
+        %tmp.628 = lt %tmp.626 %tmp.627;
+        push %tmp.628;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_853_64_853_80_end:
-        %tmp.653 = phi [%tmp.648 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_853_16_853_80_begin] [%tmp.652 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_853_64_853_80_false] [%tmp.653 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_853_64_853_80_end];
-        bf %tmp.653 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_853_12_856_12_if_end;
+        %tmp.629 = phi [%tmp.624 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_853_16_853_80_begin] [%tmp.628 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_853_64_853_80_false] [%tmp.629 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_853_64_853_80_end];
+        bf %tmp.629 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_853_12_856_12_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_853_12_856_12_if_true:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_853_85_856_12_start:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 854 16 ]
-        %tmp.654 = self;
-        %tmp.655 = getv function %tmp.654 :drawBattery;
-        %tmp.657 = lgetv %targetDc.2;
-        %tmp.658 = getm $.Toybox.Graphics;
-        %tmp.659 = getv %tmp.658 :COLOR_WHITE;
-        %tmp.661 = getv ? :lowBatteryColor;
-        %tmp.662 = getm $.Toybox.Graphics;
-        %tmp.663 = getv %tmp.662 :COLOR_WHITE;
-        invoke %tmp.654 %tmp.655(%tmp.657, %tmp.659, %tmp.661, %tmp.663);
+        %tmp.630 = self;
+        %tmp.631 = getv function %tmp.630 :drawBattery;
+        %tmp.633 = lgetv %targetDc.2;
+        %tmp.634 = getm $.Toybox.Graphics;
+        %tmp.635 = getv %tmp.634 :COLOR_WHITE;
+        %tmp.637 = getv ? :lowBatteryColor;
+        %tmp.638 = getm $.Toybox.Graphics;
+        %tmp.639 = getv %tmp.638 :COLOR_WHITE;
+        invoke %tmp.630 %tmp.631(%tmp.633, %tmp.635, %tmp.637, %tmp.639);
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 855 16 ]
-        %tmp.664 = lgetv %index.16;
-        %tmp.665 = 1.75;
-        %tmp.666 = add %tmp.664 %tmp.665;
-        lputv %index.16 %tmp.666;
+        %tmp.640 = lgetv %index.16;
+        %tmp.641 = 1.75;
+        %tmp.642 = add %tmp.640 %tmp.641;
+        lputv %index.16 %tmp.642;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_853_85_856_12_stop:
         goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_853_12_856_12_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_853_12_856_12_if_end:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 858 12 ]
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_858_12_861_12_if_stmt:
-        %tmp.667 = getm $;
-        %tmp.668 = getv %tmp.667 :Options_Dict;
-        %tmp.670 = getv ? :showMinutes;
-        %tmp.671 = agetv %tmp.668 %tmp.670;
-        bf %tmp.671 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_858_12_861_12_if_end;
+        %tmp.643 = getm $;
+        %tmp.644 = getv %tmp.643 :Options_Dict;
+        %tmp.646 = getv ? :showMinutes;
+        %tmp.647 = agetv %tmp.644 %tmp.646;
+        bf %tmp.647 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_858_12_861_12_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_858_12_861_12_if_true:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_858_45_861_12_start:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 859 16 ]
-        %tmp.672 = self;
-        %tmp.673 = getv function %tmp.672 :drawMoveDots;
-        %tmp.675 = lgetv %targetDc.2;
-        %tmp.677 = getv ? :activeMinutesWeek;
-        %tmp.679 = getv ? :activeMinutesWeekGoal;
-        %tmp.681 = lgetv %index.16;
-        %tmp.682 = getm $.Toybox.Graphics;
-        %tmp.683 = getv %tmp.682 :COLOR_WHITE;
-        invoke %tmp.672 %tmp.673(%tmp.675, %tmp.677, %tmp.679, %tmp.681, %tmp.683);
+        %tmp.648 = self;
+        %tmp.649 = getv function %tmp.648 :drawMoveDots;
+        %tmp.651 = lgetv %targetDc.2;
+        %tmp.653 = getv ? :activeMinutesWeek;
+        %tmp.655 = getv ? :activeMinutesWeekGoal;
+        %tmp.657 = lgetv %index.16;
+        %tmp.658 = getm $.Toybox.Graphics;
+        %tmp.659 = getv %tmp.658 :COLOR_WHITE;
+        invoke %tmp.648 %tmp.649(%tmp.651, %tmp.653, %tmp.655, %tmp.657, %tmp.659);
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 860 16 ]
-        %tmp.684 = lgetv %index.16;
-        %tmp.685 = 1;
-        %tmp.686 = add %tmp.684 %tmp.685;
-        lputv %index.16 %tmp.686;
+        %tmp.660 = lgetv %index.16;
+        %tmp.661 = 1;
+        %tmp.662 = add %tmp.660 %tmp.661;
+        lputv %index.16 %tmp.662;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_858_45_861_12_stop:
         goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_858_12_861_12_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_858_12_861_12_if_end:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 862 12 ]
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_862_12_865_12_if_stmt:
-        %tmp.687 = getm $;
-        %tmp.688 = getv %tmp.687 :Options_Dict;
-        %tmp.690 = getv ? :showDayMinutes;
-        %tmp.691 = agetv %tmp.688 %tmp.690;
-        bf %tmp.691 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_862_12_865_12_if_end;
+        %tmp.663 = getm $;
+        %tmp.664 = getv %tmp.663 :Options_Dict;
+        %tmp.666 = getv ? :showDayMinutes;
+        %tmp.667 = agetv %tmp.664 %tmp.666;
+        bf %tmp.667 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_862_12_865_12_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_862_12_865_12_if_true:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_862_48_865_12_start:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 863 16 ]
-        %tmp.692 = self;
-        %tmp.693 = getv function %tmp.692 :drawMoveDots;
-        %tmp.695 = lgetv %targetDc.2;
-        %tmp.697 = getv ? :activeMinutesDay;
-        %tmp.699 = getv ? :activeMinutesDayGoal;
-        %tmp.701 = lgetv %index.16;
-        %tmp.702 = getm $.Toybox.Graphics;
-        %tmp.703 = getv %tmp.702 :COLOR_WHITE;
-        invoke %tmp.692 %tmp.693(%tmp.695, %tmp.697, %tmp.699, %tmp.701, %tmp.703);
+        %tmp.668 = self;
+        %tmp.669 = getv function %tmp.668 :drawMoveDots;
+        %tmp.671 = lgetv %targetDc.2;
+        %tmp.673 = getv ? :activeMinutesDay;
+        %tmp.675 = getv ? :activeMinutesDayGoal;
+        %tmp.677 = lgetv %index.16;
+        %tmp.678 = getm $.Toybox.Graphics;
+        %tmp.679 = getv %tmp.678 :COLOR_WHITE;
+        invoke %tmp.668 %tmp.669(%tmp.671, %tmp.673, %tmp.675, %tmp.677, %tmp.679);
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 864 16 ]
-        %tmp.704 = lgetv %index.16;
-        %tmp.705 = 1;
-        %tmp.706 = add %tmp.704 %tmp.705;
-        lputv %index.16 %tmp.706;
+        %tmp.680 = lgetv %index.16;
+        %tmp.681 = 1;
+        %tmp.682 = add %tmp.680 %tmp.681;
+        lputv %index.16 %tmp.682;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_862_48_865_12_stop:
         goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_862_12_865_12_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_862_12_865_12_if_end:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 866 12 ]
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_866_12_869_12_if_stmt:
-        %tmp.707 = getm $;
-        %tmp.708 = getv %tmp.707 :Options_Dict;
-        %tmp.710 = getv ? :showSteps;
-        %tmp.711 = agetv %tmp.708 %tmp.710;
-        bf %tmp.711 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_866_12_869_12_if_end;
+        %tmp.683 = getm $;
+        %tmp.684 = getv %tmp.683 :Options_Dict;
+        %tmp.686 = getv ? :showSteps;
+        %tmp.687 = agetv %tmp.684 %tmp.686;
+        bf %tmp.687 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_866_12_869_12_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_866_12_869_12_if_true:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_866_43_869_12_start:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 867 16 ]
-        %tmp.712 = self;
-        %tmp.713 = getv function %tmp.712 :drawMoveDots;
-        %tmp.715 = lgetv %targetDc.2;
-        %tmp.717 = getv ? :steps;
-        %tmp.719 = getv ? :stepGoal;
-        %tmp.721 = lgetv %index.16;
-        %tmp.722 = getm $.Toybox.Graphics;
-        %tmp.723 = getv %tmp.722 :COLOR_WHITE;
-        invoke %tmp.712 %tmp.713(%tmp.715, %tmp.717, %tmp.719, %tmp.721, %tmp.723);
+        %tmp.688 = self;
+        %tmp.689 = getv function %tmp.688 :drawMoveDots;
+        %tmp.691 = lgetv %targetDc.2;
+        %tmp.693 = getv ? :steps;
+        %tmp.695 = getv ? :stepGoal;
+        %tmp.697 = lgetv %index.16;
+        %tmp.698 = getm $.Toybox.Graphics;
+        %tmp.699 = getv %tmp.698 :COLOR_WHITE;
+        invoke %tmp.688 %tmp.689(%tmp.691, %tmp.693, %tmp.695, %tmp.697, %tmp.699);
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 868 16 ]
-        %tmp.724 = lgetv %index.16;
-        %tmp.725 = 1;
-        %tmp.726 = add %tmp.724 %tmp.725;
-        lputv %index.16 %tmp.726;
+        %tmp.700 = lgetv %index.16;
+        %tmp.701 = 1;
+        %tmp.702 = add %tmp.700 %tmp.701;
+        lputv %index.16 %tmp.702;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_866_43_869_12_stop:
         goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_866_12_869_12_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_866_12_869_12_if_end:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 870 12 ]
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_870_12_873_12_if_stmt:
-        %tmp.727 = getm $;
-        %tmp.728 = getv %tmp.727 :Options_Dict;
-        %tmp.730 = getv ? :showMove;
-        %tmp.731 = agetv %tmp.728 %tmp.730;
-        bf %tmp.731 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_870_12_873_12_if_end;
+        %tmp.703 = getm $;
+        %tmp.704 = getv %tmp.703 :Options_Dict;
+        %tmp.706 = getv ? :showMove;
+        %tmp.707 = agetv %tmp.704 %tmp.706;
+        bf %tmp.707 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_870_12_873_12_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_870_12_873_12_if_true:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_870_42_873_12_start:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 871 16 ]
-        %tmp.732 = self;
-        %tmp.733 = getv function %tmp.732 :drawMoveDots;
-        %tmp.735 = lgetv %targetDc.2;
-        %tmp.737 = getv ? :moveBarLevel;
-        %tmp.738 = 5;
-        %tmp.740 = lgetv %index.16;
-        %tmp.741 = getm $.Toybox.Graphics;
-        %tmp.742 = getv %tmp.741 :COLOR_WHITE;
-        invoke %tmp.732 %tmp.733(%tmp.735, %tmp.737, %tmp.738, %tmp.740, %tmp.742);
+        %tmp.708 = self;
+        %tmp.709 = getv function %tmp.708 :drawMoveDots;
+        %tmp.711 = lgetv %targetDc.2;
+        %tmp.713 = getv ? :moveBarLevel;
+        %tmp.714 = 5;
+        %tmp.716 = lgetv %index.16;
+        %tmp.717 = getm $.Toybox.Graphics;
+        %tmp.718 = getv %tmp.717 :COLOR_WHITE;
+        invoke %tmp.708 %tmp.709(%tmp.711, %tmp.713, %tmp.714, %tmp.716, %tmp.718);
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 872 16 ]
-        %tmp.743 = lgetv %index.16;
-        %tmp.744 = 1;
-        %tmp.745 = add %tmp.743 %tmp.744;
-        lputv %index.16 %tmp.745;
+        %tmp.719 = lgetv %index.16;
+        %tmp.720 = 1;
+        %tmp.721 = add %tmp.719 %tmp.720;
+        lputv %index.16 %tmp.721;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_870_42_873_12_stop:
         goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_870_12_873_12_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_870_12_873_12_if_end:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 875 12 ]
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_875_12_890_12_if_stmt:
-        %tmp.746 = getm $;
-        %tmp.747 = getv %tmp.746 :Options_Dict;
-        %tmp.749 = getv ? :showDate;
-        %tmp.750 = agetv %tmp.747 %tmp.749;
-        bf %tmp.750 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_875_12_890_12_if_end;
+        %tmp.722 = getm $;
+        %tmp.723 = getv %tmp.722 :Options_Dict;
+        %tmp.725 = getv ? :showDate;
+        %tmp.726 = agetv %tmp.723 %tmp.725;
+        bf %tmp.726 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_875_12_890_12_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_875_12_890_12_if_true:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_875_42_890_12_start:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 876 16 ]
         [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_875_42_890_12_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_875_42_890_12_stop" ]
         %rev.20 = local;
-        %tmp.751 = false;
-        lputv %rev.20 %tmp.751;
+        %tmp.727 = false;
+        lputv %rev.20 %tmp.727;
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 877 16 ]
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_877_16_877_75_if_stmt:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_877_20_877_49_begin:
-        %tmp.752 = getm $;
-        %tmp.753 = getv %tmp.752 :Options_Dict;
-        %tmp.755 = getv ? :showMove;
-        %tmp.756 = agetv %tmp.753 %tmp.755;
-        bf %tmp.756 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_877_16_877_75_if_end;
+        %tmp.728 = getm $;
+        %tmp.729 = getv %tmp.728 :Options_Dict;
+        %tmp.731 = getv ? :showMove;
+        %tmp.732 = agetv %tmp.729 %tmp.731;
+        bf %tmp.732 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_877_16_877_75_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_877_49_877_49_true:
-        %tmp.758 = getv ? :moveExpired;
-        push %tmp.758;
+        %tmp.734 = getv ? :moveExpired;
+        push %tmp.734;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_877_49_877_49_end:
-        %tmp.759 = phi [%tmp.756 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_877_20_877_49_begin] [%tmp.758 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_877_49_877_49_true] [%tmp.759 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_877_49_877_49_end];
-        bf %tmp.759 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_877_16_877_75_if_end;
+        %tmp.735 = phi [%tmp.732 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_877_20_877_49_begin] [%tmp.734 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_877_49_877_49_true] [%tmp.735 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_877_49_877_49_end];
+        bf %tmp.735 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_877_16_877_75_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_877_16_877_75_if_true:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_877_62_877_75_start:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 877 64 ]
-        %tmp.760 = true;
-        lputv %rev.20 %tmp.760;
+        %tmp.736 = true;
+        lputv %rev.20 %tmp.736;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_877_62_877_75_stop:
         goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_877_16_877_75_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_877_16_877_75_if_end:
@@ -2938,57 +2914,57 @@ E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_880_17_889_16_if_stmt:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_880_21_881_98_begin:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_880_21_881_58_begin:
-        %tmp.761 = getm $;
-        %tmp.762 = getv %tmp.761 :Options_Dict;
-        %tmp.764 = getv ? :secondDisplay;
-        %tmp.765 = agetv %tmp.762 %tmp.764;
-        %tmp.766 = 2;
-        %tmp.767 = ne %tmp.765 %tmp.766;
-        bf %tmp.767 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_880_17_889_16_if_false;
+        %tmp.737 = getm $;
+        %tmp.738 = getv %tmp.737 :Options_Dict;
+        %tmp.740 = getv ? :secondDisplay;
+        %tmp.741 = agetv %tmp.738 %tmp.740;
+        %tmp.742 = 2;
+        %tmp.743 = ne %tmp.741 %tmp.742;
+        bf %tmp.743 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_880_17_889_16_if_false;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_881_23_881_58_true:
-        %tmp.768 = getm $;
-        %tmp.769 = getv %tmp.768 :Options_Dict;
-        %tmp.771 = getv ? :dawnDuskMarkers;
-        %tmp.772 = agetv %tmp.769 %tmp.771;
-        %tmp.773 = 2;
-        %tmp.774 = ne %tmp.772 %tmp.773;
-        push %tmp.774;
+        %tmp.744 = getm $;
+        %tmp.745 = getv %tmp.744 :Options_Dict;
+        %tmp.747 = getv ? :dawnDuskMarkers;
+        %tmp.748 = agetv %tmp.745 %tmp.747;
+        %tmp.749 = 2;
+        %tmp.750 = ne %tmp.748 %tmp.749;
+        push %tmp.750;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_881_23_881_58_end:
-        %tmp.775 = phi [%tmp.767 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_880_21_881_58_begin] [%tmp.774 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_881_23_881_58_true] [%tmp.775 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_881_23_881_58_end];
-        bf %tmp.775 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_880_17_889_16_if_false;
+        %tmp.751 = phi [%tmp.743 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_880_21_881_58_begin] [%tmp.750 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_881_23_881_58_true] [%tmp.751 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_881_23_881_58_end];
+        bf %tmp.751 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_880_17_889_16_if_false;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_881_63_881_98_true:
-        %tmp.776 = getm $;
-        %tmp.777 = getv %tmp.776 :Options_Dict;
-        %tmp.779 = getv ? :dawnDuskMarkers;
-        %tmp.780 = agetv %tmp.777 %tmp.779;
-        %tmp.781 = 3;
-        %tmp.782 = ne %tmp.780 %tmp.781;
-        push %tmp.782;
+        %tmp.752 = getm $;
+        %tmp.753 = getv %tmp.752 :Options_Dict;
+        %tmp.755 = getv ? :dawnDuskMarkers;
+        %tmp.756 = agetv %tmp.753 %tmp.755;
+        %tmp.757 = 3;
+        %tmp.758 = ne %tmp.756 %tmp.757;
+        push %tmp.758;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_881_63_881_98_end:
-        %tmp.783 = phi [%tmp.775 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_880_21_881_98_begin] [%tmp.782 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_881_63_881_98_true] [%tmp.783 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_881_63_881_98_end];
-        bf %tmp.783 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_880_17_889_16_if_false;
+        %tmp.759 = phi [%tmp.751 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_880_21_881_98_begin] [%tmp.758 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_881_63_881_98_true] [%tmp.759 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_881_63_881_98_end];
+        bf %tmp.759 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_880_17_889_16_if_false;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_880_17_889_16_if_true:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_882_16_885_16_start:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 883 20 ]
-        %tmp.784 = self;
-        %tmp.785 = getv function %tmp.784 :drawDateInset;
-        %tmp.787 = lgetv %targetDc.2;
-        %tmp.788 = getm $.Toybox.Graphics;
-        %tmp.789 = getv %tmp.788 :COLOR_WHITE;
-        %tmp.791 = lgetv %rev.20;
-        invoke %tmp.784 %tmp.785(%tmp.787, %tmp.789, %tmp.791);
+        %tmp.760 = self;
+        %tmp.761 = getv function %tmp.760 :drawDateInset;
+        %tmp.763 = lgetv %targetDc.2;
+        %tmp.764 = getm $.Toybox.Graphics;
+        %tmp.765 = getv %tmp.764 :COLOR_WHITE;
+        %tmp.767 = lgetv %rev.20;
+        invoke %tmp.760 %tmp.761(%tmp.763, %tmp.765, %tmp.767);
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_882_16_885_16_stop:
         goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_880_17_889_16_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_880_17_889_16_if_false:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_885_23_889_16_start:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 887 20 ]
-        %tmp.792 = self;
-        %tmp.793 = getv function %tmp.792 :drawDateMain;
-        %tmp.795 = lgetv %targetDc.2;
-        %tmp.796 = getm $.Toybox.Graphics;
-        %tmp.797 = getv %tmp.796 :COLOR_WHITE;
-        %tmp.799 = lgetv %rev.20;
-        invoke %tmp.792 %tmp.793(%tmp.795, %tmp.797, %tmp.799);
+        %tmp.768 = self;
+        %tmp.769 = getv function %tmp.768 :drawDateMain;
+        %tmp.771 = lgetv %targetDc.2;
+        %tmp.772 = getm $.Toybox.Graphics;
+        %tmp.773 = getv %tmp.772 :COLOR_WHITE;
+        %tmp.775 = lgetv %rev.20;
+        invoke %tmp.768 %tmp.769(%tmp.771, %tmp.773, %tmp.775);
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_885_23_889_16_stop:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_880_17_889_16_if_end:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_875_42_890_12_stop:
@@ -3001,285 +2977,285 @@ E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_901_12_903_81_begin:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_901_12_902_116_begin:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_901_12_901_29_begin:
-        %tmp.801 = getv ? :hasSubscreen;
-        %tmp.802 = not %tmp.801;
-        bf %tmp.802 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_901_8_911_8_if_end;
+        %tmp.777 = getv ? :hasSubscreen;
+        %tmp.778 = not %tmp.777;
+        bf %tmp.778 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_901_8_911_8_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_901_29_901_29_true:
-        %tmp.804 = lgetv %avoidCircle.3;
-        push %tmp.804;
+        %tmp.780 = lgetv %avoidCircle.3;
+        push %tmp.780;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_901_29_901_29_end:
-        %tmp.805 = phi [%tmp.802 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_901_12_901_29_begin] [%tmp.804 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_901_29_901_29_true] [%tmp.805 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_901_29_901_29_end];
-        bf %tmp.805 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_901_8_911_8_if_end;
+        %tmp.781 = phi [%tmp.778 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_901_12_901_29_begin] [%tmp.780 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_901_29_901_29_true] [%tmp.781 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_901_29_901_29_end];
+        bf %tmp.781 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_901_8_911_8_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_902_8_902_116_true:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_902_10_902_115_begin:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_902_10_902_83_begin:
-        %tmp.806 = getm $;
-        %tmp.807 = getv %tmp.806 :Options_Dict;
-        %tmp.809 = getv ? :infiniteSecondOption;
-        %tmp.810 = agetv %tmp.807 %tmp.809;
-        %tmp.811 = 0;
-        %tmp.812 = gt %tmp.810 %tmp.811;
-        %tmp.813 = dup %tmp.812;
-        bf %tmp.813 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_902_52_902_83_end;
+        %tmp.782 = getm $;
+        %tmp.783 = getv %tmp.782 :Options_Dict;
+        %tmp.785 = getv ? :infiniteSecondOption;
+        %tmp.786 = agetv %tmp.783 %tmp.785;
+        %tmp.787 = 0;
+        %tmp.788 = gt %tmp.786 %tmp.787;
+        %tmp.789 = dup %tmp.788;
+        bf %tmp.789 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_902_52_902_83_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_902_52_902_83_true:
-        %tmp.814 = getm $;
-        %tmp.815 = getv %tmp.814 :Options_Dict;
-        %tmp.817 = getv ? :secondDisplay;
-        %tmp.818 = agetv %tmp.815 %tmp.817;
-        %tmp.819 = 2;
-        %tmp.820 = eq %tmp.818 %tmp.819;
-        %tmp.821 = and %tmp.812 %tmp.820;
-        push %tmp.821;
+        %tmp.790 = getm $;
+        %tmp.791 = getv %tmp.790 :Options_Dict;
+        %tmp.793 = getv ? :secondDisplay;
+        %tmp.794 = agetv %tmp.791 %tmp.793;
+        %tmp.795 = 2;
+        %tmp.796 = eq %tmp.794 %tmp.795;
+        %tmp.797 = and %tmp.788 %tmp.796;
+        push %tmp.797;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_902_52_902_83_end:
-        %tmp.822 = phi [%tmp.813 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_902_10_902_83_begin] [%tmp.821 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_902_52_902_83_true] [%tmp.822 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_902_52_902_83_end];
-        %tmp.823 = dup %tmp.822;
-        bf %tmp.823 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_902_88_902_115_end;
+        %tmp.798 = phi [%tmp.789 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_902_10_902_83_begin] [%tmp.797 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_902_52_902_83_true] [%tmp.798 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_902_52_902_83_end];
+        %tmp.799 = dup %tmp.798;
+        bf %tmp.799 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_902_88_902_115_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_902_88_902_115_true:
-        %tmp.824 = getm $;
-        %tmp.825 = getv %tmp.824 :Options_Dict;
-        %tmp.827 = getv ? :secondHashes;
-        %tmp.828 = agetv %tmp.825 %tmp.827;
-        %tmp.829 = and %tmp.822 %tmp.828;
-        push %tmp.829;
+        %tmp.800 = getm $;
+        %tmp.801 = getv %tmp.800 :Options_Dict;
+        %tmp.803 = getv ? :secondHashes;
+        %tmp.804 = agetv %tmp.801 %tmp.803;
+        %tmp.805 = and %tmp.798 %tmp.804;
+        push %tmp.805;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_902_88_902_115_end:
-        %tmp.830 = phi [%tmp.823 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_902_10_902_115_begin] [%tmp.829 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_902_88_902_115_true] [%tmp.830 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_902_88_902_115_end];
-        %tmp.831 = not %tmp.830;
-        push %tmp.831;
+        %tmp.806 = phi [%tmp.799 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_902_10_902_115_begin] [%tmp.805 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_902_88_902_115_true] [%tmp.806 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_902_88_902_115_end];
+        %tmp.807 = not %tmp.806;
+        push %tmp.807;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_902_8_902_116_end:
-        %tmp.832 = phi [%tmp.805 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_901_12_902_116_begin] [%tmp.831 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_902_8_902_116_true] [%tmp.832 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_902_8_902_116_end];
-        bf %tmp.832 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_901_8_911_8_if_end;
+        %tmp.808 = phi [%tmp.781 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_901_12_902_116_begin] [%tmp.807 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_902_8_902_116_true] [%tmp.808 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_902_8_902_116_end];
+        bf %tmp.808 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_901_8_911_8_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_903_8_903_81_true:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_903_10_903_80_begin:
-        %tmp.833 = getm $;
-        %tmp.834 = getv %tmp.833 :Options_Dict;
-        %tmp.836 = getv ? :dawnDuskMarkers;
-        %tmp.837 = agetv %tmp.834 %tmp.836;
-        %tmp.838 = 2;
-        %tmp.839 = eq %tmp.837 %tmp.838;
-        %tmp.840 = dup %tmp.839;
-        bt %tmp.840 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_903_47_903_80_end;
+        %tmp.809 = getm $;
+        %tmp.810 = getv %tmp.809 :Options_Dict;
+        %tmp.812 = getv ? :dawnDuskMarkers;
+        %tmp.813 = agetv %tmp.810 %tmp.812;
+        %tmp.814 = 2;
+        %tmp.815 = eq %tmp.813 %tmp.814;
+        %tmp.816 = dup %tmp.815;
+        bt %tmp.816 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_903_47_903_80_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_903_47_903_80_false:
-        %tmp.841 = getm $;
-        %tmp.842 = getv %tmp.841 :Options_Dict;
-        %tmp.844 = getv ? :dawnDuskMarkers;
-        %tmp.845 = agetv %tmp.842 %tmp.844;
-        %tmp.846 = 3;
-        %tmp.847 = eq %tmp.845 %tmp.846;
-        %tmp.848 = or %tmp.839 %tmp.847;
-        push %tmp.848;
+        %tmp.817 = getm $;
+        %tmp.818 = getv %tmp.817 :Options_Dict;
+        %tmp.820 = getv ? :dawnDuskMarkers;
+        %tmp.821 = agetv %tmp.818 %tmp.820;
+        %tmp.822 = 3;
+        %tmp.823 = eq %tmp.821 %tmp.822;
+        %tmp.824 = or %tmp.815 %tmp.823;
+        push %tmp.824;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_903_47_903_80_end:
-        %tmp.849 = phi [%tmp.840 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_903_10_903_80_begin] [%tmp.848 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_903_47_903_80_false] [%tmp.849 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_903_47_903_80_end];
-        %tmp.850 = not %tmp.849;
-        push %tmp.850;
+        %tmp.825 = phi [%tmp.816 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_903_10_903_80_begin] [%tmp.824 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_903_47_903_80_false] [%tmp.825 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_903_47_903_80_end];
+        %tmp.826 = not %tmp.825;
+        push %tmp.826;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_903_8_903_81_end:
-        %tmp.851 = phi [%tmp.832 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_901_12_903_81_begin] [%tmp.850 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_903_8_903_81_true] [%tmp.851 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_903_8_903_81_end];
-        bf %tmp.851 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_901_8_911_8_if_end;
+        %tmp.827 = phi [%tmp.808 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_901_12_903_81_begin] [%tmp.826 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_903_8_903_81_true] [%tmp.827 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_903_8_903_81_end];
+        bf %tmp.827 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_901_8_911_8_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_901_8_911_8_if_true:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_904_8_911_8_start:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 906 16 ]
-        %tmp.852 = lgetv %targetDc.2;
-        %tmp.853 = getv function %tmp.852 :setColor;
-        %tmp.854 = getm $.Toybox.Graphics;
-        %tmp.855 = getv %tmp.854 :COLOR_WHITE;
-        %tmp.856 = getm $.Toybox.Graphics;
-        %tmp.857 = getv %tmp.856 :COLOR_TRANSPARENT;
-        invoke %tmp.852 %tmp.853(%tmp.855, %tmp.857);
+        %tmp.828 = lgetv %targetDc.2;
+        %tmp.829 = getv function %tmp.828 :setColor;
+        %tmp.830 = getm $.Toybox.Graphics;
+        %tmp.831 = getv %tmp.830 :COLOR_WHITE;
+        %tmp.832 = getm $.Toybox.Graphics;
+        %tmp.833 = getv %tmp.832 :COLOR_TRANSPARENT;
+        invoke %tmp.828 %tmp.829(%tmp.831, %tmp.833);
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 907 16 ]
-        %tmp.858 = lgetv %targetDc.2;
-        %tmp.859 = getv function %tmp.858 :setPenWidth;
-        %tmp.860 = 6;
-        invoke %tmp.858 %tmp.859(%tmp.860);
+        %tmp.834 = lgetv %targetDc.2;
+        %tmp.835 = getv function %tmp.834 :setPenWidth;
+        %tmp.836 = 6;
+        invoke %tmp.834 %tmp.835(%tmp.836);
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 908 16 ]
-        %tmp.861 = lgetv %targetDc.2;
-        %tmp.862 = getv function %tmp.861 :drawArc;
-        %tmp.864 = getv ? :centerX_circle;
-        %tmp.866 = getv ? :centerY_circle;
-        %tmp.868 = getv ? :radius_circle;
-        %tmp.869 = 4;
-        %tmp.870 = add %tmp.868 %tmp.869;
-        %tmp.871 = getm $.Toybox.Graphics;
-        %tmp.872 = getv %tmp.871 :ARC_CLOCKWISE;
-        %tmp.873 = 0;
-        %tmp.874 = 360;
-        invoke %tmp.861 %tmp.862(%tmp.864, %tmp.866, %tmp.870, %tmp.872, %tmp.873, %tmp.874);
+        %tmp.837 = lgetv %targetDc.2;
+        %tmp.838 = getv function %tmp.837 :drawArc;
+        %tmp.840 = getv ? :centerX_circle;
+        %tmp.842 = getv ? :centerY_circle;
+        %tmp.844 = getv ? :radius_circle;
+        %tmp.845 = 4;
+        %tmp.846 = add %tmp.844 %tmp.845;
+        %tmp.847 = getm $.Toybox.Graphics;
+        %tmp.848 = getv %tmp.847 :ARC_CLOCKWISE;
+        %tmp.849 = 0;
+        %tmp.850 = 360;
+        invoke %tmp.837 %tmp.838(%tmp.840, %tmp.842, %tmp.846, %tmp.848, %tmp.849, %tmp.850);
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 909 16 ]
-        %tmp.875 = lgetv %targetDc.2;
-        %tmp.876 = getv function %tmp.875 :setPenWidth;
-        %tmp.877 = 1;
-        invoke %tmp.875 %tmp.876(%tmp.877);
+        %tmp.851 = lgetv %targetDc.2;
+        %tmp.852 = getv function %tmp.851 :setPenWidth;
+        %tmp.853 = 1;
+        invoke %tmp.851 %tmp.852(%tmp.853);
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_904_8_911_8_stop:
         goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_901_8_911_8_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_901_8_911_8_if_end:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 915 8 ]
-        %tmp.878 = self;
-        %tmp.879 = getv function %tmp.878 :drawHands;
-        %tmp.881 = lgetv %targetDc.2;
-        %tmp.882 = lgetv %clockTime.1;
-        %tmp.883 = getv %tmp.882 :hour;
-        %tmp.884 = lgetv %clockTime.1;
-        %tmp.885 = getv %tmp.884 :min;
-        %tmp.886 = lgetv %clockTime.1;
-        %tmp.887 = getv %tmp.886 :sec;
-        %tmp.888 = getm $.Toybox.Graphics;
-        %tmp.889 = getv %tmp.888 :COLOR_WHITE;
-        %tmp.890 = getm $.Toybox.Graphics;
-        %tmp.891 = getv %tmp.890 :COLOR_WHITE;
-        %tmp.892 = getm $.Toybox.Graphics;
-        %tmp.893 = getv %tmp.892 :COLOR_WHITE;
-        invoke %tmp.878 %tmp.879(%tmp.881, %tmp.883, %tmp.885, %tmp.887, %tmp.889, %tmp.891, %tmp.893);
+        %tmp.854 = self;
+        %tmp.855 = getv function %tmp.854 :drawHands;
+        %tmp.857 = lgetv %targetDc.2;
+        %tmp.858 = lgetv %clockTime.1;
+        %tmp.859 = getv %tmp.858 :hour;
+        %tmp.860 = lgetv %clockTime.1;
+        %tmp.861 = getv %tmp.860 :min;
+        %tmp.862 = lgetv %clockTime.1;
+        %tmp.863 = getv %tmp.862 :sec;
+        %tmp.864 = getm $.Toybox.Graphics;
+        %tmp.865 = getv %tmp.864 :COLOR_WHITE;
+        %tmp.866 = getm $.Toybox.Graphics;
+        %tmp.867 = getv %tmp.866 :COLOR_WHITE;
+        %tmp.868 = getm $.Toybox.Graphics;
+        %tmp.869 = getv %tmp.868 :COLOR_WHITE;
+        invoke %tmp.854 %tmp.855(%tmp.857, %tmp.859, %tmp.861, %tmp.863, %tmp.865, %tmp.867, %tmp.869);
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 917 8 ]
-        %tmp.894 = lgetv %targetDc.2;
-        %tmp.895 = getv function %tmp.894 :setPenWidth;
-        %tmp.896 = 1;
-        invoke %tmp.894 %tmp.895(%tmp.896);
+        %tmp.870 = lgetv %targetDc.2;
+        %tmp.871 = getv function %tmp.870 :setPenWidth;
+        %tmp.872 = 1;
+        invoke %tmp.870 %tmp.871(%tmp.872);
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 918 8 ]
-        %tmp.897 = lgetv %targetDc.2;
-        %tmp.898 = getv function %tmp.897 :setClip;
-        %tmp.899 = 0;
-        %tmp.901 = getv ? :height_screen;
-        %tmp.902 = 2;
-        %tmp.903 = div %tmp.901 %tmp.902;
-        %tmp.904 = 20;
-        %tmp.905 = sub %tmp.903 %tmp.904;
-        %tmp.907 = getv ? :width_screen;
-        %tmp.908 = 40;
-        invoke %tmp.897 %tmp.898(%tmp.899, %tmp.905, %tmp.907, %tmp.908);
+        %tmp.873 = lgetv %targetDc.2;
+        %tmp.874 = getv function %tmp.873 :setClip;
+        %tmp.875 = 0;
+        %tmp.877 = getv ? :height_screen;
+        %tmp.878 = 2;
+        %tmp.879 = div %tmp.877 %tmp.878;
+        %tmp.880 = 20;
+        %tmp.881 = sub %tmp.879 %tmp.880;
+        %tmp.883 = getv ? :width_screen;
+        %tmp.884 = 40;
+        invoke %tmp.873 %tmp.874(%tmp.875, %tmp.881, %tmp.883, %tmp.884);
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 920 8 ]
-        %tmp.909 = lgetv %targetDc.2;
-        %tmp.910 = getv function %tmp.909 :setColor;
-        %tmp.911 = getm $.Toybox.Graphics;
-        %tmp.912 = getv %tmp.911 :COLOR_WHITE;
-        %tmp.914 = getv ? :background_color;
-        invoke %tmp.909 %tmp.910(%tmp.912, %tmp.914);
+        %tmp.885 = lgetv %targetDc.2;
+        %tmp.886 = getv function %tmp.885 :setColor;
+        %tmp.887 = getm $.Toybox.Graphics;
+        %tmp.888 = getv %tmp.887 :COLOR_WHITE;
+        %tmp.890 = getv ? :background_color;
+        invoke %tmp.885 %tmp.886(%tmp.888, %tmp.890);
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 921 8 ]
-        %tmp.915 = lgetv %targetDc.2;
-        %tmp.916 = getv function %tmp.915 :fillCircle;
-        %tmp.918 = getv ? :width_screen;
-        %tmp.919 = 2;
-        %tmp.920 = div %tmp.918 %tmp.919;
-        %tmp.922 = getv ? :height_screen;
-        %tmp.923 = 2;
-        %tmp.924 = div %tmp.922 %tmp.923;
-        %tmp.925 = 6;
-        invoke %tmp.915 %tmp.916(%tmp.920, %tmp.924, %tmp.925);
+        %tmp.891 = lgetv %targetDc.2;
+        %tmp.892 = getv function %tmp.891 :fillCircle;
+        %tmp.894 = getv ? :width_screen;
+        %tmp.895 = 2;
+        %tmp.896 = div %tmp.894 %tmp.895;
+        %tmp.898 = getv ? :height_screen;
+        %tmp.899 = 2;
+        %tmp.900 = div %tmp.898 %tmp.899;
+        %tmp.901 = 6;
+        invoke %tmp.891 %tmp.892(%tmp.896, %tmp.900, %tmp.901);
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 922 8 ]
-        %tmp.926 = lgetv %targetDc.2;
-        %tmp.927 = getv function %tmp.926 :setColor;
-        %tmp.929 = getv ? :background_color;
-        %tmp.931 = getv ? :background_color;
-        invoke %tmp.926 %tmp.927(%tmp.929, %tmp.931);
+        %tmp.902 = lgetv %targetDc.2;
+        %tmp.903 = getv function %tmp.902 :setColor;
+        %tmp.905 = getv ? :background_color;
+        %tmp.907 = getv ? :background_color;
+        invoke %tmp.902 %tmp.903(%tmp.905, %tmp.907);
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 923 8 ]
-        %tmp.932 = lgetv %targetDc.2;
-        %tmp.933 = getv function %tmp.932 :drawCircle;
-        %tmp.935 = getv ? :width_screen;
-        %tmp.936 = 2;
-        %tmp.937 = div %tmp.935 %tmp.936;
-        %tmp.939 = getv ? :height_screen;
-        %tmp.940 = 2;
-        %tmp.941 = div %tmp.939 %tmp.940;
-        %tmp.942 = 6;
-        invoke %tmp.932 %tmp.933(%tmp.937, %tmp.941, %tmp.942);
+        %tmp.908 = lgetv %targetDc.2;
+        %tmp.909 = getv function %tmp.908 :drawCircle;
+        %tmp.911 = getv ? :width_screen;
+        %tmp.912 = 2;
+        %tmp.913 = div %tmp.911 %tmp.912;
+        %tmp.915 = getv ? :height_screen;
+        %tmp.916 = 2;
+        %tmp.917 = div %tmp.915 %tmp.916;
+        %tmp.918 = 6;
+        invoke %tmp.908 %tmp.909(%tmp.913, %tmp.917, %tmp.918);
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 931 8 ]
         [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_554_47_1125_4_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_554_47_1125_4_stop" ]
         %ddm.21 = local;
-        %tmp.943 = getm $;
-        %tmp.944 = getv %tmp.943 :Options_Dict;
-        %tmp.946 = getv ? :dawnDuskMarkers;
-        %tmp.947 = agetv %tmp.944 %tmp.946;
-        lputv %ddm.21 %tmp.947;
+        %tmp.919 = getm $;
+        %tmp.920 = getv %tmp.919 :Options_Dict;
+        %tmp.922 = getv ? :dawnDuskMarkers;
+        %tmp.923 = agetv %tmp.920 %tmp.922;
+        lputv %ddm.21 %tmp.923;
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 932 8 ]
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_932_8_1069_8_if_stmt:
-        %tmp.949 = lgetv %ddm.21;
-        %tmp.950 = 4;
-        %tmp.951 = lt %tmp.949 %tmp.950;
-        bf %tmp.951 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_932_8_1069_8_if_end;
+        %tmp.925 = lgetv %ddm.21;
+        %tmp.926 = 4;
+        %tmp.927 = lt %tmp.925 %tmp.926;
+        bf %tmp.927 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_932_8_1069_8_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_932_8_1069_8_if_true:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_932_23_1069_8_start:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 936 12 ]
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_936_12_949_12_if_stmt:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_936_16_936_55_begin:
-        %tmp.953 = getv ? :dawnDusk_ran;
-        %tmp.954 = not %tmp.953;
-        bt %tmp.954 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_936_12_949_12_if_true;
+        %tmp.929 = getv ? :dawnDusk_ran;
+        %tmp.930 = not %tmp.929;
+        bt %tmp.930 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_936_12_949_12_if_true;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_936_33_936_55_false:
-        %tmp.955 = lgetv %clockTime.1;
-        %tmp.956 = getv %tmp.955 :min;
-        %tmp.957 = 10;
-        %tmp.958 = mod %tmp.956 %tmp.957;
-        %tmp.959 = 0;
-        %tmp.960 = eq %tmp.958 %tmp.959;
-        push %tmp.960;
+        %tmp.931 = lgetv %clockTime.1;
+        %tmp.932 = getv %tmp.931 :min;
+        %tmp.933 = 10;
+        %tmp.934 = mod %tmp.932 %tmp.933;
+        %tmp.935 = 0;
+        %tmp.936 = eq %tmp.934 %tmp.935;
+        push %tmp.936;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_936_33_936_55_end:
-        %tmp.961 = phi [%tmp.954 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_936_16_936_55_begin] [%tmp.960 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_936_33_936_55_false] [%tmp.961 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_936_33_936_55_end];
-        bf %tmp.961 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_936_12_949_12_if_end;
+        %tmp.937 = phi [%tmp.930 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_936_16_936_55_begin] [%tmp.936 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_936_33_936_55_false] [%tmp.937 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_936_33_936_55_end];
+        bf %tmp.937 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_936_12_949_12_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_936_12_949_12_if_true:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_937_12_949_12_start:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 939 16 ]
-        %tmp.962 = true;
-        putv self :dawnDusk_ran %tmp.962;
+        %tmp.938 = true;
+        putv self :dawnDusk_ran %tmp.938;
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 940 16 ]
         [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_937_12_949_12_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_937_12_949_12_stop" ]
         %which.22 = local;
-        %tmp.963 = newa 2;
-        %tmp.965 = getv ? :DAWN;
-        %tmp.966 = dup %tmp.963;
-        %tmp.967 = aputv %tmp.966 0 %tmp.965;
-        %tmp.969 = getv ? :DUSK;
-        %tmp.970 = dup %tmp.967;
-        %tmp.971 = aputv %tmp.970 1 %tmp.969;
-        lputv %which.22 %tmp.971;
+        %tmp.939 = newa 2;
+        %tmp.941 = getv ? :DAWN;
+        %tmp.942 = dup %tmp.939;
+        %tmp.943 = aputv %tmp.942 0 %tmp.941;
+        %tmp.945 = getv ? :DUSK;
+        %tmp.946 = dup %tmp.943;
+        %tmp.947 = aputv %tmp.946 1 %tmp.945;
+        lputv %which.22 %tmp.947;
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 941 16 ]
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_941_16_943_16_if_stmt:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_941_20_941_39_begin:
-        %tmp.973 = lgetv %ddm.21;
-        %tmp.974 = 1;
-        %tmp.975 = eq %tmp.973 %tmp.974;
-        bt %tmp.975 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_941_16_943_16_if_true;
+        %tmp.949 = lgetv %ddm.21;
+        %tmp.950 = 1;
+        %tmp.951 = eq %tmp.949 %tmp.950;
+        bt %tmp.951 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_941_16_943_16_if_true;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_941_32_941_39_false:
-        %tmp.977 = lgetv %ddm.21;
-        %tmp.978 = 3;
-        %tmp.979 = eq %tmp.977 %tmp.978;
-        push %tmp.979;
+        %tmp.953 = lgetv %ddm.21;
+        %tmp.954 = 3;
+        %tmp.955 = eq %tmp.953 %tmp.954;
+        push %tmp.955;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_941_32_941_39_end:
-        %tmp.980 = phi [%tmp.975 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_941_20_941_39_begin] [%tmp.979 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_941_32_941_39_false] [%tmp.980 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_941_32_941_39_end];
-        bf %tmp.980 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_941_16_943_16_if_end;
+        %tmp.956 = phi [%tmp.951 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_941_20_941_39_begin] [%tmp.955 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_941_32_941_39_false] [%tmp.956 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_941_32_941_39_end];
+        bf %tmp.956 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_941_16_943_16_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_941_16_943_16_if_true:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_941_42_943_16_start:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 942 20 ]
-        %tmp.981 = newa 2;
-        %tmp.983 = getv ? :SUNRISE;
-        %tmp.984 = dup %tmp.981;
-        %tmp.985 = aputv %tmp.984 0 %tmp.983;
-        %tmp.987 = getv ? :SUNSET;
-        %tmp.988 = dup %tmp.985;
-        %tmp.989 = aputv %tmp.988 1 %tmp.987;
-        lputv %which.22 %tmp.989;
+        %tmp.957 = newa 2;
+        %tmp.959 = getv ? :SUNRISE;
+        %tmp.960 = dup %tmp.957;
+        %tmp.961 = aputv %tmp.960 0 %tmp.959;
+        %tmp.963 = getv ? :SUNSET;
+        %tmp.964 = dup %tmp.961;
+        %tmp.965 = aputv %tmp.964 1 %tmp.963;
+        lputv %which.22 %tmp.965;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_941_42_943_16_stop:
         goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_941_16_943_16_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_941_16_943_16_if_end:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 946 16 ]
-        %tmp.991 = getv ? :si;
-        %tmp.992 = getv function %tmp.991 :getNextDawnDusk;
-        %tmp.994 = lgetv %which.22;
-        %tmp.995 = invoke %tmp.991 %tmp.992(%tmp.994);
-        putv self :dawnDusk_info %tmp.995;
+        %tmp.967 = getv ? :si;
+        %tmp.968 = getv function %tmp.967 :getNextDawnDusk;
+        %tmp.970 = lgetv %which.22;
+        %tmp.971 = invoke %tmp.967 %tmp.968(%tmp.970);
+        putv self :dawnDusk_info %tmp.971;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_937_12_949_12_stop:
         goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_936_12_949_12_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_936_12_949_12_if_end:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 956 12 ]
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_956_12_1068_12_if_stmt:
-        %tmp.997 = getv ? :dawnDusk_info;
-        %tmp.998 = null;
-        %tmp.999 = ne %tmp.997 %tmp.998;
-        bf %tmp.999 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_956_12_1068_12_if_end;
+        %tmp.973 = getv ? :dawnDusk_info;
+        %tmp.974 = null;
+        %tmp.975 = ne %tmp.973 %tmp.974;
+        bf %tmp.975 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_956_12_1068_12_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_956_12_1068_12_if_true:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_956_39_1068_12_start:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 959 16 ]
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_959_16_1067_16_if_stmt:
-        %tmp.1001 = lgetv %ddm.21;
-        %tmp.1002 = 2;
-        %tmp.1003 = lt %tmp.1001 %tmp.1002;
-        bf %tmp.1003 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_959_16_1067_16_if_false;
+        %tmp.977 = lgetv %ddm.21;
+        %tmp.978 = 2;
+        %tmp.979 = lt %tmp.977 %tmp.978;
+        bf %tmp.979 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_959_16_1067_16_if_false;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_959_16_1067_16_if_true:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_959_31_1040_16_start:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 960 20 ]
@@ -3287,185 +3263,185 @@ E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_960_20_1039_20_for_init:
         [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_960_20_1039_20_for_begin" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_960_20_1039_20_for_end" ]
         %i.23 = local;
-        %tmp.1004 = 0;
-        lputv %i.23 %tmp.1004;
+        %tmp.980 = 0;
+        lputv %i.23 %tmp.980;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_960_20_1039_20_for_test:
-        %tmp.1006 = lgetv %i.23;
-        %tmp.1008 = getv ? :dawnDusk_info;
-        %tmp.1009 = as %tmp.1008 { (!Null) };
-        %tmp.1010 = getv function %tmp.1009 :size;
-        %tmp.1011 = invoke %tmp.1009 %tmp.1010();
-        %tmp.1012 = lt %tmp.1006 %tmp.1011;
-        bf %tmp.1012 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_960_20_1039_20_for_end;
+        %tmp.982 = lgetv %i.23;
+        %tmp.984 = getv ? :dawnDusk_info;
+        %tmp.985 = as %tmp.984 { (!Null) };
+        %tmp.986 = getv function %tmp.985 :size;
+        %tmp.987 = invoke %tmp.985 %tmp.986();
+        %tmp.988 = lt %tmp.982 %tmp.987;
+        bf %tmp.988 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_960_20_1039_20_for_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_960_20_1039_20_for_begin:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_960_65_1039_20_start:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 995 24 ]
         [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_960_65_1039_20_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_960_65_1039_20_stop" ]
         %sh.24 = local;
-        %tmp.1013 = 7;
-        lputv %sh.24 %tmp.1013;
+        %tmp.989 = 7;
+        lputv %sh.24 %tmp.989;
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 996 24 ]
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_996_24_996_72_if_stmt:
-        %tmp.1015 = getv ? :dawnDusk_info;
-        %tmp.1017 = lgetv %i.23;
-        %tmp.1018 = agetv %tmp.1015 %tmp.1017;
-        %tmp.1019 = 0;
-        %tmp.1020 = agetv %tmp.1018 %tmp.1019;
-        %tmp.1021 = getv function %tmp.1020 :equals;
-        %tmp.1022 = "Dusk";
-        %tmp.1023 = invoke %tmp.1020 %tmp.1021(%tmp.1022);
-        bf %tmp.1023 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_996_24_996_72_if_end;
+        %tmp.991 = getv ? :dawnDusk_info;
+        %tmp.993 = lgetv %i.23;
+        %tmp.994 = agetv %tmp.991 %tmp.993;
+        %tmp.995 = 0;
+        %tmp.996 = agetv %tmp.994 %tmp.995;
+        %tmp.997 = getv function %tmp.996 :equals;
+        %tmp.998 = "Dusk";
+        %tmp.999 = invoke %tmp.996 %tmp.997(%tmp.998);
+        bf %tmp.999 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_996_24_996_72_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_996_24_996_72_if_true:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_996_64_996_72_start:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 996 65 ]
-        %tmp.1024 = 9;
-        lputv %sh.24 %tmp.1024;
+        %tmp.1000 = 9;
+        lputv %sh.24 %tmp.1000;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_996_64_996_72_stop:
         goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_996_24_996_72_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_996_24_996_72_if_end:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 999 24 ]
         [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_960_65_1039_20_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_960_65_1039_20_stop" ]
         %radius.25 = local;
-        %tmp.1025 = 2;
-        lputv %radius.25 %tmp.1025;
+        %tmp.1001 = 2;
+        lputv %radius.25 %tmp.1001;
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 1001 24 ]
         [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_960_65_1039_20_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_960_65_1039_20_stop" ]
         %ln.26 = local;
-        %tmp.1027 = getv ? :width_screen;
-        %tmp.1028 = .48;
-        %tmp.1029 = mul %tmp.1027 %tmp.1028;
-        lputv %ln.26 %tmp.1029;
+        %tmp.1003 = getv ? :width_screen;
+        %tmp.1004 = .48;
+        %tmp.1005 = mul %tmp.1003 %tmp.1004;
+        lputv %ln.26 %tmp.1005;
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 1002 24 ]
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1002_24_1004_24_if_stmt:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1002_28_1002_125_begin:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1002_29_1002_94_begin:
-        %tmp.1030 = getm $;
-        %tmp.1031 = getv %tmp.1030 :Options_Dict;
-        %tmp.1033 = getv ? :secondHashes;
-        %tmp.1034 = agetv %tmp.1031 %tmp.1033;
-        bf %tmp.1034 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1002_100_1002_125_false;
+        %tmp.1006 = getm $;
+        %tmp.1007 = getv %tmp.1006 :Options_Dict;
+        %tmp.1009 = getv ? :secondHashes;
+        %tmp.1010 = agetv %tmp.1007 %tmp.1009;
+        bf %tmp.1010 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1002_100_1002_125_false;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1002_61_1002_94_true:
-        %tmp.1035 = getm $;
-        %tmp.1036 = getv %tmp.1035 :Options_Dict;
-        %tmp.1038 = getv ? :secondDisplay;
-        %tmp.1039 = agetv %tmp.1036 %tmp.1038;
-        %tmp.1040 = 0;
-        %tmp.1041 = eq %tmp.1039 %tmp.1040;
-        push %tmp.1041;
+        %tmp.1011 = getm $;
+        %tmp.1012 = getv %tmp.1011 :Options_Dict;
+        %tmp.1014 = getv ? :secondDisplay;
+        %tmp.1015 = agetv %tmp.1012 %tmp.1014;
+        %tmp.1016 = 0;
+        %tmp.1017 = eq %tmp.1015 %tmp.1016;
+        push %tmp.1017;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1002_61_1002_94_end:
-        %tmp.1042 = phi [%tmp.1034 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1002_29_1002_94_begin] [%tmp.1041 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1002_61_1002_94_true] [%tmp.1042 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1002_61_1002_94_end];
-        bt %tmp.1042 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1002_24_1004_24_if_true;
+        %tmp.1018 = phi [%tmp.1010 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1002_29_1002_94_begin] [%tmp.1017 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1002_61_1002_94_true] [%tmp.1018 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1002_61_1002_94_end];
+        bt %tmp.1018 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1002_24_1004_24_if_true;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1002_100_1002_125_false:
-        %tmp.1043 = getm $;
-        %tmp.1044 = getv %tmp.1043 :Options_Dict;
-        %tmp.1046 = getv ? :hourHashes;
-        %tmp.1047 = agetv %tmp.1044 %tmp.1046;
-        push %tmp.1047;
+        %tmp.1019 = getm $;
+        %tmp.1020 = getv %tmp.1019 :Options_Dict;
+        %tmp.1022 = getv ? :hourHashes;
+        %tmp.1023 = agetv %tmp.1020 %tmp.1022;
+        push %tmp.1023;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1002_100_1002_125_end:
-        %tmp.1048 = phi [%tmp.1042 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1002_28_1002_125_begin] [%tmp.1047 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1002_100_1002_125_false] [%tmp.1048 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1002_100_1002_125_end];
-        bf %tmp.1048 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1002_24_1004_24_if_end;
+        %tmp.1024 = phi [%tmp.1018 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1002_28_1002_125_begin] [%tmp.1023 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1002_100_1002_125_false] [%tmp.1024 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1002_100_1002_125_end];
+        bf %tmp.1024 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1002_24_1004_24_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1002_24_1004_24_if_true:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1002_129_1004_24_start:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 1003 28 ]
-        %tmp.1050 = getv ? :width_screen;
-        %tmp.1051 = .48;
-        %tmp.1052 = mul %tmp.1050 %tmp.1051;
-        lputv %ln.26 %tmp.1052;
+        %tmp.1026 = getv ? :width_screen;
+        %tmp.1027 = .48;
+        %tmp.1028 = mul %tmp.1026 %tmp.1027;
+        lputv %ln.26 %tmp.1028;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1002_129_1004_24_stop:
         goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1002_24_1004_24_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1002_24_1004_24_if_end:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 1005 24 ]
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1005_24_1007_24_if_stmt:
-        %tmp.1054 = getv ? :width_screen;
-        %tmp.1055 = 176;
-        %tmp.1056 = gt %tmp.1054 %tmp.1055;
-        bf %tmp.1056 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1005_24_1007_24_if_end;
+        %tmp.1030 = getv ? :width_screen;
+        %tmp.1031 = 176;
+        %tmp.1032 = gt %tmp.1030 %tmp.1031;
+        bf %tmp.1032 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1005_24_1007_24_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1005_24_1007_24_if_true:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1005_47_1007_24_start:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 1006 28 ]
-        %tmp.1058 = getv ? :width_screen;
-        %tmp.1059 = .43;
-        %tmp.1060 = mul %tmp.1058 %tmp.1059;
-        lputv %ln.26 %tmp.1060;
+        %tmp.1034 = getv ? :width_screen;
+        %tmp.1035 = .43;
+        %tmp.1036 = mul %tmp.1034 %tmp.1035;
+        lputv %ln.26 %tmp.1036;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1005_47_1007_24_stop:
         goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1005_24_1007_24_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1005_24_1007_24_if_end:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 1020 24 ]
         [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_960_65_1039_20_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_960_65_1039_20_stop" ]
         %ang_rad_clock.27 = local;
-        %tmp.1061 = self;
-        %tmp.1062 = getv function %tmp.1061 :mod;
-        %tmp.1064 = getv ? :dawnDusk_info;
-        %tmp.1066 = lgetv %i.23;
-        %tmp.1067 = agetv %tmp.1064 %tmp.1066;
-        %tmp.1068 = 1;
-        %tmp.1069 = agetv %tmp.1067 %tmp.1068;
-        %tmp.1070 = getm $.Toybox.Math;
-        %tmp.1071 = getv %tmp.1070 :PI;
-        %tmp.1072 = 2;
-        %tmp.1073 = mul %tmp.1071 %tmp.1072;
-        %tmp.1074 = invoke %tmp.1061 %tmp.1062(%tmp.1069, %tmp.1073);
-        lputv %ang_rad_clock.27 %tmp.1074;
+        %tmp.1037 = self;
+        %tmp.1038 = getv function %tmp.1037 :mod;
+        %tmp.1040 = getv ? :dawnDusk_info;
+        %tmp.1042 = lgetv %i.23;
+        %tmp.1043 = agetv %tmp.1040 %tmp.1042;
+        %tmp.1044 = 1;
+        %tmp.1045 = agetv %tmp.1043 %tmp.1044;
+        %tmp.1046 = getm $.Toybox.Math;
+        %tmp.1047 = getv %tmp.1046 :PI;
+        %tmp.1048 = 2;
+        %tmp.1049 = mul %tmp.1047 %tmp.1048;
+        %tmp.1050 = invoke %tmp.1037 %tmp.1038(%tmp.1045, %tmp.1049);
+        lputv %ang_rad_clock.27 %tmp.1050;
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 1025 24 ]
         [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_960_65_1039_20_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_960_65_1039_20_stop" ]
         %options.28 = local;
-        %tmp.1075 = newd 11;
-        %tmp.1077 = const :dc;
-        %tmp.1079 = lgetv %targetDc.2;
-        %tmp.1080 = dup %tmp.1075;
-        %tmp.1081 = aputv %tmp.1080 %tmp.1077 %tmp.1079;
-        %tmp.1083 = const :angle;
-        %tmp.1085 = lgetv %ang_rad_clock.27;
-        %tmp.1086 = dup %tmp.1081;
-        %tmp.1087 = aputv %tmp.1086 %tmp.1083 %tmp.1085;
-        %tmp.1089 = const :length;
-        %tmp.1091 = lgetv %ln.26;
-        %tmp.1092 = dup %tmp.1087;
-        %tmp.1093 = aputv %tmp.1092 %tmp.1089 %tmp.1091;
-        %tmp.1095 = const :width;
-        %tmp.1096 = 8;
-        %tmp.1097 = dup %tmp.1093;
-        %tmp.1098 = aputv %tmp.1097 %tmp.1095 %tmp.1096;
-        %tmp.1100 = const :overheadLine;
-        %tmp.1102 = lgetv %radius.25;
-        %tmp.1103 = dup %tmp.1098;
-        %tmp.1104 = aputv %tmp.1103 %tmp.1100 %tmp.1102;
-        %tmp.1106 = const :drawCircleOnTop;
-        %tmp.1107 = false;
-        %tmp.1108 = dup %tmp.1104;
-        %tmp.1109 = aputv %tmp.1108 %tmp.1106 %tmp.1107;
-        %tmp.1111 = const :shape;
-        %tmp.1113 = lgetv %sh.24;
+        %tmp.1051 = newd 11;
+        %tmp.1053 = const :dc;
+        %tmp.1055 = lgetv %targetDc.2;
+        %tmp.1056 = dup %tmp.1051;
+        %tmp.1057 = aputv %tmp.1056 %tmp.1053 %tmp.1055;
+        %tmp.1059 = const :angle;
+        %tmp.1061 = lgetv %ang_rad_clock.27;
+        %tmp.1062 = dup %tmp.1057;
+        %tmp.1063 = aputv %tmp.1062 %tmp.1059 %tmp.1061;
+        %tmp.1065 = const :length;
+        %tmp.1067 = lgetv %ln.26;
+        %tmp.1068 = dup %tmp.1063;
+        %tmp.1069 = aputv %tmp.1068 %tmp.1065 %tmp.1067;
+        %tmp.1071 = const :width;
+        %tmp.1072 = 8;
+        %tmp.1073 = dup %tmp.1069;
+        %tmp.1074 = aputv %tmp.1073 %tmp.1071 %tmp.1072;
+        %tmp.1076 = const :overheadLine;
+        %tmp.1078 = lgetv %radius.25;
+        %tmp.1079 = dup %tmp.1074;
+        %tmp.1080 = aputv %tmp.1079 %tmp.1076 %tmp.1078;
+        %tmp.1082 = const :drawCircleOnTop;
+        %tmp.1083 = false;
+        %tmp.1084 = dup %tmp.1080;
+        %tmp.1085 = aputv %tmp.1084 %tmp.1082 %tmp.1083;
+        %tmp.1087 = const :shape;
+        %tmp.1089 = lgetv %sh.24;
+        %tmp.1090 = dup %tmp.1085;
+        %tmp.1091 = aputv %tmp.1090 %tmp.1087 %tmp.1089;
+        %tmp.1093 = const :squeezeX;
+        %tmp.1095 = lgetv %squeeze.5;
+        %tmp.1096 = dup %tmp.1091;
+        %tmp.1097 = aputv %tmp.1096 %tmp.1093 %tmp.1095;
+        %tmp.1099 = const :squeezeY;
+        %tmp.1101 = lgetv %squeeze.5;
+        %tmp.1102 = dup %tmp.1097;
+        %tmp.1103 = aputv %tmp.1102 %tmp.1099 %tmp.1101;
+        %tmp.1105 = const :centerX;
+        %tmp.1107 = getv ? :centerX_main;
+        %tmp.1108 = dup %tmp.1103;
+        %tmp.1109 = aputv %tmp.1108 %tmp.1105 %tmp.1107;
+        %tmp.1111 = const :centerY;
+        %tmp.1113 = getv ? :centerY_main;
         %tmp.1114 = dup %tmp.1109;
         %tmp.1115 = aputv %tmp.1114 %tmp.1111 %tmp.1113;
-        %tmp.1117 = const :squeezeX;
-        %tmp.1119 = lgetv %squeeze.5;
-        %tmp.1120 = dup %tmp.1115;
-        %tmp.1121 = aputv %tmp.1120 %tmp.1117 %tmp.1119;
-        %tmp.1123 = const :squeezeY;
-        %tmp.1125 = lgetv %squeeze.5;
-        %tmp.1126 = dup %tmp.1121;
-        %tmp.1127 = aputv %tmp.1126 %tmp.1123 %tmp.1125;
-        %tmp.1129 = const :centerX;
-        %tmp.1131 = getv ? :centerX_main;
-        %tmp.1132 = dup %tmp.1127;
-        %tmp.1133 = aputv %tmp.1132 %tmp.1129 %tmp.1131;
-        %tmp.1135 = const :centerY;
-        %tmp.1137 = getv ? :centerY_main;
-        %tmp.1138 = dup %tmp.1133;
-        %tmp.1139 = aputv %tmp.1138 %tmp.1135 %tmp.1137;
-        lputv %options.28 %tmp.1139;
+        lputv %options.28 %tmp.1115;
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 1027 24 ]
-        %tmp.1140 = self;
-        %tmp.1141 = getv function %tmp.1140 :drawHand;
-        %tmp.1143 = lgetv %options.28;
-        invoke %tmp.1140 %tmp.1141(%tmp.1143);
+        %tmp.1116 = self;
+        %tmp.1117 = getv function %tmp.1116 :drawHand;
+        %tmp.1119 = lgetv %options.28;
+        invoke %tmp.1116 %tmp.1117(%tmp.1119);
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_960_65_1039_20_stop:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_960_20_1039_20_for_incr:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 960 ]
-        %tmp.1146 = lgetv %i.23;
-        %tmp.1147 = add %tmp.1146 1;
-        lputv %i.23 %tmp.1147;
+        %tmp.1122 = lgetv %i.23;
+        %tmp.1123 = add %tmp.1122 1;
+        lputv %i.23 %tmp.1123;
         goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_960_20_1039_20_for_test;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_960_20_1039_20_for_end:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_959_31_1040_16_stop:
@@ -3473,145 +3449,145 @@ E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_959_16_1067_16_if_false:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 1040 23 ]
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1040_23_1067_16_if_stmt:
-        %tmp.1149 = lgetv %ddm.21;
-        %tmp.1150 = 4;
-        %tmp.1151 = lt %tmp.1149 %tmp.1150;
-        bf %tmp.1151 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1040_23_1067_16_if_end;
+        %tmp.1125 = lgetv %ddm.21;
+        %tmp.1126 = 4;
+        %tmp.1127 = lt %tmp.1125 %tmp.1126;
+        bf %tmp.1127 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1040_23_1067_16_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1040_23_1067_16_if_true:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1040_35_1067_16_start:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 1048 20 ]
         [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1040_35_1067_16_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1040_35_1067_16_stop" ]
         %dawnAngle_rad.29 = local;
-        %tmp.1153 = getv ? :dawnDusk_info;
-        %tmp.1154 = as %tmp.1153 { (!Null) };
-        %tmp.1155 = 0;
-        %tmp.1156 = agetv %tmp.1154 %tmp.1155;
-        %tmp.1157 = 1;
-        %tmp.1158 = agetv %tmp.1156 %tmp.1157;
-        %tmp.1159 = 2.0;
-        %tmp.1160 = div %tmp.1158 %tmp.1159;
-        lputv %dawnAngle_rad.29 %tmp.1160;
+        %tmp.1129 = getv ? :dawnDusk_info;
+        %tmp.1130 = as %tmp.1129 { (!Null) };
+        %tmp.1131 = 0;
+        %tmp.1132 = agetv %tmp.1130 %tmp.1131;
+        %tmp.1133 = 1;
+        %tmp.1134 = agetv %tmp.1132 %tmp.1133;
+        %tmp.1135 = 2.0;
+        %tmp.1136 = div %tmp.1134 %tmp.1135;
+        lputv %dawnAngle_rad.29 %tmp.1136;
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 1049 20 ]
         [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1040_35_1067_16_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1040_35_1067_16_stop" ]
         %duskAngle_rad.30 = local;
-        %tmp.1162 = getv ? :dawnDusk_info;
-        %tmp.1163 = as %tmp.1162 { (!Null) };
-        %tmp.1164 = 1;
-        %tmp.1165 = agetv %tmp.1163 %tmp.1164;
-        %tmp.1166 = 1;
-        %tmp.1167 = agetv %tmp.1165 %tmp.1166;
-        %tmp.1168 = 2.0;
-        %tmp.1169 = div %tmp.1167 %tmp.1168;
-        lputv %duskAngle_rad.30 %tmp.1169;
+        %tmp.1138 = getv ? :dawnDusk_info;
+        %tmp.1139 = as %tmp.1138 { (!Null) };
+        %tmp.1140 = 1;
+        %tmp.1141 = agetv %tmp.1139 %tmp.1140;
+        %tmp.1142 = 1;
+        %tmp.1143 = agetv %tmp.1141 %tmp.1142;
+        %tmp.1144 = 2.0;
+        %tmp.1145 = div %tmp.1143 %tmp.1144;
+        lputv %duskAngle_rad.30 %tmp.1145;
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 1050 20 ]
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1050_20_1053_20_if_stmt:
-        %tmp.1171 = getv ? :dawnDusk_info;
-        %tmp.1172 = as %tmp.1171 { (!Null) };
-        %tmp.1173 = 0;
-        %tmp.1174 = agetv %tmp.1172 %tmp.1173;
-        %tmp.1175 = 0;
-        %tmp.1176 = agetv %tmp.1174 %tmp.1175;
-        %tmp.1177 = getv function %tmp.1176 :equals;
-        %tmp.1178 = "Dusk";
-        %tmp.1179 = invoke %tmp.1176 %tmp.1177(%tmp.1178);
-        bf %tmp.1179 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1050_20_1053_20_if_end;
+        %tmp.1147 = getv ? :dawnDusk_info;
+        %tmp.1148 = as %tmp.1147 { (!Null) };
+        %tmp.1149 = 0;
+        %tmp.1150 = agetv %tmp.1148 %tmp.1149;
+        %tmp.1151 = 0;
+        %tmp.1152 = agetv %tmp.1150 %tmp.1151;
+        %tmp.1153 = getv function %tmp.1152 :equals;
+        %tmp.1154 = "Dusk";
+        %tmp.1155 = invoke %tmp.1152 %tmp.1153(%tmp.1154);
+        bf %tmp.1155 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1050_20_1053_20_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1050_20_1053_20_if_true:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1050_60_1053_20_start:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 1051 24 ]
-        %tmp.1181 = getv ? :dawnDusk_info;
-        %tmp.1182 = 1;
-        %tmp.1183 = agetv %tmp.1181 %tmp.1182;
-        %tmp.1184 = 1;
-        %tmp.1185 = agetv %tmp.1183 %tmp.1184;
-        %tmp.1186 = 2.0;
-        %tmp.1187 = div %tmp.1185 %tmp.1186;
-        lputv %dawnAngle_rad.29 %tmp.1187;
+        %tmp.1157 = getv ? :dawnDusk_info;
+        %tmp.1158 = 1;
+        %tmp.1159 = agetv %tmp.1157 %tmp.1158;
+        %tmp.1160 = 1;
+        %tmp.1161 = agetv %tmp.1159 %tmp.1160;
+        %tmp.1162 = 2.0;
+        %tmp.1163 = div %tmp.1161 %tmp.1162;
+        lputv %dawnAngle_rad.29 %tmp.1163;
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 1052 24 ]
-        %tmp.1189 = getv ? :dawnDusk_info;
-        %tmp.1190 = 0;
-        %tmp.1191 = agetv %tmp.1189 %tmp.1190;
-        %tmp.1192 = 1;
-        %tmp.1193 = agetv %tmp.1191 %tmp.1192;
-        %tmp.1194 = 2.0;
-        %tmp.1195 = div %tmp.1193 %tmp.1194;
-        lputv %duskAngle_rad.30 %tmp.1195;
+        %tmp.1165 = getv ? :dawnDusk_info;
+        %tmp.1166 = 0;
+        %tmp.1167 = agetv %tmp.1165 %tmp.1166;
+        %tmp.1168 = 1;
+        %tmp.1169 = agetv %tmp.1167 %tmp.1168;
+        %tmp.1170 = 2.0;
+        %tmp.1171 = div %tmp.1169 %tmp.1170;
+        lputv %duskAngle_rad.30 %tmp.1171;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1050_60_1053_20_stop:
         goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1050_20_1053_20_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1050_20_1053_20_if_end:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 1054 20 ]
-        %tmp.1196 = self;
-        %tmp.1197 = getv function %tmp.1196 :mod;
-        %tmp.1199 = lgetv %dawnAngle_rad.29;
-        %tmp.1200 = getm $.Toybox.Math;
-        %tmp.1201 = getv %tmp.1200 :PI;
-        %tmp.1202 = 2;
-        %tmp.1203 = mul %tmp.1201 %tmp.1202;
-        %tmp.1204 = invoke %tmp.1196 %tmp.1197(%tmp.1199, %tmp.1203);
-        lputv %dawnAngle_rad.29 %tmp.1204;
+        %tmp.1172 = self;
+        %tmp.1173 = getv function %tmp.1172 :mod;
+        %tmp.1175 = lgetv %dawnAngle_rad.29;
+        %tmp.1176 = getm $.Toybox.Math;
+        %tmp.1177 = getv %tmp.1176 :PI;
+        %tmp.1178 = 2;
+        %tmp.1179 = mul %tmp.1177 %tmp.1178;
+        %tmp.1180 = invoke %tmp.1172 %tmp.1173(%tmp.1175, %tmp.1179);
+        lputv %dawnAngle_rad.29 %tmp.1180;
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 1055 20 ]
-        %tmp.1205 = self;
-        %tmp.1206 = getv function %tmp.1205 :mod;
-        %tmp.1208 = lgetv %duskAngle_rad.30;
-        %tmp.1209 = getm $.Toybox.Math;
-        %tmp.1210 = getv %tmp.1209 :PI;
-        %tmp.1211 = 2;
-        %tmp.1212 = mul %tmp.1210 %tmp.1211;
-        %tmp.1213 = invoke %tmp.1205 %tmp.1206(%tmp.1208, %tmp.1212);
-        lputv %duskAngle_rad.30 %tmp.1213;
+        %tmp.1181 = self;
+        %tmp.1182 = getv function %tmp.1181 :mod;
+        %tmp.1184 = lgetv %duskAngle_rad.30;
+        %tmp.1185 = getm $.Toybox.Math;
+        %tmp.1186 = getv %tmp.1185 :PI;
+        %tmp.1187 = 2;
+        %tmp.1188 = mul %tmp.1186 %tmp.1187;
+        %tmp.1189 = invoke %tmp.1181 %tmp.1182(%tmp.1184, %tmp.1188);
+        lputv %duskAngle_rad.30 %tmp.1189;
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 1058 20 ]
         [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1040_35_1067_16_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1040_35_1067_16_stop" ]
         %now.31 = local;
-        %tmp.1214 = getm $.Toybox.Time;
-        %tmp.1215 = getv function %tmp.1214 :now;
-        %tmp.1216 = invoke %tmp.1214 %tmp.1215();
-        lputv %now.31 %tmp.1216;
+        %tmp.1190 = getm $.Toybox.Time;
+        %tmp.1191 = getv function %tmp.1190 :now;
+        %tmp.1192 = invoke %tmp.1190 %tmp.1191();
+        lputv %now.31 %tmp.1192;
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 1059 20 ]
         [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1040_35_1067_16_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1040_35_1067_16_stop" ]
         %mid_date.32 = local;
-        %tmp.1217 = getm $.Toybox.Time;
-        %tmp.1218 = getv function %tmp.1217 :today;
-        %tmp.1219 = invoke %tmp.1217 %tmp.1218();
-        lputv %mid_date.32 %tmp.1219;
+        %tmp.1193 = getm $.Toybox.Time;
+        %tmp.1194 = getv function %tmp.1193 :today;
+        %tmp.1195 = invoke %tmp.1193 %tmp.1194();
+        lputv %mid_date.32 %tmp.1195;
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 1061 20 ]
         [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1040_35_1067_16_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1040_35_1067_16_stop" ]
         %currTimeAngle_rad.33 = local;
-        %tmp.1220 = lgetv %now.31;
-        %tmp.1221 = getv function %tmp.1220 :value;
-        %tmp.1222 = invoke %tmp.1220 %tmp.1221();
-        %tmp.1223 = getv function %tmp.1222 :toDouble;
-        %tmp.1224 = invoke %tmp.1222 %tmp.1223();
-        %tmp.1225 = lgetv %mid_date.32;
-        %tmp.1226 = getv function %tmp.1225 :value;
-        %tmp.1227 = invoke %tmp.1225 %tmp.1226();
-        %tmp.1228 = getv function %tmp.1227 :toDouble;
-        %tmp.1229 = invoke %tmp.1227 %tmp.1228();
-        %tmp.1230 = sub %tmp.1224 %tmp.1229;
-        %tmp.1231 = getm $.Toybox.Time;
-        %tmp.1232 = getv %tmp.1231 :Gregorian;
-        %tmp.1233 = getv %tmp.1232 :SECONDS_PER_DAY;
-        %tmp.1234 = div %tmp.1230 %tmp.1233;
-        %tmp.1235 = getm $.Toybox.Math;
-        %tmp.1236 = getv %tmp.1235 :PI;
-        %tmp.1237 = mul %tmp.1234 %tmp.1236;
-        %tmp.1238 = 2.0;
-        %tmp.1239 = mul %tmp.1237 %tmp.1238;
-        lputv %currTimeAngle_rad.33 %tmp.1239;
+        %tmp.1196 = lgetv %now.31;
+        %tmp.1197 = getv function %tmp.1196 :value;
+        %tmp.1198 = invoke %tmp.1196 %tmp.1197();
+        %tmp.1199 = getv function %tmp.1198 :toDouble;
+        %tmp.1200 = invoke %tmp.1198 %tmp.1199();
+        %tmp.1201 = lgetv %mid_date.32;
+        %tmp.1202 = getv function %tmp.1201 :value;
+        %tmp.1203 = invoke %tmp.1201 %tmp.1202();
+        %tmp.1204 = getv function %tmp.1203 :toDouble;
+        %tmp.1205 = invoke %tmp.1203 %tmp.1204();
+        %tmp.1206 = sub %tmp.1200 %tmp.1205;
+        %tmp.1207 = getm $.Toybox.Time;
+        %tmp.1208 = getv %tmp.1207 :Gregorian;
+        %tmp.1209 = getv %tmp.1208 :SECONDS_PER_DAY;
+        %tmp.1210 = div %tmp.1206 %tmp.1209;
+        %tmp.1211 = getm $.Toybox.Math;
+        %tmp.1212 = getv %tmp.1211 :PI;
+        %tmp.1213 = mul %tmp.1210 %tmp.1212;
+        %tmp.1214 = 2.0;
+        %tmp.1215 = mul %tmp.1213 %tmp.1214;
+        lputv %currTimeAngle_rad.33 %tmp.1215;
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 1066 20 ]
-        %tmp.1240 = self;
-        %tmp.1241 = getv function %tmp.1240 :drawDayNight_animation;
-        %tmp.1243 = lgetv %targetDc.2;
-        %tmp.1245 = lgetv %dawnAngle_rad.29;
-        %tmp.1247 = lgetv %duskAngle_rad.30;
-        %tmp.1249 = lgetv %currTimeAngle_rad.33;
-        %tmp.1251 = getv ? :centerX_circle;
-        %tmp.1253 = getv ? :centerY_circle;
-        %tmp.1255 = getv ? :radius_circle;
-        %tmp.1256 = .8;
-        %tmp.1257 = mul %tmp.1255 %tmp.1256;
-        %tmp.1259 = getv ? :radius_circle;
-        %tmp.1260 = 4;
-        %tmp.1261 = add %tmp.1259 %tmp.1260;
-        invoke %tmp.1240 %tmp.1241(%tmp.1243, %tmp.1245, %tmp.1247, %tmp.1249, %tmp.1251, %tmp.1253, %tmp.1257, %tmp.1261);
+        %tmp.1216 = self;
+        %tmp.1217 = getv function %tmp.1216 :drawDayNight_animation;
+        %tmp.1219 = lgetv %targetDc.2;
+        %tmp.1221 = lgetv %dawnAngle_rad.29;
+        %tmp.1223 = lgetv %duskAngle_rad.30;
+        %tmp.1225 = lgetv %currTimeAngle_rad.33;
+        %tmp.1227 = getv ? :centerX_circle;
+        %tmp.1229 = getv ? :centerY_circle;
+        %tmp.1231 = getv ? :radius_circle;
+        %tmp.1232 = .8;
+        %tmp.1233 = mul %tmp.1231 %tmp.1232;
+        %tmp.1235 = getv ? :radius_circle;
+        %tmp.1236 = 4;
+        %tmp.1237 = add %tmp.1235 %tmp.1236;
+        invoke %tmp.1216 %tmp.1217(%tmp.1219, %tmp.1221, %tmp.1223, %tmp.1225, %tmp.1227, %tmp.1229, %tmp.1233, %tmp.1237);
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1040_35_1067_16_stop:
         goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1040_23_1067_16_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1040_23_1067_16_if_end:
@@ -3623,81 +3599,81 @@ E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_
         goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_932_8_1069_8_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_932_8_1069_8_if_end:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 1080 8 ]
-        %tmp.1262 = self;
-        %tmp.1263 = getv function %tmp.1262 :drawBackground;
-        %tmp.1265 = lgetv %dc;
-        invoke %tmp.1262 %tmp.1263(%tmp.1265);
+        %tmp.1238 = self;
+        %tmp.1239 = getv function %tmp.1238 :drawBackground;
+        %tmp.1241 = lgetv %dc;
+        invoke %tmp.1238 %tmp.1239(%tmp.1241);
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 1094 8 ]
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1094_8_1121_8_if_stmt:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1094_12_1094_38_begin:
-        %tmp.1267 = getv ? :_partialUpdatesAllowed;
-        bf %tmp.1267 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1094_8_1121_8_if_false;
+        %tmp.1243 = getv ? :_partialUpdatesAllowed;
+        bf %tmp.1243 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1094_8_1121_8_if_false;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1094_38_1094_38_true:
-        %tmp.1269 = lgetv %sec_on.4;
-        push %tmp.1269;
+        %tmp.1245 = lgetv %sec_on.4;
+        push %tmp.1245;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1094_38_1094_38_end:
-        %tmp.1270 = phi [%tmp.1267 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1094_12_1094_38_begin] [%tmp.1269 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1094_38_1094_38_true] [%tmp.1270 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1094_38_1094_38_end];
-        bf %tmp.1270 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1094_8_1121_8_if_false;
+        %tmp.1246 = phi [%tmp.1243 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1094_12_1094_38_begin] [%tmp.1245 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1094_38_1094_38_true] [%tmp.1246 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1094_38_1094_38_end];
+        bf %tmp.1246 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1094_8_1121_8_if_false;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1094_8_1121_8_if_true:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1094_46_1098_8_start:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 1097 12 ]
-        %tmp.1271 = self;
-        %tmp.1272 = getv function %tmp.1271 :onPartialUpdate;
-        %tmp.1274 = lgetv %dc;
-        invoke %tmp.1271 %tmp.1272(%tmp.1274);
+        %tmp.1247 = self;
+        %tmp.1248 = getv function %tmp.1247 :onPartialUpdate;
+        %tmp.1250 = lgetv %dc;
+        invoke %tmp.1247 %tmp.1248(%tmp.1250);
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1094_46_1098_8_stop:
         goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1094_8_1121_8_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1094_8_1121_8_if_false:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 1098 15 ]
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1098_15_1121_8_if_stmt:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1098_19_1098_31_begin:
-        %tmp.1276 = getv ? :_isAwake;
-        bf %tmp.1276 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1098_15_1121_8_if_end;
+        %tmp.1252 = getv ? :_isAwake;
+        bf %tmp.1252 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1098_15_1121_8_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1098_31_1098_31_true:
-        %tmp.1278 = lgetv %sec_on.4;
-        push %tmp.1278;
+        %tmp.1254 = lgetv %sec_on.4;
+        push %tmp.1254;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1098_31_1098_31_end:
-        %tmp.1279 = phi [%tmp.1276 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1098_19_1098_31_begin] [%tmp.1278 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1098_31_1098_31_true] [%tmp.1279 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1098_31_1098_31_end];
-        bf %tmp.1279 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1098_15_1121_8_if_end;
+        %tmp.1255 = phi [%tmp.1252 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1098_19_1098_31_begin] [%tmp.1254 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1098_31_1098_31_true] [%tmp.1255 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1098_31_1098_31_end];
+        bf %tmp.1255 @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1098_15_1121_8_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1098_15_1121_8_if_true:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1098_39_1121_8_start:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 1109 12 ]
         [ "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1098_39_1121_8_start" "E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1098_39_1121_8_stop" ]
         %secondHand.34 = local;
-        %tmp.1280 = lgetv %clockTime.1;
-        %tmp.1281 = getv %tmp.1280 :sec;
-        %tmp.1282 = 60.0;
-        %tmp.1283 = div %tmp.1281 %tmp.1282;
-        %tmp.1284 = getm $.Toybox.Math;
-        %tmp.1285 = getv %tmp.1284 :PI;
-        %tmp.1286 = mul %tmp.1283 %tmp.1285;
-        %tmp.1287 = 2;
-        %tmp.1288 = mul %tmp.1286 %tmp.1287;
-        lputv %secondHand.34 %tmp.1288;
+        %tmp.1256 = lgetv %clockTime.1;
+        %tmp.1257 = getv %tmp.1256 :sec;
+        %tmp.1258 = 60.0;
+        %tmp.1259 = div %tmp.1257 %tmp.1258;
+        %tmp.1260 = getm $.Toybox.Math;
+        %tmp.1261 = getv %tmp.1260 :PI;
+        %tmp.1262 = mul %tmp.1259 %tmp.1261;
+        %tmp.1263 = 2;
+        %tmp.1264 = mul %tmp.1262 %tmp.1263;
+        lputv %secondHand.34 %tmp.1264;
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 1114 12 ]
-        %tmp.1289 = lgetv %dc;
-        %tmp.1290 = getv function %tmp.1289 :setColor;
-        %tmp.1292 = getv ? :sec_color;
-        %tmp.1293 = getm $.Toybox.Graphics;
-        %tmp.1294 = getv %tmp.1293 :COLOR_TRANSPARENT;
-        invoke %tmp.1289 %tmp.1290(%tmp.1292, %tmp.1294);
+        %tmp.1265 = lgetv %dc;
+        %tmp.1266 = getv function %tmp.1265 :setColor;
+        %tmp.1268 = getv ? :sec_color;
+        %tmp.1269 = getm $.Toybox.Graphics;
+        %tmp.1270 = getv %tmp.1269 :COLOR_TRANSPARENT;
+        invoke %tmp.1265 %tmp.1266(%tmp.1268, %tmp.1270);
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 1116 12 ]
-        %tmp.1295 = self;
-        %tmp.1296 = getv function %tmp.1295 :drawHandplain;
-        %tmp.1298 = lgetv %dc;
-        %tmp.1300 = lgetv %secondHand.34;
-        %tmp.1302 = getv ? :sec_length;
-        %tmp.1304 = getv ? :sec_width;
-        %tmp.1306 = getv ? :sec_base;
-        %tmp.1308 = getv ? :sec_type;
-        invoke %tmp.1295 %tmp.1296(%tmp.1298, %tmp.1300, %tmp.1302, %tmp.1304, %tmp.1306, %tmp.1308);
+        %tmp.1271 = self;
+        %tmp.1272 = getv function %tmp.1271 :drawHandplain;
+        %tmp.1274 = lgetv %dc;
+        %tmp.1276 = lgetv %secondHand.34;
+        %tmp.1278 = getv ? :sec_length;
+        %tmp.1280 = getv ? :sec_width;
+        %tmp.1282 = getv ? :sec_base;
+        %tmp.1284 = getv ? :sec_type;
+        invoke %tmp.1271 %tmp.1272(%tmp.1274, %tmp.1276, %tmp.1278, %tmp.1280, %tmp.1282, %tmp.1284);
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1098_39_1121_8_stop:
         goto @E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1098_15_1121_8_if_end;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1098_15_1121_8_if_end:
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_1094_8_1121_8_if_end:
 [ "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc" 1124 8 ]
-        %tmp.1309 = false;
-        putv self :_fullScreenRefresh %tmp.1309;
+        %tmp.1285 = false;
+        putv self :_fullScreenRefresh %tmp.1285;
 E_Data_Brent_Garmin_App_Development_SDK_examples_ElegantAnalog_Watchface_source_ElegantAnaView_mc_554_47_1125_4_stop:
     }
     [ @file = "E:\Data-Brent\Garmin-App-Development\SDK-examples\ElegantAnalog-Watchface\source\ElegantAnaView.mc"; @line = 1158; @position = 8; ]
