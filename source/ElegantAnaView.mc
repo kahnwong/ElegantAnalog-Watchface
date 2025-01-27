@@ -64,7 +64,9 @@ class ElegantAnaView extends WatchUi.WatchFace {
     var dmd_h;
 
     var activities_background_color = Graphics.COLOR_BLACK;
-    var lowBatteryColor = Graphics.COLOR_RED;
+    // #ff3333
+    //var lowBatteryColor = Graphics.COLOR_RED;
+    var lowBatteryColor = 0xff3333;
     var activities_primaryColor ;
     var activities_gap = 1;
 
@@ -820,7 +822,16 @@ class ElegantAnaView extends WatchUi.WatchFace {
         //moveExpired = true; //for testing
         if ($.Options_Dict[showMove]  && moveExpired  )
         {
-            drawMove(targetDc, Gfx.COLOR_WHITE);
+            var stats = System.getSystemStats();
+            var battery = stats.battery;
+            var batteryInDays = stats.batteryInDays;
+            deBug("batmove", [battery, batteryInDays]);
+            var index = 0;
+            if ($.Options_Dict[showBattery] || battery < 8.0 || batteryInDays < 1.1) {
+                drawBattery(targetDc, Gfx.COLOR_WHITE, lowBatteryColor, Gfx.COLOR_WHITE);
+                index +=2.6;
+            }
+            drawMove(targetDc, Gfx.COLOR_WHITE, index);
             //drawMoveDots(targetDc, info.moveBarLevel, Gfx.COLOR_WHITE);
             if ($.Options_Dict[showDate] && $.Options_Dict[secondDisplay] != 2
             && $.Options_Dict[dawnDuskMarkers] != 2 && $.Options_Dict[dawnDuskMarkers] != 3 )
@@ -835,8 +846,12 @@ class ElegantAnaView extends WatchUi.WatchFace {
             
             var index = 0;
             //drawMove(targetDc, Gfx.COLOR_WHITE);
-            if ($.Options_Dict[showBattery]) {
-                drawBattery(targetDc, Gfx.COLOR_WHITE, Gfx.COLOR_BLACK, Gfx.COLOR_WHITE);
+            var stats = System.getSystemStats();
+            var battery = stats.battery;
+            var batteryInDays = stats.batteryInDays;
+            deBug("bat", [battery, batteryInDays]);
+            if ($.Options_Dict[showBattery] || battery < 8.0 || batteryInDays < 1.1) {
+                drawBattery(targetDc, Gfx.COLOR_WHITE, lowBatteryColor, Gfx.COLOR_WHITE);
                 index +=1.75;
             }
             
@@ -2117,6 +2132,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
         //{
         //    primaryColor = fullBatteryColor;
         //}
+        //deBug("color", [primaryColor, lowBatteryColor, fullBatteryColor]);
         dc.setPenWidth(1);
         dc.setColor(primaryColor, Graphics.COLOR_TRANSPARENT);
         dc.drawRectangle(batt_x, batt_y, batt_width_rect, batt_height_rect);
@@ -2137,13 +2153,13 @@ class ElegantAnaView extends WatchUi.WatchFace {
         }
     }
 
-    function drawMove(dc, text_color)
+    function drawMove(dc, text_color, index)
     {
         
         var dateStr1 = "MOVE!";
         dc.setColor(text_color, Gfx.COLOR_BLACK);        
         
-        dc.drawText(width_screen * .5, batt_y - 1.4 * batt_height_rect , Gfx.FONT_SYSTEM_XTINY, dateStr1, Gfx.TEXT_JUSTIFY_CENTER);      
+        dc.drawText(width_screen * .5, batt_y + (index - 1.4) * batt_height_rect , Gfx.FONT_SYSTEM_XTINY, dateStr1, Gfx.TEXT_JUSTIFY_CENTER);      
     }
 
 
