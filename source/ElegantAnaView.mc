@@ -824,10 +824,11 @@ class ElegantAnaView extends WatchUi.WatchFace {
         {
             var stats = System.getSystemStats();
             var battery = stats.battery;
-            var batteryInDays = stats.batteryInDays;
+            var batteryInDays = 100;
+            if (stats has :batteryInDays && stats.batteryInDays != null) {batteryInDays = stats.batteryInDays;}
             //deBug("batmove", [battery, batteryInDays]);
             var index = 0;
-            if ($.Options_Dict[showBattery] || battery < 8.0 || batteryInDays < 1.1) {
+            if ($.Options_Dict[showBattery] || battery < 12.0 || batteryInDays < 1.1) {
                 drawBattery(targetDc, Gfx.COLOR_WHITE, lowBatteryColor, Gfx.COLOR_WHITE);
                 index +=2.6;
             }
@@ -848,9 +849,10 @@ class ElegantAnaView extends WatchUi.WatchFace {
             //drawMove(targetDc, Gfx.COLOR_WHITE);
             var stats = System.getSystemStats();
             var battery = stats.battery;
-            var batteryInDays = stats.batteryInDays;
+            var batteryInDays = 100;
+            if (stats has :batteryInDays && stats.batteryInDays != null) {batteryInDays = stats.batteryInDays;}
             //deBug("bat", [battery, batteryInDays]);
-            if ($.Options_Dict[showBattery] || battery < 8.0 || batteryInDays < 1.1) {
+            if ($.Options_Dict[showBattery] || battery < 12.0 || batteryInDays < 1.1) {
                 drawBattery(targetDc, Gfx.COLOR_WHITE, lowBatteryColor, Gfx.COLOR_WHITE);
                 index +=1.75;
             }
