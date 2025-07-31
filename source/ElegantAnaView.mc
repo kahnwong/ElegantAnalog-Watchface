@@ -661,7 +661,8 @@ class ElegantAnaView extends WatchUi.WatchFace {
       _isAwake &&
       update_ran &&
       !$.Settings_ran &&
-      clockTime.sec > 0 && !$.Options_Dict[aggressiveClear]
+      clockTime.sec > 0 &&
+      !$.Options_Dict[aggressiveClear]
     ) {
       onPartialUpdate(dc);
       return;
@@ -981,8 +982,9 @@ class ElegantAnaView extends WatchUi.WatchFace {
         index += 1.75;
       }
       if ($.Options_Dict[showBodyBattery]) {
-        drawBodyBattery(targetDc, Gfx.COLOR_WHITE, index);
-        index += 1.75;
+        // I'm too lazy to change the name, so here it stays
+        drawBodyBattery(targetDc, Gfx.COLOR_WHITE);
+        drawStress(targetDc, Gfx.COLOR_WHITE);
       }
       if ($.Options_Dict[showMinutes]) {
         drawMoveDots(
@@ -2487,7 +2489,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
     }
     return null;
   }
-  function drawBodyBattery(dc, text_color, index) {
+  function drawBodyBattery(dc, text_color) {
     var bbValue = "--";
 
     try {
@@ -2505,9 +2507,19 @@ class ElegantAnaView extends WatchUi.WatchFace {
     dc.setColor(text_color, Gfx.COLOR_BLACK);
     dc.drawText(
       width_screen * 0.5,
-      batt_y + (index - 1.4) * batt_height_rect,
+      105,
       Gfx.FONT_SYSTEM_XTINY,
-      "👤: " + bbValue,
+      "BB: " + bbValue,
+      Gfx.TEXT_JUSTIFY_CENTER
+    );
+  }
+  function drawStress(dc, text_color) {
+    dc.setColor(text_color, Gfx.COLOR_BLACK);
+    dc.drawText(
+      width_screen * 0.5,
+      125,
+      Gfx.FONT_SYSTEM_XTINY,
+      "S: " + 300,
       Gfx.TEXT_JUSTIFY_CENTER
     );
   }
