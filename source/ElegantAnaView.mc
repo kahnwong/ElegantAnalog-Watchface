@@ -2160,17 +2160,47 @@ class ElegantAnaView extends WatchUi.WatchFace {
 
     function drawMove(dc, text_color, index)
     {
-        
         var dateStr1 = "MOVE!";
         dc.setColor(text_color, Gfx.COLOR_BLACK);        
         
         dc.drawText(width_screen * .5, batt_y + (index - 1.4) * batt_height_rect , Gfx.FONT_SYSTEM_XTINY, dateStr1, Gfx.TEXT_JUSTIFY_CENTER);      
     }
 
-   function drawBodyBattery(dc, text_color, index)
-    {
+    function getBodyBatteryIterator() {
+        // Check device for SensorHistory compatibility
+        if (
+        Toybox has :SensorHistory &&
+        Toybox.SensorHistory has :getBodyBatteryHistory
+        ) {
+        // Set up the method with parameters
+        return Toybox.SensorHistory.getBodyBatteryHistory({:period=>1});
+        }
+        return null;
+    }
+    function drawBodyBattery(dc, text_color, index) {
+        var bbValue = "--";
+        
+        try {
+            var bbIterator = getBodyBatteryIterator();
+            if (bbIterator != null) {
+                var sample = bbIterator.next();
+                if (sample != null && sample.data != null) {
+                    bbValue = sample.data.toNumber().toString();
+                }
+            }
+        } catch (ex) {
+            // Handle any exceptions gracefully
+            bbValue = "--";
+        }
+
         dc.setColor(text_color, Gfx.COLOR_BLACK);   
-        dc.drawText(width_screen * .5, batt_y + (index - 1.4) * batt_height_rect , Gfx.FONT_SYSTEM_XTINY, "Foo!", Gfx.TEXT_JUSTIFY_CENTER);      
+        dc.drawText(
+            width_screen * 0.5, 
+            batt_y + (index - 1.4) * batt_height_rect, 
+            Gfx.FONT_SYSTEM_XTINY, 
+            "👤: " + bbValue, 
+            Gfx.TEXT_JUSTIFY_CENTER
+        );      
     }
 
     /*
