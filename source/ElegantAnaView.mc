@@ -856,7 +856,10 @@ class ElegantAnaView extends WatchUi.WatchFace {
                 drawBattery(targetDc, Gfx.COLOR_WHITE, lowBatteryColor, Gfx.COLOR_WHITE);
                 index +=1.75;
             }
-            
+            if ($.Options_Dict[showBodyBattery]) { 
+                drawBodyBattery(targetDc, Gfx.COLOR_WHITE, index);
+                index +=1.75;
+            }
             if ($.Options_Dict[showMinutes]) { 
                 drawMoveDots(targetDc, activeMinutesWeek, activeMinutesWeekGoal, index, Gfx.COLOR_WHITE);
                 index += 1;
@@ -873,7 +876,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
                 drawMoveDots(targetDc, moveBarLevel, 5, index, Gfx.COLOR_WHITE);
                 index += 1;
             }
-
+    
             if ($.Options_Dict[showDate]) {
                 var rev = false;
                 if ($.Options_Dict[showMove]  && moveExpired) { rev = true;}
@@ -2164,6 +2167,11 @@ class ElegantAnaView extends WatchUi.WatchFace {
         dc.drawText(width_screen * .5, batt_y + (index - 1.4) * batt_height_rect , Gfx.FONT_SYSTEM_XTINY, dateStr1, Gfx.TEXT_JUSTIFY_CENTER);      
     }
 
+   function drawBodyBattery(dc, text_color, index)
+    {
+        dc.setColor(text_color, Gfx.COLOR_BLACK);   
+        dc.drawText(width_screen * .5, batt_y + (index - 1.4) * batt_height_rect , Gfx.FONT_SYSTEM_XTINY, "Foo!", Gfx.TEXT_JUSTIFY_CENTER);      
+    }
 
     /*
     function drawMoveDots(dc, num, goal, index, text_color)
