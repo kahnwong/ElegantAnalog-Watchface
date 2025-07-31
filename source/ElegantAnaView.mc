@@ -2513,13 +2513,36 @@ class ElegantAnaView extends WatchUi.WatchFace {
       Gfx.TEXT_JUSTIFY_CENTER
     );
   }
+
+  private function getStress() {
+    // developer.garmin.com/.../SensorHistory.html
+    if (
+      Toybox has :SensorHistory &&
+      Toybox.SensorHistory has :getStressHistory
+    ) {
+      var history = Toybox.SensorHistory.getStressHistory({
+        :period => 1,
+        :order => Toybox.SensorHistory.ORDER_NEWEST_FIRST,
+      });
+      var sample = history.next();
+      if (
+        sample != null &&
+        sample.data != null &&
+        sample.data >= 0 &&
+        sample.data <= 100
+      ) {
+        return sample.data.format("%02d");
+      }
+    }
+    return "--";
+  }
   function drawStress(dc, text_color) {
     dc.setColor(text_color, Gfx.COLOR_BLACK);
     dc.drawText(
       width_screen * 0.5,
       125,
       Gfx.FONT_SYSTEM_XTINY,
-      "S: " + 300,
+      "S: " + getStress(),
       Gfx.TEXT_JUSTIFY_CENTER
     );
   }
