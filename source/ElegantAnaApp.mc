@@ -39,6 +39,8 @@ class ElegantAnaWatch extends Application.AppBase {
                     secondHashes,
                     aggressiveClear,
 
+                    showBodyBattery,
+
                     //lastLoc_saved9,
         ];
 
@@ -61,6 +63,8 @@ class ElegantAnaWatch extends Application.AppBase {
                     hourHashes => true,
                     secondHashes => false,
                     aggressiveClear => false,
+
+                    showBodyBattery => false,
                     
                     //lastLoc_saved => [38, -94],
                     };

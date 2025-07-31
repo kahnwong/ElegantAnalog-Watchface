@@ -28,7 +28,7 @@
     <jsonData id ="OptionsLabels"> ["Show Battery %: No-Yes", "Show Wkly Activity Minutes: No-Yes", "Show Daily Activity Minutes: No-Yes", "Show Daily Steps: No-Yes",
        "Show Move Bar: No-Yes", "Show Date: No-Yes", "Show Day of Week or Month",
        "Hour Numbers: Off-On", "Hour Hashes: Off-On", "Second Hashes: Off-On",
-       "Aggressive Screen Clear?"
+       "Aggressive Screen Clear?", "Show Body Battery: No-Yes"
        ]
     </jsonData>
 

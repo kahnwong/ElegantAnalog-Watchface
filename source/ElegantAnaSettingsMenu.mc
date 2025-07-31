@@ -33,6 +33,8 @@ enum {
     secondHashes =13,
     aggressiveClear =14,
 
+    showBodyBattery = 15,
+
     //lastLoc_saved = 99,
 }
 
