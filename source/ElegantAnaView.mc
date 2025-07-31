@@ -21,6 +21,8 @@ using Toybox.Application as App;
 import Toybox.Application.Storage;
 import Toybox.ActivityMonitor;
 using Toybox.System as Sys;
+using Toybox.ActivityMonitor as Act;
+using Toybox.Activity as Acty;
 
 //! This implements an ElegantAna watch face
 //! Original design by Austen Harbour
@@ -780,6 +782,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
       var drawHashes = true;
       var drawHours = true;
 
+
       //system.println("oud2d");
 
       if (
@@ -985,6 +988,8 @@ class ElegantAnaView extends WatchUi.WatchFace {
         // I'm too lazy to change the name, so here it stays
         drawBodyBattery(targetDc, Gfx.COLOR_WHITE);
         drawStress(targetDc, Gfx.COLOR_WHITE);
+        drawHeartRate(targetDc, Gfx.COLOR_WHITE);
+        drawNextEvent(targetDc, Gfx.COLOR_WHITE);
       }
       if ($.Options_Dict[showMinutes]) {
         drawMoveDots(
@@ -2507,8 +2512,8 @@ class ElegantAnaView extends WatchUi.WatchFace {
     dc.setColor(text_color, Gfx.COLOR_BLACK);
 
     dc.drawText(
-      40,
-      105,
+      width_screen * 0.5 - 40,
+      height_screen * 0.5 + 25,
       Gfx.FONT_SYSTEM_XTINY,
       "BB: " + bbValue,
       Gfx.TEXT_JUSTIFY_CENTER
@@ -2540,10 +2545,65 @@ class ElegantAnaView extends WatchUi.WatchFace {
   function drawStress(dc, text_color) {
     dc.setColor(text_color, Gfx.COLOR_BLACK);
     dc.drawText(
-      175 - 40,
-      105, // 125 is a line after BodyBattery
+      width_screen * 0.5 + 40,
+      height_screen * 0.5 + 25, // 125 is a line after BodyBattery
       Gfx.FONT_SYSTEM_XTINY,
       "S: " + getStress(),
+      Gfx.TEXT_JUSTIFY_CENTER
+    );
+  }
+
+  private function getHeartRate() {
+    var heartRate = null;
+
+    // Check if Activity has currentHeartRate information
+    var activityInfo = Acty.getActivityInfo();
+    if (activityInfo != null && activityInfo has :currentHeartRate) {
+      heartRate = activityInfo.currentHeartRate;
+    }
+
+    // If currentHeartRate is null, try to get it from heart rate history
+    if (heartRate == null) {
+      if (Act has :getHeartRateHistory) {
+        var heartRateHistory = Act.getHeartRateHistory(1, true); // Get the most recent sample, excluding future samples
+        if (heartRateHistory != null) {
+          var heartRateSample = heartRateHistory.next(); // Get the actual sample
+
+          if (
+            heartRateSample != null &&
+            heartRateSample.heartRate != Act.INVALID_HR_SAMPLE
+          ) {
+            heartRate = heartRateSample.heartRate;
+          }
+        }
+      }
+    }
+
+    // Format the heart rate for display
+    if (heartRate != null) {
+      return heartRate.toString();
+    } else {
+      return "--";
+    }
+  }
+  function drawHeartRate(dc, text_color) {
+    dc.setColor(text_color, Gfx.COLOR_BLACK);
+    dc.drawText(
+      width_screen * 0.5 - 40,
+      height_screen * 0.5 - 35,
+      Gfx.FONT_SYSTEM_XTINY,
+      "HR: " + getHeartRate(),
+      Gfx.TEXT_JUSTIFY_CENTER
+    );
+  }
+
+  function drawNextEvent(dc, text_color) {
+    dc.setColor(text_color, Gfx.COLOR_BLACK);
+    dc.drawText(
+      70,
+      30,
+      Gfx.FONT_SYSTEM_XTINY,
+      "NE: " + "4PM",
       Gfx.TEXT_JUSTIFY_CENTER
     );
   }
