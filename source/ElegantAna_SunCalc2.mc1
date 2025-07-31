@@ -1,7 +1,7 @@
 /*************************************************************
 *
 * Adapted directly from:
-* SolarSystem by Ioannis Nasios 
+* SolarSystem by Ioannis Nasios
 * https://github.com/IoannisNasios/solarsystem
 *
 * LICENSE & COPYRIGHT of original code:
@@ -14,7 +14,7 @@
 
 using Toybox.Math;
 using Toybox.System;
-import Toybox.Lang; 
+import Toybox.Lang;
 
 //from .functions import f.normalize
 
@@ -27,7 +27,7 @@ class sunRiseSet_cache2{
     var MAX_CACHE = 0;
 
     function initialize () {
-        
+
 
         //planetoncenter = $.Geocentric.planetoncenter;
         //objectlist = $.Geocentric.objectlist;
@@ -35,19 +35,19 @@ class sunRiseSet_cache2{
         indexes = [];
     }
 
-    function fetch (year, month, day, UT, dst, timeAdd_hrs, 
+    function fetch (year, month, day, UT, dst, timeAdd_hrs,
                  lat, lon) {
 
         //changing lat or lon by 1 degree equal about 4 mins difference in sunrise/set
         //so for our purposes +/- 4 mins or 6 mins is not really perceptible on screen.
          var lon_index = (lon/3.0).toNumber();
          var lat_index = (lat/3.0).toNumber();
-                    
+
         //since we must incl lat & lon to get a sensible answer, might as well
-        //includ UT & dst as well, as those are localized in the same way                    
+        //includ UT & dst as well, as those are localized in the same way
         //var index = year+"|"+month+"|"+day+"|"+ UT+dst +"|"+lat_index+"|"+ lon_index;
 
-        var time_mod = Math.round(0.0 + timeAdd_hrs/24.0 + f.julianDate(year, 
+        var time_mod = Math.round(0.0 + timeAdd_hrs/24.0 + f.julianDate(year,
             month, day, 0, 0, UT, dst)).toNumber();
         var index = time_mod + "|"+ +"|"+lat_index+"|"+ lon_index;
         var ret;
@@ -60,14 +60,14 @@ class sunRiseSet_cache2{
         if (g_cache.hasKey(index)) {
             ret = g_cache[index];
             //kys = ret.keys();
-            } 
+            }
         else {
             //we always cache the info for midnight UTC & all objects
-            
+
             if (myStats.freeMemory<5500) {
                 MAX_CACHE = 0;
-                self.empty();                                 
-            
+                self.empty();
+
             } else if (myStats.freeMemory<9500) {
                 MAX_CACHE -=1;
                 if (MAX_CACHE < 0) { MAX_CACHE = 0; }
@@ -87,17 +87,17 @@ class sunRiseSet_cache2{
             //kys = ret.keys();
             g_cache.put(index,ret);
             indexes.add(index);
-        }                    
+        }
 
         return ret;
     }
 
     public function empty () {
-        
+
         g_cache = {};
         indexes = [];
     }
-    
+
 }
 
 */
@@ -163,7 +163,7 @@ class srs {
             :BLUE_HOUR_PM => [-4, :PM],
             :DUSK => [-6, :PM],
             :NAUTIC_DUSK => [-12, :PM],
-            :ASTRO_DUSK  => [-18, :PM], 
+            :ASTRO_DUSK  => [-18, :PM],
             //:SIDEREAL_TIME => [null, :PM],
         };
         */
@@ -182,7 +182,7 @@ class srs {
             :NOON => null, //noon is the highest point or whatever, but not a certain # of degrees below the horizon
 
         };
-            
+
             //degrees above / below the horizon for these events
             /*
         public const TIMES = [
@@ -207,19 +207,19 @@ class srs {
         /* **************************************************************************
         Outputs Dictionary with all sun events for the day + Sidereal_Time EVENT_NAME => [time, name_str].  See enum with EVENT_NAMEs above.
         If any events do not happen (ie sunrise & set during polar summer) their time will be a null.
-        
+
         Args:
             year (int): Year (4 digits) ex. 2020.
             month (int): Month (1-12).
             day (int): Day (1-31).
-            UT: Time Zone (deviation from UT, -12:+14), ex. for Greece (GMT + 2) 
+            UT: Time Zone (deviation from UT, -12:+14), ex. for Greece (GMT + 2)
                 enter UT = 2.
-            dst (int): daylight saving time (0 or 1). Wheather dst is applied at 
+            dst (int): daylight saving time (0 or 1). Wheather dst is applied at
                     given time and place.
             longitude (float): longitude of place of Sunrise - Sunset in decimal format.
             latitude (float): latitude of place of Sunrise - Sunset in decimal format.
         ***************************************************************************/
-    
+
 
     //By Greg Miller gmiller@gregmiller.net celestialprogramming.com
     //Released as public domain
@@ -235,13 +235,13 @@ class srs {
     }
 
     //returns solar event times in HOURS
-    //function getRiseSetfromDate_hr(year, month, day, UT, dst, time_add_hrs, 
+    //function getRiseSetfromDate_hr(year, month, day, UT, dst, time_add_hrs,
     //             lat_deg, long_deg) {
-    function getRiseSetfromDate_hr(now_info, timeZoneOffset_sec, dst, time_add_hrs, lat_deg, lon_deg,pp_sun) {                    
+    function getRiseSetfromDate_hr(now_info, timeZoneOffset_sec, dst, time_add_hrs, lat_deg, lon_deg,pp_sun) {
 
         lon_deg = -lon_deg; //Meeus uses West longitudes as positive - this is to correct for that
         //deBug("long(MEEUS),UT,TZ,dst", [lon_deg.format("%.2f"), lat_deg.format("%.2f"), timeZoneOffset_sec/3600, dst]);
-        
+
 
         //var jd = time_add_hrs /24.0f + gregorianDateToJulianDate(now_info.year, now_info.month, now_info.day, 0, 0, 0);
 
@@ -259,7 +259,7 @@ class srs {
 
         //deBug("long(MEEUS),UT,TZ,dst", [lon_deg, lat_deg, timeZoneOffset_sec/3600, dst, time_add_hrs, time_add_hrs/24.0f, jd]);
 
-        //System.println ("JD: " + jd); 
+        //System.println ("JD: " + jd);
 
         //get ra & dec for sun from VSOP87a
         //var ra = 0;
@@ -318,17 +318,17 @@ class srs {
         //f.deBug("NOON,tz: ", [constrain(transit_GMT_DAY + tz_add/24.0) * 24.0, tz_add]);
 
 
-    
 
-        
+
+
 
 
 
         //Now all the sun events for today
         for (var i = 0; i<sunEventData.size();i++) {
 
-            
-            var kys = sunEventData.keys();        
+
+            var kys = sunEventData.keys();
 
 
             var ky = kys[i];
@@ -339,11 +339,11 @@ class srs {
             //result in hrs GMT
             //rise & set - in hours GMT
             var sun_info = getRiseSet_hr(jd,
-                sunEventData[ky], Math.toRadians(lat_deg), 
+                sunEventData[ky], Math.toRadians(lat_deg),
                 Math.toRadians(lon_deg),
                 Math.toRadians(sun_RD[0]),
                 Math.toRadians(sun_RD[1]),
-                transit_GMT_DAY, obliq_rad); 
+                transit_GMT_DAY, obliq_rad);
 
 
             //System.println("sunrise/sets " + tz_add + timeZoneOffset_sec + " " + dst);
@@ -359,8 +359,8 @@ class srs {
                 for (var j =  0; j<2; j++) {
                     sun_info[j] = f.mod ((sun_info[j] + tz_add) , 24);
                 }
-            } 
-            
+            }
+
             ret.put (ky, sun_info);
 
             /*
@@ -374,7 +374,7 @@ class srs {
 
             //[0,1] equatorial rise/set times
             //[2,3] ecliptic rise/set times
-            ret.put (ky, [s1_hr, s2_hr, 
+            ret.put (ky, [s1_hr, s2_hr,
                 (270 - Math.toDegrees(riseIntEclipticHorizonPoints_rad[1]))/15.0,
                 (270 - Math.toDegrees(setIntEclipticHorizonPoints_rad[1]))/15.0,
             ]);
@@ -385,14 +385,14 @@ class srs {
 
             //System.println("sunrise/sets " + sun_info + " " + ky) ;
             // if (ky == :HORIZON) { System.println("sunrise/sets HORIZON: " + sun_info + " " + ky) ;}
-            
+
         }
 
-        //Get info for all four points of the ecliptic 
+        //Get info for all four points of the ecliptic
         //for this date & time
 
         //THIS WORKS but we are not using it for now
-            
+
         /*
         //for (var rra_deg = 0; rra_deg<360;rra_deg += 90) {
         for (var rra_deg = 0; rra_deg<90;rra_deg += 90) { //only need  the 0,0/ORIGIN point for now, not all 4 ecliptic points
@@ -403,14 +403,14 @@ class srs {
             //winter solstic RA 0 DECL 0
             var trans_ecliptic_DAY = f.normalize(rra_deg + lon_deg - gmst_mid_deg)/360.0;
             var sun_info = getRiseSet_hr(jd,
-                sunEventData[:HORIZON], Math.toRadians(lat_deg), 
+                sunEventData[:HORIZON], Math.toRadians(lat_deg),
                 Math.toRadians(lon_deg),
                 Math.toRadians(rra_deg),
                 ddecl_rad,
-                trans_ecliptic_DAY, 
-                //0.5, 
+                trans_ecliptic_DAY,
+                //0.5,
                 obliq_rad);//Note that ECLIPTIC ONLY just set the time to 12:00 GMT, we are interested in the "straddle" not the specific time of rise for each of these.
-        
+
             var s1_hr =null; //equatorial/RA/Decl
             var s2_hr =null;
             //deBug("sun_riseECP", sun_info);
@@ -424,10 +424,10 @@ class srs {
             if (sun_info!=null && sun_info[1] != null) { //if one is null both are
                 s1_hr = f.mod ((s1_hr + tz_add) , 24);
                 s2_hr = f.mod ( (s2_hr + tz_add), 24);
-            }     
+            }
 
             if (rra_deg==0) {
-            */    
+            */
 
             /***********************************************************************
             /*
@@ -439,7 +439,7 @@ class srs {
                 //deBug("angleBetweenEclipticAndHorizon: ", [abeH, ipEH]);
                 //deBug("abeH, ipEH: ", [abeH, ipEH]);
                 ret.put(:ECLIP_HORIZON, intsectionEclipticHorizonPoints_rad); //add angle & intersection point to the return objec
-            
+
         /*    }
 
             ret.put ("Ecliptic"+rra_deg, [s1_hr, s2_hr]);
@@ -453,15 +453,15 @@ class srs {
             //DEBUG PRINT ALL VALUES
             for (var i = 0; i<sunEventData.size();i++) {
 
-                
-                var kys = sunEventData.keys();        
+
+                var kys = sunEventData.keys();
 
 
                 var ky = kys[i];
                 System.println("ret: " + ky + " " + ret[ky] + " " + sunEventData[ky]);
             }
             */
-            
+
 
 
         return ret;
@@ -486,7 +486,7 @@ class srs {
         lon = Math.toRadians(-94.4400866);
         jd = 2460664.5;
         */
-        //REsult should be: 
+        //REsult should be:
         /*Output
             Rise:	07:35:13
             Transit:	12:17:58
@@ -499,7 +499,7 @@ class srs {
         //deBug("getRiseSet_hr: ", [jd,h0_deg, lat,lon,ra,dec]);
         //deBug("getRiseSet_hr: ", [jd,h0_deg, Math.toDegrees(lat),Math.toDegrees(lon),Math.toDegrees(ra),Math.toDegrees(dec)]);
 
-    
+
 
         if (lat == 0) {lat = 0.0000001;} //to avoid divide by zero
         if (dec == 0) {dec = 0.0000001;} //to avoid divide by zero
@@ -545,7 +545,7 @@ class srs {
         //System.println("transit (results/UTC): " + H0_deg + " " + ret);
         return ret;
         //returns transit in DAYS....
-        
+
         //return constrain(transit);
     }
 
@@ -588,7 +588,7 @@ class srs {
         const dec=Math.asin(Math.sin(eps)*Math.sin(lamba));
         if(ra<0){ra+=Math.PI*2;}
         return [ra/torad/15.0,dec/torad];
-    }	
+    }
 
     //Special "Math.floor()" function used by dateToJulianDate()
     function INT(d){
@@ -629,7 +629,7 @@ class srs {
             b = 2 - a + INT(a / 4.0d);
             deBug("JD: a,b: ", [a,b]);
         }
-        var jd = 0.0d;    
+        var jd = 0.0d;
         jd=INT(365.25d * (year + 4716d)) + INT(30.6001d * (month + 1)) + day + b - 1524.5d;
         deBug("JD: jd: ", [jd, 365.25d * (year + 4716d),INT(365.25d * (year + 4716d)), 30.6001d * (month + 1),INT(30.6001d * (month + 1)), day, b]);
         jd = jd.toDouble();
@@ -693,7 +693,7 @@ class srs {
     RA = 6h, Dec = +23.5° is the summer solstice
     RA = 12h, Dec = 0° is the autumnal equinox
     RA = 18h, Dec = -23.5° is the winter solstice
-    
+
 
 
     */
@@ -708,11 +708,11 @@ class srs {
 
     //All angles are input and output in radians
     /***************************************************************************/
-   
+
     function angleBetweenEclipticAndHorizon_rad(lat_rad,sidereal_rad,obliquity_rad){
         //Meeus 14.3
 
-        //law of cosines (sin(latitude) because it is the  complement of the angle we are looking for, so cos(angle) = sin(complement of the angle))   
+        //law of cosines (sin(latitude) because it is the  complement of the angle we are looking for, so cos(angle) = sin(complement of the angle))
         var ret = Math.acos(Math.cos(obliquity_rad.toDouble())*Math.sin(lat_rad.toDouble()) - Math.sin(obliquity_rad.toDouble())*Math.cos(lat_rad.toDouble())*Math.sin(sidereal_rad.toDouble()));
         //deBug("angleBetweenEclipticAndHorizon: aOLS ", [Math.toDegrees(ret), Math.toDegrees(obliquity_rad), Math.toDegrees(lat_rad), Math.toDegrees(sidereal_rad)]);
         return ret;
@@ -728,7 +728,7 @@ class srs {
     //
     /**************************************************************************/
 
-    
+
     function intersectionPointsEclipticHorizon_rad (lat_rad, sidereal_rad, obliquity_rad) {
 
         //f.deBug("IPEHR", [lat_rad, sidereal_rad, obliquity_rad]);
@@ -771,12 +771,12 @@ class srs {
             if (q1==q2) {horEHint_rad = Math.PI - horEHint_rad;}
             deBug ("horEHint_rad", [Math.toDegrees(horEHint_rad),Math.toDegrees(sidereal_rad.toDouble() - Math.PI/2.0), Math.toDegrees(aEH_rad), intm, q1, q2]); */
         }
-        
+
         var eclEHint_rad = 0;
         if (use_eclEHint2) {
 
                 // eclEH is the distance along the ecliptic great circle from the intersection with the equator great circle,  ie the vernal equinox, to the intersection with the horizon great circle.  It is measured in radians. (Because of symmetry it is also the angle from the fall equinox to the intersection point. But the Vernal Eq is 0,0 the origin point of the system.)
-                
+
                 //This one works great for everything above the arctic circle/when sun is always up
                 var eclEHint2_rad = 0; //alternate calculation, it's equal. O/horEHint
                 //var horEHint_copy_rad = horEHint_rad;
@@ -790,12 +790,12 @@ class srs {
                     if (lat_rad > 0) {eclEHint2_rad = - Math.asin(intm);}
                     else {eclEHint2_rad = Math.PI +  Math.asin(intm);}
                 } else {use_eclEHint2 = false;}
-                
+
                 eclEHint_rad = eclEHint2_rad;
                 //deBug("intersectionPointEclipticHorizon aoLs TWO: ", [Math.toDegrees(horEHint_rad), Math.toDegrees(eclEHint2_rad),  Math.toDegrees(aEH_rad), Math.toDegrees(sidereal_rad), intm]);
         }
-                
-                
+
+
 
 
         // eclEH is the distance along the ecliptic great circle from the intersection with the equator great circle,  ie the vernal equinox, to the intersection with the horizon great circle.  It is measured in radians. (Because of symmetry it is also the angle from the fall equinox to the intersection point. But the Vernal Eq is 0,0 the origin point of the system.)
@@ -804,9 +804,9 @@ class srs {
         var eclEHint_rad = 0; //similarly, 0 is probably the best choice here for  the case sin() = 0. That is the situation where the horizon & ecliptic coincide.
     if (Math.sin(aEH_rad) != 0) {
             var sid2 = sidereal_rad;
-            
+
             //if (sid2<=Math.PI && sid2 <= Math.toRadians(200)) {sid2 -= Math.PI;}
-            //if (sid2<= Math.toRadians(330) && sid2 <= 2.0*Math.PI) {sid2 -= Math.PI;} 
+            //if (sid2<= Math.toRadians(330) && sid2 <= 2.0*Math.PI) {sid2 -= Math.PI;}
 
             var hor_sid_rad = sidereal_rad - Math.PI/2.0;
             var add180 = 0;
@@ -826,7 +826,7 @@ class srs {
             deBug("intersectionPointEclipticHorizon MUP: ", [Math.sin(sidereal_rad - Math.PI/2.0), Math.sin(aEH_rad), Math.cos(lat_rad), intm, Math.toDegrees(sidereal_rad)]);
             if (intm>1 || intm<-1) {eclEHint_rad = Math.PI/2.0;}
             else {
-                
+
                 eclEHint_rad = Math.asin(intm) + add180;
                 //if (hor_sid_rad<0) {eclEHint_rad = Math.PI - eclEHint_rad;}
             }
@@ -850,7 +850,7 @@ class srs {
             deBug("intersectionPointEclipticHorizon MUP: ", [Math.sin(sidereal_rad - Math.PI/2.0), Math.sin(aEH_rad), Math.cos(lat_rad), intm, Math.toDegrees(sidereal_rad)]);
             if (intm>1 || intm<-1) {eclEHint_rad = Math.PI/2.0;}
             else {
-                
+
                 eclEHint_rad = Math.asin(intm) + adder;
                 //if (hor_sid_rad<0) {eclEHint_rad = Math.PI - eclEHint_rad;}
             }
@@ -860,13 +860,13 @@ class srs {
             eclEHint3_rad =Math.atan2(y,  x);
 
             deBug("IntersectionTAN: ", [Math.toDegrees(eclEHint_rad), Math.toDegrees(eclEHint3_rad), Math.toDegrees(hor_sid_rad), x, y]);
-            
+
         }
         */
 
         if (!use_eclEHint2) {
 
-            //The law of cosines approach seems to work better than the law of sines approach just because it is more sensible in the areas where it gives the right result vs the negative or complement of the angle result. It works for -90 to 90 degrees and for 90 to 270 you just need to flip the sign of the result. (it would probably work to subtract 180 degrees, as well.) 
+            //The law of cosines approach seems to work better than the law of sines approach just because it is more sensible in the areas where it gives the right result vs the negative or complement of the angle result. It works for -90 to 90 degrees and for 90 to 270 you just need to flip the sign of the result. (it would probably work to subtract 180 degrees, as well.)
             //if (Math.toDegrees(sidereal_rad)>201.7 && Math.toDegrees(sidereal_rad)<339) {horEHint_rad = Math.PI - horEHint_rad ;}//@+81 degrees
             //if (Math.toDegrees(sidereal_rad)>26.8 && Math.toDegrees(sidereal_rad)<153.9 ) {horEHint_rad = Math.PI - horEHint_rad ;}//@-79 degrees
             //if (Math.toDegrees(sidereal_rad)>45.7 && Math.toDegrees(sidereal_rad)<135 ) {horEHint_rad = Math.PI - horEHint_rad ;} //@-73 degrees
@@ -877,7 +877,7 @@ class srs {
                 eclEHint4_rad = Math.acos(intm);
                 if (sidereal_rad < 3*Math.PI/2.0d && sidereal_rad > Math.PI/2.0d) {eclEHint4_rad = -eclEHint4_rad;} // the cosine formula returns the negative of the angle when the origin  Rad/Dec=0,0 is below the horizon, so we just flip signs.
                 //eclEHint4_rad += Math.PI;
-                
+
             }
             eclEHint_rad = eclEHint4_rad;
             //deBug("intersectionPointEclipticHorizon aoLs FOUR: ", [Math.toDegrees(horEHint_rad), Math.toDegrees(eclEHint4_rad),  Math.toDegrees(aEH_rad), Math.toDegrees(sidereal_rad), intm]);
@@ -891,12 +891,12 @@ class srs {
             eclEHint5_rad = Math.acos(intm2);
             if (sidereal_rad < 3*Math.PI/2.0d && sidereal_rad > Math.PI/2.0d) {eclEHint5_rad = -eclEHint5_rad;} // the cosine formula returns the negative of the angle when the origin  Rad/Dec=0,0 is below the horizon, so we just flip signs.
             //eclEHint4_rad += Math.PI;
-            
+
         }
 
         //if (eclEHint5_rad.abs() < eclEHint4_rad.abs()) {eclEHint4_rad = eclEHint5_rad;}
         */
-        
+
 
 
 
@@ -907,7 +907,7 @@ class srs {
         //deBug("intersectionPointEclipticHorizon aoLs: ", [Math.toDegrees(horEHint_rad), Math.toDegrees(eclEHint4_rad), Math.toDegrees(eclEHint2_rad),  Math.toDegrees(aEH_rad), Math.toDegrees(sidereal_rad), intm]);
         //return  [eclEHint_rad, horEHint_rad];
         //return [horEHint_rad.toFloat(), eclEHint_rad.toFloat(), aEH_rad.toFloat()];
-        
+
         return eclEHint_rad.toFloat();
 
     }
@@ -955,20 +955,20 @@ function GMST_deg(jd){
 }
 
 
-    
+
 
 /*
 //2024/12 - tested, it works
 function test_angleBetweenEclipticAndHorizon_rad(){
     var r=Math.PI/180;
-    var eps=23.44*r;    
+    var eps=23.44*r;
     var lat=51*r;
     var sidereal=75*r;
 
     var d=angleBetweenEclipticAndHorizon_rad(lat,sidereal,eps)*180/Math.PI;
     deBug("angleBetweenEclipticAndHorizon_rad TEST, Expected: "+62, []);
     deBug("angleBetweenEclipticAndHorizon_rad TEST, Computed: ", [f.normalize(d)]);
-    
+
     eps=23.44*r;
     lat=38*r;
     sidereal=112.5*r;
@@ -976,6 +976,6 @@ function test_angleBetweenEclipticAndHorizon_rad(){
     d=angleBetweenEclipticAndHorizon_rad(lat,sidereal,eps)*180/Math.PI;
     deBug("angleBetweenEclipticAndHorizon_rad TEST, Expected: 74.0228155356797°", []);
     deBug("angleBetweenEclipticAndHorizon_rad TEST, Computed: ", [f.normalize(d)]);
-    
-    } 
+
+    }
     */

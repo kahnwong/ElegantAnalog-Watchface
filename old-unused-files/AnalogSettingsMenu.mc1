@@ -13,7 +13,7 @@ class AnalogSettingsMenu extends WatchUi.Menu2 {
 
     //! Constructor
     public function initialize() {
-        
+
         var clockTime = System.getClockTime();
         System.println(clockTime.hour +":" + clockTime.min + " - Settings running");
 
@@ -33,7 +33,7 @@ class AnalogSettingsMenu extends WatchUi.Menu2 {
         Menu2.addItem(new WatchUi.ToggleMenuItem("Second Hand Length: Short-Long", null, "Long Second", boolean, null));
 
         boolean = Storage.getValue("Wide Second") ? true : false;
-        Menu2.addItem(new WatchUi.ToggleMenuItem("Second Hand Size: Narrow-Wide", null, "Wide Second", boolean, null));                
+        Menu2.addItem(new WatchUi.ToggleMenuItem("Second Hand Size: Narrow-Wide", null, "Wide Second", boolean, null));
 
         boolean = Storage.getValue("Show Move") ? true : false;
         Menu2.addItem(new WatchUi.ToggleMenuItem("Show Move Bar: No-Yes", null, "Show Move", boolean, null));
@@ -45,14 +45,14 @@ class AnalogSettingsMenu extends WatchUi.Menu2 {
         Menu2.addItem(new WatchUi.ToggleMenuItem("Show Date: No-Yes", null, "Show Date", boolean, null));
 
         boolean = Storage.getValue("Hour Numbers") ? true : false;
-        Menu2.addItem(new WatchUi.ToggleMenuItem("Hour Numbers: Off-On", null, "Hour Numbers", boolean, null));        
+        Menu2.addItem(new WatchUi.ToggleMenuItem("Hour Numbers: Off-On", null, "Hour Numbers", boolean, null));
 
         boolean = Storage.getValue("Hour Hashes") ? true : false;
-        Menu2.addItem(new WatchUi.ToggleMenuItem("Hour Hashes: Off-On", null, "Hour Hashes", boolean, null));        
+        Menu2.addItem(new WatchUi.ToggleMenuItem("Hour Hashes: Off-On", null, "Hour Hashes", boolean, null));
 
         boolean = Storage.getValue("Second Hashes") ? true : false;
-        Menu2.addItem(new WatchUi.ToggleMenuItem("Second Hashes: Off-On", null, "Second Hashes", boolean, null));                        
-        
+        Menu2.addItem(new WatchUi.ToggleMenuItem("Second Hashes: Off-On", null, "Second Hashes", boolean, null));
+
     }
 }
 
@@ -80,7 +80,7 @@ class AnalogSettingsMenuDelegate extends WatchUi.Menu2InputDelegate {
             $.Options_Dict[id]=($.Options_Dict[id]+1)%infiniteSecondOptions_size;
             menuItem.setSubLabel($.infiniteSecondOptions[$.Options_Dict[id]]);
 
-            Storage.setValue(id as String, $.Options_Dict[id]);            
+            Storage.setValue(id as String, $.Options_Dict[id]);
             $.Settings_ran = true;
             //MySettings.writeKey(MySettings.backgroundKey,MySettings.backgroundIdx);
             //MySettings.background=MySettings.getColor(null,null,null,MySettings.backgroundIdx);

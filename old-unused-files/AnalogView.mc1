@@ -267,13 +267,13 @@ class AnalogView extends WatchUi.WatchFace {
         else if (_secondHandCounter >= 10000000) { //sec_on was off but has been turned on via the menu
             _secondHandCounter = 0;
         }
-        
-        show_sec= true;
-        if (!_isAwake) {_secondHandCounter += 1;}        
-        if (!_isAwake && _secondHandCounter > $.infiniteSecondLengths[$.Options_Dict["Infinite Second Option"]] ) { show_sec = false; }
-        
 
-        if ((! _isAwake) && ( clockTime.sec < 1 )) {            
+        show_sec= true;
+        if (!_isAwake) {_secondHandCounter += 1;}
+        if (!_isAwake && _secondHandCounter > $.infiniteSecondLengths[$.Options_Dict["Infinite Second Option"]] ) { show_sec = false; }
+
+
+        if ((! _isAwake) && ( clockTime.sec < 1 )) {
             System.println(clockTime.hour +":" + clockTime.min +" - current second hand counter = " + _secondHandCounter);
         }
         update_ran = true;
@@ -282,15 +282,15 @@ class AnalogView extends WatchUi.WatchFace {
 
         // We always want to refresh the full screen when we get a regular onUpdate call.
 
-        
+
         sec_width = $.Options_Dict["Wide Second"] ? 2 : 1;
         sec_width_clipbox = sec_width + 1;
         //Storage.getValue("Wide Second") = Storage.getValue("Wide Second") ? true : false;
-    
+
         sec_length = $.Options_Dict["Long Second"] ? width_screen*.475 : width_screen*.175;
 
-        
-        
+
+
         _fullScreenRefresh = true;
         dc.clearClip();
         if (!_hashMarksDrawn || $.Settings_ran ) {
@@ -370,20 +370,20 @@ class AnalogView extends WatchUi.WatchFace {
                 targetDc.drawText(width / 2, height - 30, font, "6", Graphics.TEXT_JUSTIFY_CENTER);
                 targetDc.drawText(2, (height / 2) - 15, font, "9", Graphics.TEXT_JUSTIFY_LEFT);
             }
-            */            
+            */
 
             targetDc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_TRANSPARENT);
-            
+
             var drawHashes = true;
             var drawHours = true;
             var avoidCircle = $.Options_Dict["Show Date"] ? true : false;
-            
+
             if (($.Options_Dict["Second Hashes"] && $.Options_Dict["Long Second"]) || !$.Options_Dict["Hour Hashes"] ) { drawHashes = false;} //Don't draw hour hashes if LONG SECOND HAND & SECOND HASHES (they overlap) OR if they are just turned off.
 
             if (!$.Options_Dict["Hour Numbers"]) {drawHours = false;}
 
             drawHashMarks(targetDc, drawHashes, drawHours, avoidCircle);
-            
+
             if ($.Options_Dict["Second Hashes"]) {
                 if (sec_length<50) {
                     //[:dc=dc, :radius=radius, :includeOnes=include, length1, width1, includeFives, length5, width5, avoidCircle,squeezeX, squeezeY]
@@ -407,22 +407,22 @@ class AnalogView extends WatchUi.WatchFace {
                 }
                 //drawSecondHashMarks(dc, radius, includeOnes, length1, width1, includeFives, length5, width5)
             }
-            
-        } 
+
+        }
 
         if (null != _offscreenBuffer) {
             // If we have an offscreen buffer that we are using to draw the background,
             // set the draw context of that buffer as our target.
             targetDc = _offscreenBuffer.getDc();
-            
+
         } else {
-            //dc.clearClip();            
-            targetDc = dc;            
+            //dc.clearClip();
+            targetDc = dc;
         }
 
         if (null != _hashMarksBuffer) {
             targetDc.drawBitmap(0, 0, _hashMarksBuffer);
-        }        
+        }
 
 
 
@@ -433,7 +433,7 @@ class AnalogView extends WatchUi.WatchFace {
             info = Toybox.ActivityMonitor.getInfo();
             moveBarLevel = info.moveBarLevel;
             moveExpired = (moveBarLevel != null && moveBarLevel >= 5);
-        
+
             //FOR TESTING
             /*
             testMBL += 1;
@@ -452,26 +452,26 @@ class AnalogView extends WatchUi.WatchFace {
             if ($.Options_Dict["Show Date"]) {
                 drawDate(targetDc, Gfx.COLOR_WHITE, true);
             }
-            
+
 
         } else {
-            
+
             //drawMove(targetDc, Gfx.COLOR_WHITE);
             if ($.Options_Dict["Show Battery"]) {
                 drawBattery(targetDc, Gfx.COLOR_WHITE, Gfx.COLOR_BLACK, Gfx.COLOR_WHITE);
             }
-            if ($.Options_Dict["Show Move"]) { 
+            if ($.Options_Dict["Show Move"]) {
                 drawMoveDots(targetDc, moveBarLevel, Gfx.COLOR_WHITE);
             }
             if ($.Options_Dict["Show Date"]) {
                 drawDate(targetDc, Gfx.COLOR_WHITE, false);
             }
-        }        
-        
+        }
 
-        //drawDate(targetDc, Gfx.COLOR_WHITE);        
+
+        //drawDate(targetDc, Gfx.COLOR_WHITE);
         drawHands(targetDc, clockTime.hour, clockTime.min, clockTime.sec, Gfx.COLOR_WHITE, Gfx.COLOR_WHITE, Gfx.COLOR_WHITE);
-        
+
         targetDc.setClip(width_screen/2 - 7, height_screen/2 -7, 14, 14);
         // Draw the inner circle (at center of the 3 hands)
         targetDc.setColor(Gfx.COLOR_WHITE, background_color);
@@ -479,22 +479,22 @@ class AnalogView extends WatchUi.WatchFace {
         targetDc.setColor(background_color,background_color);
         targetDc.drawCircle(width_screen/2, height_screen/2, 6);
 
-        
+
 
         // Output the offscreen buffers to the main display if required.
         drawBackground(dc);
 
         // Draw analog time
-        
+
 
         // Draw the battery percentage directly to the main screen.
         //var dataString = (System.getSystemStats().battery + 0.5).toNumber().toString() + "%";
         //dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         //dc.drawText(width / 2, 3 * height / 4, Graphics.FONT_TINY, dataString, Graphics.TEXT_JUSTIFY_CENTER);
 
-        
 
-        
+
+
 
         if (_partialUpdatesAllowed && sec_on) {
             // If this device supports partial updates and they are currently
@@ -514,12 +514,12 @@ class AnalogView extends WatchUi.WatchFace {
             var secondHand = (clockTime.sec / 60.0) * Math.PI * 2;
 
                     // Draw the seconds
-            
+
             //sec = ( clock_sec / 60.0) *  Math.PI * 2;
             dc.setColor(sec_color, Gfx.COLOR_TRANSPARENT);
             drawHand(dc, secondHand, sec_length, sec_width, -5, false, sec_width, false, false);
             //drawHand(dc, secondHand, -15, sec_width, 7, false, true);
-            
+
 
 
         }
@@ -538,7 +538,7 @@ class AnalogView extends WatchUi.WatchFace {
         if (reverse) {
             dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
             if (width_screen >= 175)  {
-                dc.drawCircle(144, 34, 34); 
+                dc.drawCircle(144, 34, 34);
             } else {
                 dc.drawCircle(130, 27, 27);  //Instinct S, smaller screen & weird. center of circle is about  128,26 & radius 26
             }
@@ -554,14 +554,14 @@ class AnalogView extends WatchUi.WatchFace {
     //var sec_set = false;
     var sec_counter = 0;
     var show_sec = true;
-    
+
     //! Handle the partial update event
     //! @param dc Device context
     public function onPartialUpdate(dc as Dc) as Void {
         // If we're not doing a full screen refresh we need to re-draw the background
         // before drawing the updated second hand position. Note this will only re-draw
         // the background in the area specified by the previously computed clipping region.
-        
+
         if (!show_sec) {return;}
 
         //System.println("3C");
@@ -579,7 +579,7 @@ class AnalogView extends WatchUi.WatchFace {
         //after the main update method has run & messed it up
         if (update_ran ) {
             dc.setColor(sec_color, Gfx.COLOR_TRANSPARENT);
-            sec_counter = System.getClockTime().sec;            
+            sec_counter = System.getClockTime().sec;
             //System.println("Clock sec: " + sec_counter);
         } else {
             sec_counter +=1;
@@ -591,15 +591,15 @@ class AnalogView extends WatchUi.WatchFace {
         */
 
         dc.setColor(sec_color, Gfx.COLOR_TRANSPARENT);
-        sec_counter = System.getClockTime().sec;            
+        sec_counter = System.getClockTime().sec;
         //if (sec_counter ==0 && !_fullScreenRefresh) {return;}
 
-        
+
 
         if (_screenCenterPoint != null) {
             var secondHand = (sec_counter / 60.0) * Math.PI * 2;
             //drawHand(dc, secondHand, 105, 2, 15, true);
-            //var secondHandPoints = generateHandCoordinates(_screenCenterPoint, secondHand,sec_length, 15, sec_width_clipbox);        
+            //var secondHandPoints = generateHandCoordinates(_screenCenterPoint, secondHand,sec_length, 15, sec_width_clipbox);
 
             //So, it turns out it is FAR quicker to just blit the entire background in place & then
             //draw the second hand.  All this bound box calculation, getting the clip, etc, is quite slow.
@@ -616,8 +616,8 @@ class AnalogView extends WatchUi.WatchFace {
             //drawHands(dc, clockTime.hour, clockTime.min, clockTime.sec, Gfx.COLOR_WHITE, Gfx.COLOR_WHITE, Gfx.COLOR_WHITE);
 
                     // Draw the seconds
-            
-            
+
+
             //dc.setClip(47, 47, 128,128);
             //sec = ( clock_sec / 60.0) *  Math.PI * 2;
             /*
@@ -647,64 +647,64 @@ class AnalogView extends WatchUi.WatchFace {
             */
             //System.println("sec: " + sec_counter);
             /*
-            
+
              if (sec_length> 170) {
              if (sec_counter  == 0 )
                 {
                     dc.setClip(85,5,170,90);
-                    
+
                 }
             else if (sec_counter ==16 )
                 {
                     dc.setClip(85, 85, 170,170);
-                    
+
                 }
             else if (sec_counter ==31)
                 {
                     dc.setClip(5, 84, 90,170);
-                    
+
                 }
             else if (sec_counter ==46)
                 {
                     dc.setClip(5, 5, 89,89);
-                    
+
                 }
              } else {
                 if (sec_counter  == 0 )
                     {
                         dc.setClip(85,35,90,40);
-                        
+
                     }
                 else if (sec_counter ==16 )
                     {
                         dc.setClip(85, 85, 140,140);
-                        
+
                     }
                 else if (sec_counter==31)
                     {
                         dc.setClip(45, 84, 90,140);
-                        
+
                     }
                 else if (sec_counter ==46)
                     {
                         dc.setClip(45, 45, 89,89);
-                        
+
                     }
 
 
              }
              */
-            
-            
-            
+
+
+
             //dc.setClip(47, 47, 128,128);
 
             //drawHand(dc, secondHand,sec_length, 1, 15, true);
             drawHand(dc, secondHand, sec_length, sec_width, -5, false, sec_width,false, false);
             //drawHand(dc, secondHand, -15, sec_width, 7, false);
             //dc.clearClip(); //not good, spikes display time...
-            
-            
+
+
 
             // Draw the inner circle
             //dc.setColor(Gfx.COLOR_WHITE, background_color);
@@ -742,7 +742,7 @@ class AnalogView extends WatchUi.WatchFace {
         min[1] -= 3;
         max[0] += 3;
         max[1] += 3;
- 
+
         return [min, max];
     }
 
@@ -790,13 +790,13 @@ class AnalogView extends WatchUi.WatchFace {
         _isAwake = true;
         _secondHandCounter = 0; //lets the 2nd hand run for 2 mins *only* after going to sleep
         System.println(":"+System.getClockTime().min.format("%02d") + " - Exit Sleep, second hand counter = " + _secondHandCounter);
-        
+
     }
 
     //read stored settings & set default values if nothing stored
     public function readStorageValues() as Void {
 
-        var temp = Storage.getValue("Infinite Second Option");        
+        var temp = Storage.getValue("Infinite Second Option");
         $.Options_Dict["Infinite Second Option"] = temp  != null ? temp : $.infiniteSecondOptions_default;
         if ($.Options_Dict["Infinite Second Option"]>$.infiniteSecondOptions_size-1) {$.Options_Dict["Infinite Second Option"] = $.infiniteSecondOptions_default;}
         if ($.Options_Dict["Infinite Second Option"]<0) {$.Options_Dict["Infinite Second Option"] = $.infiniteSecondOptions_default;}
@@ -812,7 +812,7 @@ class AnalogView extends WatchUi.WatchFace {
 
         temp = Storage.getValue("Show Battery");
         $.Options_Dict["Show Battery"] = temp  != null ? temp : true;
-        Storage.setValue("Show Battery",$.Options_Dict["Show Battery"]);        
+        Storage.setValue("Show Battery",$.Options_Dict["Show Battery"]);
 
         temp = Storage.getValue("Hour Numbers");
         $.Options_Dict["Hour Numbers"] = temp  != null ? temp : true;
@@ -824,7 +824,7 @@ class AnalogView extends WatchUi.WatchFace {
 
         temp = Storage.getValue("Second Hashes");
         $.Options_Dict["Second Hashes"] = temp  != null ? temp : true;
-        Storage.setValue("Second Hashes",$.Options_Dict["Second Hashes"]);        
+        Storage.setValue("Second Hashes",$.Options_Dict["Second Hashes"]);
 
         temp = Storage.getValue("Wide Second");
         $.Options_Dict["Wide Second"] = temp  != null ? temp : false;
@@ -838,14 +838,14 @@ class AnalogView extends WatchUi.WatchFace {
         $.Options_Dict["Infinite Second"] = temp  != null ? temp : true;
         Storage.setValue("Infinite Second",$.Options_Dict["Infinite Second"]);
 
-        
+
     }
 
-    
+
 
     //! Turn off partial updates
     public function resetSecondHandCounter() as Void {
-        _secondHandCounter = 0; 
+        _secondHandCounter = 0;
     }
 
     //! Turn off partial updates
@@ -863,36 +863,36 @@ class AnalogView extends WatchUi.WatchFace {
 
     function drawHand(dc, angle, length, width, overheadLine, drawCircleOnTop, drawline, squeezeX, squeezeY)
     {
-        
+
         // Map out the coordinates of the watch hand
         var count = 4;
         var coords = new [count];
-        
+
 
 
         if (drawline == 1) {
 
-            coords = [ 
+            coords = [
                 [0, 0 + overheadLine],
                 [0, -length]
             ];
             count = 2;
-        
+
         } else if (drawline == 2) {
 
             var mult = 1;
             if (!$.Options_Dict["Long Second"]) {mult = 4;}
 
-            coords = [ 
+            coords = [
                 [-(width/2) * mult, 0 + overheadLine],
-                [0, -length],                
+                [0, -length],
                 [width/2 * mult, 0 + overheadLine]
             ];
             count = 3;
 
         } else {
-            
-            coords = [ 
+
+            coords = [
                 [-(width/2), 0 + overheadLine],
                 [-(width/2), -length],
                 [width/2, -length],
@@ -917,7 +917,7 @@ class AnalogView extends WatchUi.WatchFace {
         var maxY = 0;
         var minX = width_screen;
         var maxX = 0;
-        
+
         // Transform the coordinates
         for (var i = 0; i < count; i += 1)
         {
@@ -933,7 +933,7 @@ class AnalogView extends WatchUi.WatchFace {
                         X = width_screen-5;
                         if (Y<height_screen/2-4) {Y+=1;}
                         else if (Y>height_screen/2+4) {Y-=1;}
-                        
+
                     }
                     if (X<5) {
                         X=5;
@@ -961,8 +961,8 @@ class AnalogView extends WatchUi.WatchFace {
                     //if ( Y>height_screen ) {Y = height_screen;}
                     //if (Y<1) {Y=1;}
                 }
-            }          
-            
+            }
+
             result[i] = [ X , Y];
             if (Y<minY) {minY = Y;}
             if (Y>maxY) {maxY = Y;}
@@ -971,7 +971,7 @@ class AnalogView extends WatchUi.WatchFace {
 
             /*
             if(drawCircleOnTop)
-            {   
+            {
                 if(i == 0)
                 {
                     var xCircle = ((coords[i][0]+(width/2)) * cos) - ((coords[i][1] + 1) * sin);
@@ -984,7 +984,7 @@ class AnalogView extends WatchUi.WatchFace {
                     var yCircle = ((coords[i][0]+(width/2)) * sin) + ((coords[i][1] + 1) * cos);
                     dc.fillCircle(centerX + xCircle, centerY + yCircle, (width/2));
                 }
-                
+
             }
             */
         }
@@ -992,12 +992,12 @@ class AnalogView extends WatchUi.WatchFace {
         //System.println("polygon:" + result);
         // Draw the polygon
         if (drawline== 1) {
-            dc.drawLine(result[0][0], result[0][1], result[1][0], result[1][1]);            
+            dc.drawLine(result[0][0], result[0][1], result[1][0], result[1][1]);
         }
         else if (drawline == 2 ){
             //dc.drawLine(result[0][0], result[0][1], result[1][0], result[1][1]);
             //if (drawline>1) { dc.drawLine(result[3][0], result[3][1], result[1][0], result[1][1]);}
-            //dc.fillPolygon([[result[0][0], result[0][1]],[result[1][0], result[1][1]],[result[2][0], result[2][1]]]);                    
+            //dc.fillPolygon([[result[0][0], result[0][1]],[result[1][0], result[1][1]],[result[2][0], result[2][1]]]);
 
             dc.fillPolygon(result);
 
@@ -1066,7 +1066,7 @@ class AnalogView extends WatchUi.WatchFace {
         }
 
         if (drawHashes) {
-            
+
             for(var i = 0; i < 12; i += 1)
             {
                 if(i != 0 && i != 3 && i != 6 && i != 9 && ( !avoidCircle || (i != 1 && i != 2 )))
@@ -1082,7 +1082,7 @@ class AnalogView extends WatchUi.WatchFace {
                     }
                     drawHand(dc, hashMarksArray[i][0], 100, 2 + width_adder, hashMarksArray[i][1]+adder, false, 0, false, false);
                     //drawHand(dc, angle, length, width, overheadLine, drawCircleOnTop)
-                    
+
                 }
             }
         }
@@ -1103,30 +1103,30 @@ class AnalogView extends WatchUi.WatchFace {
             var angle = i/60.0 * Math.PI * 2;
             if(i %5 == 0  )
             {
-                
+
                 if (options[:includeFives]) {
                     var drawline = 0;
                     if (options[:width5] == 1) {drawline = 1;}
 
-                    drawHand(options[:dc], angle, options[:radius], options[:width5], options[:length5] - options[:radius], false, drawline,options[:squeezeX],options[:squeezeY]);                    
+                    drawHand(options[:dc], angle, options[:radius], options[:width5], options[:length5] - options[:radius], false, drawline,options[:squeezeX],options[:squeezeY]);
                     //drawHand(dc, angle, length, width, overheadLine, drawCircleOnTop, drawline, squeezeX, squeezeY)
                 }
-                
+
             } else {
                 if (options[:includeOnes]) {
                     var drawline = 0;
                     if (options[:width5] == 1) {drawline = 1;}
 
-                    drawHand(options[:dc], angle, options[:radius], options[:width1], options[:length1] - options[:radius], false, drawline,options[:squeezeX],options[:squeezeY]);                    
+                    drawHand(options[:dc], angle, options[:radius], options[:width1], options[:length1] - options[:radius], false, drawline,options[:squeezeX],options[:squeezeY]);
                 }
             }
         }
-    }    
-    
+    }
+
     function drawBattery(dc, primaryColor, lowBatteryColor, fullBatteryColor)
     {
         var battery = Sys.getSystemStats().battery;
-        
+
         if(battery < 15.0)
         {
             primaryColor = lowBatteryColor;
@@ -1156,11 +1156,11 @@ class AnalogView extends WatchUi.WatchFace {
 
     function drawMove(dc, text_color)
     {
-        
+
         var dateStr1 = "MOVE!";
-        dc.setColor(text_color, Gfx.COLOR_BLACK);        
-        
-        dc.drawText(width_screen * .5, batt_y - 1.8 * batt_height_rect , Gfx.FONT_SYSTEM_XTINY, dateStr1, Gfx.TEXT_JUSTIFY_CENTER);      
+        dc.setColor(text_color, Gfx.COLOR_BLACK);
+
+        dc.drawText(width_screen * .5, batt_y - 1.8 * batt_height_rect , Gfx.FONT_SYSTEM_XTINY, dateStr1, Gfx.TEXT_JUSTIFY_CENTER);
     }
 
 
@@ -1168,14 +1168,14 @@ class AnalogView extends WatchUi.WatchFace {
     function drawMoveDots(dc, numDots, text_color)
     {
         if (numDots<1) { return; }
-        dc.setColor(text_color, Gfx.COLOR_BLACK);  
+        dc.setColor(text_color, Gfx.COLOR_BLACK);
         if ( numDots>4 ) { numDots = 4;   }
         for (var i = 0; i < numDots; i++) {
-            var xx = dmd_x + i * dmd_w4;            
-            dc.fillRectangle(xx, dmd_yy, dmd_w, dmd_h);            
+            var xx = dmd_x + i * dmd_w4;
+            dc.fillRectangle(xx, dmd_yy, dmd_w, dmd_h);
         }
-        
-        
+
+
     }
 
     function drawDate(dc, text_color, reverse as Boolean)
@@ -1186,25 +1186,25 @@ class AnalogView extends WatchUi.WatchFace {
 
         //dc.setColor(Gfx.COLOR_BLACK, Gfx.COLOR_TRANSPARENT);
         //dc.drawRectangle(0,0,dc.getWidth(),dc.getHeight());
-        
+
         var dateStr2 = Lang.format("$1$", [info.day.format("%02d")]);
         var dateStr1 = Lang.format("$1$", [info.day_of_week]);
 
         if (reverse) {
             dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
             if (width_screen >= 175)  {
-                dc.fillCircle(144, 34, 34); 
+                dc.fillCircle(144, 34, 34);
             } else {
                 dc.fillCircle(130, 27, 30);  //Instinct S, smaller screen & weird. center of circle is about  131,27 & radius 27
             }
             dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
             //dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_WHITE); //This works better on sim but worse on real watch
-        
+
         } else {
             dc.setColor(text_color, Gfx.COLOR_TRANSPARENT);
             //dc.setColor(text_color, Gfx.COLOR_BLACK);//This works better on sim but worse on real watch
         }
-        
+
         //dc.drawText(width_screen * .15 , (height_screen * -.04), Gfx.FONT_SYSTEM_NUMBER_THAI_HOT, dateStr2, Gfx.TEXT_JUSTIFY_CENTER);
         //dc.drawText(width_screen * .15 , (height_screen * .22), Gfx.FONT_SYSTEM_MEDIUM, dateStr1, Gfx.TEXT_JUSTIFY_CENTER);
 
@@ -1221,10 +1221,10 @@ class AnalogView extends WatchUi.WatchFace {
             f1 = Gfx.FONT_SYSTEM_NUMBER_MEDIUM;
             f2 = Gfx.FONT_SYSTEM_TINY;
         }
-  
+
         dc.drawText(width_screen * ws , (height_screen * hs1), f1, dateStr2, Gfx.TEXT_JUSTIFY_CENTER);
-        dc.drawText(width_screen * ws , (height_screen * hs2), f2, dateStr1, Gfx.TEXT_JUSTIFY_CENTER);      
-        
+        dc.drawText(width_screen * ws , (height_screen * hs2), f2, dateStr1, Gfx.TEXT_JUSTIFY_CENTER);
+
     }
 
 
@@ -1254,7 +1254,7 @@ class AnalogDelegate extends WatchUi.WatchFaceDelegate {
     }
 
     public function onKey(keyEvent) {
-        _view.resetSecondHandCounter(); 
+        _view.resetSecondHandCounter();
         return true;
     }
 }
@@ -1272,7 +1272,7 @@ class AnalogInputDelegate extends WatchUi.InputDelegate {
     }
 
     function onKey(keyEvent) {
-        _view.resetSecondHandCounter(); 
+        _view.resetSecondHandCounter();
         System.println("KEY PRESSED!!!!!");
         return false;
     }

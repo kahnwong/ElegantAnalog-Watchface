@@ -22,22 +22,22 @@ class AnalogWatch extends Application.AppBase {
         System.println("1A");
     }
 
-    
+
     //! Handle app startup
     //! @param state Startup arguments
     public function onStart(state as Dictionary?) as Void {
         System.println("2A");
         //Get the stored value of the settings if it exists, OR set to defaul
-     
+
     }
 
-    
+
     //! Handle app shutdown
     //! @param state Shutdown arguments
     public function onStop(state as Dictionary?) as Void {
         //System.println("3A");
     }
-    
+
     //! Return the initial view for the app
     //! @return Array Pair [View, Delegate] or Array [View]
     public function getInitialView() as [Views] or [Views, InputDelegates] {
@@ -53,7 +53,7 @@ class AnalogWatch extends Application.AppBase {
         }
     }
 
-    
+
     //! This method runs when a goal is triggered and the goal view is started.
     //! @param goal The goal type that triggered
     //! @return The view to push

@@ -51,7 +51,7 @@ SOLAR CLOCK & DAWN/DUSK INDICATORS. The small inset circle can be a small solar 
 
 MORE SECOND-HAND CHOICES.  These are stylish while also saving on battery usage.
 
-SHOW SECONDS IN INSET CIRCLE: This is a very "Instinct" look, with a small second-hand clock in the inset circle.  You can choose blunt, sharp, or needle shapes for the second hand, and all look great. 
+SHOW SECONDS IN INSET CIRCLE: This is a very "Instinct" look, with a small second-hand clock in the inset circle.  You can choose blunt, sharp, or needle shapes for the second hand, and all look great.
 
 Alternatively, you can show the second hand on the full large clockface, or in a small, centered circle.  Either way you can show second-hand hashes or not - each has a distinctive look.
 
@@ -61,7 +61,7 @@ You  can even combine the Solar Clock and Second Hand in the inset circle - a st
 
 All of these combinations give you a number of different looks with different information - all fitting well with Instinct's minimalistic vibe.
 
-Personally, I usually run a plain watchface with no numbers or hashmarks, second hand on the main display as "Outline Pointer" and Solar Clock in the Inset Circle set to Dawn/Dusk.  
+Personally, I usually run a plain watchface with no numbers or hashmarks, second hand on the main display as "Outline Pointer" and Solar Clock in the Inset Circle set to Dawn/Dusk.
 
 Weekly Activity Minutes, Daily Activity Minutes, Daily Steps, and the Move Bar are all turned on. Date is off and Battery is off (I can see those any time I like with a simple click of the Down button.)
 

@@ -64,14 +64,14 @@ class ElegantAnaSettingsView extends WatchUi.View {
     //! @param dc Device context
     public function onUpdate(dc as Dc) as Void {
 
-        
+
         dc.clearClip();
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
         dc.clear();
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
 
         dc.drawText(dc.getWidth() / 2, dc.getHeight() / 2 - 30, Graphics.FONT_SMALL, "Press Menu \nfor settings", Graphics.TEXT_JUSTIFY_CENTER);
-        
+
         System.println("onUpdate...");
 
         /*
@@ -129,7 +129,7 @@ class ElegantAnaSettingsDelegate extends WatchUi.BehaviorDelegate {
 
         boolean = Storage.getValue("Long Second") ? true : false;
         menu.addItem(new WatchUi.ToggleMenuItem("Second Hand Length: Short-Long", null, "Long Second", boolean, null));
-        
+
         boolean = Storage.getValue("Infinite Second") ? true : false;
         menu.addItem(new WatchUi.ToggleMenuItem("Second Hand after sleep: 2mins-Infinite", null, "Infinite Second", boolean, null));
         */
@@ -151,4 +151,3 @@ class ElegantAnaSettingsDelegate extends WatchUi.BehaviorDelegate {
 }
 
 */
-

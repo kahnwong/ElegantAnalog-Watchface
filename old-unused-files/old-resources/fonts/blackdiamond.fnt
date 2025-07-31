@@ -16,13 +16,13 @@ char id=56   x=126   y=0     width=17    height=26    xoffset=1     yoffset=0   
 char id=57   x=144   y=0     width=17    height=26    xoffset=1     yoffset=0     xadvance=19    page=0  chnl=15
 char id=58   x=173   y=0     width=5     height=12    xoffset=1     yoffset=7     xadvance=6     page=0  chnl=15
 kernings count=10
-kerning first=55  second=56  amount=1   
-kerning first=56  second=57  amount=1   
-kerning first=50  second=51  amount=1   
-kerning first=52  second=53  amount=1   
-kerning first=48  second=49  amount=1   
-kerning first=45  second=58  amount=1   
-kerning first=49  second=50  amount=1   
-kerning first=51  second=52  amount=1   
-kerning first=53  second=54  amount=1   
-kerning first=54  second=55  amount=1   
+kerning first=55  second=56  amount=1
+kerning first=56  second=57  amount=1
+kerning first=50  second=51  amount=1
+kerning first=52  second=53  amount=1
+kerning first=48  second=49  amount=1
+kerning first=45  second=58  amount=1
+kerning first=49  second=50  amount=1
+kerning first=51  second=52  amount=1
+kerning first=53  second=54  amount=1
+kerning first=54  second=55  amount=1
