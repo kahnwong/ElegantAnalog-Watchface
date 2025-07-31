@@ -2505,8 +2505,9 @@ class ElegantAnaView extends WatchUi.WatchFace {
       bbValue = "--";
     }
     dc.setColor(text_color, Gfx.COLOR_BLACK);
+
     dc.drawText(
-      width_screen * 0.5,
+      40,
       105,
       Gfx.FONT_SYSTEM_XTINY,
       "BB: " + bbValue,
@@ -2539,8 +2540,8 @@ class ElegantAnaView extends WatchUi.WatchFace {
   function drawStress(dc, text_color) {
     dc.setColor(text_color, Gfx.COLOR_BLACK);
     dc.drawText(
-      width_screen * 0.5,
-      125,
+      175 - 40,
+      105, // 125 is a line after BodyBattery
       Gfx.FONT_SYSTEM_XTINY,
       "S: " + getStress(),
       Gfx.TEXT_JUSTIFY_CENTER
