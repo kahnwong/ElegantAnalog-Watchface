@@ -4,6 +4,9 @@
 // Application Developer Agreement.
 //
 
+using Toybox.Complications;
+using Toybox.Application;
+using Toybox.System;
 import Toybox.Graphics;
 import Toybox.Lang;
 import Toybox.Math;
@@ -2597,13 +2600,29 @@ class ElegantAnaView extends WatchUi.WatchFace {
     );
   }
 
+  private function getNextEvent() {
+    var nextEventTime = "";
+
+    var myEventID = new Complications.Id(
+      Complications.COMPLICATION_TYPE_CALENDAR_EVENTS
+    );
+    var complication = Complications.getComplication(myEventID);
+
+    if (complication.value != null) {
+      nextEventTime = complication.value as String;
+    } else {
+      nextEventTime = ""; // No event or data not available
+    }
+
+    return nextEventTime;
+  }
   function drawNextEvent(dc, text_color) {
     dc.setColor(text_color, Gfx.COLOR_BLACK);
     dc.drawText(
-      70,
+      60,
       30,
       Gfx.FONT_SYSTEM_XTINY,
-      "NE: " + "4PM",
+      getNextEvent(),
       Gfx.TEXT_JUSTIFY_CENTER
     );
   }
