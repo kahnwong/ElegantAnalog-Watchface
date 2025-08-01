@@ -2677,10 +2677,10 @@ class ElegantAnaView extends WatchUi.WatchFace {
   function drawNextEvent(dc, text_color) {
     dc.setColor(text_color, Gfx.COLOR_BLACK);
     dc.drawText(
-      60,
+      68,
       30,
       Gfx.FONT_SYSTEM_XTINY,
-      getNextEvent(),
+      "N: " + getNextEvent(),
       Gfx.TEXT_JUSTIFY_CENTER
     );
   }
