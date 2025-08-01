@@ -2559,7 +2559,33 @@ class ElegantAnaView extends WatchUi.WatchFace {
   }
 
   private function getAlternateTimezone() {
-    return "3:30p";
+    var utcMoment = Time.now();
+
+    // Determine if DST is active (simplified check)
+    var utcInfo = Gregorian.utcInfo(utcMoment, Time.FORMAT_SHORT);
+    var isDST =
+      (utcInfo.month > 3 && utcInfo.month < 11) ||
+      (utcInfo.month == 3 && utcInfo.day >= 8) ||
+      (utcInfo.month == 11 && utcInfo.day < 7);
+
+    // Apply appropriate offset
+    var offset = isDST ? -7 * 3600 : -8 * 3600; // PDT or PST
+    var californiaMoment = utcMoment.add(new Time.Duration(offset));
+    var caTime = Gregorian.utcInfo(californiaMoment, Time.FORMAT_SHORT);
+
+    // Format as "18:35p"
+    var hour = caTime.hour;
+    var minute = caTime.min;
+    var period = hour >= 12 ? "p" : "a";
+
+    // Format time string
+    var timeString = Lang.format("$1$:$2$$3$", [
+      hour.format("%02d"),
+      minute.format("%02d"),
+      period,
+    ]);
+
+    return timeString;
   }
   function drawAlternateTimezone(dc, text_color) {
     dc.setColor(text_color, Gfx.COLOR_BLACK);
