@@ -4,9 +4,8 @@
 // Application Developer Agreement.
 //
 
-using Toybox.Complications;
-using Toybox.Application;
-using Toybox.System;
+import Toybox.ActivityMonitor;
+import Toybox.Application.Storage;
 import Toybox.Graphics;
 import Toybox.Lang;
 import Toybox.Math;
@@ -14,18 +13,21 @@ import Toybox.System;
 import Toybox.Time;
 import Toybox.Time.Gregorian;
 import Toybox.WatchUi;
-using Toybox.Timer;
+using Toybox.Activity as Acty;
+using Toybox.ActivityMonitor as Act;
+using Toybox.Application as App;
+using Toybox.Application;
+using Toybox.Complications;
 using Toybox.Graphics as Gfx;
 using Toybox.Lang as Lang;
 using Toybox.Math as Math;
-using Toybox.Time.Gregorian as Calendar;
-using Toybox.WatchUi as Ui;
-using Toybox.Application as App;
-import Toybox.Application.Storage;
-import Toybox.ActivityMonitor;
 using Toybox.System as Sys;
-using Toybox.ActivityMonitor as Act;
-using Toybox.Activity as Acty;
+using Toybox.System;
+using Toybox.Time;
+using Toybox.Time.Gregorian as Calendar;
+using Toybox.Time.Gregorian;
+using Toybox.Timer;
+using Toybox.WatchUi as Ui;
 
 //! This implements an ElegantAna watch face
 //! Original design by Austen Harbour
@@ -990,7 +992,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
       if ($.Options_Dict[showBodyBattery]) {
         // I'm too lazy to change the name, so here it stays
         drawBodyBattery(targetDc, Gfx.COLOR_WHITE);
-        drawStress(targetDc, Gfx.COLOR_WHITE);
+        drawAlternateTimezone(targetDc, Gfx.COLOR_WHITE);
         drawHeartRate(targetDc, Gfx.COLOR_WHITE);
         drawNextEvent(targetDc, Gfx.COLOR_WHITE);
       }
@@ -2552,6 +2554,20 @@ class ElegantAnaView extends WatchUi.WatchFace {
       height_screen * 0.5 + 25, // 125 is a line after BodyBattery
       Gfx.FONT_SYSTEM_XTINY,
       "S: " + getStress(),
+      Gfx.TEXT_JUSTIFY_CENTER
+    );
+  }
+
+  private function getAlternateTimezone() {
+    return "3:30p";
+  }
+  function drawAlternateTimezone(dc, text_color) {
+    dc.setColor(text_color, Gfx.COLOR_BLACK);
+    dc.drawText(
+      width_screen * 0.5 + 40,
+      height_screen * 0.5 + 25, // 125 is a line after BodyBattery
+      Gfx.FONT_SYSTEM_XTINY,
+      "CA: " + getAlternateTimezone(),
       Gfx.TEXT_JUSTIFY_CENTER
     );
   }
