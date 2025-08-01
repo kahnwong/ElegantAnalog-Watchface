@@ -787,6 +787,11 @@ class ElegantAnaView extends WatchUi.WatchFace {
       var drawHashes = true;
       var drawHours = true;
 
+      // // debug: Karn Wong
+      // drawBodyBattery(targetDc, Gfx.COLOR_WHITE);
+      // drawAlternateTimezone(targetDc, Gfx.COLOR_WHITE);
+      // drawHeartRate(targetDc, Gfx.COLOR_WHITE);
+      // drawNextEvent(targetDc, Gfx.COLOR_WHITE);
 
       //system.println("oud2d");
 
@@ -2589,11 +2594,22 @@ class ElegantAnaView extends WatchUi.WatchFace {
   }
   function drawAlternateTimezone(dc, text_color) {
     dc.setColor(text_color, Gfx.COLOR_BLACK);
+
+    // city
     dc.drawText(
       width_screen * 0.5 + 40,
-      height_screen * 0.5 + 25, // 125 is a line after BodyBattery
+      height_screen * 0.5 + 5,
       Gfx.FONT_SYSTEM_XTINY,
-      "CA: " + getAlternateTimezone(),
+      "CA",
+      Gfx.TEXT_JUSTIFY_CENTER
+    );
+
+    // time
+    dc.drawText(
+      width_screen * 0.5 + 40,
+      height_screen * 0.5 + 25,
+      Gfx.FONT_SYSTEM_XTINY,
+      getAlternateTimezone(),
       Gfx.TEXT_JUSTIFY_CENTER
     );
   }
