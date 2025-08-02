@@ -788,10 +788,10 @@ class ElegantAnaView extends WatchUi.WatchFace {
       var drawHours = true;
 
       // // debug: Karn Wong
-      // drawBodyBattery(targetDc, Gfx.COLOR_WHITE);
+      drawBodyBattery(targetDc, Gfx.COLOR_WHITE);
       // drawAlternateTimezone(targetDc, Gfx.COLOR_WHITE);
-      // drawHeartRate(targetDc, Gfx.COLOR_WHITE);
-      // drawNextEvent(targetDc, Gfx.COLOR_WHITE);
+      drawHeartRate(targetDc, Gfx.COLOR_WHITE);
+      drawNextEvent(targetDc, Gfx.COLOR_WHITE);
 
       //system.println("oud2d");
 
@@ -997,7 +997,7 @@ class ElegantAnaView extends WatchUi.WatchFace {
       if ($.Options_Dict[showBodyBattery]) {
         // I'm too lazy to change the name, so here it stays
         drawBodyBattery(targetDc, Gfx.COLOR_WHITE);
-        drawAlternateTimezone(targetDc, Gfx.COLOR_WHITE);
+        // drawAlternateTimezone(targetDc, Gfx.COLOR_WHITE);
         drawHeartRate(targetDc, Gfx.COLOR_WHITE);
         drawNextEvent(targetDc, Gfx.COLOR_WHITE);
       }
@@ -2170,6 +2170,35 @@ class ElegantAnaView extends WatchUi.WatchFace {
     //drawHand(dc, hour, width_screen*.41 * .6, 5, 15, false, 0,false, false);
     drawHand(options);
 
+    // Karn Wong: alternate timezone hand
+    var clockTimeAlternate = getAlternateTimezone();
+
+    var hourAlt = (clockTimeAlternate.hour % 12) * 60 + clock_min;
+    hourAlt = hourAlt / (12 * 60.0);
+    hourAlt = hourAlt * Math.PI * 2;
+
+    var hourAltShape; // 5 = white border/black fill; 2 = white fill
+    if (clockTimeAlternate.hour >= 6 && clockTimeAlternate.hour <= 18) {
+      hourAltShape = 2;
+    } else {
+      hourAltShape = 5;
+    }
+
+    var optionsAlternate = {
+      :dc => dc,
+      :angle => hourAlt,
+      :length => width_screen * 0.41 * 0.6,
+      :width => hr_width,
+      :overheadLine => 15,
+      :drawCircleOnTop => false,
+      :shape => hourAltShape,
+      :squeezeX => false,
+      :squeezeY => false,
+      :centerX => centerX_main,
+      :centerY => centerY_main,
+    };
+    drawHand(optionsAlternate);
+
     // Draw the minute
     min = (clock_min / 60.0) * Math.PI * 2;
     dc.setColor(min_color, Gfx.COLOR_TRANSPARENT);
@@ -2578,41 +2607,43 @@ class ElegantAnaView extends WatchUi.WatchFace {
     var californiaMoment = utcMoment.add(new Time.Duration(offset));
     var caTime = Gregorian.utcInfo(californiaMoment, Time.FORMAT_SHORT);
 
-    // Format as "18:35p"
-    var hour = caTime.hour;
-    var minute = caTime.min;
-    var period = hour >= 12 ? "p" : "a";
+    // // Format as "18:35p"
+    // var hour = caTime.hour;
+    // var minute = caTime.min;
+    // var period = hour >= 12 ? "p" : "a";
 
-    // Format time string
-    var timeString = Lang.format("$1$:$2$$3$", [
-      hour.format("%02d"),
-      minute.format("%02d"),
-      period,
-    ]);
+    // // Format time string
+    // var timeString = Lang.format("$1$:$2$$3$", [
+    //   hour.format("%02d"),
+    //   minute.format("%02d"),
+    //   period,
+    // ]);
 
-    return timeString;
+    // return timeString;
+
+    return caTime;
   }
-  function drawAlternateTimezone(dc, text_color) {
-    dc.setColor(text_color, Gfx.COLOR_BLACK);
+  // function drawAlternateTimezone(dc, text_color) {
+  //   dc.setColor(text_color, Gfx.COLOR_BLACK);
 
-    // city
-    dc.drawText(
-      width_screen * 0.5 + 40,
-      height_screen * 0.5 + 5,
-      Gfx.FONT_SYSTEM_XTINY,
-      "CA",
-      Gfx.TEXT_JUSTIFY_CENTER
-    );
+  //   // city
+  //   dc.drawText(
+  //     width_screen * 0.5 + 40,
+  //     height_screen * 0.5 + 5,
+  //     Gfx.FONT_SYSTEM_XTINY,
+  //     "CA",
+  //     Gfx.TEXT_JUSTIFY_CENTER
+  //   );
 
-    // time
-    dc.drawText(
-      width_screen * 0.5 + 40,
-      height_screen * 0.5 + 25,
-      Gfx.FONT_SYSTEM_XTINY,
-      getAlternateTimezone(),
-      Gfx.TEXT_JUSTIFY_CENTER
-    );
-  }
+  //   // time
+  //   dc.drawText(
+  //     width_screen * 0.5 + 40,
+  //     height_screen * 0.5 + 25,
+  //     Gfx.FONT_SYSTEM_XTINY,
+  //     getAlternateTimezone(),
+  //     Gfx.TEXT_JUSTIFY_CENTER
+  //   );
+  // }
 
   private function getHeartRate() {
     var heartRate = null;
@@ -2650,8 +2681,10 @@ class ElegantAnaView extends WatchUi.WatchFace {
   function drawHeartRate(dc, text_color) {
     dc.setColor(text_color, Gfx.COLOR_BLACK);
     dc.drawText(
-      width_screen * 0.5 - 40,
-      height_screen * 0.5 - 35,
+      // width_screen * 0.5 - 40,
+      // height_screen * 0.5 - 35,
+      width_screen * 0.5 + 40,
+      height_screen * 0.5 + 25,
       Gfx.FONT_SYSTEM_XTINY,
       "HR: " + getHeartRate(),
       Gfx.TEXT_JUSTIFY_CENTER
